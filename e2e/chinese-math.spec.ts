@@ -26,9 +26,18 @@ async function expectChineseDefinitions(page: Page) {
 
 async function expectChineseCasesScroll(page: Page) {
   await page.goto("/mathematics/concepts/number-theory");
+  await page.evaluate(() => document.fonts.ready.then(() => undefined));
   const formula = page.getByRole("math", { name: /\\begin\{cases\}.*二次非剩余/ });
   await expect(formula.locator(".katex-html")).toContainText("二次非剩余");
   await expect(formula.locator(".katex-error")).toHaveCount(0);
+  // CJK width depends on the installed font. A narrower fallback can fit the
+  // column; only a formula that actually overflows must stay keyboard-scrollable.
+  const layout = await formula.evaluate((element) => ({
+    overflows: element.scrollWidth > element.clientWidth + 1,
+    spill: element.getBoundingClientRect().right - document.documentElement.clientWidth,
+  }));
+  expect(layout.spill).toBeLessThanOrEqual(1);
+  if (!layout.overflows) return;
   await expect(formula).toHaveAttribute("tabindex", "0");
   await formula.scrollIntoViewIfNeeded();
   await formula.focus();
@@ -69,6 +78,21 @@ test("renders published Chinese subscripts as mathematics", async ({ page }) => 
     await expect(formula.locator(".katex-html")).toBeAttached();
     await expect(formula.locator(".katex-error")).toHaveCount(0);
   }
+});
+
+test("renders physics formulas without showing the MathML duplicate", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics");
+  const formula = page.locator(".md-prose .katex").first();
+  await expect(formula.locator(".katex-html")).toBeVisible();
+  await expect
+    .poll(() =>
+      formula.locator(".katex-mathml").evaluate((element) => {
+        const { width, height } = element.getBoundingClientRect();
+        return Math.max(width, height);
+      })
+    )
+    .toBeLessThanOrEqual(1);
 });
 
 test("serves readable Chinese formula snippets from the generated search corpus", async ({

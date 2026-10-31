@@ -89,13 +89,16 @@ export default async function CosmologyTierPage({ params }: { params: Promise<{ 
       {content.dataCards.length > 0 && (
         <section className="mb-12">
           <h2 className="mb-4 text-xl font-bold">数据</h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {content.dataCards.map((card, i) => (
-              <div key={i} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <div
+                key={i}
+                className="min-w-0 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 [overflow-wrap:anywhere]"
+              >
                 <p className="mb-1 text-xs text-[#9ca3af]">
                   {card.label}
                   {card.latinLabel && (
-                    <span className="ml-1 text-[#4b5563]">({card.latinLabel})</span>
+                    <span className="ml-1 text-[#9ca3af]">({card.latinLabel})</span>
                   )}
                 </p>
                 <p className="text-lg font-semibold">{card.value}</p>
@@ -132,14 +135,14 @@ export default async function CosmologyTierPage({ params }: { params: Promise<{ 
           <ul className="space-y-2">
             {content.sources.map((source, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span className="mt-0.5 rounded bg-white/[0.06] px-2 py-0.5 text-xs text-[#9ca3af]">
-                  {source.kind}
+                <span className="mt-0.5 shrink-0 rounded bg-white/[0.06] px-2 py-0.5 text-xs whitespace-nowrap text-[#9ca3af]">
+                  {{ paper: "论文", agency: "机构", encyclopedia: "百科" }[source.kind]}
                 </span>
                 <a
                   href={source.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#3b82f6] hover:underline"
+                  className="min-w-0 text-sm [overflow-wrap:anywhere] text-[#3b82f6] hover:underline"
                 >
                   {source.label}
                 </a>

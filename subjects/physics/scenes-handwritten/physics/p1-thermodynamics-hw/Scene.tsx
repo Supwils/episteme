@@ -6,6 +6,7 @@ import { HandwrittenLabel } from "@/subjects/physics/scenes-handwritten/shared/H
 import { HandwrittenMarker } from "@/subjects/physics/scenes-handwritten/shared/HandwrittenMarker";
 import { InkPath } from "@/subjects/physics/scenes-handwritten/shared/InkPath";
 import { PaperGrid } from "@/subjects/physics/scenes-handwritten/shared/PaperGrid";
+import { buildCarnotPaths, buildMBCurve } from "./curves";
 
 /**
  * P1 · Thermodynamics / Stat-Mech. Two pages:
@@ -73,7 +74,7 @@ function P1PageDistribution() {
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          Boltzmann · 熵即微观态数对数
+          Boltzmann · 指定宏观态下的微观态计数
         </text>
       </g>
 
@@ -88,9 +89,9 @@ function P1PageDistribution() {
         />
         <line x1={-130} y1={80} x2={130} y2={80} stroke="var(--hw-ink)" strokeWidth={0.9} />
         <line x1={-130} y1={-80} x2={-130} y2={80} stroke="var(--hw-ink)" strokeWidth={0.9} />
-        <InkPath d={buildMBCurve(40, 60)} stroke="var(--hw-blue)" strokeWidth={1.4} delay={0.4} />
-        <InkPath d={buildMBCurve(60, 95)} stroke="var(--hw-gold)" strokeWidth={1.6} delay={0.5} />
-        <InkPath d={buildMBCurve(85, 130)} stroke="var(--hw-red)" strokeWidth={1.4} delay={0.6} />
+        <InkPath d={buildMBCurve(40)} stroke="var(--hw-blue)" strokeWidth={1.4} delay={0.4} />
+        <InkPath d={buildMBCurve(60)} stroke="var(--hw-gold)" strokeWidth={1.6} delay={0.5} />
+        <InkPath d={buildMBCurve(85)} stroke="var(--hw-red)" strokeWidth={1.4} delay={0.6} />
         <HandwrittenLabel
           x={-50}
           y={-50}
@@ -145,6 +146,13 @@ function P1PageDistribution() {
           color="var(--hw-ink-soft)"
           delay={1.2}
         />
+        <HandwrittenLabel
+          x={0}
+          y={146}
+          text="同种粒子 · 相同速率刻度"
+          variant="label-minor"
+          color="var(--hw-ink-soft)"
+        />
       </g>
 
       <g transform="translate(220 80)">
@@ -194,7 +202,7 @@ function P1PageDistribution() {
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          所有热力学量从 ln Z 的导数读出
+          给定模型与约束，求平衡热力学量
         </text>
         <HandwrittenLabel
           x={0}
@@ -211,14 +219,15 @@ function P1PageDistribution() {
 }
 
 function P1PageLaws() {
+  const cycle = buildCarnotPaths();
   return (
     <g>
       <g transform="translate(0 -240)">
         <rect
           x={-340}
-          y={-46}
+          y={-66}
           width={680}
-          height={92}
+          height={138}
           fill="var(--hw-bg-edge)"
           opacity={0.55}
           stroke="var(--hw-ink)"
@@ -226,8 +235,8 @@ function P1PageLaws() {
           filter="url(#hw-wobble-tiny)"
         />
         <text
-          x={-240}
-          y={-4}
+          x={-170}
+          y={-26}
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
@@ -236,8 +245,8 @@ function P1PageLaws() {
           0 · 温度存在
         </text>
         <text
-          x={-80}
-          y={-4}
+          x={170}
+          y={-26}
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
@@ -246,8 +255,8 @@ function P1PageLaws() {
           I · ΔU = Q − W
         </text>
         <text
-          x={80}
-          y={-4}
+          x={-170}
+          y={14}
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-gold)"
@@ -256,8 +265,8 @@ function P1PageLaws() {
           II · dS ≥ 0
         </text>
         <text
-          x={240}
-          y={-4}
+          x={170}
+          y={14}
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
@@ -267,12 +276,12 @@ function P1PageLaws() {
         </text>
         <text
           x={0}
-          y={32}
+          y={49}
           textAnchor="middle"
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          热力学四大定律
+          I 封闭系统 · II 孤立宏观 · III 唯一基态零温极限
         </text>
       </g>
 
@@ -287,25 +296,10 @@ function P1PageLaws() {
         />
         <line x1={-130} y1={90} x2={130} y2={90} stroke="var(--hw-ink)" strokeWidth={0.9} />
         <line x1={-130} y1={-90} x2={-130} y2={90} stroke="var(--hw-ink)" strokeWidth={0.9} />
-        <InkPath
-          d="M -110 -60 q 60 40 110 50"
-          stroke="var(--hw-red)"
-          strokeWidth={1.4}
-          delay={0.4}
-        />
-        <InkPath d="M 0 -10 q 30 30 60 60" stroke="var(--hw-ink)" strokeWidth={1.0} delay={0.5} />
-        <InkPath
-          d="M 60 50 q -60 20 -110 30"
-          stroke="var(--hw-blue)"
-          strokeWidth={1.4}
-          delay={0.6}
-        />
-        <InkPath
-          d="M -50 80 q -30 -50 -60 -140"
-          stroke="var(--hw-ink)"
-          strokeWidth={1.0}
-          delay={0.7}
-        />
+        <InkPath d={cycle.hot} stroke="var(--hw-red)" strokeWidth={1.4} delay={0.4} />
+        <InkPath d={cycle.expansion} stroke="var(--hw-ink)" strokeWidth={1.0} delay={0.5} />
+        <InkPath d={cycle.cold} stroke="var(--hw-blue)" strokeWidth={1.4} delay={0.6} />
+        <InkPath d={cycle.compression} stroke="var(--hw-ink)" strokeWidth={1.0} delay={0.7} />
         <HandwrittenLabel
           x={-55}
           y={-65}
@@ -315,8 +309,8 @@ function P1PageLaws() {
           color="var(--hw-red)"
         />
         <HandwrittenLabel
-          x={0}
-          y={75}
+          x={30}
+          y={65}
           text="T_c"
           variant="label-minor"
           italic
@@ -362,8 +356,8 @@ function P1PageLaws() {
           stroke="var(--hw-ink)"
           strokeWidth={1.0}
         />
-        {Array.from({ length: 14 }).map((_, i) => {
-          const a = (i / 14) * Math.PI * 2;
+        {Array.from({ length: 30 }).map((_, i) => {
+          const a = (i / 30) * Math.PI * 2;
           const r = 12 + (i % 3) * 6;
           return (
             <circle
@@ -414,7 +408,7 @@ function P1PageLaws() {
         <HandwrittenLabel
           x={0}
           y={120}
-          text="dS > 0 · 不可逆方向"
+          text="同一孤立气体自由扩散示意"
           variant="label-minor"
           italic
           color="var(--hw-gold)"
@@ -423,22 +417,4 @@ function P1PageLaws() {
       </g>
     </g>
   );
-}
-
-function buildMBCurve(vmode: number, vmax: number): string {
-  const samples = 60;
-  const xLeft = -130;
-  const xRight = 130;
-  const yBase = 80;
-  const peakHeight = 130;
-  const pts: string[] = [];
-  for (let i = 0; i <= samples; i++) {
-    const t = i / samples;
-    const v = t * vmax;
-    const f = ((v * v) / (vmode * vmode)) * Math.exp(-(v * v) / (vmode * vmode));
-    const x = xLeft + (xRight - xLeft) * t;
-    const y = yBase - f * peakHeight;
-    pts.push(`${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`);
-  }
-  return pts.join(" ");
 }

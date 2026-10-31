@@ -65,7 +65,7 @@ export function Tier2HwScene() {
 
   const flows = Array.from({ length: FLOW_COUNT }, (_, i) => flowPath(i + 1));
   const borderPath = BORDER_POINTS.map((p, i) =>
-    i === 0 ? `M${p[0]} ${p[1]}` : `L${p[0]} ${p[1]}`,
+    i === 0 ? `M${p[0]} ${p[1]}` : `L${p[0]} ${p[1]}`
   ).join(" ");
 
   return (
@@ -203,6 +203,14 @@ export function Tier2HwScene() {
           />
         );
       })}
+
+      <HandwrittenLabel
+        x={0}
+        y={398}
+        text="示意流线 · 非观测速度场"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
 
       <Cartouche
         cx={0}

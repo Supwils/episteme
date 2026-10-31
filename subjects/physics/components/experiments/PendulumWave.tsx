@@ -2,216 +2,178 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/subjects/physics/lib/cn";
-import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
+import { useExperimentCanvas } from "./use-experiment-canvas";
+import { useExperimentReducedMotion } from "./use-experiment-reduced-motion";
 
 const NUM_PENDULUMS = 15;
-const BASE_PERIOD = 1.0;
-const PERIOD_STEP = 0.04;
+const REPEAT_SECONDS = 30;
+const FASTEST_CYCLES = 30;
+const AMPLITUDE = 0.16; // Small-angle model, about nine degrees.
+const GRAVITY = 9.81;
+const PENDULUMS = Array.from({ length: NUM_PENDULUMS }, (_, index) => {
+  const cycles = FASTEST_CYCLES - index;
+  const period = REPEAT_SECONDS / cycles;
+  return { period, length: GRAVITY * (period / (2 * Math.PI)) ** 2 };
+});
+const MAX_LENGTH = PENDULUMS[NUM_PENDULUMS - 1]!.length;
 
 export function PendulumWave({ className }: { className?: string }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [elapsed, setElapsed] = useState(0);
-  const startTimeRef = useRef(0);
   const timeRef = useRef(0);
+  const uiClock = useRef(0);
+  const reducedMotion = useExperimentReducedMotion();
+  const pause = useCallback(() => setIsPlaying(false), []);
 
-  const prefersReducedMotion = useRef(
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-
-  const getLayout = useCallback((w: number, h: number) => {
-    const pivotY = h * 0.08;
-    const spacing = w / (NUM_PENDULUMS + 1);
-    const maxLen = h * 0.7;
-    const minLen = h * 0.25;
-
-    return { pivotY, spacing, maxLen, minLen };
-  }, []);
-
-  const getLength = useCallback(
-    (index: number, h: number) => {
-      const layout = getLayout(0, h);
-      return layout.minLen + (layout.maxLen - layout.minLen) * (index / (NUM_PENDULUMS - 1));
-    },
-    [getLayout]
-  );
-
-  const getPeriod = useCallback((index: number) => {
-    return BASE_PERIOD + index * PERIOD_STEP;
-  }, []);
-
-  const render = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const { w, h } = cssCanvasSize(canvas);
-    const layout = getLayout(w, h);
+  const draw = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number) => {
+    if (w <= 0 || h <= 0) return;
     const t = timeRef.current;
-
-    ctx.clearRect(0, 0, w, h);
+    const pivotY = h * 0.1;
+    const maxLen = h * 0.7;
+    const bobRadius = Math.max(3, Math.min(9, w / 48));
+    const margin = maxLen * Math.sin(AMPLITUDE) + bobRadius + 5;
+    const spacing = Math.max(0, w - 2 * margin) / (NUM_PENDULUMS - 1);
 
     const grad = ctx.createLinearGradient(0, 0, 0, h);
     grad.addColorStop(0, "#060814");
     grad.addColorStop(1, "#0f1320");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
-
-    // Support bar
     ctx.fillStyle = "#3a3e4a";
-    ctx.fillRect(w * 0.05, layout.pivotY - 3, w * 0.9, 6);
+    ctx.fillRect(5, pivotY - 2, w - 10, 4);
 
     for (let i = 0; i < NUM_PENDULUMS; i++) {
-      const pivotX = layout.spacing * (i + 1);
-      const len = getLength(i, h);
-      const period = getPeriod(i);
-      const omega = (2 * Math.PI) / period;
-      const amplitude = 0.4;
-      const angle = amplitude * Math.sin(omega * t);
-
+      const { period, length } = PENDULUMS[i]!;
+      const pivotX = margin + spacing * i;
+      const len = maxLen * (length / MAX_LENGTH);
+      // Same displaced angle and zero initial angular velocity: release from rest.
+      const angle = AMPLITUDE * Math.cos((2 * Math.PI * t) / period);
       const bobX = pivotX + len * Math.sin(angle);
-      const bobY = layout.pivotY + len * Math.cos(angle);
+      const bobY = pivotY + len * Math.cos(angle);
+      const hue = 190 + (i / (NUM_PENDULUMS - 1)) * 50;
 
-      const hue = 190 + (i / NUM_PENDULUMS) * 50;
-      const bobColor = `hsl(${hue}, 80%, 65%)`;
-      const stringColor = `hsla(${hue}, 60%, 70%, 0.5)`;
-
-      // String
-      ctx.strokeStyle = stringColor;
+      ctx.strokeStyle = `hsla(${hue}, 60%, 70%, 0.6)`;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(pivotX, layout.pivotY);
+      ctx.moveTo(pivotX, pivotY);
       ctx.lineTo(bobX, bobY);
       ctx.stroke();
-
-      // Pivot
-      ctx.fillStyle = "#555";
+      ctx.fillStyle = "#777";
       ctx.beginPath();
-      ctx.arc(pivotX, layout.pivotY, 3, 0, Math.PI * 2);
+      ctx.arc(pivotX, pivotY, 2, 0, Math.PI * 2);
       ctx.fill();
-
-      // Bob
-      const bobGrad = ctx.createRadialGradient(bobX - 2, bobY - 2, 0, bobX, bobY, 10);
-      bobGrad.addColorStop(0, bobColor);
+      const bobGrad = ctx.createRadialGradient(
+        bobX - bobRadius * 0.2,
+        bobY - bobRadius * 0.2,
+        0,
+        bobX,
+        bobY,
+        bobRadius
+      );
+      bobGrad.addColorStop(0, `hsl(${hue}, 80%, 65%)`);
       bobGrad.addColorStop(1, `hsl(${hue}, 70%, 35%)`);
       ctx.fillStyle = bobGrad;
       ctx.beginPath();
-      ctx.arc(bobX, bobY, 10, 0, Math.PI * 2);
+      ctx.arc(bobX, bobY, bobRadius, 0, Math.PI * 2);
       ctx.fill();
-
-      // Ghost trail dots
-      if (isPlaying) {
-        for (let g = 1; g <= 3; g++) {
-          const gt = t - g * 0.03;
-          const gAngle = amplitude * Math.sin(omega * gt);
-          const gX = pivotX + len * Math.sin(gAngle);
-          const gY = layout.pivotY + len * Math.cos(gAngle);
-          ctx.fillStyle = `hsla(${hue}, 80%, 65%, ${0.15 - g * 0.04})`;
-          ctx.beginPath();
-          ctx.arc(gX, gY, 6, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
     }
-
-    // Period labels at bottom
-    ctx.fillStyle = "rgba(168, 173, 189, 0.4)";
-    ctx.font = "9px monospace";
+    ctx.fillStyle = "rgba(168, 173, 189, 0.8)";
+    ctx.font = "10px monospace";
     ctx.textAlign = "center";
-    for (let i = 0; i < NUM_PENDULUMS; i += 4) {
-      const pivotX = layout.spacing * (i + 1);
-      const period = getPeriod(i);
-      ctx.fillText(`T=${period.toFixed(2)}s`, pivotX, h - 10);
+    for (const i of [0, 7, 14]) {
+      ctx.fillText(`T=${PENDULUMS[i]!.period.toFixed(2)}s`, margin + spacing * i, h - 8);
     }
-  }, [getLayout, getLength, getPeriod, isPlaying]);
+  }, []);
 
-  const animate = useCallback(() => {
-    const now = Date.now();
-    const dt = (now - startTimeRef.current) / 1000;
-    timeRef.current = dt;
-    setElapsed(dt);
-
-    render();
-    if (isPlaying) {
-      animRef.current = requestAnimationFrame(animate);
+  const step = useCallback((seconds: number) => {
+    timeRef.current += seconds;
+    uiClock.current += seconds;
+    if (uiClock.current >= 0.1) {
+      setElapsed(timeRef.current);
+      uiClock.current = 0;
     }
-  }, [isPlaying, render]);
-
+    return true;
+  }, []);
+  const { canvasRef, render, stop } = useExperimentCanvas(draw, step, isPlaying, pause);
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    fitCanvasToDisplay(canvas);
-
-    render();
-  }, [render]);
-
-  useEffect(() => {
-    if (isPlaying) {
-      startTimeRef.current = Date.now() - timeRef.current * 1000;
-      animRef.current = requestAnimationFrame(animate);
+    if (reducedMotion) {
+      stop();
+      pause();
     }
-    return () => cancelAnimationFrame(animRef.current);
-  }, [isPlaying, animate]);
+  }, [reducedMotion, stop, pause]);
 
-  const handleStart = () => {
-    if (prefersReducedMotion.current) {
-      timeRef.current = 0;
-      render();
+  const toggle = () => {
+    if (isPlaying) {
+      stop();
+      pause();
+      setElapsed(timeRef.current);
       return;
     }
-    timeRef.current = 0;
-    startTimeRef.current = Date.now();
-    setElapsed(0);
-    setIsPlaying(true);
+    if (reducedMotion) {
+      step(0.25);
+      setElapsed(timeRef.current);
+      render();
+    } else setIsPlaying(true);
   };
-
-  const handleReset = () => {
-    setIsPlaying(false);
+  const reset = () => {
+    stop();
+    pause();
     timeRef.current = 0;
+    uiClock.current = 0;
     setElapsed(0);
     render();
   };
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[16/9] w-full overflow-hidden rounded-xl border">
-        <canvas ref={canvasRef} role="img" aria-label="钟摆波模拟" className="h-full w-full" />
-
-        <div className="bg-bg-panel/90 absolute top-3 right-3 rounded-lg px-3 py-2 backdrop-blur-sm">
-          <p className="text-accent-cool font-mono text-xs">时间: {elapsed.toFixed(1)}s</p>
-          <p className="text-fg-muted mt-1 text-[10px]">{NUM_PENDULUMS} 个摆 · 周期递增</p>
-        </div>
-
-        <div className="bg-bg-panel/90 absolute bottom-3 left-3 rounded-lg px-3 py-2 backdrop-blur-sm">
-          <p className="text-fg-muted text-[10px]">T = 2π√(L/g) — 摆长越长，周期越大</p>
-        </div>
+      <div className="border-fg-disabled/30 bg-bg-deep aspect-[16/9] w-full overflow-hidden rounded-xl border">
+        <canvas
+          ref={canvasRef}
+          role="img"
+          aria-label="十五个独立小角度单摆，摆长与周期平方成正比，30秒重现初始队形"
+          className="h-full w-full"
+        />
       </div>
-
-      <div className="flex items-center gap-2">
+      <p className="text-accent-cool font-mono text-xs" aria-live={isPlaying ? "off" : "polite"}>
+        时间：{elapsed.toFixed(1)} s · 队形重现周期：{REPEAT_SECONDS} s
+      </p>
+      <div className="flex flex-wrap items-center gap-2">
         <button
-          onClick={isPlaying ? () => setIsPlaying(false) : handleStart}
+          onClick={toggle}
+          aria-pressed={isPlaying}
           className="bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? "暂停" : "释放摆球"}
+          {isPlaying
+            ? "暂停"
+            : reducedMotion
+              ? "推进0.25秒"
+              : elapsed > 0
+                ? "继续摆动"
+                : "释放摆球"}
         </button>
         <button
-          onClick={handleReset}
+          onClick={reset}
           className="bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
           重置
         </button>
       </div>
-
-      <div className="border-accent-cool/20 bg-accent-cool/5 rounded-lg border p-3">
-        <p className="text-fg-secondary text-xs">
-          <span className="text-accent-cool font-medium">摆波之美：</span>
-          15 个摆的长度依次递增，因此周期各不相同。同时释放后，它们起初步调一致，
-          随后因周期差异逐渐错开，形成优美的波动图案。当某些摆完成整数倍振荡后
-          又会重新同步——这就是摆波(Pendulum Wave)的迷人之处。
+      <div className="border-accent-cool/20 bg-accent-cool/5 text-fg-secondary rounded-lg border p-3 text-xs leading-relaxed">
+        <p>
+          小角度、无阻尼单摆：T=2π√(L/g)，g=9.81
+          m/s²。摆长按L=g(T/2π)²设置，统一缩放到画面；从同一小角度静止释放。
         </p>
+        <p className="mt-2">
+          十五个摆在30秒内分别完成30、29……16次振荡，因此30秒后全部重现初始相位。它们互不耦合，波状队形来自相位差；这是预设周期的重现，不是能量沿摆列传播或摆之间自动同步。
+        </p>
+        <a
+          href="https://sciencedemonstrations.fas.harvard.edu/presentations/pendulum-waves"
+          target="_blank"
+          rel="noreferrer"
+          className="text-accent-cool mt-2 inline-block underline"
+        >
+          Harvard摆波装置与整数周期设计
+        </a>
       </div>
     </div>
   );

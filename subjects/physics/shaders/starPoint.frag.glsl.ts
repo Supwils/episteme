@@ -6,6 +6,8 @@
  * (cool blue → neutral white → warm amber).
  */
 export const starPointFrag = /* glsl */ `
+uniform float uOpacity;
+
 varying float vTemp;
 varying float vBrightness;
 
@@ -23,12 +25,12 @@ void main() {
   float r = length(uv);
   if (r > 0.5) discard;
 
-  float core = smoothstep(0.35, 0.0, r);
-  float halo = smoothstep(0.5, 0.18, r);
+  float core = 1.0 - smoothstep(0.0, 0.35, r);
+  float halo = 1.0 - smoothstep(0.18, 0.5, r);
   float alpha = core + halo * 0.35;
 
   vec3 c = spectrumColor(vTemp) * (0.5 + vBrightness * 1.2);
-  gl_FragColor = vec4(c, alpha * vBrightness);
+  gl_FragColor = vec4(c, alpha * vBrightness * uOpacity);
 }
 `;
 
@@ -41,6 +43,8 @@ void main() {
  * mottle, cosmic web temperature gradient, etc.).
  */
 export const starPointFragColor = /* glsl */ `
+uniform float uOpacity;
+
 varying float vTemp;
 varying float vBrightness;
 varying vec3 vColor;
@@ -50,12 +54,12 @@ void main() {
   float r = length(uv);
   if (r > 0.5) discard;
 
-  float core = smoothstep(0.35, 0.0, r);
-  float halo = smoothstep(0.5, 0.18, r);
+  float core = 1.0 - smoothstep(0.0, 0.35, r);
+  float halo = 1.0 - smoothstep(0.18, 0.5, r);
   float alpha = core + halo * 0.35;
 
   vec3 c = vColor * (0.5 + vBrightness * 1.2);
-  gl_FragColor = vec4(c, alpha * vBrightness);
+  gl_FragColor = vec4(c, alpha * vBrightness * uOpacity);
 }
 `;
 
@@ -77,7 +81,7 @@ varying vec3 vColor;
 void main() {
   vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mvPosition;
-  gl_PointSize = aSize * uSizeMultiplier * uPixelRatio * (300.0 / -mvPosition.z);
+  gl_PointSize = aSize * uSizeMultiplier * uPixelRatio * (3.0 / max(-mvPosition.z, 0.01));
   gl_PointSize = max(gl_PointSize, 1.0);
 
   vTemp = aTemp;

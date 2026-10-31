@@ -2,33 +2,36 @@ import type { TierContent } from "@/subjects/physics/lib/content";
 
 const content: TierContent = {
   tier: "T4",
-  name: { primary: "银河系", latin: "Milky Way · Via Lactea" },
+  name: {
+    primary: "银河系",
+    latin: "Milky Way · Via Lactea",
+  },
   tagline: "我们脚下的这个旋臂盘",
-  whisper: "银河如练 —— 我们看到的是侧切自己的那条带。",
+  whisper: "银河如练——我们从盘内望向自己的星系；图中旋臂仅作结构示意。",
   dataCards: [
     {
-      label: "盘面直径",
+      label: "恒星盘参考直径",
       latinLabel: "Disk diameter",
       value: "≈ 30 kpc",
-      hint: "≈ 100 000 ly",
+      hint: "约10万光年；外盘无唯一锐利边缘",
     },
     {
-      label: "总质量",
+      label: "总质量量级",
       latinLabel: "Total mass",
-      value: "≈ 1.5 × 10¹² M⊙",
-      hint: "含暗物质晕",
+      value: "~10¹² M⊙",
+      hint: "含暗晕；依外推半径、示踪体与动力学模型",
     },
     {
-      label: "太阳距 GC",
+      label: "太阳距银心",
       latinLabel: "R⊙",
       value: "8.178 kpc",
-      hint: "GRAVITY 2019, ±13 pc",
+      hint: "GRAVITY2019：±13 pc统计、±22 pc系统",
     },
     {
-      label: "Sgr A*",
+      label: "Sgr A*质量量级",
       latinLabel: "Central BH",
-      value: "4.30 × 10⁶ M⊙",
-      hint: "EHT / GRAVITY 2022",
+      value: "≈4 × 10⁶ M⊙",
+      hint: "恒星轨道约束；不能把EHT影像当独立精密称重",
     },
     {
       label: "公转周期",
@@ -37,267 +40,399 @@ const content: TierContent = {
       hint: "太阳绕银心一周",
     },
     {
-      label: "盘面厚度",
+      label: "薄盘指数标高",
       latinLabel: "Thin disk",
-      value: "≈ 300 pc",
-      hint: "薄盘 (HWHM)",
+      value: "≈300 pc",
+      hint: "太阳邻域老薄盘；不是HWHM或总厚度",
     },
     {
       label: "球状星团",
       latinLabel: "Globulars",
-      value: "≈ 150",
-      hint: "Harris 2010 编目",
+      value: "约150（历史编目）",
+      hint: "数量随新发现和分类变化，非当前精确总数",
     },
     {
-      label: "恒星数",
+      label: "恒星质量",
       latinLabel: "Stars",
-      value: "(1–4) × 10¹¹",
-      hint: "Gaia DR3 估算下限",
+      value: "(6.08±1.14) × 10¹⁰ M⊙",
+      hint: "Licquia–Newman2015；Kroupa初始质量函数",
     },
     {
-      label: "厚盘标高",
+      label: "厚盘指数标高",
       latinLabel: "Thick disk scale height",
-      value: "≈ 900 pc",
-      hint: "Bovy 2016 化学分解",
+      value: "≈900 pc",
+      hint: "几何分解示例；随所选星族与模型变化",
     },
     {
-      label: "棒角速度",
+      label: "棒模式角速度示例",
       latinLabel: "Bar pattern speed",
-      value: "Ωb ≈ 38 km/s/kpc",
-      hint: "Sanders 2019",
+      value: "41±3 km/s/kpc",
+      hint: "Sanders等2019近侧数据；系统误差可更大",
     },
     {
-      label: "局部恒星形成率",
+      label: "全银河恒星形成率",
       latinLabel: "Galactic SFR",
-      value: "≈ 1.6 M⊙/yr",
-      hint: "Licquia & Newman 2015",
+      value: "1.65±0.19 M⊙/yr",
+      hint: "Licquia–Newman2015；非太阳邻域局部值",
     },
     {
-      label: "盘面年龄-金属丰度",
-      latinLabel: "[Fe/H] gradient",
-      value: "−0.06 dex/kpc",
-      hint: "薄盘径向梯度",
+      label: "长棒半长示例",
+      latinLabel: "Bar half-length",
+      value: "5.0±0.2 kpc",
+      hint: "Wegg等2015；半长不能写成全长",
     },
   ],
   narrative: [
     {
       heading: "盘面、棒、旋臂",
       body: [
-        "银河系是一个带棒的旋涡星系。中心是一根长约 4 kpc 的恒星棒，相对太阳—银心连线倾斜约 25°。棒外是盘面，盘面上能识别出四条主要旋臂 —— Perseus、Scutum–Centaurus、Sagittarius–Carina、Outer (Norma) —— 它们的螺距角约 12° (Vallée 2017)。",
-        "盘面之外是球状的恒星晕，里面散落着约 150 个球状星团，质量与盘面相当，但密度低得多。再往外是质量是恒星部分十倍的暗物质晕。",
+        "银河系是带棒旋涡星系。红团巨星计数的一组模型给长棒半长5.0±0.2 kpc，与太阳—银心视线的夹角约28°—33°（Wegg等2015）。这里的长度是半长，且依示踪星族与消光修正，不能把“4 kpc长”当成唯一精确尺度。",
+        "射电脉泽的视差与自行支持四条主要气体旋臂的图景（Reid等2019），但不同示踪体、臂段连接与远侧遮挡仍带来不确定性。恒星密度与气体造星区描出的臂也未必一样；Outer与Norma不是可不加模型说明就互换的名字。本图的四条曲线和臂标记是结构示意，不是完整实测平面地图。",
+        "恒星晕与暗物质晕必须分开：前者稀薄，Deason等2019在特定密度与质光比模型下估计其恒星质量约(1.4±0.4)×10⁹ M⊙，远少于恒星盘。后者支配更大尺度的动力学总质量；总质量约10¹² M⊙的量级需要注明外推范围与模型，不能用晕中恒星的亮度直接称量。",
       ],
     },
     {
       heading: "太阳的位置",
       body: [
-        "太阳系坐在 Local Arm 上 —— 一段相对短的、夹在 Sagittarius 与 Perseus 之间的旋臂段。R⊙ = 8.178 ± 0.013 kpc 是由 GRAVITY 干涉仪用恒星 S2 在 Sgr A* 周围的精确轨道几何测出的，这是迄今最直接的银心距离测量。",
-        "太阳绕银心一周约 230 Myr，距上一次完成「银河年」时，地球上还是恐龙时代的尾声。",
+        "太阳在Local Arm（本地臂、猎户臂）一带，位于人马臂与英仙臂之间。Xu等2016的VLBA测量表明，这段结构比过去认为的短小支臂更显著；它的长度、螺距与造星活动值得独立研究，而不是已确定的一小段断臂。",
+        "GRAVITY2019结合S2的角位置、光谱速度和轨道模型，得到银心距离8178±13（统计）±22（系统）pc。只保留±13 pc会漏掉系统误差。用太阳距离与约几百km/s的绕转速度作近圆估算，一个银河年约两亿多年；230 Myr只是量级示例，回看约2.3亿年前是三叠纪、早期恐龙出现的时代，并非恐龙时代尾声。",
       ],
     },
     {
       heading: "Sgr A* 与中央黑洞",
       body: [
-        "银心 Sgr A* 是一个质量约 430 万倍太阳的超大质量黑洞，2020 年 Nobel 物理学奖颁给了用它周围恒星轨道直接测得其质量的工作 (Genzel & Ghez)。事件视界望远镜在 2022 年公布的它的「阴影」图像 (EHT 2022) 是历史上第二张直接拍到的黑洞图像。",
-        "围绕它的恒星——比如 S2——以接近光速 3% 的近心速度高速运转，是验证广义相对论的最干净实验室之一。",
+        "银心恒星轨道要求中心有一个约四百万太阳质量的极致致密天体，黑洞是这些证据支持的解释。2020年诺贝尔物理学奖的一半授予Genzel与Ghez，奖词是发现银河系中心的超大质量致密天体；另一半授予Penrose。",
+        "EHT于2022年公布Sgr A*的视界尺度射电图像：明亮发射环围绕中央亮度降低区域，与黑洞阴影预期相容。这是M87*之后第二个获此类成像的目标；光来自周围等离子体，不是黑洞表面或事件视界本身。S2近心速度约为光速的几个百分点，使其轨道与光谱可检验引力红移等相对论效应。",
       ],
     },
     {
       heading: "Gaia 时代的银河系制图",
       body: [
-        "ESA Gaia 卫星 (2014–2025) 测出了约 18 亿颗恒星的视差、自行与径向速度，把银河系内的恒星运动学第一次变成了一份精确到 μas 级的数据库。DR3 (2022) 让无数次研究成为可能：星流化石、银盘翘曲、棒动力学、近邻恒星的化学考古。",
-        "也是 Gaia 把「银河系是不是有四条主臂」的争论推到下一阶段 —— Drimmel & Spergel (2022) 的恒星密度图显示太阳所在的 Local Arm 比想象中更显著，可能其实是一条 minor 主臂。",
+        "Gaia于2013年发射，主要科学观测从2014年持续到2025年1月。DR3在2022年发布、汇总论文于2023年刊印，延续约18亿源的测光与位置数据；其中约14.6亿源有完整天体测量解，约3380万颗恒星有径向速度。不能写成18亿颗都拥有完整六维位置速度，精度也随亮度、颜色与观测条件变化。",
+        "这类数据把星流、盘面翘曲、棒引起的非圆运动与化学丰度放进可共同分析的坐标系。旧文献仍有价值，但Drimmel–Spergel的相关盘结构论文是2001年，不能改成2022年Gaia新发现。本地臂的射电视差证据则见Xu等2016，二者的数据与结论不应混成同一研究。",
       ],
     },
     {
       heading: "银盘的翘曲与拥挤",
       body: [
-        "银盘并非完美的平面 —— 它在外缘以「翘曲 (warp)」和「波纹 (corrugation)」存在变形。21cm 中性氢和 Gaia 红巨星都独立测到 ±0.5 kpc 的翘曲幅度，外加几 kpc 尺度的「鱼鳍」结构 (Cepheid 巡天 2019, 2022)。",
-        "成因仍在讨论：可能是 Sagittarius 矮星系几亿年前掠过引发的振铃，也可能是与暗物质子晕的相互作用。无论如何，「盘子」这个比喻已经不够 —— 银河系更像一个被拍过一下的果冻，还在摇晃。",
+        "银盘不是理想平面。中性氢与造父变星描出的外盘都显示翘曲、外张和扭转。Chen等2019用1339颗造父变星建立模型，显示恒星外盘至少延伸到20 kpc，翘曲的大小随半径和方位改变；用单一“±0.5 kpc”代表所有半径和星族会误导。",
+        "不同示踪体的距离误差、选择函数与年龄也不同。卫星星系扰动、内盘力矩及暗晕耦合都是讨论中的机制；某张形状图本身不能唯一确认起因。一个被扰动而仍在振荡的盘是有用图像，但还需速度场与动力学模型检验。",
       ],
     },
     {
       heading: "薄盘 · 厚盘 · 晕：三层时间史",
       body: [
-        "银河系不是一个单一的盘 —— 它至少由三层结构叠合：薄盘 (标高 ~300 pc，年龄 < 8 Gyr，金属丰度高 [α/Fe] 低)、厚盘 (标高 ~900 pc，年龄 8–12 Gyr，[α/Fe] 高)、和恒星晕 (球状散布，年龄 > 12 Gyr，金属极贫)。每一层的运动学与化学指纹都不一样，对应一段不同的形成史。",
-        "Bovy 2016 用 APOGEE 红巨星首次按化学拆出薄/厚盘，发现厚盘其实是「α-高」族群，而非简单的几何更厚。当下主流叙事是：厚盘在 z ~ 2 的湍流期就地形成；GSE 在 z ≈ 2 (8–10 Gyr 前) 砸进来，加热薄盘原始版本并贡献了大部分内晕；冷却的气体慢慢沉积出我们今天看到的薄盘 —— 这就是「inside-out + upside-down」生长模型。",
+        "太阳邻域常用两个指数垂直分布概括老薄盘与厚盘，示例标高约300与900 pc；标高表示密度衰减的尺度，不是半高半宽，也不是清晰边界。年轻星形成层可薄得多，不同星族的标高会变化。恒星晕通常更老、更贫金属，但薄盘、厚盘、晕的年龄和化学分布存在重叠，不能按8或12 Gyr画绝对分界。",
+        "Bovy等2016研究APOGEE单丰度星族，发现高α族群较中央集中，低α星族的厚度与径向结构更复杂；这不是首次发现薄厚盘。化学、年龄与轨道共同约束吸积、盘加热和气体沉降。Gaia–Enceladus等古老并合是重要线索，但不能把所有厚盘和内晕都归为一次已定量定案的事件，也不能把z≈2与8 Gyr无条件等同。",
       ],
     },
     {
       heading: "棒、Galactic Fountain · 银河系的循环系统",
       body: [
-        "银河系中部的恒星棒不是装饰：长约 4 kpc、模式速度 Ωb ≈ 38 km/s/kpc (Sanders 2019)，它把内盘气体扫向中心，是银心 ~0.4 M⊙/yr 恒星形成的主要补给。棒还在外盘产生 OLR (外林德布拉德共振)，可能正是「Hercules stream」这类局部速度团块的成因。",
-        "在更大尺度上，盘面与晕之间在循环：超新星把热气体推到几 kpc 高度 (galactic fountain)，冷却后再以 HVC (high-velocity cloud) 的方式回落。HI4PI 与 GALFA-HI 21cm 全天巡天 (2016, 2018) 给出了这些云团的完整目录。这套循环让银河系既能持续造星又不至于把气耗尽 —— 今天的 SFR ~1.6 M⊙/yr 已经维持了几十亿年。",
+        "棒的模式速度描述整体图案的转动，不是每颗恒星都以相同角速度运动。Sanders等2019用近侧自行得到41±3 km/s/kpc的示例统计结果，并指出系统差异可能达到5—10 km/s/kpc。棒可改变气体与恒星轨道；Hercules速度结构和共振解释仍依赖棒速度与动力学模型，不能把某一种外林德布拉德共振说成唯一答案。",
+        "银河喷泉描述超新星反馈把部分盘气体推高、冷却并回落的循环。高速度云有多种可能来源，不能全部认作喷泉回落；循环本身也不创造新燃料，持续造星还涉及外来吸积与质量损失。HI4PI是全天中性氢光谱巡天，GALFA-HI仅覆盖Arecibo可见天区，二者不是“全部高速度云的完整全天目录”。Licquia–Newman2015给全银河当前恒星形成率1.65±0.19 M⊙/yr，并不证明这个速率数十亿年恒定。",
       ],
     },
   ],
   sources: [
     {
-      label: "GRAVITY Collaboration 2019 — Geometric distance to Sgr A*",
+      label: "GRAVITY2019 · S2几何距离与统计/系统误差",
       url: "https://arxiv.org/abs/1904.05721",
       kind: "paper",
     },
     {
-      label: "Bland-Hawthorn & Gerhard 2016 — The Galaxy in Context (ARA&A)",
+      label: "Wegg等2015 · 长棒半长与方位",
+      url: "https://arxiv.org/abs/1504.01401",
+      kind: "paper",
+    },
+    {
+      label: "Reid等2019 · 高质量造星区视差与旋臂",
+      url: "https://arxiv.org/abs/1910.03357",
+      kind: "paper",
+    },
+    {
+      label: "Xu等2016 · 本地旋臂的射电视差",
+      url: "https://arxiv.org/abs/1610.00242",
+      kind: "paper",
+    },
+    {
+      label: "Bland-Hawthorn–Gerhard2016 · 银河结构综述",
       url: "https://arxiv.org/abs/1602.07702",
       kind: "paper",
     },
     {
-      label: "EHT Collaboration 2022 — First image of Sgr A*",
-      url: "https://iopscience.iop.org/issue/2041-8205/930/2",
+      label: "Deason等2019 · 恒星晕质量",
+      url: "https://arxiv.org/abs/1908.02763",
+      kind: "paper",
+    },
+    {
+      label: "Deason等2021 · 100kpc内质量及外推条件",
+      url: "https://arxiv.org/abs/2010.13801",
+      kind: "paper",
+    },
+    {
+      label: "EHT2022 · Sgr A*发射环与阴影",
+      url: "https://doi.org/10.3847/2041-8213/ac6674",
+      kind: "paper",
+    },
+    {
+      label: "2020诺贝尔物理学奖科学说明",
+      url: "https://www.nobelprize.org/uploads/2020/10/advanced-physicsprize2020.pdf",
       kind: "agency",
     },
     {
-      label: "Gaia Collaboration 2023 — DR3 release paper",
+      label: "Gaia DR3汇总原论文",
       url: "https://arxiv.org/abs/2208.00211",
       kind: "paper",
     },
     {
-      label: "Drimmel & Spergel 2001 — Three-dimensional structure of the Galaxy",
-      url: "https://arxiv.org/abs/astro-ph/0101259",
+      label: "ESA · Gaia任务观测时间",
+      url: "https://www.esa.int/Science_Exploration/Space_Science/Gaia",
+      kind: "agency",
+    },
+    {
+      label: "Chen等2019 · 造父变星与银盘翘曲",
+      url: "https://arxiv.org/abs/1902.00998",
       kind: "paper",
     },
     {
-      label: "Bovy 2016 — Stellar populations in chemo-orbital space",
-      url: "https://arxiv.org/abs/1610.07610",
+      label: "Bovy等2016 · 单丰度星族结构",
+      url: "https://arxiv.org/abs/1509.05796",
       kind: "paper",
     },
     {
-      label: "HI4PI Collaboration 2016 — All-sky HI 21cm survey",
+      label: "Sanders等2019 · 棒模式速度与系统差异",
+      url: "https://arxiv.org/abs/1903.02009",
+      kind: "paper",
+    },
+    {
+      label: "Putman–Peek–Joung2012 · 多相气体晕和喷泉",
+      url: "https://ned.ipac.caltech.edu/level5/Sept12/Putman/Putman4.html",
+      kind: "paper",
+    },
+    {
+      label: "HI4PI2016 · 全天中性氢光谱巡天",
       url: "https://arxiv.org/abs/1610.06175",
       kind: "paper",
     },
     {
-      label: "Licquia & Newman 2015 — Galactic SFR & stellar mass",
+      label: "Licquia–Newman2015 · 当前SFR与恒星质量",
       url: "https://arxiv.org/abs/1407.1078",
       kind: "paper",
     },
+    {
+      label: "NASA/ESA · Omega Centauri星团说明",
+      url: "https://science.nasa.gov/asset/hubble/core-of-omega-centauri/",
+      kind: "agency",
+    },
   ],
-  // Arm marker positions are sampled at r=0.55 on each log spiral
-  // (pitch 12°, innerR 0.2, 4-fold symmetry). Scene unit ≈ 15 kpc.
   markers: [
     {
       id: "sgr-a-star",
-      name: { primary: "人马座 A* (银心黑洞)", latin: "Sagittarius A*" },
+      name: {
+        primary: "人马座 A* (银心黑洞)",
+        latin: "Sagittarius A*",
+      },
       position: [0, 0, 0],
       description:
-        "银河系中心的超大质量黑洞，质量 4.30 × 10⁶ M⊙。S2 等恒星以接近光速 3% 的近心速度高速绕它运转，是验证广义相对论最干净的实验场。EHT 在 2022 年公布了它的「阴影」直接图像，是 M87* 之后第二个被直接拍到的黑洞。",
+        "银心约四百万太阳质量的致密天体，恒星轨道和EHT视界尺度成像共同支持超大质量黑洞解释。S2近心速度约为光速几个百分点，可检验引力红移和轨道进动。2022图中的光环来自周围等离子体，中央暗区与黑洞阴影相容，不是黑洞表面发光。",
       data: [
-        { label: "质量", value: "4.30 × 10⁶ M⊙" },
-        { label: "Schwarzschild 半径", value: "~1.3 × 10¹⁰ m" },
-        { label: "首次成像", value: "EHT 2022" },
+        {
+          label: "质量量级",
+          value: "~4 × 10⁶ M⊙",
+        },
+        {
+          label: "Schwarzschild尺度",
+          value: "~1.2 × 10¹⁰ m（非旋转参考）",
+        },
+        {
+          label: "首次此类成像",
+          value: "EHT 2022",
+        },
       ],
       color: "#fff4d0",
       size: 0.022,
     },
     {
       id: "sun",
-      name: { primary: "太阳", latin: "Sol" },
+      name: {
+        primary: "太阳",
+        latin: "Sol",
+      },
       position: [0.545, 0.001, 0],
       description:
-        "G2V 主序星，距银心 R⊙ = 8.178 ± 0.013 kpc (GRAVITY 2019)。坐在 Local Arm (猎户臂) 上 —— 一段夹在 Sagittarius 与 Perseus 之间的次级旋臂。绕银心一周约 230 Myr。",
+        "太阳距银心8178±13（统计）±22（系统）pc，是GRAVITY2019的S2轨道几何结果。太阳在本地臂一带；本地臂比过去小支臂图景更显著，精细结构仍在测绘。绕银心一周约两亿多年。",
       data: [
-        { label: "R⊙", value: "8.178 kpc" },
-        { label: "公转周期", value: "~230 Myr" },
-        { label: "所在旋臂", value: "Local Arm" },
+        {
+          label: "R⊙",
+          value: "8.178 kpc（含统计/系统误差）",
+        },
+        {
+          label: "公转周期",
+          value: "~230 Myr",
+        },
+        {
+          label: "所在旋臂",
+          value: "Local Arm",
+        },
       ],
       color: "#fff3c4",
       size: 0.02,
     },
     {
       id: "arm-perseus",
-      name: { primary: "英仙臂", latin: "Perseus Arm" },
-      // r=0.55, thetaOffset=0
+      name: {
+        primary: "英仙臂",
+        latin: "Perseus Arm",
+      },
       position: [0.027, 0, -0.549],
       description:
-        "银河系最显著的两条主臂之一，距太阳约 2 kpc，含 Perseus OB 协会、NGC 869/884 双星团等大量年轻恒星。CO 巡天 (Dame 2001) 给出它清晰的对数螺旋轮廓。",
+        "英仙臂是太阳外侧的一条重要造星旋臂。视差、自行与气体谱线用于识别不同臂段；具体距离随银经而变，不宜把整条臂写成离太阳恰好2 kpc的一条线。本图点位只代表这类结构的入口。",
       data: [
-        { label: "螺距角", value: "~12°" },
-        { label: "距太阳", value: "~2 kpc" },
-        { label: "类型", value: "主臂" },
+        {
+          label: "图中位置",
+          value: "旋臂结构示意，非独立测距点",
+        },
+        {
+          label: "测绘依据",
+          value: "射电脉泽视差等多种示踪体",
+        },
       ],
       color: "#bcd5ff",
       size: 0.022,
     },
     {
       id: "arm-scutum-centaurus",
-      name: { primary: "盾牌-半人马臂", latin: "Scutum-Centaurus Arm" },
-      // r=0.55, thetaOffset=π/2
+      name: {
+        primary: "盾牌-半人马臂",
+        latin: "Scutum-Centaurus Arm",
+      },
       position: [0.549, 0, 0.026],
       description:
-        "另一条主要旋臂，从银心棒末端起，向太阳系内侧延伸。Spitzer GLIMPSE 红外巡天 (Churchwell 2009) 揭示它富含年轻大质量恒星与 HII 区，是银河系恒星形成最活跃的旋臂。",
+        "盾牌—半人马臂是银河系的重要旋臂段，含年轻大质量恒星与电离氢区。它与棒末端和远侧臂段的连接需要观测模型；这里不把“全银河最活跃”的排名当作已证事实。",
       data: [
-        { label: "螺距角", value: "~12°" },
-        { label: "起点", value: "棒末端" },
-        { label: "类型", value: "主臂" },
+        {
+          label: "图中位置",
+          value: "旋臂结构示意，非独立测距点",
+        },
+        {
+          label: "测绘依据",
+          value: "射电脉泽视差等多种示踪体",
+        },
       ],
       color: "#ffc878",
       size: 0.022,
     },
     {
       id: "arm-sagittarius-carina",
-      name: { primary: "人马-船底臂", latin: "Sagittarius-Carina Arm" },
-      // r=0.55, thetaOffset=π
+      name: {
+        primary: "人马-船底臂",
+        latin: "Sagittarius-Carina Arm",
+      },
       position: [-0.027, 0, 0.549],
       description:
-        "太阳内侧的次级旋臂，含 Eta Carinae、Carina 星云、Lagoon (M8)、Trifid (M20) 等知名 HII 区。在夏夜南天作为银河系最亮的部分肉眼可见。",
+        "人马—船底臂是太阳内侧的重要造星结构，可由年轻恒星、分子气体与电离氢区追踪。气体与老恒星描绘的臂结构不同，“主臂/次臂”分类需说明示踪体；图中点位是示意入口。",
       data: [
-        { label: "螺距角", value: "~12°" },
-        { label: "代表天体", value: "Eta Car / M8 / M20" },
-        { label: "类型", value: "次臂" },
+        {
+          label: "图中位置",
+          value: "旋臂结构示意，非独立测距点",
+        },
+        {
+          label: "测绘依据",
+          value: "射电脉泽视差等多种示踪体",
+        },
       ],
       color: "#d4e2ff",
       size: 0.02,
     },
     {
       id: "arm-outer",
-      name: { primary: "外旋臂 / 矩尺臂", latin: "Outer (Norma) Arm" },
-      // r=0.55, thetaOffset=3π/2
+      name: {
+        primary: "外旋臂",
+        latin: "Outer Arm",
+      },
       position: [-0.549, 0, -0.026],
       description:
-        "银河系最外的主臂，距银心约 16 kpc。恒星形成已显著减弱，主要由较老的恒星与扩散气体组成。Drimmel (2000) 用 K 波段恒星计数图认为银河系实际只有 2 条主臂，但其他研究 (Vallée 2017) 仍维持 4 主臂。",
+        "外旋臂指银河外盘的一组旋臂结构；它与内侧Norma等臂段如何连接，依赖具体旋臂模型。不能直接把Outer与Norma当无条件同义词，也不能因为位于外盘就称其仅由老恒星组成。四臂图形只是示意。",
       data: [
-        { label: "螺距角", value: "~12°" },
-        { label: "距银心", value: "~16 kpc" },
-        { label: "争议", value: "2 或 4 主臂" },
+        {
+          label: "图中位置",
+          value: "旋臂结构示意，非独立测距点",
+        },
+        {
+          label: "测绘依据",
+          value: "射电脉泽视差等多种示踪体",
+        },
       ],
       color: "#ffb86a",
       size: 0.02,
     },
     {
       id: "galactic-fountain",
-      name: { primary: "银河喷泉", latin: "Galactic Fountain" },
-      // Above the disc plane (Y), near the sun's radial direction.
+      name: {
+        primary: "银河喷泉",
+        latin: "Galactic Fountain",
+      },
       position: [0.32, 0.18, 0],
       description:
-        "超新星把热气体推到几 kpc 高度，冷却后再以 HVC (high-velocity cloud) 的方式回落 —— 这套「喷泉」让银河系既能持续造星又不至于把气耗尽。HI4PI 与 GALFA-HI (2016/2018) 21cm 全天巡天给出了 HVC 的完整目录；今天的 SFR ≈ 1.6 M⊙/yr 已经被这套循环维持了几十亿年。",
+        "超新星反馈可把部分盘气体推入晕，冷却后回落，构成银河喷泉。高速度云还可能来自吸积、卫星星系或其他过程，非全部喷泉。HI4PI提供全天HI数据；循环、外来补给和造星率需分开测量。",
       data: [
-        { label: "回落速度", value: "100–400 km/s" },
-        { label: "高度", value: "几 kpc" },
-        { label: "全天巡天", value: "HI4PI 2016" },
+        {
+          label: "性质",
+          value: "反馈与气体循环模型",
+        },
+        {
+          label: "高度",
+          value: "可达kpc量级，依气相而变",
+        },
+        {
+          label: "观测",
+          value: "HI4PI等光谱/吸收线数据",
+        },
       ],
       color: "#a0d4ff",
       size: 0.024,
     },
     {
       id: "omega-cen",
-      name: { primary: "半人马 ω 球状星团", latin: "ω Centauri / NGC 5139" },
-      // Galactic halo: r ~ 5 kpc (Z plane, off-disc).
+      name: {
+        primary: "半人马 ω 球状星团",
+        latin: "ω Centauri / NGC 5139",
+      },
       position: [-0.21, -0.12, 0.03],
       description:
-        "银河系最大的球状星团，含约 10⁷ 颗恒星 — 比典型球状团重一个数量级。多次星族与重元素弥散度暗示它可能是被剥皮的矮椭球核心，是研究恒星化学考古的标杆。M13 (北天)、47 Tuc (南天) 是另外两颗常被科普的代表，整个银河晕里共 ~150 颗球状团 (Harris 2010)。",
+        "Omega Centauri是银河系最庞大的球状星团之一，约千万颗恒星，距太阳约5 kpc。多星族与化学丰度分布使它成为银河考古目标；被剥离矮星系核心是重要解释，不能只由成员数量直接证明。图中离盘位置为结构示意。",
       data: [
-        { label: "距太阳", value: "5.2 kpc" },
-        { label: "成员", value: "~10⁷ stars" },
-        { label: "总数", value: "~150 (Harris 2010)" },
+        {
+          label: "距太阳",
+          value: "5.2 kpc",
+        },
+        {
+          label: "成员",
+          value: "~10⁷ stars",
+        },
+        {
+          label: "总数",
+          value: "~150 (Harris 2010)",
+        },
       ],
       color: "#ffd29a",
       size: 0.018,
     },
   ],
   relatedArticles: [
-    { href: "/cosmology/knowledge-base/星系天文学--milky-way-structure", title: "银河系结构" },
-    { href: "/cosmology/knowledge-base/星系天文学--spiral-galaxies", title: "旋涡星系" },
-    { href: "/cosmology/knowledge-base/星系形成与演化", title: "星系形成与演化" },
+    {
+      href: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
+      title: "银河系结构",
+    },
+    {
+      href: "/cosmology/knowledge-base/星系天文学--spiral-galaxies",
+      title: "旋涡星系",
+    },
+    {
+      href: "/cosmology/knowledge-base/星系形成与演化",
+      title: "星系形成与演化",
+    },
   ],
 };
 

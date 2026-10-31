@@ -28,11 +28,18 @@ export function Tier3HwScene() {
   const content = getTierContent("T3");
   const markers = content?.markers ?? [];
 
-  const galaxies: Galaxy[] = [
-    { cx: 0, cy: 0, r: 110, armCount: 4, tilt: 0.2, tint: "var(--hw-gold)" },
-    { cx: -180, cy: -150, r: 130, armCount: 4, tilt: 1.1, tint: "var(--hw-wash-warm)" },
-    { cx: -250, cy: -60, r: 60, armCount: 3, tilt: 0.6, tint: "var(--hw-blue)" },
-  ];
+  const galaxyStyles: Record<string, Omit<Galaxy, "cx" | "cy">> = {
+    "milky-way": { r: 90, armCount: 4, tilt: 0.2, tint: "var(--hw-gold)" },
+    andromeda: { r: 36, armCount: 4, tilt: 1.1, tint: "var(--hw-wash-warm)" },
+    triangulum: { r: 14, armCount: 3, tilt: 0.6, tint: "var(--hw-blue)" },
+  };
+  // Separate illustration radii keep the nearby M31/M33 glyphs distinct.
+  const galaxies: Galaxy[] = markers.flatMap((marker) => {
+    const style = galaxyStyles[marker.id];
+    if (!style) return [];
+    const center = projectForTier("T3", marker.position);
+    return [{ ...style, cx: center.x, cy: center.y }];
+  });
 
   const dwarfDots = Array.from({ length: 22 }, (_, i) => {
     const a = hash01(i * 4.7 + 1) * Math.PI * 2;
@@ -72,7 +79,7 @@ export function Tier3HwScene() {
             duration={1.0}
             filterLevel="wobble-soft"
           />
-        )),
+        ))
       )}
 
       {/* Galaxy nuclei */}
@@ -97,28 +104,6 @@ export function Tier3HwScene() {
           </text>
         </g>
       ))}
-
-      {/* Barycentre cross + gravity arrow */}
-      <g>
-        <line x1={-110} y1={-90} x2={-90} y2={-70} stroke="var(--hw-gold)" strokeWidth={1.2} />
-        <line x1={-110} y1={-70} x2={-90} y2={-90} stroke="var(--hw-gold)" strokeWidth={1.2} />
-        <HandwrittenLabel
-          x={-100}
-          y={-112}
-          text="重心"
-          variant="label-minor"
-          color="var(--hw-gold)"
-          italic
-          delay={1.0}
-        />
-        <InkPath
-          d="M30 30 q -50 -60 -120 -120"
-          stroke="var(--hw-ink-soft)"
-          strokeWidth={0.6}
-          dasharray="4 4"
-          delay={1.2}
-        />
-      </g>
 
       {/* Markers */}
       {markers.map((m, i) => {
@@ -152,7 +137,14 @@ export function Tier3HwScene() {
         );
       })}
 
-      <Cartouche cx={0} cy={-460} title="Local Group" subtitle="本星系群 · ~3 Mpc" />
+      <HandwrittenLabel
+        x={0}
+        y={398}
+        text="位置与大小示意 · 非轨道预报"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <Cartouche cx={0} cy={-460} title="Local Group" subtitle="本星系群 · 数Mpc尺度" />
     </g>
   );
 }

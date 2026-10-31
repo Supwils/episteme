@@ -12,10 +12,9 @@ const ARMS = [
   { name: "Perseus · 英仙臂", offset: 0, tint: "var(--hw-blue)" },
   { name: "Scutum-Centaurus · 盾牌-半人马", offset: Math.PI / 2, tint: "var(--hw-gold)" },
   { name: "Sagittarius-Carina · 人马-船底", offset: Math.PI, tint: "var(--hw-blue)" },
-  { name: "Outer (Norma) · 外旋臂", offset: (3 * Math.PI) / 2, tint: "var(--hw-gold)" },
+  { name: "Outer · 外旋臂", offset: (3 * Math.PI) / 2, tint: "var(--hw-gold)" },
 ];
 
-const SUN = { x: -218, y: 0 };
 const SAMPLES = 36;
 
 function armPath(offset: number, radius = 360): string {
@@ -23,7 +22,7 @@ function armPath(offset: number, radius = 360): string {
   for (let i = 0; i < SAMPLES; i++) {
     const t = i / (SAMPLES - 1);
     const theta = offset + t * 4.8;
-    const r = 28 + t * radius;
+    const r = 28 + t * (radius - 28);
     const x = Math.cos(theta) * r;
     const y = Math.sin(theta) * r;
     pts.push(`${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`);
@@ -34,6 +33,8 @@ function armPath(offset: number, radius = 360): string {
 export function Tier4HwScene() {
   const content = getTierContent("T4");
   const markers = content?.markers ?? [];
+  const sun = markers.find((marker) => marker.id === "sun");
+  const sunPoint = sun ? projectForTier("T4", sun.position) : null;
 
   // Star field hugging the arms
   const fieldStars = Array.from({ length: 360 }).map((_, i) => {
@@ -102,7 +103,20 @@ export function Tier4HwScene() {
         </g>
       ))}
 
-      {/* Central bulge + Sgr A* — deep galactic core */}
+      {/* 5-kpc bar half-length at 360 SVG units / 15 kpc; orientation is schematic. */}
+      <ellipse
+        cx={0}
+        cy={0}
+        rx={120}
+        ry={28}
+        transform="rotate(30)"
+        fill="var(--hw-gold)"
+        fillOpacity={0.14}
+        stroke="var(--hw-gold)"
+        strokeWidth={1.2}
+      />
+
+      {/* Central icon is enlarged and is not a view of a luminous event horizon. */}
       <g>
         {/* outer dust halo */}
         <circle cx={0} cy={0} r={110} fill="var(--hw-gold)" fillOpacity={0.05} />
@@ -161,51 +175,34 @@ export function Tier4HwScene() {
         />
       </g>
 
-      {/* Sun position cross */}
-      <g>
-        <line
-          x1={SUN.x - 8}
-          y1={SUN.y}
-          x2={SUN.x + 8}
-          y2={SUN.y}
-          stroke="var(--hw-gold)"
-          strokeWidth={1.2}
-        />
-        <line
-          x1={SUN.x}
-          y1={SUN.y - 8}
-          x2={SUN.x}
-          y2={SUN.y + 8}
-          stroke="var(--hw-gold)"
-          strokeWidth={1.2}
-        />
-        <circle cx={SUN.x} cy={SUN.y} r={2.5} fill="var(--hw-gold)" />
+      {/* One Sun marker below supplies the authoritative position. */}
+      {sunPoint && (
         <HandwrittenLabel
-          x={SUN.x - 16}
-          y={SUN.y + 22}
+          x={sunPoint.x + 18}
+          y={sunPoint.y + 24}
           text="☉ Sol · 太阳"
           variant="label-minor"
-          anchor="end"
+          anchor="start"
           italic
           color="var(--hw-gold)"
           delay={1.5}
         />
-      </g>
+      )}
 
-      {/* Halo dashed boundary */}
+      {/* Reference boundary of the displayed stellar disk, not the dark halo. */}
       <circle
         cx={0}
         cy={0}
-        r={400}
+        r={360}
         fill="none"
         stroke="var(--hw-ink-faint-solid)"
         strokeWidth={0.5}
         strokeDasharray="2 8"
       />
       <HandwrittenLabel
-        x={282}
-        y={-300}
-        text="dark matter halo"
+        x={0}
+        y={-390}
+        text="暗晕远超此图，未按比例画出"
         variant="hairline"
         delay={1.6}
         color="var(--hw-ink-faint-solid)"
@@ -227,7 +224,21 @@ export function Tier4HwScene() {
         );
       })}
 
-      <Cartouche cx={0} cy={-460} title="Milky Way" subtitle="银河系 · 4 旋臂 + 棒 + 核" />
+      <HandwrittenLabel
+        x={0}
+        y={405}
+        text="旋臂及入口位置为示意；中心图标已放大"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <HandwrittenLabel
+        x={0}
+        y={429}
+        text="太阳采用卡片坐标；盘面参考半径15 kpc"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <Cartouche cx={0} cy={-460} title="Milky Way" subtitle="银河系 · 棒与旋臂结构示意" />
     </g>
   );
 }

@@ -9,7 +9,10 @@ import { StarPoints } from "@/subjects/physics/components/three/StarPoints";
 import { VolumeBillboard } from "@/subjects/physics/components/volumetric/VolumeBillboard";
 import { Planet } from "@/subjects/physics/components/three/Planet";
 import { SaturnRings } from "@/subjects/physics/components/three/SaturnRings";
-import { preloadPlanetTextures, type PlanetTextureKey } from "@/subjects/physics/lib/planetTextures";
+import {
+  preloadPlanetTextures,
+  type PlanetTextureKey,
+} from "@/subjects/physics/lib/planetTextures";
 import { SceneMarkers } from "../SceneMarkers";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 
@@ -20,8 +23,8 @@ type Props = ComponentProps<"group"> & {
 /**
  * Tier 6 — Solar System.
  *
- * Scene unit ≈ 50 AU. Radial distances are warped log-style so the
- * inner planets (Mercury–Mars, all under 1.5 AU) are still visible
+ * Radial distances use a logarithmic mapping with 50 AU as reference, so
+ * the inner planets (Mercury–Mars, semimajor axes 0.39–1.52 AU) stay visible
  * alongside Neptune at 30 AU and Pluto at 39 AU:
  *
  *     r_scene = 0.10 + 0.85 · log(1 + r_AU) / log(1 + 50)
@@ -31,8 +34,9 @@ type Props = ComponentProps<"group"> & {
  * a thin ring orbit. Saturn has its iconic rings. The asteroid belt
  * (2.2–3.2 AU) and Kuiper belt (30–50 AU) are procedural point clouds.
  *
- * Note that this is a schematic representation — sizes and orbit
- * eccentricities are picked for legibility, not physical realism. The
+ * Note that this is a schematic representation — sizes, inclinations,
+ * orbit geometry and phases are adjusted for legibility. Group rotation
+ * displays the layout; it does not simulate orbital periods. The
  * intent is to read the structure at a glance, not to be a planetarium.
  */
 
@@ -56,7 +60,7 @@ type PlanetSpec = {
   rings?: { inner: number; outer: number };
 };
 
-const SCENE_AU = 50; // 1 scene unit ≈ 50 AU
+const SCENE_AU = 50; // Reference distance in the logarithmic radial mapping.
 
 const PLANETS: PlanetSpec[] = [
   {
@@ -192,8 +196,8 @@ export function Tier6Scene({ opacity = 1, ...groupProps }: Props) {
     if (!reducedMotion && group.current) group.current.rotation.y += dt * 0.03;
 
     // Solar flare easter egg: slow ~22s breathing + occasional spike.
-    // Brightness traces real sunspot modulation timescales (cycle stretched
-    // to seconds). Reduced motion = constant baseline.
+    // This decorative modulation does not encode real solar-cycle or flare
+    // timing. Reduced motion = constant baseline.
     if (flareRef.current) {
       const mat = flareRef.current.material as { opacity?: number };
       if (typeof mat.opacity === "number") {

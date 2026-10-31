@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import type { AnyTierId } from "@/subjects/physics/lib/tier";
 import type { SceneMarker } from "@/subjects/physics/lib/content";
 import { detectInitialQuality, type QualityTier } from "@/subjects/physics/lib/quality";
 
@@ -6,6 +7,7 @@ type UiState = {
   panelOpen: boolean;
   /** What the knowledge panel is showing (an object id, or null). */
   panelContentId: string | null;
+  panelMarkerTier: AnyTierId | null;
   /** Mirror of CSS `prefers-reduced-motion` for runtime branches. */
   reducedMotion: boolean;
   /** Currently hovered 3D scene marker (null when not hovering). */
@@ -15,7 +17,7 @@ type UiState = {
   /** Rendering quality tier — drives post-processing and particle density. */
   qualityTier: QualityTier;
 
-  openPanel: (contentId: string) => void;
+  openPanel: (contentId: string, markerTier?: AnyTierId) => void;
   closePanel: () => void;
   togglePanel: () => void;
   setReducedMotion: (value: boolean) => void;
@@ -27,12 +29,14 @@ type UiState = {
 export const useUiStore = create<UiState>((set) => ({
   panelOpen: false,
   panelContentId: null,
+  panelMarkerTier: null,
   reducedMotion: false,
   hoveredMarker: null,
   hoverMousePos: { x: 0, y: 0 },
   qualityTier: detectInitialQuality(),
 
-  openPanel: (contentId) => set({ panelOpen: true, panelContentId: contentId }),
+  openPanel: (contentId, markerTier) =>
+    set({ panelOpen: true, panelContentId: contentId, panelMarkerTier: markerTier ?? null }),
   closePanel: () => set({ panelOpen: false }),
   togglePanel: () => set((state) => ({ panelOpen: !state.panelOpen })),
   setReducedMotion: (value) => set({ reducedMotion: value }),

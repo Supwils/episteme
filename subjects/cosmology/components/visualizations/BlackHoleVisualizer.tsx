@@ -29,7 +29,7 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
   const cy = svgSize / 2;
   const eventHorizonR = 50;
   const photonSphereR = 75;
-  const accretionInnerR = 85;
+  const accretionInnerR = 150;
   const accretionOuterR = 180;
 
   useEffect(() => {
@@ -98,6 +98,10 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
 
   return (
     <div className={className}>
+      <p className="text-fg-muted mb-3 text-xs leading-relaxed">
+        非旋转黑洞的结构示意。盘与弧线并非光线追迹结果，暗区也不能直接当作观测到的黑洞阴影；
+        吸积盘只存在于有物质供给的黑洞周围。视界内部的经典奇点并不能被直接看见。
+      </p>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
         <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
           <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
@@ -113,214 +117,190 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
           </div>
         </div>
 
-        <svg
-          viewBox={`0 0 ${svgSize} ${svgSize}`}
-          className="h-auto w-full"
-          role="img"
-          aria-label="黑洞结构交互式可视化"
+        <div
+          className="overflow-x-auto"
+          role="region"
+          aria-label="黑洞结构图，可横向滚动阅读标注"
+          tabIndex={0}
         >
-          <defs>
-            <radialGradient id="bh-bg" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#000" />
-              <stop offset="60%" stopColor="#050510" />
-              <stop offset="100%" stopColor="#0a0a1a" />
-            </radialGradient>
-            <radialGradient id="singularity" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#000" />
-              <stop offset="100%" stopColor="#000" stopOpacity="0.9" />
-            </radialGradient>
-            <radialGradient id="photon-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="70%" stopColor="#f97316" stopOpacity="0" />
-              <stop offset="85%" stopColor="#f97316" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
-            </radialGradient>
-            <filter id="bh-glow">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <filter id="star-glow">
-              <feGaussianBlur stdDeviation="1" />
-            </filter>
-          </defs>
+          <svg
+            viewBox={`0 0 ${svgSize} ${svgSize}`}
+            className="h-auto w-full min-w-[500px]"
+            role="img"
+            aria-label="黑洞结构交互式可视化"
+          >
+            <defs>
+              <radialGradient id="bh-bg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#000" />
+                <stop offset="60%" stopColor="#050510" />
+                <stop offset="100%" stopColor="#0a0a1a" />
+              </radialGradient>
+              <radialGradient id="singularity" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#000" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.9" />
+              </radialGradient>
+              <radialGradient id="photon-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="70%" stopColor="#f97316" stopOpacity="0" />
+                <stop offset="85%" stopColor="#f97316" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+              </radialGradient>
+              <filter id="bh-glow">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <filter id="star-glow">
+                <feGaussianBlur stdDeviation="1" />
+              </filter>
+            </defs>
 
-          <rect width={svgSize} height={svgSize} fill="url(#bh-bg)" />
+            <rect width={svgSize} height={svgSize} fill="url(#bh-bg)" />
 
-          {Array.from({ length: 80 }).map((_, i) => {
-            const x = (i * 137.5) % svgSize;
-            const y = (i * 97.3) % svgSize;
-            const r = 0.5 + (i % 3) * 0.5;
-            const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
-            if (dist < accretionOuterR + 20) return null;
-            return (
-              <circle
-                key={`star-${i}`}
-                cx={x}
-                cy={y}
-                r={r}
-                fill="#fff"
-                opacity={0.3 + (i % 5) * 0.1}
-              />
-            );
-          })}
-
-          {Array.from({ length: 12 }).map((_, i) => {
-            const angle = (i / 12) * Math.PI * 2;
-            const dist = accretionOuterR + 40 + (i % 3) * 30;
-            const x = cx + Math.cos(angle) * dist;
-            const y = cy + Math.sin(angle) * dist;
-            const lensR = 3 + (i % 2) * 2;
-            return (
-              <g key={`lensed-${i}`}>
-                <ellipse
+            {Array.from({ length: 80 }).map((_, i) => {
+              const x = (i * 137.5) % svgSize;
+              const y = (i * 97.3) % svgSize;
+              const r = 0.5 + (i % 3) * 0.5;
+              const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
+              if (dist < accretionOuterR + 20) return null;
+              return (
+                <circle
+                  key={`star-${i}`}
                   cx={x}
                   cy={y}
-                  rx={lensR}
-                  ry={lensR * 2.5}
-                  fill="none"
-                  stroke="#60a5fa"
-                  strokeWidth={0.5}
-                  opacity={0.2}
-                  transform={`rotate(${(angle * 180) / Math.PI + 90}, ${x}, ${y})`}
+                  r={r}
+                  fill="#fff"
+                  opacity={0.3 + (i % 5) * 0.1}
                 />
-              </g>
-            );
-          })}
+              );
+            })}
 
-          {accretionDiskPoints.map((pt, i) => (
-            <circle
-              key={`disk-${i}`}
-              cx={pt.x}
-              cy={pt.y}
-              r={pt.size}
-              fill={i % 3 === 0 ? "#f97316" : i % 3 === 1 ? "#fbbf24" : "#ef4444"}
-              opacity={pt.opacity * 0.6}
-            />
-          ))}
+            {Array.from({ length: 12 }).map((_, i) => {
+              const angle = (i / 12) * Math.PI * 2;
+              const dist = accretionOuterR + 40 + (i % 3) * 30;
+              const x = cx + Math.cos(angle) * dist;
+              const y = cy + Math.sin(angle) * dist;
+              const lensR = 3 + (i % 2) * 2;
+              return (
+                <g key={`lensed-${i}`}>
+                  <ellipse
+                    cx={x}
+                    cy={y}
+                    rx={lensR}
+                    ry={lensR * 2.5}
+                    fill="none"
+                    stroke="#60a5fa"
+                    strokeWidth={0.5}
+                    opacity={0.2}
+                    transform={`rotate(${(angle * 180) / Math.PI + 90}, ${x}, ${y})`}
+                  />
+                </g>
+              );
+            })}
 
-          <circle cx={cx} cy={cy} r={photonSphereR} fill="url(#photon-glow)" />
+            {accretionDiskPoints.map((pt, i) => (
+              <circle
+                key={`disk-${i}`}
+                cx={pt.x}
+                cy={pt.y}
+                r={pt.size}
+                fill={i % 3 === 0 ? "#f97316" : i % 3 === 1 ? "#fbbf24" : "#ef4444"}
+                opacity={pt.opacity * 0.6}
+              />
+            ))}
 
-          {lensingArcs.map((arc, i) => (
-            <path
-              key={`lensing-${i}`}
-              d={arc.d}
-              fill="none"
-              stroke="#f97316"
-              strokeWidth={1.5}
-              opacity={arc.opacity}
-            />
-          ))}
+            <circle cx={cx} cy={cy} r={photonSphereR} fill="url(#photon-glow)" />
 
-          <circle
-            cx={cx}
-            cy={cy}
-            r={eventHorizonR}
-            fill="url(#singularity)"
-            stroke="#f97316"
-            strokeWidth={1}
-            strokeOpacity={0.4}
-          />
-
-          <circle
-            cx={cx}
-            cy={cy}
-            r={8}
-            fill="#000"
-            stroke="#ef4444"
-            strokeWidth={0.5}
-            strokeOpacity={0.5}
-          />
-
-          {showLabels && (
-            <g>
-              <line
-                x1={cx}
-                y1={cy - eventHorizonR}
-                x2={cx}
-                y2={cy - eventHorizonR - 40}
+            {lensingArcs.map((arc, i) => (
+              <path
+                key={`lensing-${i}`}
+                d={arc.d}
+                fill="none"
                 stroke="#f97316"
-                strokeWidth={0.5}
-                strokeDasharray="3 3"
-                opacity={0.6}
+                strokeWidth={1.5}
+                opacity={arc.opacity}
               />
-              <text
-                x={cx}
-                y={cy - eventHorizonR - 45}
-                textAnchor="middle"
-                fill="#f97316"
-                fontSize="9"
-                fontFamily="monospace"
-              >
-                事件视界 Event Horizon
-              </text>
+            ))}
 
-              <line
-                x1={cx + photonSphereR}
-                y1={cy}
-                x2={cx + photonSphereR + 40}
-                y2={cy - 20}
-                stroke="#fbbf24"
-                strokeWidth={0.5}
-                strokeDasharray="3 3"
-                opacity={0.6}
-              />
-              <text
-                x={cx + photonSphereR + 45}
-                y={cy - 22}
-                textAnchor="start"
-                fill="#fbbf24"
-                fontSize="9"
-                fontFamily="monospace"
-              >
-                光子层 Photon Sphere
-              </text>
+            <circle
+              cx={cx}
+              cy={cy}
+              r={eventHorizonR}
+              fill="url(#singularity)"
+              stroke="#f97316"
+              strokeWidth={1}
+              strokeOpacity={0.4}
+            />
 
-              <line
-                x1={cx + accretionOuterR}
-                y1={cy + 10}
-                x2={cx + accretionOuterR + 30}
-                y2={cy + 30}
-                stroke="#ef4444"
-                strokeWidth={0.5}
-                strokeDasharray="3 3"
-                opacity={0.6}
-              />
-              <text
-                x={cx + accretionOuterR + 35}
-                y={cy + 32}
-                textAnchor="start"
-                fill="#ef4444"
-                fontSize="9"
-                fontFamily="monospace"
-              >
-                吸积盘 Accretion Disk
-              </text>
+            {showLabels && (
+              <g>
+                <line
+                  x1={cx}
+                  y1={cy - eventHorizonR}
+                  x2={cx}
+                  y2={cy - eventHorizonR - 40}
+                  stroke="#f97316"
+                  strokeWidth={0.5}
+                  strokeDasharray="3 3"
+                  opacity={0.6}
+                />
+                <text
+                  x={cx}
+                  y={cy - eventHorizonR - 45}
+                  textAnchor="middle"
+                  fill="#f97316"
+                  fontSize="12"
+                  fontFamily="monospace"
+                >
+                  事件视界
+                </text>
 
-              <line
-                x1={cx - 8}
-                y1={cy + 8}
-                x2={cx - 30}
-                y2={cy + 30}
-                stroke="#888"
-                strokeWidth={0.5}
-                strokeDasharray="3 3"
-                opacity={0.6}
-              />
-              <text
-                x={cx - 35}
-                y={cy + 32}
-                textAnchor="end"
-                fill="#888"
-                fontSize="9"
-                fontFamily="monospace"
-              >
-                奇点 Singularity
-              </text>
-            </g>
-          )}
-        </svg>
+                <line
+                  x1={cx + photonSphereR}
+                  y1={cy}
+                  x2={cx + photonSphereR + 40}
+                  y2={cy - 20}
+                  stroke="#fbbf24"
+                  strokeWidth={0.5}
+                  strokeDasharray="3 3"
+                  opacity={0.6}
+                />
+                <text
+                  x={cx + photonSphereR + 45}
+                  y={cy - 22}
+                  textAnchor="start"
+                  fill="#fbbf24"
+                  fontSize="12"
+                  fontFamily="monospace"
+                >
+                  光子球
+                </text>
+
+                <line
+                  x1={cx + accretionOuterR}
+                  y1={cy + 10}
+                  x2={cx + accretionOuterR}
+                  y2={cy + 100}
+                  stroke="#ef4444"
+                  strokeWidth={0.5}
+                  strokeDasharray="3 3"
+                  opacity={0.6}
+                />
+                <text
+                  x={cx + accretionOuterR}
+                  y={cy + 118}
+                  textAnchor="end"
+                  fill="#ef4444"
+                  fontSize="12"
+                  fontFamily="monospace"
+                >
+                  吸积盘
+                </text>
+              </g>
+            )}
+          </svg>
+        </div>
 
         <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
           <div className="flex items-center gap-4">
@@ -330,27 +310,37 @@ export function BlackHoleVisualizer({ className }: BlackHoleVisualizerProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-yellow-500" />
-              <span className="text-fg-muted font-mono text-[9px]">光子层</span>
+              <span className="text-fg-muted font-mono text-[9px]">光子球</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500" />
               <span className="text-fg-muted font-mono text-[9px]">吸积盘</span>
             </div>
           </div>
-          <span className="text-fg-disabled font-mono text-[9px]">史瓦西半径模型</span>
+          <span className="text-fg-disabled font-mono text-[9px]">非旋转、无电荷模型</span>
         </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-3">
+      <p className="text-fg-muted mt-3 text-xs">
+        <a
+          className="underline"
+          href="https://science.nasa.gov/universe/black-holes/anatomy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          来源：NASA 黑洞结构
+        </a>
+      </p>
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="border-border-faint bg-bg-near border p-3">
           <p className="text-fg-muted font-mono text-[9px]">事件视界</p>
           <p className="text-fg-primary font-mono text-sm">r_s = 2GM/c²</p>
           <p className="text-fg-disabled mt-1 text-[10px]">光无法逃逸的边界</p>
         </div>
         <div className="border-border-faint bg-bg-near border p-3">
-          <p className="text-fg-muted font-mono text-[9px]">光子层</p>
+          <p className="text-fg-muted font-mono text-[9px]">光子球</p>
           <p className="text-fg-primary font-mono text-sm">r = 1.5 r_s</p>
-          <p className="text-fg-disabled mt-1 text-[10px]">光子可绕黑洞运行</p>
+          <p className="text-fg-disabled mt-1 text-[10px]">圆形光子轨道不稳定</p>
         </div>
         <div className="border-border-faint bg-bg-near border p-3">
           <p className="text-fg-muted font-mono text-[9px]">引力透镜</p>

@@ -39,7 +39,8 @@ type Props = ComponentProps<"group"> & {
  * atmosphere shells (r=1.04, r=1.12) sell the air halo with a
  * sunward-weighted intensity. The Moon is placed at 5 R⊕ (compressed
  * from 60 R⊕ for visibility) with the LRO map applied. A faint
- * geostationary ring at 6.6 R⊕ marks the comms belt.
+ * geostationary ring at 6.6 R⊕ from Earth's center marks the comms belt.
+ * Cloud and atmosphere shell thicknesses are exaggerated for visibility.
  */
 
 // Sun comes from +X for legibility. Same direction is fed into all four

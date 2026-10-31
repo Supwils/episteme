@@ -14,6 +14,11 @@
     "e": "1966 年科尔曼报告测量资源、家庭与成绩的相关。1971 年塞拉诺案问学区财富是否把教育质量写成邻居房产的函数。1973 年罗德里格斯案未把教育写成联邦基本权利。经费公式里的权重，决定了谁被当成可教。",
     "d": "education"
   },
+  "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking": {
+    "t": "按曲线评分是排名",
+    "e": "格拉泽1963年在《美国心理学家》区分标准参照与常模参照。前者问是否达到事先写明的标准，后者问落在这群人的什么位置。本文指按固定比例分配等级的相对评分：全班达标仍可能有相对低等级，反之也可能有相对高等级。",
+    "d": "education"
+  },
   "/education/assessment-and-equity/high-stakes-exams-are-institutions": {
     "t": "高利害考试是一种制度",
     "e": "1977 年中国恢复高考，日本共通测试与韩国修能同样是可核对的时间表、题型与录取接口。利害一高，课程会被收成试卷表面，黛安娜·沃尔称之为洗刷效应。考试是制度，不是气质。",
@@ -104,6 +109,11 @@
     "e": "马克·布雷把模仿学校课程的付费教学称为影子教育：主流考什么，影子就卖什么。它是高利害证书加上可购买的课外时间，双减之后转向线上与一对一，变形不等于消失。",
     "d": "education"
   },
+  "/education/comparison-and-policy/summer-setback-is-not-one-number": {
+    "t": "夏季下滑不是一个数字",
+    "e": "恩特威斯尔、亚历山大与奥尔森跟踪巴尔的摩同一批儿童的学年与暑假。上课月份把不同家庭的进度拉近，暑假让家庭差别再现。库珀等人1996年的综述应与测量批评并列，任何月数都不是唯一真值。",
+    "d": "education"
+  },
   "/education/curriculum-and-teaching/bilingual-education-is-a-design": {
     "t": "双语教育是一种设计",
     "e": "1974 年劳诉尼科尔斯案判定，只用英语、不给语言支持的教学不等于平等教育。毛利语恢复学校与加拿大法语沉浸是可描述的设计：目标语言、年限、师资来源、评估用哪种语言。",
@@ -137,6 +147,11 @@
   "/education/curriculum-and-teaching/vocational-schooling-is-a-track": {
     "t": "职业教育是一种轨道",
     "e": "德国双元制把学习分在学校与企业，西伦把这种技能形成写成工会、雇主与国家分担成本的政治制度。职业教育是一条公开的轨道，要看课时、数学与语言天花板和回流规则。",
+    "d": "education"
+  },
+  "/education/curriculum-and-teaching/wait-time-is-a-pause": {
+    "t": "等待时间是停顿",
+    "e": "玛丽·巴德·罗在1970年代观察科学课堂，教师提问后的停顿常常不到一秒。她把停顿延长到约三至五秒，再看谁开口。更多学生开始回答，回答也变长。这是她的观察，不是每间教室的定律。",
     "d": "education"
   },
   "/education/education-technology/adaptive-systems-are-not-tutors": {
@@ -204,6 +219,11 @@
     "e": "1962 至 1967 年，佩里学前研究把 123 名非裔幼儿随机分为 58 人项目组与 65 人对照组，跟踪到 40 岁。本条核对随机规则、测验、犯罪与收入表，以及后来被重估的回报率。",
     "d": "education"
   },
+  "/education/learning-foundations/play-is-a-practice": {
+    "t": "游戏是一种实践",
+    "e": "福禄贝尔在十九世纪把幼儿园建成儿童操作物体来学习的机构。维果茨基把游戏看成想象情境中的规则行动，并由此站到更高处。游戏可以成为学习的条件，也可以只是休息。",
+    "d": "education"
+  },
   "/education/learning-foundations/school-is-an-institution": {
     "t": "学校是一种制度",
     "e": "法国 1880 年代的费里法把初等教育推向义务、免费与世俗，中国 1986 年《义务教育法》写入九年义务教育。学校是年龄分级、课表、出勤与文凭组成的制度，不只是放大的书房。",
@@ -212,6 +232,11 @@
   "/education/learning-foundations/teacher-education-is-preparation": {
     "t": "教师教育是专业准备",
     "e": "洛蒂 1975 年的《学校教师》指出，教师在自己当学生的上万小时里已经通过观察学会“教学看起来像什么”。舒尔曼 1986 年提出学科教学知识：会解题不等于会教。",
+    "d": "education"
+  },
+  "/education/learning-foundations/teacher-expectation-is-not-a-measure": {
+    "t": "教师期望不是测量",
+    "e": "罗森塔尔与雅各布森在1968年出版的研究中报告，曾告诉教师一些学生会「绽放」，标签是随机的。原书报告了智商变化。同年的测量批评和后来的综述说明，效应可以被观察到，但不能写成教师一相信、智商就大幅上升。",
     "d": "education"
   },
   "/education/learning-foundations/teaching-is-not-pouring": {

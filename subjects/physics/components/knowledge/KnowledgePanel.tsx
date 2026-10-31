@@ -4,6 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Close } from "@/subjects/physics/components/hud/icons";
+import { useMarkerPanelNavigation } from "./use-marker-panel-navigation";
+import { MarkerDetail } from "./MarkerDetail";
+import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
 import { AtlasToc } from "./AtlasToc";
 import { DataCard } from "./DataCard";
 import { NarrativeSection } from "./NarrativeSection";
@@ -21,11 +24,16 @@ const PRODUCT_EASE = [0.22, 0.61, 0.36, 1] as const;
 export function KnowledgePanel() {
   const open = useUiStore((state) => state.panelOpen);
   const contentId = useUiStore((state) => state.panelContentId);
+  const markerTier = useUiStore((state) => state.panelMarkerTier);
+  const transitionActive = useUniverseStore((state) => state.transition.active);
+  const currentTier = useUniverseStore((state) => state.currentTier);
   const close = useUiStore((state) => state.closePanel);
 
   const panelRef = useRef<HTMLElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useMarkerPanelNavigation({ open, markerTier, currentTier, transitionActive, close });
 
   useEffect(() => {
     if (!open) return;
@@ -35,7 +43,9 @@ export function KnowledgePanel() {
     const id = window.setTimeout(() => closeButtonRef.current?.focus(), 360);
     return () => {
       window.clearTimeout(id);
-      previousFocusRef.current?.focus?.();
+      const previous = previousFocusRef.current;
+      if (previous?.isConnected && previous.getClientRects().length) previous.focus();
+      else document.querySelector<HTMLButtonElement>("[data-open-atlas]")?.focus();
     };
   }, [open]);
 
@@ -67,7 +77,14 @@ export function KnowledgePanel() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, close]);
 
-  const tier = contentId as AnyTierId | null;
+  const selectedTier =
+    contentId && (isUniverseTierId(contentId) || isPhysicsTierId(contentId)) ? contentId : null;
+  const marker = selectedTier
+    ? null
+    : markerTier
+      ? getContentForTier(markerTier)?.markers?.find((marker) => marker.id === contentId)
+      : null;
+  const tier = selectedTier ?? (marker ? markerTier : null);
   const content = tier ? getContentForTier(tier) : null;
   const meta = tier ? sectionMetaForTier(tier) : null;
   const [scrollEl, setScrollEl] = useState<HTMLDivElement | null>(null);
@@ -90,7 +107,7 @@ export function KnowledgePanel() {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-label={`${meta.tierLabel} knowledge atlas`}
+            aria-label={marker ? `${marker.name.primary}详情` : `${meta.tierLabel} knowledge atlas`}
             className="bg-bg-deep/80 border-fg-disabled/30 fixed top-0 right-0 z-50 flex h-full w-full max-w-[480px] flex-col border-l shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-xl"
             initial={{ x: "102%" }}
             animate={{ x: 0 }}
@@ -112,6 +129,11 @@ export function KnowledgePanel() {
                 }}
                 className="flex flex-col gap-7"
               >
+                {marker ? (
+                  <Reveal>
+                    <MarkerDetail marker={marker} />
+                  </Reveal>
+                ) : null}
                 <Reveal>
                   <Hero tier={tier} />
                 </Reveal>

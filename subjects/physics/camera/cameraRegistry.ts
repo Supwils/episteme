@@ -16,7 +16,7 @@ export type CameraRigApi = {
   flyTo: (
     target: Vector3,
     distance: number,
-    opts?: { fov?: number; duration?: number },
+    opts?: { fov?: number; duration?: number }
   ) => gsap.core.Timeline;
   /** Snap immediately without animation; used for reduced-motion. */
   jumpTo: (target: Vector3, distance: number, opts?: { fov?: number }) => void;
@@ -35,10 +35,9 @@ export type CameraRigApi = {
    */
   spinAroundTarget: (angle: number, duration: number) => void;
   /**
-   * Smoothly bring the camera to the comfort distance defined for the
-   * given tier. Direction from target is preserved; only radius and
-   * (optionally) FOV are touched. Called on every transition completion
-   * so each tier opens at a known framing.
+   * Settle to the tier's framing after a transition. T4/T6 use an
+   * aspect-aware distance and a readable disk elevation; other tiers
+   * preserve the direction from the orbit target.
    */
   settleForTier: (tier: TierId, duration: number) => void;
 };

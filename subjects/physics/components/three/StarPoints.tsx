@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, type RefObject } from "react";
 import { AdditiveBlending, BufferAttribute, type BufferGeometry, type ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { starPointVert } from "@/subjects/physics/shaders/starPoint.vert.glsl";
@@ -23,7 +23,7 @@ type StarPointsProps = {
   brightnesses?: Float32Array;
   /** Per-point RGB colors [r, g, b, r, g, b, ...]. When provided, overrides spectral ramp. */
   colors?: Float32Array;
-  /** Fallback size when `sizes` is not provided. */
+  /** CSS pixel size at the default camera distance when `sizes` is absent. */
   baseSize?: number;
   /** Fallback temperature when `temps` is not provided. */
   baseTemp?: number;
@@ -33,6 +33,8 @@ type StarPointsProps = {
   sizeMultiplier?: number;
   /** Parent opacity for cross-fade support (written to material each frame). */
   opacity?: number;
+  /** Optional live modulation for illustrative flares without a React render per frame. */
+  opacityMultiplier?: RefObject<number>;
 };
 
 /**
@@ -62,6 +64,7 @@ export function StarPoints({
   baseBrightness = 1,
   sizeMultiplier = 1,
   opacity = 1,
+  opacityMultiplier,
 }: StarPointsProps) {
   const matRef = useRef<ShaderMaterial>(null);
   const geomRef = useRef<BufferGeometry>(null);
@@ -94,17 +97,12 @@ export function StarPoints({
 
   const uniforms = useMemo(
     () => ({
-      uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+      uPixelRatio: { value: 1 },
       uSizeMultiplier: { value: 1 },
+      uOpacity: { value: 1 },
     }),
     []
   );
-
-  useEffect(() => {
-    if (matRef.current) {
-      matRef.current.uniforms.uPixelRatio!.value = Math.min(window.devicePixelRatio, 2);
-    }
-  }, []);
 
   useEffect(() => {
     if (matRef.current) {
@@ -112,12 +110,10 @@ export function StarPoints({
     }
   }, [sizeMultiplier]);
 
-  const lastOpacity = useRef(opacity);
-  useFrame(() => {
-    if (matRef.current && lastOpacity.current !== opacity) {
-      matRef.current.opacity = opacity;
-      lastOpacity.current = opacity;
-    }
+  useFrame(({ gl }) => {
+    if (!matRef.current) return;
+    matRef.current.uniforms.uOpacity!.value = opacity * (opacityMultiplier?.current ?? 1);
+    matRef.current.uniforms.uPixelRatio!.value = gl.getPixelRatio();
   });
 
   useEffect(() => {

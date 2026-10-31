@@ -1,126 +1,12 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-type CosmicEvent = {
-  id: string;
-  timeYearsAgo: number;
-  label: string;
-  labelEn: string;
-  description: string;
-  icon: string;
-  color: string;
-  category: "origin" | "structure" | "light" | "matter" | "life" | "present";
-};
+import { COSMOLOGY_ERAS, type CosmologyEra } from "@/content/cosmology/eras";
 
-const COSMIC_EVENTS: CosmicEvent[] = [
-  {
-    id: "big-bang",
-    timeYearsAgo: 13.8e9,
-    label: "大爆炸",
-    labelEn: "Big Bang",
-    description:
-      "宇宙从一个无限致密、高温的奇点膨胀而来。时间和空间本身在此诞生。大爆炸后的最初瞬间，四种基本力统一为一种超力。",
-    icon: "✦",
-    color: "#f43f5e",
-    category: "origin",
-  },
-  {
-    id: "nucleosynthesis",
-    timeYearsAgo: 13.8e9 - 3 / (365.25 * 24 * 60),
-    label: "核合成",
-    labelEn: "Nucleosynthesis",
-    description:
-      "大爆炸后约 3 分钟，宇宙冷却到约 10 亿度，质子和中子开始结合形成氢、氦和微量的锂。这些轻元素构成了后来所有恒星的原料。",
-    icon: "⚛",
-    color: "#f97316",
-    category: "matter",
-  },
-  {
-    id: "recombination",
-    timeYearsAgo: 13.8e9 - 380000,
-    label: "复合（CMB 释放）",
-    labelEn: "Recombination",
-    description:
-      "宇宙膨胀冷却到约 3000K，电子首次被原子核捕获形成中性原子。光子得以自由传播，形成了今天观测到的宇宙微波背景辐射（CMB）。",
-    icon: "◎",
-    color: "#eab308",
-    category: "light",
-  },
-  {
-    id: "first-stars",
-    timeYearsAgo: 13.6e9,
-    label: "第一批恒星",
-    labelEn: "First Stars",
-    description:
-      "宇宙的「黑暗时代」结束。第一批大质量恒星（Population III）点燃，照亮了周围的气体。这些恒星极其巨大、炽热，寿命短暂，以超新星爆发结束生命。",
-    icon: "✧",
-    color: "#a78bfa",
-    category: "light",
-  },
-  {
-    id: "first-galaxies",
-    timeYearsAgo: 12.8e9,
-    label: "第一批星系",
-    labelEn: "First Galaxies",
-    description:
-      "引力将气体和暗物质聚集在一起，形成了最早的原星系。这些小星系不断合并、成长，逐渐演化为我们今天看到的大型星系。",
-    icon: "◉",
-    color: "#3b82f6",
-    category: "structure",
-  },
-  {
-    id: "solar-system",
-    timeYearsAgo: 4.6e9,
-    label: "太阳系形成",
-    labelEn: "Solar System Forms",
-    description:
-      "一片巨大的分子云在引力作用下坍缩，中心形成了太阳。残余物质形成了原行星盘，最终凝聚为八大行星、矮行星和无数小天体。",
-    icon: "☉",
-    color: "#22d3ee",
-    category: "structure",
-  },
-  {
-    id: "present",
-    timeYearsAgo: 0,
-    label: "现在",
-    labelEn: "Present",
-    description:
-      "宇宙已经膨胀了 138 亿年。我们生活在一个拥有约 2 万亿个星系的可观测宇宙中。暗能量正在加速宇宙的膨胀。",
-    icon: "⊕",
-    color: "#10b981",
-    category: "present",
-  },
-];
-
-const AGE_UNIVERSE = 13.8e9;
-
-function logScale(yearsAgo: number): number {
-  if (yearsAgo <= 0) return 1;
-  const logMax = Math.log10(AGE_UNIVERSE);
-  const logVal = Math.log10(yearsAgo);
-  return logVal / logMax;
-}
-
-function formatTimeAgo(yearsAgo: number): string {
-  if (yearsAgo === 0) return "现在";
-  if (yearsAgo < 1) {
-    const minutes = Math.round(yearsAgo * 365.25 * 24 * 60);
-    if (minutes < 60) return `${minutes} 分钟`;
-    const hours = Math.round(minutes / 60);
-    return `${hours} 小时`;
-  }
-  if (yearsAgo < 1000) return `${Math.round(yearsAgo)} 年`;
-  if (yearsAgo < 1e6) return `${(yearsAgo / 1e3).toFixed(0)} 千年`;
-  if (yearsAgo < 1e9) return `${(yearsAgo / 1e6).toFixed(0)} 百万年`;
-  return `${(yearsAgo / 1e9).toFixed(1)} 亿年`;
-}
-
-function formatTimeAgoFull(yearsAgo: number): string {
-  if (yearsAgo === 0) return "现在（0 年前）";
-  return `${formatTimeAgo(yearsAgo)}前`;
-}
+type CosmicEvent = CosmologyEra & { marker: NonNullable<CosmologyEra["marker"]> };
+const COSMIC_EVENTS = COSMOLOGY_ERAS.filter((era): era is CosmicEvent => era.marker !== undefined);
 
 type DetailCardProps = {
   event: CosmicEvent;
@@ -128,12 +14,16 @@ type DetailCardProps = {
 };
 
 function DetailCard({ event, onClose }: DetailCardProps) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      id="cosmic-event-details"
+      role="region"
+      aria-label={`${event.name.primary}详情`}
+      initial={reduce ? false : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
+      exit={reduce ? { opacity: 1 } : { opacity: 0, y: 20 }}
+      transition={{ duration: reduce ? 0 : 0.25, ease: "easeOut" }}
       className="border-border-faint bg-bg-elevated/90 relative mx-auto max-w-lg rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
@@ -147,19 +37,33 @@ function DetailCard({ event, onClose }: DetailCardProps) {
         <div
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl"
           style={{
-            backgroundColor: `${event.color}20`,
-            color: event.color,
+            backgroundColor: `${event.marker.color}20`,
+            color: event.marker.color,
           }}
         >
-          {event.icon}
+          {event.marker.icon}
         </div>
         <div className="min-w-0">
-          <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">{event.label}</h3>
-          <p className="mb-2 text-xs text-[#868da0]">{event.labelEn}</p>
-          <p className="mb-3 font-mono text-sm font-medium" style={{ color: event.color }}>
-            {formatTimeAgoFull(event.timeYearsAgo)}
+          <h3 className="text-fg-primary mb-0.5 text-lg font-semibold">{event.name.primary}</h3>
+          <p className="mb-2 text-xs text-[#868da0]">{event.name.english}</p>
+          <p className="mb-3 font-mono text-sm font-medium" style={{ color: event.marker.color }}>
+            {event.timeRange}
           </p>
           <p className="text-sm leading-relaxed text-[#a8adbd]">{event.description}</p>
+          <ul aria-label="参考来源" className="mt-4 space-y-2 text-xs leading-relaxed">
+            {event.sources.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-cool underline underline-offset-2"
+                >
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </motion.div>
@@ -187,7 +91,9 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
       onClick={onClick}
       role="button"
       tabIndex={0}
-      aria-label={`${event.label} — ${formatTimeAgoFull(event.timeYearsAgo)}`}
+      aria-label={`${event.name.primary} — ${event.timeRange}`}
+      aria-pressed={isSelected}
+      aria-controls={isSelected ? "cosmic-event-details" : undefined}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -201,7 +107,7 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
         y1={lineY1 + 8}
         x2={x}
         y2={lineY2}
-        stroke={event.color}
+        stroke={event.marker.color}
         strokeWidth={1}
         opacity={0.4}
         strokeDasharray="3 3"
@@ -214,7 +120,7 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
           cy={60}
           r={18}
           fill="none"
-          stroke={event.color}
+          stroke={event.marker.color}
           strokeWidth={1}
           opacity={0.2}
         >
@@ -238,11 +144,11 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
         cx={x}
         cy={60}
         r={isSelected ? 10 : 7}
-        fill={isSelected ? event.color : `${event.color}40`}
-        stroke={event.color}
+        fill={isSelected ? event.marker.color : `${event.marker.color}40`}
+        stroke={event.marker.color}
         strokeWidth={isSelected ? 2 : 1.5}
         style={{
-          filter: isSelected ? `drop-shadow(0 0 8px ${event.color}80)` : "none",
+          filter: isSelected ? `drop-shadow(0 0 8px ${event.marker.color}80)` : "none",
           transition: "all 0.3s ease",
         }}
       />
@@ -252,11 +158,11 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
         x={x}
         y={64}
         textAnchor="middle"
-        fill={isSelected ? "#fff" : event.color}
+        fill={isSelected ? "#fff" : event.marker.color}
         fontSize={isSelected ? 10 : 8}
         style={{ pointerEvents: "none" }}
       >
-        {event.icon}
+        {event.marker.icon}
       </text>
 
       {/* Label */}
@@ -269,7 +175,7 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
         fontWeight={isSelected ? 600 : 400}
         fontFamily="var(--font-sans)"
       >
-        {event.label}
+        {event.name.primary}
       </text>
 
       {/* Time label */}
@@ -277,11 +183,11 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
         x={x}
         y={timeY}
         textAnchor="middle"
-        fill={isSelected ? event.color : "#4b5563"}
-        fontSize={9}
+        fill={isSelected ? event.marker.color : "#9298aa"}
+        fontSize={12}
         fontFamily="var(--font-mono)"
       >
-        {formatTimeAgo(event.timeYearsAgo)}
+        {event.timeRange}
       </text>
     </g>
   );
@@ -290,56 +196,48 @@ function TimelineMarker({ event, x, isAlternate, isSelected, onClick }: Timeline
 export function CosmicTimeline() {
   const [selectedEvent, setSelectedEvent] = useState<CosmicEvent | null>(null);
 
-  const sortedEvents = useMemo(
-    () => [...COSMIC_EVENTS].sort((a, b) => b.timeYearsAgo - a.timeYearsAgo),
-    []
-  );
-
+  const sortedEvents = COSMIC_EVENTS;
   const viewBox = { width: 1000, height: 260 };
-  const padding = { left: 60, right: 60 };
+  const padding = { left: 110, right: 110 };
   const usableWidth = viewBox.width - padding.left - padding.right;
-
-  const markerPositions = useMemo(
-    () =>
-      sortedEvents.map((event) => {
-        const norm = logScale(event.timeYearsAgo);
-        return padding.left + (1 - norm) * usableWidth;
-      }),
-    [sortedEvents, usableWidth, padding.left]
+  const markerPositions = sortedEvents.map(
+    (_, index) => padding.left + (index / (sortedEvents.length - 1)) * usableWidth
   );
 
   const handleSelect = useCallback((event: CosmicEvent) => {
     setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
   }, []);
 
-  const categoryColors: Record<CosmicEvent["category"], string> = {
+  const categoryColors: Record<CosmicEvent["marker"]["category"], string> = {
     origin: "#f43f5e",
     structure: "#3b82f6",
     light: "#eab308",
     matter: "#f97316",
-    life: "#10b981",
     present: "#10b981",
   };
 
   return (
     <section className="w-full">
       <div className="mb-6 text-center">
-        <p className="mb-3 text-xs tracking-[0.32em] text-[#3b82f6] uppercase">
-          Interactive Timeline
-        </p>
+        <p className="mb-3 text-xs tracking-[0.32em] text-[#3b82f6] uppercase">互动时间线</p>
         <h2 className="text-fg-primary mb-2 text-2xl font-bold md:text-3xl">宇宙演化时间线</h2>
         <p className="text-sm text-[#868da0]">
-          点击事件标记查看详细信息 · 对数刻度使近期事件更清晰
+          点击节点查看来源 · 节点等距只示顺序，各阶段可重叠，间距不代表时长
         </p>
       </div>
 
       {/* Timeline SVG */}
-      <div className="w-full overflow-x-auto">
+      <div
+        className="w-full overflow-x-auto"
+        role="region"
+        tabIndex={0}
+        aria-label="可横向滚动的宇宙时间线"
+      >
         <svg
-          className="w-full min-w-[700px] select-none"
+          className="w-full min-w-[1000px] select-none"
           viewBox={`0 0 ${viewBox.width} ${viewBox.height}`}
           preserveAspectRatio="xMidYMid meet"
-          role="img"
+          role="group"
           aria-label="宇宙演化时间线，从大爆炸到现在"
         >
           <defs>
@@ -384,35 +282,6 @@ export function CosmicTimeline() {
             opacity={0.3}
           />
 
-          {/* Tick marks for reference */}
-          {[0, 2, 4, 6, 8, 10, 12, 13.8].map((billionYears) => {
-            const yearsAgo = billionYears * 1e9;
-            const norm = logScale(yearsAgo === 0 ? 1 : yearsAgo);
-            const x = padding.left + (1 - norm) * usableWidth;
-            return (
-              <g key={billionYears}>
-                <line
-                  x1={x}
-                  y1={52}
-                  x2={x}
-                  y2={68}
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth={1}
-                />
-                <text
-                  x={x}
-                  y={46}
-                  textAnchor="middle"
-                  fill="#4b5563"
-                  fontSize={8}
-                  fontFamily="var(--font-mono)"
-                >
-                  {billionYears === 0 ? "现在" : `${billionYears} Gyr`}
-                </text>
-              </g>
-            );
-          })}
-
           {/* Event markers */}
           {sortedEvents.map((event, i) => (
             <TimelineMarker
@@ -453,7 +322,6 @@ export function CosmicTimeline() {
             structure: "结构",
             light: "光与辐射",
             matter: "物质",
-            life: "生命",
             present: "现在",
           };
           return (
@@ -466,26 +334,31 @@ export function CosmicTimeline() {
       </div>
 
       {/* Event list for small screens */}
-      <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {sortedEvents.map((event) => (
           <button
             key={event.id}
+            id={`cosmic-event-${event.id}`}
+            aria-pressed={selectedEvent?.id === event.id}
+            aria-controls={selectedEvent?.id === event.id ? "cosmic-event-details" : undefined}
             onClick={() => handleSelect(event)}
             className="rounded-xl border p-3 text-left transition-all"
             style={{
               borderColor:
-                selectedEvent?.id === event.id ? `${event.color}40` : "rgba(255,255,255,0.06)",
+                selectedEvent?.id === event.id
+                  ? `${event.marker.color}40`
+                  : "rgba(255,255,255,0.06)",
               backgroundColor:
-                selectedEvent?.id === event.id ? `${event.color}10` : "rgba(255,255,255,0.02)",
+                selectedEvent?.id === event.id
+                  ? `${event.marker.color}10`
+                  : "rgba(255,255,255,0.02)",
             }}
           >
             <div className="mb-1 flex items-center gap-2">
-              <span style={{ color: event.color }}>{event.icon}</span>
-              <span className="truncate text-xs font-medium text-[#a8adbd]">{event.label}</span>
+              <span style={{ color: event.marker.color }}>{event.marker.icon}</span>
+              <span className="text-sm font-medium text-[#a8adbd]">{event.name.primary}</span>
             </div>
-            <p className="font-mono text-[10px] text-[#4b5563]">
-              {formatTimeAgo(event.timeYearsAgo)}
-            </p>
+            <p className="font-mono text-xs text-[#9298aa]">{event.timeRange}</p>
           </button>
         ))}
       </div>
@@ -497,7 +370,10 @@ export function CosmicTimeline() {
             <DetailCard
               key={selectedEvent.id}
               event={selectedEvent}
-              onClose={() => setSelectedEvent(null)}
+              onClose={() => {
+                document.getElementById(`cosmic-event-${selectedEvent.id}`)?.focus();
+                setSelectedEvent(null);
+              }}
             />
           )}
         </AnimatePresence>

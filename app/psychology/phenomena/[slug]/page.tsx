@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { withCanonicalPath } from "@/lib/article-canonical";
 import { extractExcerpt } from "@/lib/content-utils";
+import { bibliographyToJsonLd } from "@/lib/citations";
+import { SITE_URL } from "@/lib/constants";
+import { createArticleJsonLd, serializeJsonLd } from "@/lib/jsonld";
 import Link from "next/link";
 import { readerKeyFigureLabel } from "@/lib/reader-key-figure-label";
 import { getPhenomenonBySlug, getAllPhenomena } from "@/subjects/psychology/lib/mdx";
@@ -46,6 +49,15 @@ export default async function PhenomenonDetailPage({
           p.key_figures.some((f) => phenomenon.key_figures.includes(f)))
     )
     .slice(0, 4);
+
+  const jsonLd = createArticleJsonLd({
+    title: phenomenon.title,
+    description: phenomenon.summary ?? extractExcerpt(phenomenon.content),
+    url: `${SITE_URL}/psychology/phenomena/${slug}`,
+    dateModified: phenomenon.updated,
+    keywords: phenomenon.tags,
+    citations: bibliographyToJsonLd(phenomenon.content),
+  });
 
   return (
     <ArticleLayout
@@ -127,6 +139,10 @@ export default async function PhenomenonDetailPage({
         </>
       }
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
       {slug === "attachment-styles" && <AttachmentStyles />}
       <MarkdownRenderer domain="psychology" content={phenomenon.content} accentColor={catColor} />
       <DomainLabInvite domain="psychology" section="phenomena" slug={slug} />

@@ -27,7 +27,7 @@ export function SceneMarkers({ markers, opacity = 1, tierId }: Props) {
   return (
     <group>
       {markers.map((m) => (
-        <MarkerPoint key={m.id} marker={m} opacity={opacity} kind={kind} />
+        <MarkerPoint key={m.id} marker={m} opacity={opacity} kind={kind} tierId={tierId} />
       ))}
     </group>
   );
@@ -37,16 +37,19 @@ function MarkerPoint({
   marker,
   opacity,
   kind,
+  tierId,
 }: {
   marker: SceneMarker;
   opacity: number;
   kind: MarkerKind;
+  tierId: UniverseTierId;
 }) {
   const meshRef = useRef<Group>(null);
   const glowRef = useRef(0);
   const targetGlow = useRef(0);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
 
+  const openPanel = useUiStore((s) => s.openPanel);
   const setHoveredMarker = useUiStore((s) => s.setHoveredMarker);
   const setHoverMousePos = useUiStore((s) => s.setHoverMousePos);
 
@@ -111,6 +114,10 @@ function MarkerPoint({
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
       onPointerMove={onPointerMove}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (opacity > 0.5) openPanel(marker.id, tierId);
+      }}
     >
       {kind === "haloDisk" && (
         <MarkerHaloDisk color={baseColor} opacity={opacity} glowRef={glowRef} />

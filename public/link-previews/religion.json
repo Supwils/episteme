@@ -9,6 +9,11 @@
     "e": "1893 年芝加哥世界宗教议会把若干传统并排请上讲台，并排本身就是一种分类。比较宗教要先问：这张地图把谁写成宗教，又把谁写成迷信、哲学或习俗。",
     "d": "religion"
   },
+  "/religion/comparative-religion/dietary-rules-are-boundaries": {
+    "t": "饮食戒律是边界",
+    "e": "《利未记》划分可吃与不可吃的动物，《古兰经》列出血液和自死物等禁止。饮食戒律在这里被看成边界。道格拉斯把圣洁读成秩序，并认为猪在该分类里是异常。那是她的解释。",
+    "d": "religion"
+  },
   "/religion/comparative-religion/gods-and-the-one": {
     "t": "多神与一神",
     "e": "阿肯那顿把阿吞推上祭仪中心，常被称作“第一次一神教”。可数量上的“一”与“只许拜这一个”是两回事，从万物有灵到一神的进化阶梯也装不下印度与中国的材料。",
@@ -22,6 +27,11 @@
   "/religion/comparative-religion/religious-law-and-ethics": {
     "t": "宗教法与伦理",
     "e": "哈拉卡、伊斯兰教法学、天主教教会法、佛教律藏、印度法论与儒家之礼，管的事项、谁有权解释、与国家法的关系各不相同。宗教法不是一部“落后的刑法”。",
+    "d": "religion"
+  },
+  "/religion/comparative-religion/three-teachings-are-not-one": {
+    "t": "三教不是一个宗教",
+    "e": "儒、释、道在汉语里可以被并称，并称是一种分类和行政语言。学官、僧籍和道官不是同一套制度。林兆恩的三一教是十六世纪莆田的一个运动，不是中国宗教的默认形态。",
     "d": "religion"
   },
   "/religion/frontier/christian-nationalism-measurement": {
@@ -57,6 +67,11 @@
   "/religion/religion-and-society/diaspora-and-conversion": {
     "t": "离散与改宗",
     "e": "公元前 586 年耶路撒冷陷落后，diaspora 从一次流放变成可重复的处境；改宗则是进入一套新的归属。两者首先是婚丧、学经、墓地与税收身份的制度问题。",
+    "d": "religion"
+  },
+  "/religion/religion-and-society/monastic-rules-are-institutions": {
+    "t": "修道院是制度",
+    "e": "本笃会规传统上系于六世纪的本笃，规定院长、祷告、劳动、接待和共同管理财物。祈祷与劳动的口号是后人的概括，不是篇名。佛教各部派保存不同的毗尼传统，不能收成一份完全相同的会规。抄书、土地和学校仍是制度。",
     "d": "religion"
   },
   "/religion/religion-and-society/pilgrimage-and-sacred-space": {
@@ -142,6 +157,11 @@
   "/religion/secularization/disenchantment-and-reenchantment": {
     "t": "祛魅与再魅",
     "e": "韦伯 1917 年在慕尼黑演讲《以学术为业》，用“世界的祛魅”描述原则上可计算的世界。祛魅讲的是智识化与理性化，不是无神论的胜利，韦伯本人也警告意义的饥渴。",
+    "d": "religion"
+  },
+  "/religion/secularization/privatization-is-not-disappearance": {
+    "t": "私人化不是消失",
+    "e": "卢克曼说在卢克曼的分析中，教会制度的影响减弱，不必意味着意义建构和超越日常经验的活动消失；现代宗教可能更加私人化。这是位置的改变。卡萨诺瓦则描述宗教重新进入公共争论。两份描述指向不同的场合，必须分开记账。",
     "d": "religion"
   },
   "/religion/secularization/religion-and-science": {

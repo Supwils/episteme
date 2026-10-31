@@ -4,7 +4,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { hasContentForTier } from "@/subjects/physics/lib/tier-content";
 import { getPhysicsPageCount, isPhysicsTierId } from "@/subjects/physics/lib/physics-tier";
-import { getSectionConfig, getSectionFromPath, getSectionRoute } from "@/subjects/physics/lib/section";
+import {
+  getSectionConfig,
+  getSectionFromPath,
+  getSectionRoute,
+} from "@/subjects/physics/lib/section";
 import { isUniverseTierId, type AnyTierId } from "@/subjects/physics/lib/tier";
 import { useTierTransition } from "@/subjects/physics/camera/useTierTransition";
 import { useHandwrittenTransition } from "@/subjects/physics/scenes-handwritten/useHandwrittenTransition";
@@ -70,7 +74,7 @@ export function KeyboardNav() {
       }
 
       if (e.key === "o" || e.key === "O") {
-        if (!panelOpen && hasContentForTier(tier)) {
+        if (!panelOpen && !transitionActive && hasContentForTier(tier)) {
           e.preventDefault();
           openPanel(tier);
         }

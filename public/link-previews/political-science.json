@@ -89,6 +89,11 @@
     "e": "1971 年罗尔斯的《正义论》复兴了政治哲学，诺齐克称后人要么在其框架内工作、要么解释为何不；正义不只是平等，亚里士多德早已区分两种正义。",
     "d": "political-science"
   },
+  "/political-science/concepts/legitimacy-is-not-legality": {
+    "t": "正当性不是合法性",
+    "e": "韦伯把正当支配分成传统型、魅力型与法理型；合法性可以只指符合既定程序，正当性则是被统治者把服从当成应当，两件事可以分开发生。",
+    "d": "political-science"
+  },
   "/political-science/concepts/legitimacy": {
     "t": "合法性与正当性",
     "e": "1989 年东德政权握有一切强制工具，却在数周内瓦解，消失的是合法性；合法不等于合乎法律，本篇讲韦伯的三种类型与贝瑟姆对“信念”说的批评。",
@@ -369,6 +374,11 @@
     "e": "非洲区域组织不是欧盟的低配版，它们要处理殖民边界、跨境冲突、政变治理与大陆市场建设等更宽的任务；本篇讲制度地图以及从非统到非盟的演变。",
     "d": "political-science"
   },
+  "/political-science/international-relations/alliance-is-a-treaty": {
+    "t": "同盟是一种安全承诺",
+    "e": "同盟以安全支持承诺为核心；沃尔特1987年的定义包括正式与非正式安排，不能把条约当作唯一门槛。实力平衡与威胁平衡提出不同解释，北约提供正式条约的实例。",
+    "d": "political-science"
+  },
   "/political-science/international-relations/alliances-and-nato": {
     "t": "联盟政治与北约",
     "e": "1949 年《北大西洋公约》第五条规定，对一方的攻击视为对所有方的攻击，打破了美国不卷入同盟的传统；联盟不只是军事协议，本篇讲联盟理论与北约的演变。",
@@ -637,6 +647,11 @@
   "/political-science/methods/case-selection-and-small-n": {
     "t": "案例选择与小样本研究",
     "e": "案例研究不是数据不够时的缩小版统计，它能澄清概念、观察机制、检验理论边界；选择哪个案例，决定了研究能回答什么、不能说什么。",
+    "d": "political-science"
+  },
+  "/political-science/methods/case-study-is-not-an-anecdote": {
+    "t": "个案研究不是轶事",
+    "e": "乔治与贝内特 2005 年的《社会科学中的个案研究与理论发展》把个案写成对理论的检验；过程追踪核对机制留下的痕迹，一个个案可以削弱永远必要的说法，却不能独自估计频率。",
     "d": "political-science"
   },
   "/political-science/methods/comparative-method": {

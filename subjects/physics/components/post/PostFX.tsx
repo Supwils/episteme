@@ -23,6 +23,7 @@ import { useUiStore } from "@/subjects/physics/store/useUiStore";
  */
 export function PostFX() {
   const quality = useUiStore((s) => s.qualityTier);
+  const reducedMotion = useUiStore((s) => s.reducedMotion);
   const chromaticOffset = useMemo(() => new Vector2(0.0005, 0.0005), []);
 
   if (quality === "low") {
@@ -62,7 +63,7 @@ export function PostFX() {
       />
       <Vignette offset={0.5} darkness={0.45} blendFunction={BlendFunction.NORMAL} />
       <ChromaticAberration offset={chromaticOffset} radialModulation={false} modulationOffset={0} />
-      <Noise opacity={0.025} blendFunction={BlendFunction.OVERLAY} />
+      <Noise opacity={reducedMotion ? 0 : 0.025} blendFunction={BlendFunction.OVERLAY} />
     </EffectComposer>
   );
 }

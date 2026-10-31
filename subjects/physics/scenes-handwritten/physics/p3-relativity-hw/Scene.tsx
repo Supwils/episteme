@@ -6,6 +6,7 @@ import { HandwrittenLabel } from "@/subjects/physics/scenes-handwritten/shared/H
 import { HandwrittenMarker } from "@/subjects/physics/scenes-handwritten/shared/HandwrittenMarker";
 import { InkPath } from "@/subjects/physics/scenes-handwritten/shared/InkPath";
 import { PaperGrid } from "@/subjects/physics/scenes-handwritten/shared/PaperGrid";
+import { buildChirp } from "./curves";
 
 /**
  * P3 · Relativity. Two pages:
@@ -62,7 +63,7 @@ function P3PageSpecial() {
           textAnchor="middle"
           className="hw-label-title"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
         >
           ds² = −c²dt² + dx²
         </text>
@@ -73,7 +74,7 @@ function P3PageSpecial() {
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          Minkowski 时空间隔 · 所有惯性系不变
+          一个空间维度的截面 · 时空间隔不变
         </text>
       </g>
 
@@ -93,7 +94,7 @@ function P3PageSpecial() {
         {/* light cone (45°) */}
         <line x1={-130} y1={130} x2={130} y2={-130} stroke="var(--hw-gold)" strokeWidth={1.4} />
         <line x1={-130} y1={-130} x2={130} y2={130} stroke="var(--hw-gold)" strokeWidth={1.4} />
-        {/* worldline of a moving observer (rotated) */}
+        {/* The observer moves at v = 0.5c; this is not a Euclidean rotation. */}
         <line
           x1={-70}
           y1={140}
@@ -104,11 +105,11 @@ function P3PageSpecial() {
           strokeDasharray="4 6"
         />
         {/* light cone fill (hint) */}
-        <path d="M 0 0 L 130 -130 L 130 130 Z" fill="var(--hw-wash-warm)" opacity={0.35} />
-        <path d="M 0 0 L -130 -130 L -130 130 Z" fill="var(--hw-wash-warm)" opacity={0.2} />
+        <path d="M 0 0 L -130 -130 L 130 -130 Z" fill="var(--hw-wash-warm)" opacity={0.35} />
+        <path d="M 0 0 L -130 130 L 130 130 Z" fill="var(--hw-wash-warm)" opacity={0.2} />
         <text
-          x={130}
-          y={-138}
+          x={8}
+          y={-142}
           className="hw-label-major"
           fill="var(--hw-ink-soft)"
           style={{ fontStyle: "italic" }}
@@ -136,7 +137,7 @@ function P3PageSpecial() {
         <HandwrittenLabel
           x={-60}
           y={90}
-          text="worldline"
+          text="世界线 · v = 0.5c"
           variant="label-minor"
           italic
           color="var(--hw-blue)"
@@ -171,7 +172,7 @@ function P3PageSpecial() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
         >
           {"t' = γ(t − vx/c²)"}
         </text>
@@ -181,7 +182,7 @@ function P3PageSpecial() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
         >
           {"x' = γ(x − vt)"}
         </text>
@@ -191,7 +192,7 @@ function P3PageSpecial() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-gold)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
         >
           E² = (pc)² + (mc²)²
         </text>
@@ -207,7 +208,7 @@ function P3PageSpecial() {
         <HandwrittenLabel
           x={0}
           y={130}
-          text="时间膨胀 · 长度收缩 · E = mc²"
+          text="时间膨胀 · 长度收缩 · 静止能量 mc²"
           variant="label-minor"
           italic
           color="var(--hw-ink-soft)"
@@ -228,9 +229,16 @@ function P3PageGeneral() {
           textAnchor="middle"
           className="hw-label-title"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
         >
-          G_μν = 8πG/c⁴ · T_μν
+          G
+          <tspan baselineShift="sub" fontSize="65%">
+            μν
+          </tspan>
+          {" = 8πG/c⁴ · T"}
+          <tspan baselineShift="sub" fontSize="65%">
+            μν
+          </tspan>
         </text>
         <text
           x={0}
@@ -239,7 +247,7 @@ function P3PageGeneral() {
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          Einstein 场方程 · 几何 = 物质能量
+          Einstein 场方程 · 此处省略宇宙学常数项
         </text>
       </g>
 
@@ -298,8 +306,8 @@ function P3PageGeneral() {
         <circle cx={108} cy={20} r={5} fill="var(--hw-blue)" />
         <HandwrittenLabel
           x={0}
-          y={130}
-          text="质量 → 时空弯曲 → 自由落体走测地线"
+          y={-110}
+          text="曲率的类比图 · 完整时空为四维"
           variant="label-minor"
           italic
           color="var(--hw-ink-soft)"
@@ -317,31 +325,36 @@ function P3PageGeneral() {
           italic
           delay={0.3}
         />
-        {/* black hole disc with photon ring */}
+        {/* Coordinate schematic; the circle is not an EHT emission ring. */}
         <circle
           cx={0}
           cy={-40}
           r={48}
-          fill="var(--hw-ink)"
+          fill="var(--hw-bg-edge)"
           stroke="var(--hw-ink)"
           strokeWidth={1.0}
         />
-        <circle
-          cx={0}
-          cy={-40}
-          r={64}
-          fill="none"
-          stroke="var(--hw-gold)"
-          strokeWidth={1.4}
-          filter="url(#hw-wobble-tiny)"
-        />
-        <HandwrittenLabel
+        <line x1={0} y1={-40} x2={48} y2={-40} stroke="var(--hw-gold)" strokeWidth={1.4} />
+        <text
           x={0}
           y={-115}
-          text="r_s = 2GM / c²"
+          textAnchor="middle"
+          className="hw-label-minor"
+          fill="var(--hw-gold)"
+          style={{ fontStyle: "italic", fontFamily: '"KaTeX_Main", serif' }}
+        >
+          r
+          <tspan baselineShift="sub" fontSize="65%">
+            s
+          </tspan>
+          {" = 2GM / c²"}
+        </text>
+        <HandwrittenLabel
+          x={0}
+          y={24}
+          text="无自旋、无电荷 · 视界坐标示意"
           variant="label-minor"
-          italic
-          color="var(--hw-gold)"
+          color="var(--hw-ink-soft)"
           delay={0.7}
         />
         {/* GW chirp */}
@@ -354,8 +367,8 @@ function P3PageGeneral() {
         />
         <HandwrittenLabel
           x={0}
-          y={140}
-          text="GW150914 · 双黑洞并合"
+          y={152}
+          text="波形示意 · 非观测数据"
           variant="label-minor"
           italic
           color="var(--hw-blue)"
@@ -364,37 +377,4 @@ function P3PageGeneral() {
       </g>
     </g>
   );
-}
-
-function buildChirp(x0: number, x1: number, yMid: number): string {
-  const samples = 120;
-  const pts: string[] = [];
-  const tc = 0.85;
-  const fQNM = 3.2;
-  const dampingQNM = 0.08;
-  const mergerAmp = 1.0;
-  for (let i = 0; i <= samples; i++) {
-    const t = i / samples;
-    const x = x0 + (x1 - x0) * t;
-    let y: number;
-    if (t < tc) {
-      const tau = tc - t;
-      const tauSafe = Math.max(tau, 0.001);
-      const freq = 0.05 + 0.6 * Math.pow(tauSafe, -0.375);
-      const amp = (3 + 25 * Math.pow(tauSafe, -0.25)) * 0.5;
-      y = yMid + Math.sin(x * freq * Math.PI) * amp;
-    } else if (t < tc + 0.04) {
-      const s = (t - tc) / 0.04;
-      const freq = 1.6 + s * (fQNM - 1.6) * s;
-      const amp = (3 + 25) * 0.5 * (1 - s * 0.3) * mergerAmp;
-      y = yMid + Math.sin(x * freq * Math.PI) * amp;
-    } else {
-      const tau = t - tc - 0.04;
-      const freq = fQNM;
-      const amp = (3 + 25) * 0.5 * mergerAmp * 0.7 * Math.exp(-tau * dampingQNM * 60);
-      y = yMid + Math.sin(x * freq * Math.PI) * amp;
-    }
-    pts.push(`${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`);
-  }
-  return pts.join(" ");
 }

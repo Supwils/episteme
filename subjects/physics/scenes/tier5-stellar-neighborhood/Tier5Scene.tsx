@@ -110,6 +110,7 @@ const SPECTRAL_COLOR: Record<Spectral, [number, number, number]> = {
 export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
   const group = useRef<Group>(null);
   const flareRef = useRef<Group>(null);
+  const flareOpacity = useRef(0);
   const reducedMotion = useUiStore((s) => s.reducedMotion);
 
   const built = useMemo(() => buildNeighborhood(), []);
@@ -126,18 +127,9 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
       const phase = (t % 14) / 14;
       const spike = phase < 0.1 ? Math.exp(-Math.pow((phase - 0.04) * 30, 2)) * 1.6 : 0;
       const intensity = reducedMotion ? 0.35 : 0.04 + spike;
-      // Scale the group so the bloom puffs out with the brightness.
-      const s = 0.85 + intensity * 0.7;
-      flareRef.current.scale.setScalar(s);
+      // Keep the flare at Proxima's coordinates; this pulse changes brightness only.
       flareRef.current.visible = intensity > 0.02;
-      // Brightness mod is communicated through children's material opacity.
-      flareRef.current.children.forEach((child, i) => {
-        const mesh = child as { material?: { opacity?: number } };
-        const base = i === 0 ? 0.7 : 0.35;
-        if (mesh.material && typeof mesh.material.opacity === "number") {
-          mesh.material.opacity = base * intensity * opacity;
-        }
-      });
+      flareOpacity.current = intensity * opacity;
     }
   });
 
@@ -147,7 +139,7 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
       <StarPoints
         positions={built.field.positions}
         colors={built.field.colors}
-        baseSize={12}
+        baseSize={3}
         opacity={0.4 * opacity}
       />
 
@@ -155,7 +147,7 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
       <StarPoints
         positions={built.dim.positions}
         colors={built.dim.colors}
-        baseSize={34}
+        baseSize={8}
         opacity={0.95 * opacity}
       />
 
@@ -163,7 +155,7 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
       <StarPoints
         positions={built.bright.positions}
         colors={built.bright.colors}
-        baseSize={70}
+        baseSize={16}
         opacity={1.0 * opacity}
       />
 
@@ -171,13 +163,13 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
       <StarPoints
         positions={built.giants.positions}
         colors={built.giants.colors}
-        baseSize={140}
+        baseSize={30}
         opacity={0.85 * opacity}
       />
 
       {/* Sun — two-layer glow centred at origin */}
-      <StarPoints positions={built.sun} baseTemp={0.55} baseSize={320} opacity={0.6 * opacity} />
-      <StarPoints positions={built.sun} baseTemp={0.45} baseSize={140} opacity={1.0 * opacity} />
+      <StarPoints positions={built.sun} baseTemp={0.55} baseSize={76} opacity={0.6 * opacity} />
+      <StarPoints positions={built.sun} baseTemp={0.45} baseSize={30} opacity={1.0 * opacity} />
 
       {/* Proxima Cen flare easter egg — additive bright + dim halo. */}
       {PROXIMA_POS.length > 0 ? (
@@ -185,16 +177,18 @@ export function Tier5Scene({ opacity = 1, ...groupProps }: Props) {
           <StarPoints
             positions={PROXIMA_POS}
             baseTemp={0.92}
-            baseSize={110}
+            baseSize={26}
             baseBrightness={0.9}
-            opacity={0}
+            opacity={0.7}
+            opacityMultiplier={flareOpacity}
           />
           <StarPoints
             positions={PROXIMA_POS}
             baseTemp={0.85}
-            baseSize={260}
+            baseSize={60}
             baseBrightness={0.7}
-            opacity={0}
+            opacity={0.35}
+            opacityMultiplier={flareOpacity}
           />
         </group>
       ) : null}
@@ -309,7 +303,7 @@ function buildNeighborhood() {
 export function starPosition(
   raH: number,
   decDeg: number,
-  distLy: number,
+  distLy: number
 ): [number, number, number] {
   return equatorialToScene(raH, decDeg, distLy);
 }

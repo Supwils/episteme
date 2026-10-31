@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
@@ -22,7 +23,7 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameEn: "Planck Length",
     size: "1.6 × 10⁻³⁵ m",
     description:
-      "物理学中可测量的最小长度，量子引力的特征尺度。在此尺度下，时空本身的量子涨落变得显著。",
+      "由基本常数构成的量子引力特征长度，尚非实验确立的最小可测长度。时空在这一尺度如何表现，仍需量子引力理论与检验。",
     icon: "✦",
     color: "#a78bfa",
   },
@@ -33,7 +34,7 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameEn: "Proton",
     size: "1.7 × 10⁻¹⁵ m",
     description:
-      "原子核的组成部分，由三个夸克通过强相互作用束缚而成。质子的大小决定了原子核的尺度。",
+      "原子核的组成部分，含有三个价夸克，以及胶子和夸克海。这里以约两倍电荷半径示意其大小，原子核尺度还取决于核子数量。",
     icon: "●",
     color: "#818cf8",
   },
@@ -49,11 +50,12 @@ const SCALE_OBJECTS: ScaleObject[] = [
   },
   {
     id: "dna",
-    exponent: -8,
+    exponent: -9,
     nameCn: "DNA 分子",
     nameEn: "DNA Molecule",
-    size: "2 × 10⁻⁸ m",
-    description: "脱氧核糖核酸双螺旋结构的直径，承载着所有已知生物的遗传信息。",
+    size: "2 × 10⁻⁹ m",
+    description:
+      "常见 B 型 DNA 双螺旋的直径约 2 纳米；分子的总长度随碱基对数而变。DNA 是细胞生物的主要遗传物质。",
     icon: "🧬",
     color: "#34d399",
   },
@@ -73,7 +75,7 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "沙粒",
     nameEn: "Grain of Sand",
     size: "1 × 10⁻³ m",
-    description: "一粒典型的细沙直径约 1 毫米，由矿物碎片组成，是岩石风化的产物。",
+    description: "以一粒直径约 1 毫米的沙粒为例，由矿物碎片组成，是岩石风化的产物。",
     icon: "·",
     color: "#fbbf24",
   },
@@ -93,7 +95,7 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "山脉",
     nameEn: "Mountain",
     size: "1 × 10⁴ m",
-    description: "地球上的大型山脉高度可达万米级别。珠穆朗玛峰高 8848 米。",
+    description: "地球上的大型山脉高度可达万米级别。珠穆朗玛峰的海拔约 8.8 千米。",
     icon: "▲",
     color: "#ef4444",
   },
@@ -113,7 +115,8 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "太阳系",
     nameEn: "Solar System",
     size: "9 × 10¹² m",
-    description: "从太阳到海王星的距离约 30 AU（天文单位），包含八大行星和无数小天体。",
+    description:
+      "这里选取海王星轨道直径约 60 AU（天文单位）。太阳到海王星约 30 AU，太阳系的小天体和引力影响则延伸得远得多。",
     icon: "◉",
     color: "#f59e0b",
   },
@@ -123,7 +126,8 @@ const SCALE_OBJECTS: ScaleObject[] = [
     nameCn: "银河系",
     nameEn: "Milky Way",
     size: "1 × 10²¹ m",
-    description: "我们的银河系直径约 10 万光年，包含约 2000 亿颗恒星，是一个棒旋星系。",
+    description:
+      "我们的银河系直径约 10 万光年，包含上千亿颗恒星，具体计数依赖普查与模型，是一个棒旋星系。",
     icon: "✧",
     color: "#8b5cf6",
   },
@@ -205,7 +209,8 @@ function SliderTrack({ value, onChange }: SliderTrackProps) {
       const el = trackRef.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+      const viewBoxX = ((clientX - rect.left) / rect.width) * 1000;
+      const pct = Math.max(0, Math.min(100, ((viewBoxX - 40) / 920) * 100));
       onChange(percentToExponent(pct));
     },
     [onChange]
@@ -370,12 +375,13 @@ type DetailCardProps = {
 };
 
 function DetailCard({ obj, onClose }: DetailCardProps) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={reduce ? false : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 16 }}
-      transition={{ duration: 0.25 }}
+      exit={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: reduce ? 0 : 0.25 }}
       className="border-border-faint bg-bg-elevated/90 relative mx-auto max-w-md rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
@@ -425,18 +431,29 @@ export function ScaleOfUniverse() {
       <h2 id="scale-of-universe-title" className="landing-block__title">
         宇宙尺度
       </h2>
-      <p className="landing-block__note">拖动滑块，从普朗克长度漫游到可观测宇宙。</p>
+      <p className="landing-block__note">
+        拖动滑块，从普朗克长度漫游到可观测宇宙。滑块显示十进数量级，图标大小仅作示意；对象采用各自选定的典型长度。
+      </p>
 
       {/* Visual representation */}
       <div className="relative mb-8 flex h-64 items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={closest.id}
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={false}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 1.2, opacity: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { scale: 1.2, opacity: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
             className="flex cursor-pointer flex-col items-center gap-3"
+            role="button"
+            tabIndex={0}
+            aria-label={`查看${closest.nameCn}详情`}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSelectedObject(closest);
+              }
+            }}
             onClick={() => setSelectedObject(closest)}
           >
             <div
@@ -492,7 +509,7 @@ export function ScaleOfUniverse() {
 
       {/* Size comparison */}
       <div className="mx-auto mb-8 max-w-lg rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-        <p className="text-fg-muted mb-3 text-xs tracking-wider uppercase">尺寸对比</p>
+        <p className="text-fg-muted mb-3 text-xs tracking-wider uppercase">数量级对比</p>
         <div className="space-y-2">
           {SCALE_OBJECTS.filter((obj) => {
             const diff = exponent - obj.exponent;
@@ -515,7 +532,7 @@ export function ScaleOfUniverse() {
                     />
                   </div>
                   <span className="text-fg-muted w-24 font-mono text-xs">
-                    10<sup>{ratio}</sup>× 更小
+                    约 10<sup>{ratio.toFixed(1)}</sup> 倍（尺度）
                   </span>
                 </div>
               );
@@ -530,6 +547,25 @@ export function ScaleOfUniverse() {
         )}
       </AnimatePresence>
 
+      <p className="text-fg-muted mt-4 text-xs leading-relaxed">
+        尺度参考：
+        <a
+          className="underline"
+          href="https://www.nigms.nih.gov/biobeat/2023/12/science-snippet-zooming-in-on-nanoparticles"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          NIH：DNA 直径
+        </a>
+        ；
+        <Link
+          className="underline"
+          href="/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移"
+        >
+          宇宙距离定义
+        </Link>
+        。
+      </p>
       {/* Legend */}
       <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {SCALE_OBJECTS.map((obj) => (

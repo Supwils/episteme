@@ -58,6 +58,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "民族志中的知情同意",
     },
     {
+      url: "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
+      title: "抢救民族志的限度",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
       title: "协作与原住民考古",
     },
@@ -82,6 +86,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/methods-and-frontiers/language-documentation-ethics",
       title: "语言记录伦理：谁有权决定一段声音以后还能被怎样使用",
+    },
+  ],
+  "/anthropology/comparison-and-ethics/oral-tradition-and-history": [
+    {
+      url: "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
+      title: "抢救民族志的限度",
     },
   ],
   "/anthropology/comparison-and-ethics/sampling-and-absence": [
@@ -110,10 +120,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "协作与原住民考古",
     },
   ],
+  "/anthropology/culture-and-method/anthropological-comparison": [
+    {
+      url: "/anthropology/culture-and-method/cultural-relativism-is-a-method",
+      title: "文化相对主义是一种方法",
+    },
+  ],
   "/anthropology/culture-and-method/culture-is-not-race": [
+    {
+      url: "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
+      title: "抢救民族志的限度",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
+    },
     {
       url: "/anthropology/culture-and-method/what-is-culture",
       title: "什么是文化",
+    },
+    {
+      url: "/anthropology/culture-and-method/cultural-relativism-is-a-method",
+      title: "文化相对主义是一种方法",
     },
   ],
   "/anthropology/culture-and-method/emic-and-etic": [
@@ -121,8 +149,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
       title: "田野笔记与再现",
     },
+    {
+      url: "/anthropology/culture-and-method/cultural-relativism-is-a-method",
+      title: "文化相对主义是一种方法",
+    },
   ],
   "/anthropology/culture-and-method/ethnography-as-description": [
+    {
+      url: "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
+      title: "抢救民族志的限度",
+    },
     {
       url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
       title: "田野笔记与再现",
@@ -166,6 +202,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "田野笔记与再现",
     },
     {
+      url: "/anthropology/culture-and-method/cultural-relativism-is-a-method",
+      title: "文化相对主义是一种方法",
+    },
+    {
       url: "/anthropology/urban-and-heritage/applied-anthropology",
       title: "应用人类学",
     },
@@ -185,6 +225,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/anthropology/kinship-and-exchange/marriage-and-household",
       title: "婚姻与家户",
     },
+    {
+      url: "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
+      title: "聘礼不是买人",
+    },
   ],
   "/anthropology/kinship-and-exchange/gift-and-reciprocity": [
     {
@@ -194,6 +238,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/kinship-and-exchange/marriage-and-household",
       title: "婚姻与家户",
+    },
+    {
+      url: "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
+      title: "聘礼不是买人",
     },
     {
       url: "/anthropology/culture-and-method/holism-and-context",
@@ -210,12 +258,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "继嗣与联姻",
     },
     {
+      url: "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
+      title: "聘礼不是买人",
+    },
+    {
       url: "/anthropology/culture-and-method/anthropological-comparison",
       title: "人类学的比较",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
+    },
+    {
       url: "/anthropology/culture-and-method/emic-and-etic",
       title: "主位与客位",
+    },
+  ],
+  "/anthropology/kinship-and-exchange/marriage-and-household": [
+    {
+      url: "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
+      title: "聘礼不是买人",
+    },
+  ],
+  "/anthropology/kinship-and-exchange/property-and-persons": [
+    {
+      url: "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
+      title: "聘礼不是买人",
     },
   ],
   "/anthropology/material-culture/cloth-and-value": [
@@ -226,11 +294,29 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/anthropology/material-culture/museums-and-collections": [
     {
+      url: "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
+      title: "抢救民族志的限度",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
       title: "协作与原住民考古",
     },
   ],
+  "/anthropology/material-culture/pottery-and-style": [
+    {
+      url: "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
+      title: "操作链是工序",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
+    },
+  ],
   "/anthropology/material-culture/technology-and-skill": [
+    {
+      url: "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
+      title: "操作链是工序",
+    },
     {
       url: "/linguistics/writing-systems/script-decipherment",
       title: "文字释读：未知符号怎样变成可检验的假说",
@@ -240,6 +326,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/kinship-and-exchange/property-and-persons",
       title: "财产与人",
+    },
+    {
+      url: "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
+      title: "操作链是工序",
     },
     {
       url: "/anthropology/prehistory-and-archaeology/stratigraphy-and-context",
@@ -253,7 +343,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/anthropology/prehistory-and-archaeology/archaeological-dating": [
     {
       url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
+      title: "半衰期：单核的概率尺度与群体的指数衰减",
     },
     {
       url: "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
@@ -271,6 +361,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
       title: "人类扩散与化石",
     },
+    {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
+    },
   ],
   "/anthropology/prehistory-and-archaeology/cities-and-early-states": [
     {
@@ -280,6 +374,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/prehistory-and-archaeology/foragers-and-farmers",
       title: "采集者与农人",
+    },
+    {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
     },
     {
       url: "/linguistics/writing-systems/script-decipherment",
@@ -318,6 +416,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/anthropology/prehistory-and-archaeology/stratigraphy-and-context": [
     {
+      url: "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
+      title: "操作链是工序",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/excavation-records",
       title: "发掘记录",
     },
@@ -334,12 +436,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "取样与缺失",
     },
     {
+      url: "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
+      title: "三期论不是世界阶梯",
+    },
+    {
       url: "/linguistics/writing-systems/script-decipherment",
       title: "文字释读：未知符号怎样变成可检验的假说",
     },
     {
       url: "/anthropology/culture-and-method/holism-and-context",
       title: "整体论与语境",
+    },
+  ],
+  "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder": [
+    {
+      url: "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
+      title: "操作链是工序",
     },
   ],
   "/anthropology/urban-and-heritage/anthropology-of-the-contemporary": [
@@ -472,6 +584,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "美",
     },
     {
+      url: "/arts/aesthetics/kitsch-is-a-judgment",
+      title: "媚俗是一个判断",
+    },
+    {
       url: "/engineering/civil/bridges",
       title: "桥梁：受力路径、风与美学",
     },
@@ -494,6 +610,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/art-market-and-value",
       title: "艺术市场与价值：杰作的价格是如何被制造出来的",
+    },
+  ],
+  "/arts/aesthetics/art-and-skill": [
+    {
+      url: "/arts/architecture/ornament-and-crime-is-an-essay",
+      title: "《装饰与罪恶》是一篇论战文本",
+    },
+    {
+      url: "/arts/foundations/readymade-and-the-institution",
+      title: "现成品是一件制度事件",
     },
   ],
   "/arts/aesthetics/art-as-progress": [
@@ -520,12 +646,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
     {
+      url: "/arts/aesthetics/kitsch-is-a-judgment",
+      title: "媚俗是一个判断",
+    },
+    {
       url: "/arts/media/photography-history",
       title: "摄影史：从达盖尔银版到艺术殿堂",
     },
     {
       url: "/arts/methods/generative-art-and-ai",
       title: "生成艺术与 AI：作者性的新边界",
+    },
+    {
+      url: "/arts/aesthetics/patronage-before-the-gallery",
+      title: "委托在画廊之前",
     },
     {
       url: "/sociology/concepts/sociology-of-culture",
@@ -535,8 +669,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/literature/poetics-and-form/genre-as-contract",
       title: "文类是一种约定",
     },
+    {
+      url: "/arts/methods/forgery-and-connoisseurship",
+      title: "赝品考验鉴定",
+    },
   ],
   "/arts/aesthetics/design-and-everyday-objects": [
+    {
+      url: "/arts/architecture/ornament-and-crime-is-an-essay",
+      title: "《装饰与罪恶》是一篇论战文本",
+    },
     {
       url: "/arts/architecture/urban-public-space",
       title: "城市公共空间：谁能停留、谁被请出去",
@@ -650,8 +792,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "图书馆与书籍市场",
     },
     {
+      url: "/arts/aesthetics/patronage-before-the-gallery",
+      title: "委托在画廊之前",
+    },
+    {
       url: "/literature/poetics-and-form/drama-and-performance-text",
       title: "戏剧文本与演出",
+    },
+    {
+      url: "/arts/foundations/readymade-and-the-institution",
+      title: "现成品是一件制度事件",
     },
     {
       url: "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
@@ -686,6 +836,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/aesthetics/visual-culture-everyday": [
     {
+      url: "/arts/aesthetics/kitsch-is-a-judgment",
+      title: "媚俗是一个判断",
+    },
+    {
       url: "/arts/media/photography-history",
       title: "摄影史：从达盖尔银版到艺术殿堂",
     },
@@ -700,11 +854,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/arts/aesthetics/what-is-beauty": [
     {
+      url: "/arts/aesthetics/kitsch-is-a-judgment",
+      title: "媚俗是一个判断",
+    },
+    {
       url: "/computer-science/pioneers/donald-knuth",
       title: "唐纳德·克努特",
     },
+    {
+      url: "/arts/foundations/readymade-and-the-institution",
+      title: "现成品是一件制度事件",
+    },
   ],
   "/arts/architecture/building-as-structure": [
+    {
+      url: "/arts/architecture/ornament-and-crime-is-an-essay",
+      title: "《装饰与罪恶》是一篇论战文本",
+    },
     {
       url: "/arts/architecture/crystal-palace-1851",
       title: "1851年海德公园水晶宫：铸铁、玻璃与预制",
@@ -730,6 +896,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
     {
+      url: "/engineering/civil/redundancy-is-an-alternate-path",
+      title: "冗余是另一条传力路径",
+    },
+    {
       url: "/arts/architecture/villa-savoye-1929",
       title: "萨伏伊别墅：五点的出版与1931年的防水故障",
     },
@@ -753,6 +923,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/arts/architecture/modernism-and-international-style": [
+    {
+      url: "/arts/architecture/ornament-and-crime-is-an-essay",
+      title: "《装饰与罪恶》是一篇论战文本",
+    },
     {
       url: "/arts/architecture/villa-savoye-1929",
       title: "萨伏伊别墅：五点的出版与1931年的防水故障",
@@ -786,6 +960,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/aesthetics/iconoclasm-and-censorship",
       title: "破坏圣像与审查：图像为何危险",
+    },
+    {
+      url: "/arts/aesthetics/patronage-before-the-gallery",
+      title: "委托在画廊之前",
     },
     {
       url: "/arts/traditions/islamic-visual-culture",
@@ -1058,6 +1236,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "生成艺术与 AI：作者性的新边界",
     },
   ],
+  "/arts/media/painting-media": [
+    {
+      url: "/arts/media/collage-is-a-construction",
+      title: "拼贴是一种构造",
+    },
+  ],
   "/arts/media/performance-and-body-art": [
     {
       url: "/literature/poetics-and-form/drama-and-performance-text",
@@ -1082,6 +1266,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/japanese-ukiyoe",
       title: "浮世绘与江户视觉文化：木版上的浮生",
+    },
+    {
+      url: "/arts/media/collage-is-a-construction",
+      title: "拼贴是一种构造",
     },
     {
       url: "/arts/media/photography-history",
@@ -1112,6 +1300,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/traditions/japanese-ukiyoe",
       title: "浮世绘与江户视觉文化：木版上的浮生",
+    },
+    {
+      url: "/arts/media/collage-is-a-construction",
+      title: "拼贴是一种构造",
     },
   ],
   "/arts/media/textiles-and-fiber-arts": [
@@ -1148,6 +1340,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/methods/digital-humanities-art",
       title: "数字人文与艺术史：当计算机开始读画",
+    },
+    {
+      url: "/arts/methods/forgery-and-connoisseurship",
+      title: "赝品考验鉴定",
     },
     {
       url: "/arts/aesthetics/art-market-and-value",
@@ -1192,12 +1388,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "归属与来源研究：一幅画的履历与它的作者之谜",
     },
     {
+      url: "/arts/media/collage-is-a-construction",
+      title: "拼贴是一种构造",
+    },
+    {
       url: "/arts/methods/digital-humanities-art",
       title: "数字人文与艺术史：当计算机开始读画",
     },
     {
       url: "/arts/methods/iconography-iconology",
       title: "图像志与图像学：如何破译一幅画的密码",
+    },
+    {
+      url: "/arts/methods/forgery-and-connoisseurship",
+      title: "赝品考验鉴定",
     },
     {
       url: "/arts/aesthetics/art-as-progress",
@@ -1304,8 +1508,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数字遗产与三维伦理",
     },
     {
+      url: "/arts/aesthetics/patronage-before-the-gallery",
+      title: "委托在画廊之前",
+    },
+    {
+      url: "/arts/foundations/readymade-and-the-institution",
+      title: "现成品是一件制度事件",
+    },
+    {
       url: "/arts/methods/formal-analysis",
       title: "形式分析：如何读一张画",
+    },
+    {
+      url: "/arts/methods/forgery-and-connoisseurship",
+      title: "赝品考验鉴定",
     },
     {
       url: "/anthropology/urban-and-heritage/heritage-and-unesco",
@@ -1458,6 +1674,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/water",
       title: "水",
+    },
+    {
+      url: "/chemistry/concepts/acid-strength-is-not-concentration",
+      title: "酸的强度不是浓度",
     },
     {
       url: "/medicine/concepts/humoral-theory",
@@ -1674,10 +1894,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光谱学",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
     },
@@ -1752,6 +1968,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
       title: "汤姆孙 1897：卡文迪许阴极射线怎样把 e/m 读成远大于电解离子",
+    },
+    {
+      url: "/chemistry/concepts/isotope-is-the-same-element",
+      title: "同位素仍是同一种元素",
     },
     {
       url: "/chemistry/substances/noble-gases",
@@ -1932,10 +2152,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电负性",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
-      title: "电介质与电极化",
-    },
-    {
       url: "/chemistry/milestones/vant-hoff-1874-tetrahedron",
       title: "范霍夫一八七四年的四面体碳：荷兰小册、空间结构式与不对称碳",
     },
@@ -2092,6 +2308,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/acids-and-bases",
       title: "酸与碱",
+    },
+  ],
+  "/chemistry/concepts/catalysis-and-equilibrium": [
+    {
+      url: "/chemistry/reactions/equilibrium-constant-is-not-a-rate",
+      title: "平衡常数不是速率",
     },
   ],
   "/chemistry/concepts/chemical-bond": [
@@ -2334,6 +2556,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碰撞理论",
     },
     {
+      url: "/chemistry/reactions/equilibrium-constant-is-not-a-rate",
+      title: "平衡常数不是速率",
+    },
+    {
       url: "/earth-science/processes/erosion-deposition",
       title: "侵蚀与沉积",
     },
@@ -2348,6 +2574,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/svante-arrhenius",
       title: "斯万特·阿伦尼乌斯",
+    },
+    {
+      url: "/chemistry/concepts/acid-strength-is-not-concentration",
+      title: "酸的强度不是浓度",
     },
     {
       url: "/chemistry/concepts/acids-and-bases",
@@ -2672,10 +2902,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/dorothy-hodgkin",
       title: "多萝西·霍奇金",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
     },
     {
       url: "/chemistry/reactions/enzymatic-catalysis",
@@ -3011,7 +3237,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
+      title: "渗透：半透膜两侧的水为何净迁移",
     },
     {
       url: "/mathematics/theorems/taylor-theorem",
@@ -3376,10 +3602,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "放射性衰变",
     },
     {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
       url: "/cosmology/knowledge-base/星系天文学--恒星流与星系晕",
       title: "恒星流与星系晕",
     },
@@ -3402,10 +3624,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/events/chicxulub-impact",
       title: "希克苏鲁伯撞击与白垩纪末灭绝",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
     },
     {
       url: "/earth-science/concepts/planetary-geology",
@@ -3464,10 +3682,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电子轨道与量子数",
     },
     {
-      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
-      title: "放射性衰变",
-    },
-    {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
     },
@@ -3506,6 +3720,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
       title: "泡利不相容原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
+      title: "全同粒子与量子统计",
     },
     {
       url: "/mathematics/knowledge-base/数学基础--什么是数学",
@@ -3715,10 +3933,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/surface-and-colloid-chemistry",
       title: "表面与胶体化学",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
-    },
   ],
   "/chemistry/concepts/reaction-kinetics": [
     {
@@ -3750,6 +3964,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "过程安全：在放大前理解热、压与失控路径",
     },
     {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
       url: "/mathematics/mathematicians/hua-luogeng",
       title: "华罗庚",
     },
@@ -3778,6 +3996,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碰撞理论",
     },
     {
+      url: "/chemistry/reactions/equilibrium-constant-is-not-a-rate",
+      title: "平衡常数不是速率",
+    },
+    {
       url: "/medicine/figures/jonas-salk",
       title: "乔纳斯·萨尔克",
     },
@@ -3796,6 +4018,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/search-matching-theory",
       title: "搜寻与匹配理论",
+    },
+    {
+      url: "/chemistry/concepts/acid-strength-is-not-concentration",
+      title: "酸的强度不是浓度",
     },
     {
       url: "/chemistry/frontier/carbon-capture-chemistry",
@@ -4130,10 +4356,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泛函分析",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
-    },
-    {
       url: "/universe-physics/knowledge-base/光学--fraunhofer-1817-dark-lines",
       title: "弗劳恩霍夫 1817：574 条暗线是刻度",
     },
@@ -4144,10 +4366,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/functional-groups",
       title: "官能团",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
     },
     {
       url: "/chemistry/concepts/photochemistry",
@@ -4238,6 +4456,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "苏尼亚耶夫-泽尔多维奇效应",
     },
     {
+      url: "/chemistry/concepts/acid-strength-is-not-concentration",
+      title: "酸的强度不是浓度",
+    },
+    {
+      url: "/chemistry/concepts/isotope-is-the-same-element",
+      title: "同位素仍是同一种元素",
+    },
+    {
       url: "/earth-science/concepts/greenhouse-effect",
       title: "温室效应",
     },
@@ -4256,10 +4482,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星系形成与演化",
       title: "星系形成与演化",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
     },
     {
       url: "/chemistry/milestones/urey-1931-deuterium",
@@ -4664,10 +4886,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩尔与物质的量",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
-      title: "热质说的兴衰",
-    },
-    {
       url: "/chemistry/figures/dalton",
       title: "约翰·道尔顿",
     },
@@ -4975,6 +5193,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/human-history/knowledge/科学史--解剖学革命",
       title: "解剖学革命",
     },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子隧穿",
+      title: "量子隧穿",
+    },
   ],
   "/chemistry/methods/flow-chemistry": [
     {
@@ -5246,8 +5468,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗莱明青霉素皿：1928 年圣玛丽医院的污染培养皿与 1929 年报告",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
+      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
+      title: "干涉与衍射：同一叠加原理的两种说法",
     },
     {
       url: "/chemistry/substances/nucleic-acids-chemistry",
@@ -5308,10 +5530,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
       title: "蝎虎座BL天体",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
-      title: "衍射不是干涉",
     },
     {
       url: "/chemistry/milestones/barton-1950-steroid-conformation",
@@ -6751,10 +6969,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/chemistry/concepts/the-mole",
       title: "摩尔与物质的量",
     },
-    {
-      url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
-      title: "气体动理论",
-    },
   ],
   "/chemistry/milestones/polywater-and-pathological-science": [
     {
@@ -7548,6 +7762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海洋生物地球化学",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
+      title: "量子退相干",
+    },
+    {
       url: "/cosmology/knowledge-base/天体生物学--biosignatures",
       title: "生物标志物",
     },
@@ -7950,6 +8168,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗雷德里克·桑格",
     },
     {
+      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
+      title: "光的干涉与衍射",
+    },
+    {
       url: "/life-science/knowledge-base/当代议题--合成生物学",
       title: "合成生物学：从解读生命到创造生命",
     },
@@ -8076,10 +8298,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/kripke-1980-naming",
       title: "命名与必然性",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--latent-heat",
-      title: "潜热不是热容台阶",
     },
     {
       url: "/chemistry/concepts/hydrogen-bond",
@@ -8748,10 +8966,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/approximate-nearest-neighbor-search",
       title: "近似最近邻搜索",
-    },
-    {
-      url: "/cosmology/knowledge-base/快速射电暴",
-      title: "快速射电暴",
     },
     {
       url: "/political-science/institutions/democracy-authoritarianism",
@@ -9516,6 +9730,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "操作系统",
     },
     {
+      url: "/engineering/machines/feedback-is-a-correction",
+      title: "反馈是一种修正",
+    },
+    {
       url: "/mathematics/mathematicians/grothendieck",
       title: "格罗滕迪克",
     },
@@ -9924,6 +10142,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/应用--混沌与分形",
       title: "混沌与分形",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
+      title: "几何光学与透镜成像",
     },
     {
       url: "/computer-science/theory/computational-geometry",
@@ -12182,10 +12404,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/生物技术--合成生物学",
       title: "合成生物学：最小基因组与人造生命的边界",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
     },
     {
       url: "/mathematics/concepts/compact-versus-connected",
@@ -16310,10 +16528,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "公民投票与直接民主",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
-      title: "光纤与全内反射",
-    },
-    {
       url: "/law/frontier/synthetic-media-evidence",
       title: "合成媒体进入法庭：深伪时代怎样证明一段影像是真的",
     },
@@ -17795,11 +18009,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "古印度",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
+      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
+      title: "光纤与全内反射",
     },
     {
       url: "/cosmology/knowledge-base/black-holes",
+      title: "黑洞",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
       title: "黑洞",
     },
     {
@@ -17891,6 +18109,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "排序算法",
     },
     {
+      url: "/universe-physics/dialogues/penrose-wheeler",
+      title: "彭罗斯 vs 惠勒：黑洞与量子引力",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
       title: "普朗克常数与量子化",
     },
@@ -17913,6 +18135,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
       title: "熵与时间之箭",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
     },
     {
       url: "/linguistics/writing-systems/input-methods",
@@ -17951,6 +18177,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "细胞信号：信息如何在细胞间传递",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--弦理论",
       title: "弦理论",
     },
@@ -17969,6 +18199,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/morphology",
       title: "形态学：词的内部结构",
+    },
+    {
+      url: "/universe-physics/dialogues/schrodinger-darwin",
+      title: "薛定谔 vs 达尔文：生命是什么",
     },
     {
       url: "/philosophy/questions/what-is-consciousness",
@@ -18786,6 +19020,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "拉格朗日与哈密顿力学",
     },
     {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-measurement",
+      title: "量子测量问题",
+    },
+    {
       url: "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect",
       title: "量子霍尔效应",
     },
@@ -18796,6 +19034,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/frontier/quantum-algorithms",
       title: "量子算法：Shor 与 Grover 之后的软件边界",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
+      title: "量子退相干",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
@@ -19419,10 +19661,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/black-holes",
       title: "黑洞",
     },
-    {
-      url: "/cosmology/knowledge-base/黑洞热力学与霍金辐射",
-      title: "黑洞热力学与霍金辐射",
-    },
   ],
   "/cosmology/frontier/cmb-inflation-tests": [
     {
@@ -19434,22 +19672,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多重宇宙假说",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙微波背景",
       title: "宇宙微波背景辐射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-      title: "宇宙学红移与膨胀",
     },
   ],
   "/cosmology/frontier/cosmic-reionization": [
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
-      title: "詹姆斯·韦伯空间望远镜",
+      url: "/cosmology/frontier/jwst-early-galaxies",
+      title: 'JWST 与早期宇宙的"过早成熟"星系之谜',
     },
   ],
   "/cosmology/frontier/desi-dark-energy": [
@@ -19492,20 +19722,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大爆炸理论",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙微波背景",
       title: "宇宙微波背景辐射",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
       title: "宇宙学红移与膨胀",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
-      title: "詹姆斯·韦伯空间望远镜",
     },
   ],
   "/cosmology/frontier/jwst-early-galaxies": [
@@ -19516,6 +19738,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--詹姆斯韦伯空间望远镜",
       title: "詹姆斯·韦伯空间望远镜",
+    },
+  ],
+  "/cosmology/frontier/k2-18b-atmosphere": [
+    {
+      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
+      title: "生物标志物",
     },
   ],
   "/cosmology/frontier/nanohertz-gravitational-waves": [
@@ -19529,20 +19757,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/frontier/neutrino-mass-hierarchy",
       title: "中微子质量顺序：振荡之后尚未称出的那一维",
     },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--katrin-2025-tritium-endpoint",
-      title: "KATRIN 2025：氚谱端点给出的是质量上限",
-    },
   ],
   "/cosmology/knowledge-base/black-holes": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
     {
       url: "/cosmology/knowledge-base/中子星与脉冲星",
       title: "中子星与脉冲星",
@@ -19582,6 +19798,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复合时期与最后散射面",
     },
     {
+      url: "/universe-physics/dialogues/hawking-penrose",
+      title: "霍金 vs 彭罗斯：黑洞信息悖论",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--量子场论导论",
       title: "量子场论导论",
     },
@@ -19602,14 +19822,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙大尺度结构",
-      title: "宇宙大尺度结构",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
       title: "宇宙的热历史",
     },
@@ -19627,7 +19839,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
+      title: "COBE 的 FIRAS：怎样把天空光谱与黑体比较",
     },
   ],
   "/cosmology/knowledge-base/stellar-evolution": [
@@ -19640,14 +19852,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑洞",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
-      title: "恒星结构与流体静力平衡",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
       title: "红超巨星与蓝超巨星",
     },
@@ -19655,23 +19859,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/arts/foundations/color-and-light",
       title: "色彩与光",
     },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
-      title: "双星演化与质量转移",
-    },
   ],
   "/cosmology/knowledge-base/中子星与脉冲星": [
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
       title: "暗物质间接探测",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
-      title: "白矮星",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
-      title: "标准烛光与Ia型超新星测距",
     },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
@@ -19694,24 +19886,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "费米液体理论",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
-      title: "核心坍缩超新星",
-    },
-    {
-      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
-      title: "恒星级黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/stellar-evolution",
       title: "恒星演化",
     },
     {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
-      title: "快速射电暴FRB",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
@@ -19746,10 +19926,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "引力波探测器LIGO与LISA",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
-      title: "引力波天文学",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
       title: "kilonova与r过程核合成",
     },
@@ -19759,14 +19935,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova": [
-    {
-      url: "/cosmology/knowledge-base/宇宙学前沿--标准汽笛与引力波宇宙学",
-      title: "标准汽笛与引力波宇宙学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
-    },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
       title: "多波段天文学",
@@ -19788,14 +19956,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双星演化与质量转移",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
-      title: "引力波探测器LIGO与LISA",
-    },
-    {
       url: "/cosmology/knowledge-base/引力波天文学",
       title: "引力波天文学",
     },
@@ -19814,18 +19974,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope": [
     {
-      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
-      title: "超大质量黑洞",
-    },
-    {
-      url: "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
-      title: "黑洞吸积盘与相对论喷流",
-    },
-    {
-      url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
-      title: "黑洞自旋测量",
-    },
-    {
       url: "/cosmology/knowledge-base/活动星系核与类星体",
       title: "活动星系核与类星体",
     },
@@ -19836,10 +19984,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉",
       title: "甚长基线干涉测量",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
-      title: "银河系结构",
     },
   ],
   "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts": [
@@ -19870,10 +20014,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双中子星并合与千新星",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙射线",
       title: "宇宙射线",
     },
@@ -19884,8 +20024,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多波段天文学",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
-      title: "多信使天文学",
+      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
+      title: "光的干涉与衍射",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
@@ -19900,19 +20040,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "脉冲星计时阵列",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
-      title: "双星演化与质量转移",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
       title: "双中子星并合与千新星",
     },
     {
       url: "/cosmology/knowledge-base/引力波天文学",
-      title: "引力波天文学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
       title: "引力波天文学",
     },
     {
@@ -19930,12 +20062,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--hulse-taylor-b1913",
       title: "PSR B1913+16：1974 年的双星脉冲星与后来的轨道周期导数",
-    },
-  ],
-  "/cosmology/knowledge-base/多信使天文学--gw150914": [
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
-      title: "多信使天文学",
     },
   ],
   "/cosmology/knowledge-base/多信使天文学--kilonova-r-process": [
@@ -19960,10 +20086,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双中子星并合与千新星",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
       url: "/cosmology/knowledge-base/引力波天文学",
       title: "引力波天文学",
     },
@@ -19982,12 +20104,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "多波段天文学",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
       title: "时域天文学",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
       title: "双中子星并合与千新星",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
     },
     {
       url: "/cosmology/knowledge-base/宇宙射线",
@@ -20048,16 +20178,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "丢失的重子问题",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-metallicity-chemical-evolution",
-      title: "恒星金属丰度与化学演化",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
       title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
-      title: "快速射电暴FRB",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
@@ -20105,7 +20227,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
+      title: "COBE 的 FIRAS：怎样把天空光谱与黑体比较",
     },
   ],
   "/cosmology/knowledge-base/天体生物学--biosignatures": [
@@ -20158,10 +20280,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/species/deinococcus",
       title: "耐辐射球菌",
-    },
-    {
-      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
-      title: "生物标志物",
     },
     {
       url: "/chemistry/substances/water",
@@ -20228,19 +20346,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "混沌与三体问题",
     },
     {
-      url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
-      title: "柯伊伯带与奥尔特云",
-    },
-    {
       url: "/earth-science/frontier/planetary-defense",
       title: "行星防御：人类第一次学会推开小行星",
     },
   ],
   "/cosmology/knowledge-base/太阳系--comets": [
-    {
-      url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
-      title: "柯伊伯带与奥尔特云",
-    },
     {
       url: "/cosmology/frontier/interstellar-objects",
       title: "星际访客元年：从奥陌陌到 3I/ATLAS，一个新兴学科的诞生",
@@ -20258,14 +20368,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/tidal-locking",
       title: "潮汐锁定不是海岸潮差",
-    },
-    {
-      url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
-      title: "柯伊伯带与奥尔特云",
-    },
-    {
-      url: "/cosmology/knowledge-base/太阳系--planetary-moons",
-      title: "行星卫星系统",
     },
   ],
   "/cosmology/knowledge-base/太阳系--planetary-moons": [
@@ -20292,10 +20394,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "赫罗图",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
-      title: "恒星结构与流体静力平衡",
-    },
-    {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
       title: "系外行星宜居性",
     },
@@ -20312,10 +20410,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/earths-magnetic-field",
       title: "地球磁场",
-    },
-    {
-      url: "/cosmology/knowledge-base/太阳系--kuiper-belt-oort-cloud",
-      title: "柯伊伯带与奥尔特云",
     },
     {
       url: "/philosophy/experiments/kripke-1980-naming",
@@ -20430,10 +20524,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
       title: "空间望远镜：把宇宙变成时间机器",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
-      title: "宇宙的热历史",
     },
     {
       url: "/cosmology/frontier/neutrino-mass-cosmology",
@@ -20596,10 +20686,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声学与多普勒效应",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙静止参考系与本动速度",
       title: "宇宙静止参考系与本动速度",
     },
@@ -20648,10 +20734,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "标准汽笛与引力波宇宙学",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
-      title: "共动距离与宇宙学红移",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--哈勃空间望远镜",
       title: "哈勃空间望远镜",
     },
@@ -20664,24 +20746,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "临界密度与宇宙几何",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
-      title: "弱引力透镜与宇宙剪切",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--binary-neutron-star-merger-kilonova",
       title: "双中子星并合与千新星",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
       title: "天体测量与盖亚卫星",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--galaxy-clusters",
-      title: "星系团与超星系团",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
-      title: "引力波天文学",
     },
     {
       url: "/cosmology/knowledge-base/引力透镜",
@@ -20698,10 +20768,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙学常数问题",
       title: "宇宙学常数问题",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-      title: "宇宙学红移与膨胀",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
@@ -20730,10 +20796,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈勃张力",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
-      title: "临界密度与宇宙几何",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
       title: "宇宙的热历史",
     },
@@ -20744,10 +20806,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙微波背景",
       title: "宇宙微波背景辐射",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
-      title: "宇宙学原理与可观测宇宙",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
@@ -20768,10 +20826,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暴胀模型比较",
     },
     {
-      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
-      title: "超级神冈 1998：大气中微子的上下不对称",
-    },
-    {
       url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
       title: "超新星与重元素起源",
     },
@@ -20790,14 +20844,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",
       title: "核聚变与恒星能源",
-    },
-    {
-      url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
-      title: "核裂变",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
@@ -20864,10 +20910,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复合时期与最后散射面",
     },
     {
-      url: "/cosmology/knowledge-base/活动星系核与类星体",
-      title: "活动星系核与类星体",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
       title: "宇宙黑暗时代",
     },
@@ -20877,10 +20919,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙": [
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--奥伯斯佯谬与黑暗的夜空",
-      title: "奥伯斯佯谬与黑暗的夜空",
-    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
       title: "共动距离与宇宙学红移",
@@ -20902,10 +20940,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "群",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙静止参考系与本动速度",
-      title: "宇宙静止参考系与本动速度",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
       title: "宇宙网与纤维状结构",
     },
@@ -20916,8 +20950,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暗能量与状态方程",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--哈勃张力",
-      title: "哈勃张力",
+      url: "/cosmology/knowledge-base/暗物质与暗能量",
+      title: "暗物质与暗能量",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
@@ -20942,10 +20976,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
       title: "大尺度结构形成",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题",
@@ -20999,10 +21029,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
       title: "宇宙的热历史",
     },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
-      title: "宇宙再电离",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子": [
     {
@@ -21016,10 +21042,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-direct-detection",
       title: "暗物质直接探测实验",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
-      title: "原初黑洞",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--bullet-cluster-2006",
@@ -21038,10 +21060,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
       title: "大尺度结构形成",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--广义相对论",
@@ -21068,10 +21086,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙学常数问题",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
-      title: "宇宙学原理与可观测宇宙",
-    },
-    {
       url: "/cosmology/knowledge-base/重子声学振荡",
       title: "重子声学振荡",
     },
@@ -21094,14 +21108,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "下一代 CMB 实验对暴胀的检验：寻找宇宙最初的引力波",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--cosmic-thermal-history",
-      title: "宇宙的热历史",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
-      title: "宇宙学原理与可观测宇宙",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
       title: "原初引力波与 B 模式偏振",
     },
@@ -21110,10 +21116,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--标准模型与超越",
       title: "标准模型与超越",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--christenson-1964-k2-pipi",
-      title: "克里斯滕森 1964：长寿命中性 K 的两π衰变",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
@@ -21158,10 +21160,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光学望远镜",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
-      title: "伽马射线暴",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--苏尼亚耶夫-泽尔多维奇效应",
       title: "苏尼亚耶夫-泽尔多维奇效应",
     },
@@ -21183,20 +21181,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
-      title: "暗物质与暗能量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990": [
-    {
-      url: "/cosmology/knowledge-base/宇宙微波背景",
-      title: "宇宙微波背景辐射",
-    },
     {
       url: "/cosmology/knowledge-base/多信使天文学--gw150914",
       title: "GW150914：两个黑洞并合的第一声，不是一张照片",
@@ -21210,18 +21196,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/popper",
       title: "波普尔",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
-      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/cosmology/knowledge-base/引力透镜",
@@ -21256,16 +21230,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "宇宙距离阶梯",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-      title: "宇宙学红移与膨胀",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
       title: "宇宙学简史：从地心说到大爆炸",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
+      title: "COBE 的 FIRAS：怎样把天空光谱与黑体比较",
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--hulse-taylor-b1913": [
@@ -21307,10 +21277,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
       title: "宇宙学简史：从地心说到大爆炸",
     },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
-      title: "造父变星与变星",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学观测--shapley-curtis-1920": [
     {
@@ -21333,10 +21299,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
       title: "宇宙学简史：从地心说到大爆炸",
     },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学观测--slipher-1912-nebular-redshifts": [
     {
@@ -21347,14 +21309,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学观测--hubble-1929-velocity-distance",
       title: "1929 速度–距离图：24 个河外星云怎样被写成斜率 K",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
-      title: "宇宙学红移与膨胀",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学观测--supernova-acceleration-1998": [
     {
@@ -21363,14 +21317,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--中微子探测器": [
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
-      title: "超级神冈 1998：大气中微子的上下不对称",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
-      title: "多信使天文学",
-    },
     {
       url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
       title: "核心坍缩超新星",
@@ -21414,10 +21360,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红外天文学",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
-      title: "几何光学与透镜成像",
-    },
-    {
       url: "/human-history/knowledge/事件--科学革命",
       title: "科学革命",
     },
@@ -21444,10 +21386,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "标准烛光与Ia型超新星测距",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
-      title: "多波段天文学",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
       title: "光学望远镜",
     },
@@ -21458,10 +21396,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
       title: "星族I与星族II恒星",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
-      title: "宇宙的年龄测定",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--自适应光学",
@@ -21492,10 +21426,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
       title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
-      title: "伽马射线暴",
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI": [
@@ -21618,10 +21548,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "本生与基尔霍夫一八六〇年的铯：棱镜分光镜怎样用天蓝色谱线认出第一种新元素",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
       title: "光学望远镜",
     },
@@ -21708,18 +21634,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "星族I与星族II恒星",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
-      title: "宇宙的年龄测定",
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--射电望远镜": [
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--21cm宇宙学与再电离",
       title: "21cm 宇宙学与再电离",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
@@ -21776,20 +21698,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大尺度结构形成",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
       title: "临界密度与宇宙几何",
     },
     {
       url: "/cosmology/knowledge-base/引力透镜",
       title: "引力透镜",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
@@ -21902,14 +21816,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈勃张力",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-metallicity-chemical-evolution",
-      title: "恒星金属丰度与化学演化",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
-      title: "时域天文学",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
       title: "双星演化与质量转移",
     },
@@ -21927,14 +21833,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉": [
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
-      title: "多波段天文学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
-    },
     {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
@@ -21999,23 +21897,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
       title: "宇宙网与纤维状结构",
     },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙学原理与可观测宇宙",
-      title: "宇宙学原理与可观测宇宙",
-    },
   ],
   "/cosmology/knowledge-base/宇宙学观测--自适应光学": [
     {
-      url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
-      title: "多波段天文学",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
       title: "光学望远镜",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
-      title: "几何光学与透镜成像",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
@@ -22052,10 +21938,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--21cm宇宙学与再电离",
       title: "21cm 宇宙学与再电离",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题",
@@ -22096,16 +21978,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "哈勃空间望远镜",
     },
     {
-      url: "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
-      title: "空间望远镜：把宇宙变成时间机器",
-    },
-    {
       url: "/cosmology/knowledge-base/星系天文学--星系光度函数",
       title: "星系光度函数",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
-      title: "星族I与星族II恒星",
     },
     {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
@@ -22182,10 +22056,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "丢失的重子问题",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
-      title: "复合时期与最后散射面",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
       title: "共动距离与宇宙学红移",
     },
@@ -22206,10 +22076,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
-      title: "激光冷却与原子阱",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
       title: "简谐振动与共振",
     },
@@ -22222,16 +22088,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "快速射电暴",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
-      title: "快速射电暴FRB",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--临界密度与宇宙几何",
       title: "临界密度与宇宙几何",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
-      title: "弱引力透镜与宇宙剪切",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--射电望远镜",
@@ -22248,10 +22106,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--稳恒态宇宙",
       title: "稳恒态宇宙：输得最体面的理论",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
-      title: "物质-反物质不对称与重子生成",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
@@ -22310,20 +22164,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "原初黑洞",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
-      title: "原初引力波与 B 模式偏振",
-    },
-    {
-      url: "/cosmology/knowledge-base/重子声学振荡",
-      title: "重子声学振荡",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
-      title: "COBE 的 FIRAS：黑体谱没有顺便画出各向异性",
+      title: "COBE 的 FIRAS：怎样把天空光谱与黑体比较",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--eisenstein-2005-bao",
       title: "Eisenstein 2005：四万六千个亮红星系上的声学峰",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--katrin-2025-tritium-endpoint",
+      title: "KATRIN 2025：氚谱端点给出的是质量上限",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--S8结构增长张力",
@@ -22346,16 +22196,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/引力波天文学": [
     {
-      url: "/cosmology/knowledge-base/恒星物理--binary-star-systems",
-      title: "双星系统",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--wolf-rayet-stars",
       title: "沃尔夫-拉叶星",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
-      title: "蝎虎座BL天体",
     },
     {
       url: "/cosmology/knowledge-base/中子星与脉冲星",
@@ -22405,10 +22247,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/快速射电暴": [
-    {
-      url: "/cosmology/knowledge-base/致密天体--magnetar-flares",
-      title: "磁星耀发",
-    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题",
       title: "丢失的重子问题",
@@ -22494,10 +22332,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双中子星并合与千新星",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
-      title: "Ia型超新星",
-    },
-    {
       url: "/cosmology/knowledge-base/致密天体--x-ray-binaries",
       title: "X射线双星",
     },
@@ -22550,14 +22384,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "第一代恒星与宇宙黎明",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
-      title: "多信使天文学",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
       url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
       title: "恒星级黑洞",
     },
@@ -22566,16 +22392,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "恒星形成",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
-      title: "伽马射线暴",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
       title: "时域天文学",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
-      title: "星族I与星族II恒星",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--中微子探测器",
@@ -22584,10 +22402,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/中子星与脉冲星",
       title: "中子星与脉冲星",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
-      title: "Ia型超新星",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--kilonova-r-process",
@@ -22630,10 +22444,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/恒星物理--main-sequence-stars": [
     {
-      url: "/cosmology/knowledge-base/恒星物理--core-collapse-supernovae",
-      title: "核心坍缩超新星",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
       title: "赫罗图",
     },
@@ -22656,18 +22466,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "赫罗图",
     },
     {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
-      title: "恒星结构与流体静力平衡",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
-      title: "红超巨星与蓝超巨星",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
       title: "伽马射线暴",
     },
@@ -22688,11 +22486,13 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "X射线双星",
     },
   ],
-  "/cosmology/knowledge-base/恒星物理--red-giants-agb": [
+  "/cosmology/knowledge-base/恒星物理--red-blue-supergiants": [
     {
-      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
-      title: "白矮星",
+      url: "/cosmology/knowledge-base/恒星物理--red-giants-agb",
+      title: "红巨星与渐近巨星支",
     },
+  ],
+  "/cosmology/knowledge-base/恒星物理--red-giants-agb": [
     {
       url: "/cosmology/knowledge-base/恒星物理--massive-star-evolution",
       title: "大质量恒星演化",
@@ -22724,10 +22524,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑洞吸积盘与相对论喷流",
     },
     {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-structure-hydrostatic-equilibrium",
-      title: "恒星结构与流体静力平衡",
-    },
-    {
       url: "/cosmology/knowledge-base/系外行星--热木星",
       title: "热木星",
     },
@@ -22744,6 +22540,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
       title: "第一代恒星与宇宙黎明",
+    },
+    {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
     },
     {
       url: "/chemistry/milestones/mendeleev-periodic-law",
@@ -22770,10 +22570,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
       title: "恒星结构与演化",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--star-formation",
-      title: "恒星形成",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--red-giants-agb",
@@ -22822,14 +22618,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "赫罗图",
     },
     {
-      url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
-      title: "恒星结构与演化",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--时域天文学",
-      title: "时域天文学",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--binary-star-systems",
       title: "双星系统",
     },
@@ -22872,16 +22660,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "红巨星与渐近巨星支",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
-      title: "引力波探测器LIGO与LISA",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
       title: "主序星",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--type-ia-supernovae",
-      title: "Ia型超新星",
     },
   ],
   "/cosmology/knowledge-base/星系天文学--dark-matter-halo": [
@@ -22892,10 +22672,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--暗物质",
       title: "暗物质",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
-      title: "暗物质间接探测",
     },
     {
       url: "/universe-physics/frontier/dark-matter-direct-detection",
@@ -22920,10 +22696,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
       title: "修改引力理论MOND",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
-      title: "银河系结构",
     },
   ],
   "/cosmology/knowledge-base/星系天文学--dwarf-galaxies": [
@@ -23172,10 +22944,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "星族I与星族II恒星",
     },
     {
-      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
-      title: "银河系结构",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
       title: "宇宙的年龄测定",
     },
@@ -23199,10 +22967,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/星际介质--行星状星云": [
-    {
-      url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
-      title: "白矮星",
-    },
     {
       url: "/cosmology/knowledge-base/恒星物理--red-giants-agb",
       title: "红巨星与渐近巨星支",
@@ -23239,10 +23003,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
       title: "星族I与星族II恒星",
     },
-    {
-      url: "/cosmology/knowledge-base/宇宙射线",
-      title: "宇宙射线",
-    },
   ],
   "/cosmology/knowledge-base/暗物质与暗能量": [
     {
@@ -23264,10 +23024,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/活动星系核与类星体": [
     {
-      url: "/cosmology/knowledge-base/致密天体--supermassive-black-holes",
-      title: "超大质量黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
       title: "潮汐瓦解事件",
     },
@@ -23278,10 +23034,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--多波段天文学",
       title: "多波段天文学",
-    },
-    {
-      url: "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
-      title: "黑洞吸积盘与相对论喷流",
     },
     {
       url: "/cosmology/knowledge-base/星系天文学--赛弗特星系",
@@ -23302,10 +23054,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/星系天文学--星系光度函数",
       title: "星系光度函数",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
-      title: "星系合并与相互作用",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
@@ -23342,24 +23090,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "星系际介质",
     },
     {
-      url: "/cosmology/knowledge-base/星系形成与演化",
-      title: "星系形成与演化",
-    },
-    {
       url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
       title: "星族I与星族II恒星",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙的年龄测定",
-      title: "宇宙的年龄测定",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
       title: "宇宙黑暗时代",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学基础--宇宙再电离",
-      title: "宇宙再电离",
     },
   ],
   "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995": [
@@ -23389,11 +23125,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/cosmology/knowledge-base/系外行星--凌星法": [
     {
       url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
-      title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
-    },
-    {
-      url: "/cosmology/knowledge-base/系外行星探测",
-      title: "系外行星探测",
+      title: "飞马座51b：四天周期打开的热木星时代",
     },
     {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
@@ -23402,10 +23134,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/系外行星--微引力透镜法": [
     {
-      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
-      title: "恒星级黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学前沿--primordial-black-holes",
       title: "原初黑洞",
     },
@@ -23413,7 +23141,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/cosmology/knowledge-base/系外行星--热木星": [
     {
       url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
-      title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
+      title: "飞马座51b：四天周期打开的热木星时代",
     },
     {
       url: "/cosmology/knowledge-base/太阳系--gas-giants",
@@ -23450,12 +23178,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/系外行星--视向速度法": [
     {
-      url: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
-      title: "多普勒效应与相对论多普勒",
-    },
-    {
       url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
-      title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
+      title: "飞马座51b：四天周期打开的热木星时代",
     },
     {
       url: "/cosmology/knowledge-base/星际介质--褐矮星",
@@ -23466,25 +23190,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天文光谱学方法",
     },
     {
-      url: "/cosmology/knowledge-base/系外行星探测",
-      title: "系外行星探测",
-    },
-    {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
   ],
-  "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星": [
-    {
-      url: "/cosmology/knowledge-base/天体生物学--biosignatures",
-      title: "生物标志物",
-    },
-  ],
   "/cosmology/knowledge-base/系外行星探测": [
-    {
-      url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
-      title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
-    },
     {
       url: "/cosmology/knowledge-base/天体生物学--ocean-worlds",
       title: "海洋世界：太阳系内寻找生命的第二条路线",
@@ -23512,10 +23222,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "伽马射线暴",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
-      title: "克尔转动黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
       title: "事件视界望远镜",
     },
@@ -23534,8 +23240,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement": [
     {
-      url: "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
-      title: "黑洞吸积盘与相对论喷流",
+      url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
+      title: "恒星级黑洞",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--x-ray-binaries",
@@ -23544,19 +23250,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/致密天体--magnetar-flares": [
     {
+      url: "/cosmology/knowledge-base/致密天体--magnetars",
+      title: "磁星",
+    },
+    {
       url: "/universe-physics/knowledge-base/天体物理--脉冲星与磁星",
       title: "脉冲星与磁星",
     },
   ],
   "/cosmology/knowledge-base/致密天体--magnetars": [
-    {
-      url: "/cosmology/knowledge-base/致密天体--magnetar-flares",
-      title: "磁星耀发",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--gamma-ray-bursts",
-      title: "伽马射线暴",
-    },
     {
       url: "/cosmology/knowledge-base/快速射电暴",
       title: "快速射电暴",
@@ -23640,18 +23342,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes": [
     {
-      url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
-      title: "黑洞自旋测量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
-      title: "史瓦西黑洞",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--binary-star-evolution",
-      title: "双星演化与质量转移",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
       title: "引力波探测器LIGO与LISA",
     },
@@ -23662,36 +23352,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "潮汐瓦解事件",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/活动星系核与类星体",
       title: "活动星系核与类星体",
-    },
-    {
-      url: "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
-      title: "脉冲星计时阵列",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--event-horizon-telescope",
       title: "事件视界望远镜",
     },
     {
-      url: "/cosmology/knowledge-base/星系天文学--星系合并与相互作用",
-      title: "星系合并与相互作用",
-    },
-    {
       url: "/cosmology/knowledge-base/星系形成与演化",
       title: "星系形成与演化",
-    },
-    {
-      url: "/cosmology/knowledge-base/星系天文学--milky-way-structure",
-      title: "银河系结构",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
-      title: "引力波探测器LIGO与LISA",
     },
     {
       url: "/cosmology/knowledge-base/宇宙射线",
@@ -23709,10 +23379,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/cosmology/knowledge-base/致密天体--x-ray-binaries": [
-    {
-      url: "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
-      title: "黑洞吸积盘与相对论喷流",
-    },
     {
       url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
       title: "黑洞自旋测量",
@@ -23738,10 +23404,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--大尺度结构形成",
       title: "大尺度结构形成",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙学观测--大型巡天SDSS与DESI",
-      title: "大型巡天：SDSS与DESI",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
@@ -23772,20 +23434,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "天文光谱学方法",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
-      title: "修改引力理论MOND",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙大尺度结构",
       title: "宇宙大尺度结构",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙网与纤维状结构",
       title: "宇宙网与纤维状结构",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-      title: "宇宙微波背景辐射",
     },
     {
       url: "/cosmology/frontier/desi-dark-energy",
@@ -23922,6 +23576,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/gpu-and-parallel-computing",
       title: "GPU 与并行计算",
+    },
+  ],
+  "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer": [
+    {
+      url: "/earth-science/concepts/milankovitch-is-not-a-season",
+      title: "米兰科维奇周期不是季节",
     },
   ],
   "/earth-science/climate-risks/compound-climate-risks": [
@@ -24141,7 +23801,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
+      title: "半衰期：单核的概率尺度与群体的指数衰减",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
@@ -24182,10 +23842,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/global-atmospheric-circulation",
       title: "全球大气环流",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
-      title: "瑞利散射与天空的颜色",
     },
     {
       url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
@@ -24376,12 +24032,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "陆地化：生命征服陆地的四次浪潮",
     },
     {
+      url: "/earth-science/concepts/milankovitch-is-not-a-season",
+      title: "米兰科维奇周期不是季节",
+    },
+    {
       url: "/medicine/concepts/homeostasis",
       title: "内稳态",
     },
     {
       url: "/life-science/knowledge-base/生态学--气候变化与生态",
       title: "气候变化与生态：物候变化与分布移动",
+    },
+    {
+      url: "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer",
+      title: "气候代用指标不是温度计",
     },
     {
       url: "/earth-science/processes/climate-modeling",
@@ -24450,10 +24114,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/judgment-analyses/urgenda-v-netherlands-2019",
       title: "乌尔根达诉荷兰：百分之二十五是命令的下限",
-    },
-    {
-      url: "/cosmology/knowledge-base/系外行星探测",
-      title: "系外行星探测",
     },
     {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
@@ -24533,7 +24193,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
+      title: "浮力与表面张力：两种支撑怎样共同记账",
     },
     {
       url: "/human-history/frontier/ancient-dna-revolution",
@@ -24586,14 +24246,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "板块构造",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
-      title: "波动与声学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
       url: "/earth-science/concepts/tides",
       title: "潮汐",
     },
@@ -24604,6 +24256,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/events/continental-drift-rejected",
       title: "大陆漂移被拒绝的五十年（1912—1965）",
+    },
+    {
+      url: "/earth-science/processes/isostasy-is-a-float",
+      title: "地壳均衡是一种浮力平衡",
     },
     {
       url: "/earth-science/concepts/earths-magnetic-field",
@@ -24696,10 +24352,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "板块构造",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--超导体",
-      title: "超导体",
-    },
-    {
       url: "/cosmology/knowledge-base/致密天体--magnetars",
       title: "磁星",
     },
@@ -24716,10 +24368,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "等离子体物理",
     },
     {
-      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
-      title: "放射性衰变",
-    },
-    {
       url: "/mathematics/mathematicians/gauss",
       title: "高斯",
     },
@@ -24730,10 +24378,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/metals-and-alloys",
       title: "金属与合金",
-    },
-    {
-      url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
-      title: "类地行星",
     },
     {
       url: "/life-science/knowledge-base/生态学--迁徙",
@@ -24808,6 +24452,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "达尔文",
     },
     {
+      url: "/earth-science/processes/isostasy-is-a-float",
+      title: "地壳均衡是一种浮力平衡",
+    },
+    {
       url: "/mathematics/concepts/multivariable-calculus",
       title: "多元微积分",
     },
@@ -24856,10 +24504,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "行星地质学",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
-    },
-    {
       url: "/chemistry/concepts/atomic-structure",
       title: "原子结构",
     },
@@ -24867,15 +24511,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
     },
+    {
+      url: "/earth-science/concepts/magnitude-is-not-intensity",
+      title: "震级不是烈度",
+    },
   ],
   "/earth-science/concepts/geologic-time-scale": [
     {
       url: "/life-science/species/honey-fungus",
       title: "奥氏蜜环菌",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
     },
     {
       url: "/life-science/scientists/darwin",
@@ -24908,6 +24552,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/nuclear-chemistry",
       title: "核化学与放射化学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
+      title: "核衰变链",
     },
     {
       url: "/life-science/species/horseshoe-crab",
@@ -25040,6 +24688,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "绿氢：用电、水和催化剂把能源链条重写一遍",
     },
     {
+      url: "/earth-science/concepts/milankovitch-is-not-a-season",
+      title: "米兰科维奇周期不是季节",
+    },
+    {
+      url: "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer",
+      title: "气候代用指标不是温度计",
+    },
+    {
       url: "/earth-science/processes/climate-modeling",
       title: "气候建模",
     },
@@ -25058,10 +24714,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
       title: "热传导对流与辐射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
-      title: "瑞利散射与天空的颜色",
     },
     {
       url: "/economics/theories/market-failures",
@@ -25144,6 +24796,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/prehistory-and-archaeology/human-dispersals-and-fossils",
       title: "人类扩散与化石",
+    },
+  ],
+  "/earth-science/concepts/ice-albedo-feedback": [
+    {
+      url: "/earth-science/concepts/milankovitch-is-not-a-season",
+      title: "米兰科维奇周期不是季节",
+    },
+    {
+      url: "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer",
+      title: "气候代用指标不是温度计",
     },
   ],
   "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks": [
@@ -25238,10 +24900,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "玛丽·撒普",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
-    },
-    {
       url: "/mathematics/knowledge-base/代数--线性代数的几何意义",
       title: "线性代数的几何意义",
     },
@@ -25252,6 +24910,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/科技史--指南针",
       title: "指南针",
+    },
+  ],
+  "/earth-science/concepts/milankovitch-is-not-a-season": [
+    {
+      url: "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer",
+      title: "气候代用指标不是温度计",
     },
   ],
   "/earth-science/concepts/mineral-resources-and-critical-metals": [
@@ -25328,6 +24992,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "供应链：全球制造的隐形骨架",
     },
     {
+      url: "/earth-science/concepts/mineral-is-not-a-rock",
+      title: "矿物不是岩石",
+    },
+    {
       url: "/economics/concepts/monopoly-oligopoly",
       title: "垄断与寡头",
     },
@@ -25388,6 +25056,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/curie-1898-polonium-radium",
       title: "居里 1898：沥青铀矿里比铀更活的部分怎样被写成钋与镭",
+    },
+    {
+      url: "/earth-science/concepts/mineral-is-not-a-rock",
+      title: "矿物不是岩石",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
@@ -25718,10 +25390,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "勾股定理",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
-      title: "光纤与全内反射",
-    },
-    {
       url: "/mathematics/paradoxes/coastline",
       title: "海岸线悖论",
     },
@@ -25748,6 +25416,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/intelligence-and-espionage",
       title: "情报与间谍",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
+      title: "瑞利散射与天空的颜色",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
@@ -25818,6 +25490,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/arts/architecture/building-as-structure",
       title: "建筑作为结构：墙、梁与穹顶",
+    },
+    {
+      url: "/earth-science/concepts/mineral-is-not-a-rock",
+      title: "矿物不是岩石",
     },
     {
       url: "/earth-science/concepts/igneous-sedimentary-metamorphic-rocks",
@@ -25962,20 +25638,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海平面上升与适应路径",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/系外行星--热木星",
       title: "热木星",
     },
     {
       url: "/mathematics/concepts/trigonometry",
       title: "三角函数",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
     },
     {
       url: "/mathematics/theorems/taylor-theorem",
@@ -26565,10 +26233,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/earth-science/events/kelvin-and-the-age-of-the-earth": [
-    {
-      url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
-    },
     {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
@@ -27214,6 +26878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "全球大气环流",
     },
     {
+      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
+      title: "瑞利散射与天空的颜色",
+    },
+    {
       url: "/computer-science/algorithms/random-forests",
       title: "随机森林",
     },
@@ -27236,6 +26904,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/cosmic-inflation",
       title: "宇宙暴胀",
+    },
+    {
+      url: "/cosmology/dialogues/cosmology-crisis",
+      title: "宇宙学危机：哈勃常数之争",
     },
     {
       url: "/computer-science/frontier/ai-for-science",
@@ -27412,6 +27084,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
+    },
+    {
+      url: "/earth-science/concepts/magnitude-is-not-intensity",
+      title: "震级不是烈度",
     },
     {
       url: "/earth-science/events/valdivia-1960",
@@ -27896,8 +27572,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "板块构造",
     },
     {
+      url: "/earth-science/processes/isostasy-is-a-float",
+      title: "地壳均衡是一种浮力平衡",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
+      title: "浮力与表面张力：两种支撑怎样共同记账",
     },
     {
       url: "/earth-science/processes/erosion-deposition",
@@ -27994,6 +27674,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大氧化事件",
     },
     {
+      url: "/earth-science/processes/isostasy-is-a-float",
+      title: "地壳均衡是一种浮力平衡",
+    },
+    {
       url: "/earth-science/concepts/earth-interior",
       title: "地球内部结构",
     },
@@ -28046,6 +27730,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "矿产资源与关键金属",
     },
     {
+      url: "/earth-science/concepts/mineral-is-not-a-rock",
+      title: "矿物不是岩石",
+    },
+    {
       url: "/cosmology/knowledge-base/太阳系--terrestrial-planets",
       title: "类地行星",
     },
@@ -28086,10 +27774,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "物种形成：一个物种如何裂成两个",
     },
     {
-      url: "/cosmology/knowledge-base/系外行星探测",
-      title: "系外行星探测",
-    },
-    {
       url: "/cosmology/knowledge-base/系外行星--系外行星宜居性",
       title: "系外行星宜居性",
     },
@@ -28108,6 +27792,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/orogeny-mountain-building",
       title: "造山运动",
+    },
+    {
+      url: "/earth-science/concepts/magnitude-is-not-intensity",
+      title: "震级不是烈度",
     },
     {
       url: "/earth-science/events/valdivia-1960",
@@ -28133,7 +27821,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
+      title: "浮力与表面张力：两种支撑怎样共同记账",
     },
     {
       url: "/earth-science/climate-risks/compound-climate-risks",
@@ -30720,6 +30408,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碳预算、净零与气候目标的物理约束",
     },
     {
+      url: "/universe-physics/dialogues/tesla-edison",
+      title: "特斯拉 vs 爱迪生：交流电 vs 直流电",
+    },
+    {
       url: "/literature/reading-and-reception/libraries-and-the-book-trade",
       title: "图书馆与书籍市场",
     },
@@ -32910,6 +32602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/private-law/company-and-market-law",
       title: "公司与市场组织：有限责任的发明及其代价",
+    },
+    {
+      url: "/universe-physics/dialogues/tesla-edison",
+      title: "特斯拉 vs 爱迪生：交流电 vs 直流电",
     },
     {
       url: "/law/private-law/property-and-ownership",
@@ -35596,6 +35292,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/education/assessment-and-equity/assessment-as-inference": [
     {
+      url: "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
+      title: "按曲线评分是排名",
+    },
+    {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
       url: "/education/curriculum-and-teaching/lau-v-nichols-1974",
       title: "劳诉尼科尔斯：同样的英语课不等于可懂的课",
     },
@@ -35616,6 +35320,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "田纳西 STAR：班额被随机之后测到了什么",
     },
   ],
+  "/education/assessment-and-equity/formative-assessment-in-use": [
+    {
+      url: "/education/curriculum-and-teaching/wait-time-is-a-pause",
+      title: "等待时间是停顿",
+    },
+  ],
   "/education/assessment-and-equity/funding-formulas-and-teachability": [
     {
       url: "/education/assessment-and-equity/san-antonio-v-rodriguez-1973",
@@ -35625,8 +35335,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/education/assessment-and-equity/serrano-v-priest-1971",
       title: "塞拉诺诉普里斯特：学区房产没有被写成儿童的智力",
     },
+    {
+      url: "/education/comparison-and-policy/summer-setback-is-not-one-number",
+      title: "夏季下滑不是一个数字",
+    },
   ],
   "/education/assessment-and-equity/high-stakes-exams-are-institutions": [
+    {
+      url: "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
+      title: "按曲线评分是排名",
+    },
     {
       url: "/education/assessment-and-equity/san-antonio-v-rodriguez-1973",
       title: "罗德里格斯案：联邦宪法没有把教育写成基本权利",
@@ -35658,8 +35376,30 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/education/assessment-and-equity/validity-is-an-argument": [
     {
+      url: "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
+      title: "按曲线评分是排名",
+    },
+    {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
       url: "/education/assessment-and-equity/serrano-v-priest-1971",
       title: "塞拉诺诉普里斯特：学区房产没有被写成儿童的智力",
+    },
+  ],
+  "/education/cognition-and-memory/memory-spacing-and-transfer": [
+    {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
+      url: "/education/learning-foundations/play-is-a-practice",
+      title: "游戏是一种实践",
+    },
+    {
+      url: "/psychology/phenomena/state-dependent-memory",
+      title: "状态依赖记忆与场景依赖记忆",
     },
   ],
   "/education/cognition-and-memory/project-star-class-size": [
@@ -35686,6 +35426,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/education/frontier/science-of-reading-statutes",
       title: "「阅读科学」立法改的是什么",
+    },
+    {
+      url: "/education/curriculum-and-teaching/wait-time-is-a-pause",
+      title: "等待时间是停顿",
+    },
+    {
+      url: "/psychology/phenomena/habituation-is-not-fatigue",
+      title: "习惯化不是肌肉疲劳",
     },
   ],
   "/education/comparison-and-policy/colonial-curriculum-and-language": [
@@ -35718,6 +35466,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "劳诉尼科尔斯：同样的英语课不等于可懂的课",
     },
   ],
+  "/education/curriculum-and-teaching/classroom-as-time": [
+    {
+      url: "/education/curriculum-and-teaching/wait-time-is-a-pause",
+      title: "等待时间是停顿",
+    },
+  ],
   "/education/curriculum-and-teaching/curriculum-as-selection": [
     {
       url: "/education/frontier/science-of-reading-statutes",
@@ -35732,6 +35486,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/education/curriculum-and-teaching/bilingual-education-is-a-design",
       title: "双语教育是一种设计",
+    },
+  ],
+  "/education/curriculum-and-teaching/tracking-and-grouping": [
+    {
+      url: "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
+      title: "按曲线评分是排名",
+    },
+    {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
+      url: "/education/comparison-and-policy/summer-setback-is-not-one-number",
+      title: "夏季下滑不是一个数字",
     },
   ],
   "/education/education-technology/adaptive-systems-are-not-tutors": [
@@ -35767,6 +35535,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/education/learning-foundations/perry-preschool-study",
       title: "佩里学前：123 名儿童被随机之后，成年表上还剩什么",
     },
+    {
+      url: "/education/learning-foundations/play-is-a-practice",
+      title: "游戏是一种实践",
+    },
+  ],
+  "/education/learning-foundations/homework-allocates-family-time": [
+    {
+      url: "/education/comparison-and-policy/summer-setback-is-not-one-number",
+      title: "夏季下滑不是一个数字",
+    },
   ],
   "/education/learning-foundations/perry-preschool-study": [
     {
@@ -35784,6 +35562,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "格林案：自由选择没有把双轨学校收成一所学校",
     },
     {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
       url: "/education/curriculum-and-teaching/lau-v-nichols-1974",
       title: "劳诉尼科尔斯：同样的英语课不等于可懂的课",
     },
@@ -35796,6 +35578,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "塞拉诺诉普里斯特：学区房产没有被写成儿童的智力",
     },
     {
+      url: "/education/comparison-and-policy/summer-setback-is-not-one-number",
+      title: "夏季下滑不是一个数字",
+    },
+    {
       url: "/law/judgment-analyses/handyside-v-uk-expression-margin",
       title: "Handyside v. United Kingdom 判决剖析",
     },
@@ -35806,6 +35592,26 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "「阅读科学」立法改的是什么",
     },
   ],
+  "/education/learning-foundations/teacher-expectation-is-not-a-measure": [
+    {
+      url: "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
+      title: "按曲线评分是排名",
+    },
+  ],
+  "/education/learning-foundations/teaching-is-not-pouring": [
+    {
+      url: "/education/curriculum-and-teaching/wait-time-is-a-pause",
+      title: "等待时间是停顿",
+    },
+    {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
+      url: "/education/learning-foundations/play-is-a-practice",
+      title: "游戏是一种实践",
+    },
+  ],
   "/education/learning-foundations/what-is-learning": [
     {
       url: "/economics/policy-analyses/mexico-progresa-cash-transfer",
@@ -35814,6 +35620,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/frontier/sign-language-ai-bias",
       title: "手语人工智能的系统偏差：识别手势，不等于理解语言",
+    },
+    {
+      url: "/education/learning-foundations/play-is-a-practice",
+      title: "游戏是一种实践",
     },
     {
       url: "/law/judgment-analyses/brown-v-board-equal-protection",
@@ -35852,6 +35662,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超级工程：成本超支与风险政治",
     },
   ],
+  "/engineering/civil/redundancy-is-an-alternate-path": [
+    {
+      url: "/engineering/frontiers/common-mode-failure",
+      title: "共因失效",
+    },
+  ],
   "/engineering/civil/resilient-infrastructure": [
     {
       url: "/engineering/frontiers/dilution-is-the-solution",
@@ -35878,6 +35694,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "城市公共空间：谁能停留、谁被请出去",
     },
     {
+      url: "/engineering/frontiers/common-mode-failure",
+      title: "共因失效",
+    },
+    {
       url: "/engineering/frontier/infrastructure-digital-twins",
       title: "基础设施数字孪生：什么时候模型才配替真实桥梁作决定",
     },
@@ -35890,8 +35710,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "气候风险下的文化遗产：保护什么、何时撤退、谁来决定",
     },
     {
+      url: "/engineering/civil/redundancy-is-an-alternate-path",
+      title: "冗余是另一条传力路径",
+    },
+    {
       url: "/life-science/knowledge-base/生态系统--珊瑚礁",
       title: "珊瑚礁：海洋中的热带雨林",
+    },
+    {
+      url: "/earth-science/concepts/magnitude-is-not-intensity",
+      title: "震级不是烈度",
     },
   ],
   "/engineering/civil/skyscrapers": [
@@ -36090,10 +35918,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "2009 年法航 447：空速不一致之后的自动化退出",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
-    },
-    {
       url: "/engineering/foundations/measurement-and-tolerance",
       title: "测量与公差：精密的代价",
     },
@@ -36141,11 +35965,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/engineering/foundations/electricity-and-motors": [
     {
       url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
     },
     {
       url: "/engineering/energy/power-grid",
       title: "电网：最大的实时平衡系统",
+    },
+    {
+      url: "/engineering/machines/feedback-is-a-correction",
+      title: "反馈是一种修正",
     },
   ],
   "/engineering/foundations/experimental-design-and-uncertainty": [
@@ -36198,6 +36026,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
     },
     {
+      url: "/universe-physics/dialogues/maxwell-faraday",
+      title: "麦克斯韦 vs 法拉第：场论的数学与直觉",
+    },
+    {
       url: "/psychology/experiments/tversky-kahneman-1974",
       title: "特沃斯基与卡尼曼 1974：不确定判断里的启发式怎样被写成可核对的偏差",
     },
@@ -36212,6 +36044,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/machines/shewhart-control-chart",
       title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
+    },
+  ],
+  "/engineering/foundations/factor-of-safety-is-a-margin": [
+    {
+      url: "/engineering/materials/fatigue-is-repeated-stress",
+      title: "疲劳是反复受力",
     },
   ],
   "/engineering/foundations/fatigue-and-fracture": [
@@ -36266,12 +36104,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "2023 年土耳其—叙利亚地震事件剖析",
     },
     {
+      url: "/engineering/foundations/factor-of-safety-is-a-margin",
+      title: "安全系数是一项裕度",
+    },
+    {
       url: "/engineering/materials/mining-and-extraction",
       title: "采矿与资源提取：现代生活的物质起点",
     },
     {
       url: "/engineering/foundations/measurement-and-tolerance",
       title: "测量与公差：精密的代价",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+      title: "弹性与材料力学",
     },
     {
       url: "/engineering/frontier/low-carbon-cement-circularity",
@@ -36306,8 +36152,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "摩天楼：风、地震与垂直交通的工程解法",
     },
     {
+      url: "/engineering/materials/fatigue-is-repeated-stress",
+      title: "疲劳是反复受力",
+    },
+    {
       url: "/engineering/foundations/fatigue-and-fracture",
       title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
+    },
+    {
+      url: "/engineering/civil/redundancy-is-an-alternate-path",
+      title: "冗余是另一条传力路径",
     },
     {
       url: "/engineering/frontiers/st-francis-dam-1928",
@@ -36356,16 +36210,44 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "布朗 1958：即时记忆的衰减怎样被若干测验问到，却还没有画成一条间隔曲线",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
       url: "/human-history/knowledge/科技史--电力革命",
       title: "电力革命",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/cosmology/dialogues/hubble-lemaitre",
+      title: "哈勃 vs 勒梅特：宇宙膨胀的发现",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
     },
     {
       url: "/engineering/frontiers/mars-climate-orbiter-1999",
       title: "火星气候轨道器：地面文件里的磅力秒",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--joule-1850-mechanical-equivalent",
+      title: "焦耳 1850：桨轮把功和热收成 772 英尺磅",
+    },
+    {
       url: "/chemistry/milestones/polywater-and-pathological-science",
       title: "聚合水与病态科学（1962—1973）",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
+      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
     },
     {
       url: "/psychology/experiments/keppel-underwood-1962",
@@ -36374,6 +36256,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/hyatt-regency-walkway-collapse",
       title: "凯悦走廊倒塌：连接改了一笔，载荷翻了一倍",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
@@ -36389,15 +36275,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
+      title: "庞德–雷布卡 1959—1960：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
       title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
+    },
+    {
       url: "/engineering/foundations/experimental-design-and-uncertainty",
       title: "实验设计与测量不确定度：怎样知道一次试验能说明什么",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
     },
     {
       url: "/psychology/methods/psychophysics-and-signal-detection",
@@ -36411,11 +36305,37 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
       title: "以太的兴衰",
     },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+  ],
+  "/engineering/foundations/simple-machines": [
+    {
+      url: "/engineering/foundations/factor-of-safety-is-a-margin",
+      title: "安全系数是一项裕度",
+    },
+    {
+      url: "/engineering/machines/feedback-is-a-correction",
+      title: "反馈是一种修正",
+    },
+    {
+      url: "/engineering/materials/fatigue-is-repeated-stress",
+      title: "疲劳是反复受力",
+    },
   ],
   "/engineering/foundations/steam-and-engines": [
     {
       url: "/engineering/frontiers/safety-engineering",
       title: "安全工程：为注定会出错的世界而设计",
+    },
+    {
+      url: "/engineering/machines/feedback-is-a-correction",
+      title: "反馈是一种修正",
     },
     {
       url: "/human-history/knowledge/事件--工业革命",
@@ -36812,6 +36732,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "737 MAX的机动特性增强系统：单侧迎角与事后才重估的权限",
     },
     {
+      url: "/engineering/foundations/factor-of-safety-is-a-margin",
+      title: "安全系数是一项裕度",
+    },
+    {
       url: "/engineering/foundations/materials-strength",
       title: "材料强度：钢、混凝土与复合材料",
     },
@@ -36820,12 +36744,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "超级工程：成本超支与风险政治",
     },
     {
+      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+      title: "弹性与材料力学",
+    },
+    {
       url: "/computer-science/systems/object-storage-s3",
       title: "对象存储：S3 如何改变了存储的形状",
     },
     {
       url: "/engineering/frontiers/flixborough-1974-bypass",
       title: "弗利克斯伯勒：临时旁路没有把化工厂证伪",
+    },
+    {
+      url: "/engineering/frontiers/common-mode-failure",
+      title: "共因失效",
     },
     {
       url: "/engineering/frontiers/hartford-civic-center-1978",
@@ -36872,12 +36804,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马尔帕塞：左岸片麻岩退出工作，薄拱没有站住",
     },
     {
+      url: "/engineering/materials/fatigue-is-repeated-stress",
+      title: "疲劳是反复受力",
+    },
+    {
       url: "/engineering/foundations/fatigue-and-fracture",
       title: "疲劳与断裂：裂纹怎样在远低于静强度时把结构写完",
     },
     {
       url: "/engineering/machines/human-factors-engineering",
       title: "人因工程：为会犯错的人设计",
+    },
+    {
+      url: "/engineering/civil/redundancy-is-an-alternate-path",
+      title: "冗余是另一条传力路径",
     },
     {
       url: "/engineering/frontiers/st-francis-dam-1928",
@@ -37224,6 +37164,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "737 MAX的机动特性增强系统：单侧迎角与事后才重估的权限",
     },
     {
+      url: "/engineering/foundations/factor-of-safety-is-a-margin",
+      title: "安全系数是一项裕度",
+    },
+    {
       url: "/engineering/frontiers/bhopal-1984-mic",
       title: "博帕尔：储罐泄漏不是一次把厂区炸平的爆炸",
     },
@@ -37234,6 +37178,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/frontiers/flixborough-1974-bypass",
       title: "弗利克斯伯勒：临时旁路没有把化工厂证伪",
+    },
+    {
+      url: "/engineering/frontiers/common-mode-failure",
+      title: "共因失效",
     },
     {
       url: "/engineering/frontiers/citicorp-center-lemessurier",
@@ -37922,6 +37870,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "现代主义与国际式",
     },
   ],
+  "/engineering/materials/fatigue-is-repeated-stress": [
+    {
+      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
+      title: "弹性与材料力学",
+    },
+  ],
   "/engineering/materials/food-and-agricultural-engineering": [
     {
       url: "/philosophy/questions/what-do-we-owe-animals",
@@ -38334,6 +38288,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "过程追踪与因果机制",
     },
     {
+      url: "/cosmology/dialogues/hubble-lemaitre",
+      title: "哈勃 vs 勒梅特：宇宙膨胀的发现",
+    },
+    {
       url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
       title: "核裂变",
     },
@@ -38699,10 +38657,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/human-history/knowledge/现代--概述",
       title: "现代",
     },
-    {
-      url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
-      title: "星族I与星族II恒星",
-    },
   ],
   "/human-history/knowledge/事件--二战爆发": [
     {
@@ -39050,10 +39004,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工业革命",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
       title: "光学望远镜",
     },
@@ -39252,10 +39202,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
       title: "光学望远镜",
-    },
-    {
-      url: "/cosmology/knowledge-base/太阳系--火神星",
-      title: "火神星：同一种方法，两种结局",
     },
     {
       url: "/human-history/knowledge/近代--概述",
@@ -40782,6 +40728,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "我还是不是我？",
     },
   ],
+  "/law/criminal-and-procedure/criminal-proportionality": [
+    {
+      url: "/law/foundations/burden-of-proof-is-a-risk",
+      title: "证明责任是一种风险分配",
+    },
+  ],
   "/law/criminal-and-procedure/dispute-resolution": [
     {
       url: "/computer-science/concepts/quorum-intersection",
@@ -40804,6 +40756,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/criminal-and-procedure/criminal-proportionality",
       title: "刑罚比例的三层约束",
+    },
+    {
+      url: "/law/criminal-and-procedure/double-jeopardy-is-a-bar",
+      title: "一事不再理是一条限制",
     },
   ],
   "/law/criminal-and-procedure/evidence-and-proof": [
@@ -40996,6 +40952,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "是松诉美国：一项排除令，而不是营地日常",
     },
     {
+      url: "/law/public-law/delegation-keeps-a-principle",
+      title: "授权要留下原则",
+    },
+    {
       url: "/law/judgment-analyses/urgenda-v-netherlands-2019",
       title: "乌尔根达诉荷兰：百分之二十五是命令的下限",
     },
@@ -41006,6 +40966,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/strawson-1964-intention-convention",
       title: "言语行为中的意图与惯例",
+    },
+    {
+      url: "/law/criminal-and-procedure/double-jeopardy-is-a-bar",
+      title: "一事不再理是一条限制",
+    },
+    {
+      url: "/law/foundations/burden-of-proof-is-a-risk",
+      title: "证明责任是一种风险分配",
     },
     {
       url: "/law/foundations/legal-persons-acts-liability",
@@ -41334,12 +41302,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "权利与义务：霍菲尔德的解剖刀",
     },
     {
+      url: "/law/public-law/delegation-keeps-a-principle",
+      title: "授权要留下原则",
+    },
+    {
       url: "/law/judgment-analyses/youngstown-sheet-tube-v-sawyer-1952",
       title: "杨斯敦钢板公司诉索耶：无国会授权则不得接管钢厂",
     },
     {
+      url: "/law/criminal-and-procedure/double-jeopardy-is-a-bar",
+      title: "一事不再理是一条限制",
+    },
+    {
       url: "/law/legal-traditions/islamic-law-tradition",
       title: "伊斯兰法传统：经训、理性与千年法学",
+    },
+    {
+      url: "/law/foundations/burden-of-proof-is-a-risk",
+      title: "证明责任是一种风险分配",
     },
     {
       url: "/law/foundations/legal-persons-acts-liability",
@@ -41404,6 +41384,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/judgment-analyses/korematsu-v-united-states-1944",
       title: "是松诉美国：一项排除令，而不是营地日常",
+    },
+    {
+      url: "/law/criminal-and-procedure/double-jeopardy-is-a-bar",
+      title: "一事不再理是一条限制",
+    },
+    {
+      url: "/political-science/concepts/legitimacy-is-not-legality",
+      title: "正当性不是合法性",
+    },
+    {
+      url: "/law/foundations/burden-of-proof-is-a-risk",
+      title: "证明责任是一种风险分配",
     },
   ],
   "/law/frontier/algorithmic-discrimination-audits": [
@@ -42386,6 +42378,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "塞维索一九七六年：梅达Icmesa反应器的泄压",
     },
     {
+      url: "/law/public-law/delegation-keeps-a-principle",
+      title: "授权要留下原则",
+    },
+    {
       url: "/engineering/frontiers/tay-bridge-1879",
       title: "泰桥：风压没写进设计的铸铁斜撑",
     },
@@ -42646,6 +42642,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "理查德·道金斯",
     },
   ],
+  "/life-science/dialogues/mendel-morgan": [
+    {
+      url: "/universe-physics/dialogues/planck-mendel",
+      title: "普朗克 vs 孟德尔：量子与遗传",
+    },
+  ],
   "/life-science/frontier/aging-plasticity": [
     {
       url: "/psychology/disorders/dementia",
@@ -42866,10 +42868,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/life-science/knowledge-base/hodgkin-huxley-1952": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
-      title: "电容与电感",
-    },
-    {
       url: "/medicine/concepts/nervous-system",
       title: "神经系统",
     },
@@ -42991,7 +42989,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/life-science/knowledge-base/mitchell-1961-chemiosmotic": [
     {
       url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
+      title: "渗透：半透膜两侧的水为何净迁移",
     },
     {
       url: "/life-science/knowledge-base/生理学--细胞呼吸与能量代谢",
@@ -43126,6 +43124,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/knot-theory",
       title: "纽结理论",
+    },
+    {
+      url: "/universe-physics/dialogues/planck-mendel",
+      title: "普朗克 vs 孟德尔：量子与遗传",
     },
     {
       url: "/human-history/knowledge/远古时期--人类起源",
@@ -43741,7 +43743,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
+      title: "渗透：半透膜两侧的水为何净迁移",
     },
     {
       url: "/life-science/knowledge-base/当代议题--生命起源研究",
@@ -44742,6 +44744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核心坍缩超新星",
     },
     {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
       url: "/chemistry/concepts/bonding-theory",
       title: "价键理论与分子轨道理论",
     },
@@ -44874,10 +44880,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/关键事件--寒武纪大爆发",
       title: "寒武纪大爆发：生命多样性的突然绽放",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
-      title: "几何光学与透镜成像",
     },
     {
       url: "/life-science/knowledge-base/进化机制--evo-devo",
@@ -45092,10 +45094,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/太空探索--space-telescopes-as-time-machines",
       title: "空间望远镜：把宇宙变成时间机器",
-    },
-    {
-      url: "/cosmology/knowledge-base/快速射电暴",
-      title: "快速射电暴",
     },
     {
       url: "/life-science/knowledge-base/lamarckism-and-its-afterlives",
@@ -45490,6 +45488,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/进化机制--性选择",
       title: "性选择：孔雀尾巴与人类择偶",
+    },
+    {
+      url: "/universe-physics/dialogues/schrodinger-darwin",
+      title: "薛定谔 vs 达尔文：生命是什么",
     },
     {
       url: "/philosophy/thinkers/aristotle",
@@ -46014,10 +46016,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电容与电感",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
-    },
-    {
       url: "/arts/foundations/seeing-and-perception",
       title: "观看的机制：眼睛如何建构世界",
     },
@@ -46324,6 +46322,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/words-sentences-meaning/translation-and-translatability",
       title: "翻译与可译性：语言强迫你说出的东西",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-wittgenstein",
+      title: "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
     },
     {
       url: "/philosophy/experiments/marys-room",
@@ -49330,6 +49332,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉语叙事传统",
     },
     {
+      url: "/literature/theory-and-method/intertextuality-is-not-plagiarism",
+      title: "互文不是抄袭",
+    },
+    {
       url: "/literature/frontier/computational-literary-studies-replication",
       title: "计算文学研究能被复现吗",
     },
@@ -49371,6 +49377,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/literature/contemporary-edges/copyright-and-the-public-domain": [
+    {
+      url: "/literature/theory-and-method/intertextuality-is-not-plagiarism",
+      title: "互文不是抄袭",
+    },
     {
       url: "/computer-science/pioneers/richard-stallman",
       title: "理查德·斯托曼",
@@ -49440,6 +49450,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "训练语料诉讼还不是判决",
     },
   ],
+  "/literature/narrative-basics/fiction-and-make-believe": [
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
+    },
+    {
+      url: "/literature/poetics-and-form/free-indirect-style",
+      title: "自由间接文体不是作者插嘴",
+    },
+  ],
   "/literature/narrative-basics/narrative-point-of-view": [
     {
       url: "/literature/theory-and-method/narratology",
@@ -49465,6 +49485,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/literature/narrative-basics/plot-character-conflict": [
+    {
+      url: "/literature/poetics-and-form/tragedy-is-not-a-sad-story",
+      title: "悲剧不是一个悲伤的结局",
+    },
     {
       url: "/literature/theory-and-method/narratology",
       title: "叙事学",
@@ -49534,7 +49558,21 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "远读与数字人文",
     },
   ],
+  "/literature/poetics-and-form/drama-and-performance-text": [
+    {
+      url: "/literature/poetics-and-form/tragedy-is-not-a-sad-story",
+      title: "悲剧不是一个悲伤的结局",
+    },
+  ],
   "/literature/poetics-and-form/genre-as-contract": [
+    {
+      url: "/literature/poetics-and-form/tragedy-is-not-a-sad-story",
+      title: "悲剧不是一个悲伤的结局",
+    },
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
+    },
     {
       url: "/literature/poetics-and-form/drama-and-performance-text",
       title: "戏剧文本与演出",
@@ -49542,6 +49580,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/poetics-and-form/novel-as-a-form",
       title: "小说作为一种形式",
+    },
+    {
+      url: "/literature/poetics-and-form/free-indirect-style",
+      title: "自由间接文体不是作者插嘴",
     },
   ],
   "/literature/poetics-and-form/meter-and-the-line": [
@@ -49554,6 +49596,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "南亚史诗与诗学",
     },
     {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
+    },
+    {
       url: "/literature/poetics-and-form/genre-as-contract",
       title: "文类是一种约定",
     },
@@ -49562,10 +49608,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "戏剧文本与演出",
     },
   ],
+  "/literature/poetics-and-form/narrator-and-voice": [
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
+    },
+    {
+      url: "/literature/poetics-and-form/free-indirect-style",
+      title: "自由间接文体不是作者插嘴",
+    },
+  ],
   "/literature/poetics-and-form/novel-as-a-form": [
     {
       url: "/literature/world-traditions/chinese-narrative-tradition",
       title: "汉语叙事传统",
+    },
+    {
+      url: "/literature/poetics-and-form/free-indirect-style",
+      title: "自由间接文体不是作者插嘴",
     },
   ],
   "/literature/reading-and-reception/fandom-and-secondary-creation": [
@@ -49638,12 +49698,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "东亚与东南亚现代文学",
     },
     {
+      url: "/literature/theory-and-method/intertextuality-is-not-plagiarism",
+      title: "互文不是抄袭",
+    },
+    {
       url: "/literature/world-traditions/latin-american-and-caribbean",
       title: "拉美与加勒比文学",
     },
     {
       url: "/human-history/source-analyses/rosetta-stone-source-analysis",
       title: "罗塞塔石碑史料剖析",
+    },
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
     },
     {
       url: "/literature/reading-and-reception/libraries-and-the-book-trade",
@@ -49676,6 +49744,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汉语叙事传统",
     },
     {
+      url: "/literature/theory-and-method/intertextuality-is-not-plagiarism",
+      title: "互文不是抄袭",
+    },
+    {
       url: "/literature/frontier/computational-literary-studies-replication",
       title: "计算文学研究能被复现吗",
     },
@@ -49690,6 +49762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/contemporary-edges/generated-text-and-authorship",
       title: "生成文本与作者身份",
+    },
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
     },
     {
       url: "/literature/theory-and-method/textual-criticism",
@@ -49719,11 +49795,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/literature/contemporary-edges/distant-reading",
       title: "远读与数字人文",
     },
+    {
+      url: "/literature/poetics-and-form/free-indirect-style",
+      title: "自由间接文体不是作者插嘴",
+    },
   ],
   "/literature/theory-and-method/narratology": [
     {
       url: "/literature/frontier/computational-literary-studies-replication",
       title: "计算文学研究能被复现吗",
+    },
+    {
+      url: "/cosmology/dialogues/degrasse-tyson-sagan",
+      title: "科学传播的对话：泰森与萨根",
     },
     {
       url: "/literature/contemporary-edges/distant-reading",
@@ -49734,6 +49818,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/source-analyses/dunhuang-manuscripts-source-analysis",
       title: "敦煌藏经洞文书史料剖析",
+    },
+    {
+      url: "/literature/theory-and-method/intertextuality-is-not-plagiarism",
+      title: "互文不是抄袭",
     },
   ],
   "/literature/world-traditions/african-oral-literature": [
@@ -49772,6 +49860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿拉伯—波斯叙事",
     },
     {
+      url: "/literature/poetics-and-form/tragedy-is-not-a-sad-story",
+      title: "悲剧不是一个悲伤的结局",
+    },
+    {
       url: "/literature/world-traditions/african-oral-literature",
       title: "非洲口头文学",
     },
@@ -49786,6 +49878,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/literature/world-traditions/south-asian-epic-and-poetics",
       title: "南亚史诗与诗学",
+    },
+    {
+      url: "/literature/poetics-and-form/lyric-is-not-confession",
+      title: "抒情不是自白",
     },
     {
       url: "/literature/theory-and-method/textual-criticism",
@@ -49862,6 +49958,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安萨里",
     },
     {
+      url: "/cosmology/dialogues/dark-matter-debate",
+      title: "暗物质 vs 修改引力",
+    },
+    {
       url: "/universe-physics/frontier/dark-matter-direct-detection",
       title: '暗物质直接探测的"沉默"',
     },
@@ -49884,6 +49984,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/分子生物学--蛋白质组学",
       title: "蛋白质组学：从基因组到功能的桥梁",
+    },
+    {
+      url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
+      title: "飞马座51b：四天周期打开的热木星时代",
     },
     {
       url: "/economics/concepts/risk-and-uncertainty",
@@ -49954,6 +50058,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "科学哲学",
     },
     {
+      url: "/cosmology/knowledge-base/快速射电暴",
+      title: "快速射电暴",
+    },
+    {
       url: "/economics/debates/rational-expectations",
       title: "理性预期vs适应性预期",
     },
@@ -50020,6 +50128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--宇宙距离阶梯",
       title: "宇宙距离阶梯",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
     },
     {
       url: "/cosmology/frontier/neutrino-mass-cosmology",
@@ -50096,12 +50208,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "普朗克常数与量子化",
     },
     {
-      url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
-      title: "希格斯机制与希格斯玻色子",
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
+      url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
+      title: "希格斯机制与希格斯玻色子",
     },
     {
       url: "/mathematics/concepts/optimization",
@@ -50530,10 +50642,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "代数基本定理",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
-      title: "光纤与全内反射",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--christenson-1964-k2-pipi",
       title: "克里斯滕森 1964：长寿命中性 K 的两π衰变",
     },
@@ -50854,10 +50962,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "股票估值",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
-    },
-    {
       url: "/mathematics/theorems/intermediate-value-theorem",
       title: "介值定理：连续曲线必穿过中间的高度",
     },
@@ -50914,10 +51018,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/action-potential",
       title: "动作电位",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
@@ -51022,8 +51122,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "黑洞",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
-      title: "几何光学与透镜成像",
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
+      url: "/universe-physics/dialogues/hawking-penrose",
+      title: "霍金 vs 彭罗斯：黑洞信息悖论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
@@ -51032,6 +51140,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/lie-group-lie-algebra",
       title: "李群与李代数",
+    },
+    {
+      url: "/cosmology/dialogues/penrose-hawking",
+      title: "彭罗斯 vs 霍金：奇点定理",
+    },
+    {
+      url: "/cosmology/dialogues/penrose-hawking-singularity",
+      title: "彭罗斯 vs 霍金：奇点定理的深层含义",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
     },
     {
       url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
@@ -51061,6 +51181,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/引力透镜",
       title: "引力透镜",
     },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
   ],
   "/mathematics/concepts/dynamical-systems": [
     {
@@ -51074,6 +51198,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/scientists/wilson",
       title: "爱德华·威尔逊",
+    },
+    {
+      url: "/cosmology/dialogues/dark-matter-debate",
+      title: "暗物质 vs 修改引力",
     },
     {
       url: "/earth-science/concepts/ice-albedo-feedback",
@@ -51158,10 +51286,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/coriolis-effect",
       title: "科里奥利效应",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
-      title: "克尔转动黑洞",
     },
     {
       url: "/engineering/foundations/control-and-feedback",
@@ -51448,10 +51572,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "构图与平衡",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-    {
       url: "/arts/foundations/perspective-and-space",
       title: "透视与空间：一场视觉革命",
     },
@@ -51532,10 +51652,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "冰芯里的百万年：从 Beyond EPICA 读取最古老的大气",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
-      title: "波动与声学",
-    },
-    {
       url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
       title: "不确定性原理",
     },
@@ -51556,8 +51672,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电化学",
     },
     {
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
+    },
+    {
       url: "/mathematics/concepts/complex-number",
       title: "复数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
+      title: "干涉与衍射：同一叠加原理的两种说法",
     },
     {
       url: "/mathematics/frontier/kakeya-conjecture",
@@ -51660,16 +51784,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "旋涡星系",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
-      title: "衍射不是干涉",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙大尺度结构",
       title: "宇宙大尺度结构",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-      title: "宇宙微波背景辐射",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--振动与简正模式",
@@ -52236,6 +52352,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卷积神经网络",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons",
       title: "夸克与轻子",
     },
@@ -52246,6 +52366,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
       title: "洛伦兹变换",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
     },
     {
       url: "/mathematics/concepts/knot-theory",
@@ -52274,6 +52398,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
       title: "物质-反物质不对称与重子生成",
+    },
+    {
+      url: "/universe-physics/dialogues/higgs-englert",
+      title: "希格斯 vs 恩格勒特：希格斯场的发现",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
     },
     {
       url: "/computer-science/algorithms/segment-trees",
@@ -52404,10 +52536,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "标准模型与超越",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-    {
       url: "/mathematics/theorems/noethers-theorem",
       title: "诺特定理",
     },
@@ -52458,6 +52586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
       title: "刚体转动与转动惯量",
+    },
+    {
+      url: "/universe-physics/dialogues/heisenberg-schrodinger",
+      title: "海森堡 vs 薛定谔：量子力学的两种诠释",
     },
     {
       url: "/economics/theories/heckscher-ohlin-model",
@@ -52514,6 +52646,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/algorithms/linear-programming",
       title: "线性规划",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--schrodinger-equation",
@@ -52946,10 +53082,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非欧几何革命",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
-    },
-    {
       url: "/mathematics/knowledge-base/数学基础--数学与现实",
       title: "数学与现实",
     },
@@ -53182,10 +53314,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弱收敛不是范数收敛",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
-    },
-    {
       url: "/mathematics/concepts/convergence",
       title: "收敛性",
     },
@@ -53249,6 +53377,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/cosmology/knowledge-base/宇宙的最终命运",
+      title: "宇宙的最终命运",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
       title: "宇宙的最终命运",
     },
     {
@@ -53416,12 +53548,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "挂谷猜想：三维的攻克",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
       url: "/mathematics/frontier/euler-singularity",
       title: "流体方程奇点的计算机辅助证明",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--洛伦兹变换",
       title: "洛伦兹变换",
+    },
+    {
+      url: "/universe-physics/dialogues/maxwell-faraday",
+      title: "麦克斯韦 vs 法拉第：场论的数学与直觉",
     },
     {
       url: "/mathematics/theorems/poincare-conjecture",
@@ -53442,6 +53586,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/divergence-theorem",
       title: "散度定理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
     },
     {
       url: "/mathematics/mathematicians/sophie-germain",
@@ -53682,6 +53830,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "平均情况复杂性与密码学的五个世界",
     },
     {
+      url: "/universe-physics/dialogues/planck-einstein",
+      title: "普朗克 vs 爱因斯坦：量子的诞生与反叛",
+    },
+    {
+      url: "/universe-physics/dialogues/planck-mendel",
+      title: "普朗克 vs 孟德尔：量子与遗传",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
       title: "气体动理论",
     },
@@ -53696,10 +53852,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/inclusion-exclusion",
       title: "容斥原理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
-      title: "瑞利散射与天空的颜色",
     },
     {
       url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
@@ -53848,6 +54000,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
       title: "宇宙暴胀",
+    },
+    {
+      url: "/cosmology/dialogues/cosmology-crisis",
+      title: "宇宙学危机：哈勃常数之争",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background",
@@ -54438,10 +54594,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "房地产经济学实用指南",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
       title: "费曼图与微扰论",
     },
@@ -54626,6 +54778,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "21cm 宇宙学与再电离",
     },
     {
+      url: "/cosmology/dialogues/dark-matter-debate",
+      title: "暗物质 vs 修改引力",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--暗物质候选粒子WIMP与轴子",
       title: "暗物质候选粒子：WIMP 与轴子",
     },
@@ -54666,6 +54822,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工业工程与质量：把变异当作研究对象",
     },
     {
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
+    },
+    {
       url: "/earth-science/pioneers/harry-hess",
       title: "哈里·赫斯",
     },
@@ -54684,6 +54844,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/engineering/foundations/control-and-feedback",
       title: "控制与反馈：从恒温器到自动驾驶仪",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+      title: "粒子物理与加速器",
     },
     {
       url: "/earth-science/pioneers/marie-tharp",
@@ -54738,6 +54902,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "消息队列与流处理",
     },
     {
+      url: "/cosmology/knowledge-base/恒星物理--stellar-populations",
+      title: "星族I与星族II恒星",
+    },
+    {
       url: "/engineering/machines/shewhart-control-chart",
       title: "休哈特控制图：一张把“该不该动手”写成界限的纸",
     },
@@ -54750,8 +54918,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "言语感知：从连续声波到离散单位",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
+      title: "引力波天文学",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
       title: "宇宙黑暗时代",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
     },
     {
       url: "/linguistics/writing-systems/language-and-writing",
@@ -54834,12 +55014,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "贝叶斯建模与心理科学",
     },
     {
+      url: "/universe-physics/knowledge-base/物理学--标准模型与超越",
+      title: "标准模型与超越",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
       title: "标准烛光与Ia型超新星测距",
     },
     {
       url: "/earth-science/concepts/ice-ages-and-milankovitch",
       title: "冰期与米兰科维奇周期",
+    },
+    {
+      url: "/universe-physics/dialogues/bohr-heisenberg",
+      title: "玻尔 vs 海森堡：互补性原理",
+    },
+    {
+      url: "/universe-physics/dialogues/bohr-nagarjuna",
+      title: "玻尔 vs 龙树：互补性与空性",
     },
     {
       url: "/psychology/methods/measurement-invariance-fair-comparison",
@@ -54852,6 +55044,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/系外行星--超级地球与迷你海王星",
       title: "超级地球与迷你海王星",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
+      title: "超级神冈 1998：大气中微子的上下不对称",
     },
     {
       url: "/psychology/phenomena/big-five-personality",
@@ -54886,12 +55082,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "地震",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
       url: "/psychology/experiments/dunning-kruger-1999",
       title: "邓宁-克鲁格实验",
     },
     {
       url: "/psychology/phenomena/dunning-kruger",
       title: "邓宁-克鲁格效应",
+    },
+    {
+      url: "/universe-physics/dialogues/dirac-feynman",
+      title: "狄拉克 vs 费曼：数学美 vs 物理直觉",
     },
     {
       url: "/life-science/knowledge-base/当代议题--第六次大灭绝",
@@ -54924,6 +55128,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/phillips-curve",
       title: "菲利普斯曲线",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-oppenheimer",
+      title: "费曼 vs 奥本海默：科学的责任",
     },
     {
       url: "/political-science/concepts/distributive-justice",
@@ -54994,6 +55202,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核磁共振成像MRI原理",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
       url: "/human-history/knowledge/事件--黑死病",
       title: "黑死病",
     },
@@ -55062,12 +55274,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "决策树",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
+      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
+    },
+    {
       url: "/medicine/frontier/alzheimer-amyloid-immunotherapy",
       title: "抗淀粉样免疫疗法：斑块能清掉，痴呆却倒不回去",
     },
     {
+      url: "/cosmology/dialogues/degrasse-tyson-sagan",
+      title: "科学传播的对话：泰森与萨根",
+    },
+    {
       url: "/engineering/machines/reliability-engineering",
       title: "可靠性工程：把“不出事”变成可计算的指标",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--christenson-1964-k2-pipi",
+      title: "克里斯滕森 1964：长寿命中性 K 的两π衰变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
+      title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/frontier/quantum-sensing",
@@ -55112,6 +55340,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/远古时期--农业革命",
       title: "农业革命",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
+      title: "庞德–雷布卡 1959—1960：液压多普勒怎样把 22.5 米写成引力频移",
+    },
+    {
+      url: "/cosmology/dialogues/penrose-hawking",
+      title: "彭罗斯 vs 霍金：奇点定理",
+    },
+    {
+      url: "/cosmology/dialogues/penrose-hawking-singularity",
+      title: "彭罗斯 vs 霍金：奇点定理的深层含义",
     },
     {
       url: "/engineering/foundations/fatigue-and-fracture",
@@ -55242,12 +55482,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "系外行星探测",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
+    },
+    {
       url: "/psychology/debates/nature-vs-nurture",
       title: "先天vs后天之争",
     },
     {
       url: "/mathematics/concepts/linear-algebra",
       title: "线性代数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
@@ -55334,8 +55582,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "因果推断入门",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--引力波",
+      title: "引力波",
+    },
+    {
       url: "/universe-physics/knowledge-base/物理学--引力波天文学",
       title: "引力波天文学",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
     },
     {
       url: "/human-history/knowledge/美洲--印加帝国",
@@ -55404,6 +55664,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/methods/comparative-method",
       title: "政治学的比较方法",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--质能等价",
+      title: "质能等价 E=mc²",
     },
     {
       url: "/earth-science/events/valdivia-1960",
@@ -55477,7 +55741,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/mathematics/concepts/stochastic-process": [
     {
       url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
+      title: "半衰期：单核的概率尺度与群体的指数衰减",
     },
     {
       url: "/medicine/public-health/infectious-disease-modeling-surveillance",
@@ -55498,6 +55762,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/分子生物学--干细胞",
       title: "干细胞：生命的源泉与再生医学的希望",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
+      title: "核裂变",
     },
     {
       url: "/economics/concepts/econometrics-foundations",
@@ -55818,6 +56086,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子霍尔效应",
     },
   ],
+  "/mathematics/knowledge-base/几何--非欧几何革命": [
+    {
+      url: "/universe-physics/dialogues/einstein-kant",
+      title: "爱因斯坦 vs 康德：时空的先验性",
+    },
+  ],
   "/mathematics/knowledge-base/应用--密码学的数学": [
     {
       url: "/mathematics/knowledge-base/数学基础--数学与现实",
@@ -55841,7 +56115,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
+      title: "浮力与表面张力：两种支撑怎样共同记账",
     },
     {
       url: "/human-history/knowledge/古典时期--欧洲--古希腊",
@@ -56911,10 +57185,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
       title: "相对论性动量与能量",
     },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
   ],
   "/mathematics/theorems/p-vs-np": [
     {
@@ -57132,10 +57402,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复数",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
-    },
-    {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
       title: "量子谐振子",
     },
@@ -57283,7 +57549,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
+      title: "渗透：半透膜两侧的水为何净迁移",
     },
     {
       url: "/mathematics/knowledge-base/几何--拓扑学入门",
@@ -57336,6 +57602,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "法治",
     },
     {
+      url: "/medicine/public-health/triage-is-a-sorting-rule",
+      title: "分诊是一条排序规则",
+    },
+    {
       url: "/philosophy/experiments/gettier-problem",
       title: "盖梯尔问题",
     },
@@ -57374,6 +57644,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/isms/constructivism",
       title: "建构主义",
+    },
+    {
+      url: "/medicine/concepts/differential-diagnosis-is-a-list",
+      title: "鉴别诊断是一张清单",
     },
     {
       url: "/economics/concepts/economic-vitals-growth-prices-jobs",
@@ -57960,6 +58234,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "放血疗法与第一次临床统计（1828）",
     },
     {
+      url: "/medicine/public-health/triage-is-a-sorting-rule",
+      title: "分诊是一条排序规则",
+    },
+    {
       url: "/medicine/events/framingham-heart-study",
       title: "弗雷明汉心脏研究：危险因素怎样从小镇队列里走出来",
     },
@@ -58010,6 +58288,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/knowledge-base/health-psychology",
       title: "健康心理学：身体与心灵的双向道",
+    },
+    {
+      url: "/medicine/public-health/contact-tracing-is-a-case-tool",
+      title: "接触者追踪是病例工具",
     },
     {
       url: "/medicine/diseases/tuberculosis",
@@ -58066,6 +58348,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/frontier/climate-and-history",
       title: "气候如何终结王朝——历史气候学的前沿",
+    },
+    {
+      url: "/medicine/concepts/incubation-is-not-latency",
+      title: "潜伏期不是窗口期",
     },
     {
       url: "/cosmology/knowledge-base/星际介质--球状星团",
@@ -58344,6 +58630,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/confounding",
       title: "混杂",
+    },
+    {
+      url: "/medicine/concepts/differential-diagnosis-is-a-list",
+      title: "鉴别诊断是一张清单",
     },
     {
       url: "/political-science/isms/progressivism",
@@ -58652,6 +58942,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/organometallic-chemistry",
       title: "有机金属化学",
+    },
+  ],
+  "/medicine/concepts/herd-immunity-threshold": [
+    {
+      url: "/medicine/public-health/contact-tracing-is-a-case-tool",
+      title: "接触者追踪是病例工具",
+    },
+    {
+      url: "/medicine/concepts/incubation-is-not-latency",
+      title: "潜伏期不是窗口期",
     },
   ],
   "/medicine/concepts/hill-criteria": [
@@ -59104,6 +59404,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "反应停悲剧（1957）",
     },
     {
+      url: "/medicine/public-health/triage-is-a-sorting-rule",
+      title: "分诊是一条排序规则",
+    },
+    {
       url: "/psychology/knowledge-base/risk-perception-and-macro-decisions",
       title: "风险感知、心理健康与宏观决策",
     },
@@ -59150,6 +59454,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/frontier/crypto-cbdc-monetary-economics",
       title: "加密货币、稳定币与央行数字货币的经济学",
+    },
+    {
+      url: "/medicine/public-health/contact-tracing-is-a-case-tool",
+      title: "接触者追踪是病例工具",
     },
     {
       url: "/psychology/methods/experience-sampling-and-ema",
@@ -59378,6 +59686,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/trial-analyses/womens-health-initiative-hormone-trial",
       title: "WHI 激素治疗试验",
+    },
+  ],
+  "/medicine/concepts/likelihood-ratio": [
+    {
+      url: "/medicine/concepts/differential-diagnosis-is-a-list",
+      title: "鉴别诊断是一张清单",
     },
   ],
   "/medicine/concepts/medical-genetics-and-genomics": [
@@ -59904,6 +60218,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非洲传统医学",
     },
     {
+      url: "/medicine/public-health/triage-is-a-sorting-rule",
+      title: "分诊是一条排序规则",
+    },
+    {
       url: "/medicine/public-health/maternal-child-health-life-course",
       title: "妇幼健康与生命周期方法",
     },
@@ -59968,6 +60286,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "季风系统",
     },
     {
+      url: "/medicine/public-health/contact-tracing-is-a-case-tool",
+      title: "接触者追踪是病例工具",
+    },
+    {
       url: "/political-science/international-relations/economic-sanctions",
       title: "经济制裁",
     },
@@ -60018,6 +60340,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/frontier/climate-faith-publics",
       title: "气候危机改变宗教公众了吗",
+    },
+    {
+      url: "/medicine/concepts/incubation-is-not-latency",
+      title: "潜伏期不是窗口期",
     },
     {
       url: "/medicine/concepts/herd-immunity-threshold",
@@ -60136,10 +60462,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/theorems/divergence-theorem",
       title: "散度定理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
     },
     {
       url: "/chemistry/substances/water",
@@ -60342,6 +60664,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/concepts/incidence-and-prevalence",
       title: "发病率与患病率",
+    },
+    {
+      url: "/medicine/concepts/differential-diagnosis-is-a-list",
+      title: "鉴别诊断是一张清单",
+    },
+    {
+      url: "/medicine/concepts/incubation-is-not-latency",
+      title: "潜伏期不是窗口期",
     },
     {
       url: "/medicine/concepts/likelihood-ratio",
@@ -60652,10 +60982,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/分子生物学--细胞周期与有丝分裂",
       title: "细胞周期与有丝分裂：一个细胞如何精确地变成两个",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
     },
     {
       url: "/medicine/concepts/medical-genetics-and-genomics",
@@ -62698,6 +63024,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电池评价：性能、安全与循环",
     },
     {
+      url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
+      title: "放射性衰变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
+      title: "核裂变",
+    },
+    {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay-chains",
       title: "核衰变链",
     },
@@ -63564,12 +63898,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "地球内部结构",
     },
     {
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
+    },
+    {
       url: "/mathematics/concepts/complex-number",
       title: "复数",
     },
     {
       url: "/mathematics/concepts/fourier-analysis",
       title: "傅里叶分析",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
+      title: "光纤与全内反射",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--nuclear-magnetic-resonance",
@@ -63582,6 +63924,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/活动星系核与类星体",
       title: "活动星系核与类星体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
+      title: "几何光学与透镜成像",
     },
     {
       url: "/computer-science/algorithms/fast-fourier-transform",
@@ -64140,10 +64486,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "奥伯斯佯谬与黑暗的夜空",
     },
     {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
       url: "/political-science/institutions/legislatures",
       title: "立法机构",
     },
@@ -64510,6 +64852,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "故事是什么",
     },
     {
+      url: "/cosmology/dialogues/hubble-lemaitre",
+      title: "哈勃 vs 勒梅特：宇宙膨胀的发现",
+    },
+    {
       url: "/economics/concepts/econometrics-foundations",
       title: "计量经济学基础",
     },
@@ -64526,8 +64872,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "罗伯特·卢卡斯",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
       title: "牛顿三大定律",
+    },
+    {
+      url: "/universe-physics/dialogues/penrose-wheeler",
+      title: "彭罗斯 vs 惠勒：黑洞与量子引力",
     },
     {
       url: "/law/private-law/tort-and-liability",
@@ -64560,6 +64914,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--宇宙学红移与膨胀",
       title: "宇宙学红移与膨胀",
+    },
+    {
+      url: "/cosmology/dialogues/cosmology-crisis",
+      title: "宇宙学危机：哈勃常数之争",
     },
     {
       url: "/medicine/events/miasma-theory",
@@ -65394,6 +65752,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "艾伦·图灵",
     },
     {
+      url: "/universe-physics/dialogues/einstein-kant",
+      title: "爱因斯坦 vs 康德：时空的先验性",
+    },
+    {
+      url: "/cosmology/dialogues/dark-matter-debate",
+      title: "暗物质 vs 修改引力",
+    },
+    {
       url: "/universe-physics/frontier/dark-matter-direct-detection",
       title: '暗物质直接探测的"沉默"',
     },
@@ -65406,16 +65772,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "贝叶斯推断",
     },
     {
+      url: "/universe-physics/dialogues/bohr-heisenberg",
+      title: "玻尔 vs 海森堡：互补性原理",
+    },
+    {
+      url: "/universe-physics/dialogues/bohr-nagarjuna",
+      title: "玻尔 vs 龙树：互补性与空性",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
       title: "玻尔原子模型",
     },
     {
       url: "/earth-science/pioneers/charles-lyell",
       title: "查尔斯·莱伊尔",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
-      title: "超级神冈 1998：大气中微子的上下不对称",
     },
     {
       url: "/cosmology/knowledge-base/大爆炸理论",
@@ -65432,6 +65802,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/mendeleev",
       title: "德米特里·门捷列夫",
+    },
+    {
+      url: "/universe-physics/dialogues/dirac-feynman",
+      title: "狄拉克 vs 费曼：数学美 vs 物理直觉",
     },
     {
       url: "/mathematics/paradoxes/fifth-postulate-proofs",
@@ -65472,10 +65846,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/reactions/grignard-reaction",
       title: "格氏反应",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
     },
     {
       url: "/political-science/concepts/legitimacy",
@@ -65562,6 +65932,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "密码学基础",
     },
     {
+      url: "/cosmology/dialogues/penrose-hawking",
+      title: "彭罗斯 vs 霍金：奇点定理",
+    },
+    {
+      url: "/cosmology/dialogues/penrose-hawking-singularity",
+      title: "彭罗斯 vs 霍金：奇点定理的深层含义",
+    },
+    {
       url: "/computer-science/concepts/bias-and-variance",
       title: "偏差不是方差",
     },
@@ -65596,10 +65974,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/theorists/steven-pinker",
       title: "史蒂文·平克",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
-      title: "史瓦西黑洞",
     },
     {
       url: "/sociology/concepts/secularization-thesis",
@@ -65696,10 +66070,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/disorders/hysteria",
       title: "癔症",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
     },
     {
       url: "/cosmology/knowledge-base/引力透镜",
@@ -66544,10 +66914,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "感知机与第一次 AI 寒冬",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--光的本质",
-      title: "光的本质",
-    },
-    {
       url: "/universe-physics/knowledge-base/原子物理--光电效应与量子化光",
       title: "光电效应与量子化光",
     },
@@ -66620,10 +66986,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "稳恒态宇宙：输得最体面的理论",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
-    },
-    {
       url: "/philosophy/frontier/formal-epistemology-and-bayesianism",
       title: '形式认识论：把"相信多少"写成数字',
     },
@@ -66638,10 +67000,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/berzelius",
       title: "永斯·贝采利乌斯",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-      title: "宇宙微波背景辐射",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
@@ -66880,10 +67238,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "尤尔根·哈贝马斯",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙射线",
-      title: "宇宙射线",
-    },
-    {
       url: "/linguistics/sounds-and-signs/language-speech-and-sign",
       title: "语言、言语与手语",
     },
@@ -66942,6 +67296,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安萨里",
     },
     {
+      url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
+    },
+    {
       url: "/psychology/experiments/baddeley-1966",
       title: "巴德利 1966：词序列的即时记忆为何被声学相似拖垮而不是被语义相似拖垮",
     },
@@ -66978,6 +67336,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "布朗斯特–劳里 1923：酸给出质子、碱接住质子怎样被写成定义",
     },
     {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+    {
       url: "/economics/frontier/inflation-after-2021",
       title: "大通胀复盘：2021–2025 年的诊断之争与政策账单",
     },
@@ -66994,6 +67356,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "地质年代表",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
+    },
+    {
       url: "/philosophy/thinkers/dong-zhongshu",
       title: "董仲舒",
     },
@@ -67008,6 +67374,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/aromaticity",
       title: "芳香性",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-wittgenstein",
+      title: "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
@@ -67034,12 +67404,32 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光的本质",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论",
+      title: "广义相对论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
+      title: "广义相对论的实验检验",
+    },
+    {
+      url: "/cosmology/dialogues/hubble-lemaitre",
+      title: "哈勃 vs 勒梅特：宇宙膨胀的发现",
+    },
+    {
       url: "/earth-science/pioneers/harry-hess",
       title: "哈里·赫斯",
     },
     {
+      url: "/universe-physics/dialogues/heisenberg-schrodinger",
+      title: "海森堡 vs 薛定谔：量子力学的两种诠释",
+    },
+    {
       url: "/chemistry/milestones/heitler-london-1927",
       title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
+    },
+    {
+      url: "/universe-physics/dialogues/hawking-penrose",
+      title: "霍金 vs 彭罗斯：黑洞信息悖论",
     },
     {
       url: "/computer-science/frontier/ai-interpretability",
@@ -67066,6 +67456,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "康拉德 1964：即时记忆的错误为何跟着声音走而不是跟着字形走",
     },
     {
+      url: "/cosmology/dialogues/degrasse-tyson-sagan",
+      title: "科学传播的对话：泰森与萨根",
+    },
+    {
       url: "/sociology/concepts/science-and-technology-studies",
       title: "科学与技术研究（STS）",
     },
@@ -67084,6 +67478,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/langmuir-1919-octet",
       title: "朗缪尔 1919：电子怎样被排进立方原子与八隅体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
+      title: "量子纠缠",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
@@ -67110,6 +67508,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "马利肯 1932：分子轨道怎样把多原子分子的价写成遍布全分子的单电子函数",
     },
     {
+      url: "/universe-physics/dialogues/maxwell-faraday",
+      title: "麦克斯韦 vs 法拉第：场论的数学与直觉",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
+    },
+    {
       url: "/psychology/experiments/miller-1956",
       title: "米勒 1956：绝对判断、即时记忆与组块怎样把容量从比特改写成结构",
     },
@@ -67134,6 +67540,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碰撞理论",
     },
     {
+      url: "/universe-physics/dialogues/planck-einstein",
+      title: "普朗克 vs 爱因斯坦：量子的诞生与反叛",
+    },
+    {
+      url: "/universe-physics/dialogues/planck-mendel",
+      title: "普朗克 vs 孟德尔：量子与遗传",
+    },
+    {
       url: "/chemistry/milestones/ramsay-rayleigh-1894-argon",
       title: "瑞利与拉姆齐一八九四年的氩：两份氮的密度差怎样逼出一种不进化合的气体",
     },
@@ -67146,8 +67560,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
+      title: "时空弯曲与测地线",
+    },
+    {
       url: "/philosophy/isms/positivism",
       title: "实证主义",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
     },
     {
       url: "/mathematics/knowledge-base/数学基础--数学与现实",
@@ -67160,6 +67582,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/thales",
       title: "泰勒斯",
+    },
+    {
+      url: "/universe-physics/dialogues/tesla-edison",
+      title: "特斯拉 vs 爱迪生：交流电 vs 直流电",
     },
     {
       url: "/psychology/experiments/tversky-kahneman-1974",
@@ -67198,6 +67624,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "希尔准则",
     },
     {
+      url: "/universe-physics/dialogues/higgs-englert",
+      title: "希格斯 vs 恩格勒特：希格斯场的发现",
+    },
+    {
       url: "/universe-physics/knowledge-base/前沿物理--弦理论",
       title: "弦理论",
     },
@@ -67226,6 +67656,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "休克尔 1931：苯问题的量子贡献怎样把六只 π 电子写成分子轨道",
     },
     {
+      url: "/universe-physics/dialogues/schrodinger-darwin",
+      title: "薛定谔 vs 达尔文：生命是什么",
+    },
+    {
       url: "/medicine/concepts/evidence-based-medicine",
       title: "循证医学",
     },
@@ -67240,6 +67674,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/pioneers/eunice-foote",
       title: "尤妮斯·富特",
+    },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
+      title: "宇宙的最终命运",
+    },
+    {
+      url: "/cosmology/dialogues/cosmology-crisis",
+      title: "宇宙学危机：哈勃常数之争",
     },
     {
       url: "/computer-science/pioneers/john-mccarthy",
@@ -67368,10 +67810,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "分布式系统",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
-    },
-    {
       url: "/computer-science/theory/paxos-lamport-1998",
       title: "兼职议会与 Paxos",
     },
@@ -67396,6 +67834,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "洛伦兹变换",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
+      title: "闵可夫斯基时空与四维矢量",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
       title: "能量守恒",
     },
@@ -67418,6 +67860,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
       title: "双生子佯谬",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
+      title: "狭义相对论",
     },
     {
       url: "/earth-science/concepts/rock-cycle",
@@ -67732,10 +68178,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "利贝特自由意志实验",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-    {
       url: "/philosophy/concepts/philosophy-of-time",
       title: "时间哲学",
     },
@@ -67844,12 +68286,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/medicine/figures/william-harvey",
       title: "威廉·哈维",
-    },
-  ],
-  "/philosophy/dialogues/einstein-bohr": [
-    {
-      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
-      title: "量子力学诠释",
     },
   ],
   "/philosophy/dialogues/natural-religion": [
@@ -69596,6 +70032,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大语言模型与基础模型",
     },
     {
+      url: "/universe-physics/dialogues/feynman-wittgenstein",
+      title: "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
+    },
+    {
       url: "/computer-science/concepts/deep-learning-architectures",
       title: "深度学习架构",
     },
@@ -69700,10 +70140,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
       title: "恒星结构与演化",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
-      title: "克尔转动黑洞",
     },
     {
       url: "/life-science/scientists/dawkins",
@@ -69902,10 +70338,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/philosophy/isms/materialism": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/life-science/scientists/pasteur",
       title: "路易·巴斯德",
     },
@@ -69964,6 +70396,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/human-rights-regime",
       title: "国际人权体系",
+    },
+    {
+      url: "/anthropology/culture-and-method/cultural-relativism-is-a-method",
+      title: "文化相对主义是一种方法",
     },
     {
       url: "/political-science/concepts/ideology",
@@ -70338,6 +70774,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/comparative-religion/afterlife-and-salvation",
       title: "来世与救赎",
+    },
+    {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
     },
     {
       url: "/religion/religion-foundations/myth-and-cosmos",
@@ -71532,6 +71972,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "犯罪与刑罚：国家为什么惩罚",
     },
     {
+      url: "/universe-physics/dialogues/feynman-oppenheimer",
+      title: "费曼 vs 奥本海默：科学的责任",
+    },
+    {
       url: "/engineering/frontiers/engineering-ethics",
       title: "工程伦理：挑战者号与专业责任",
     },
@@ -72016,6 +72460,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/mohism",
       title: "墨家",
+    },
+    {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
     },
     {
       url: "/religion/religion-foundations/myth-and-cosmos",
@@ -72812,6 +73260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/几何--非欧几何革命",
       title: "非欧几何革命",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-oppenheimer",
+      title: "费曼 vs 奥本海默：科学的责任",
     },
     {
       url: "/religion/religious-history/reform-and-revival",
@@ -74316,6 +74768,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "地方与市政政府",
     },
     {
+      url: "/political-science/methods/case-study-is-not-an-anecdote",
+      title: "个案研究不是轶事",
+    },
+    {
       url: "/political-science/institutions/ombudsman-institutions",
       title: "监察专员制度",
     },
@@ -74388,6 +74844,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "税收与公共预算：共同的钱怎样变成共同选择",
     },
     {
+      url: "/political-science/international-relations/alliance-is-a-treaty",
+      title: "同盟是一种安全承诺",
+    },
+    {
       url: "/political-science/international-relations/cyber-warfare",
       title: "网络战争",
     },
@@ -74426,6 +74886,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/concepts/expectations-credibility-policy-transmission",
       title: "预期、可信度与政策传导",
+    },
+    {
+      url: "/political-science/concepts/legitimacy-is-not-legality",
+      title: "正当性不是合法性",
     },
     {
       url: "/political-science/concepts/political-corruption",
@@ -74480,6 +74944,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/international-relations/cyber-warfare",
       title: "网络战争",
+    },
+    {
+      url: "/political-science/concepts/legitimacy-is-not-legality",
+      title: "正当性不是合法性",
     },
     {
       url: "/psychology/phenomena/narcissism",
@@ -75566,6 +76034,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/political-science/concepts/public-opinion-and-propaganda": [
     {
+      url: "/sociology/concepts/moral-panic-is-a-campaign",
+      title: "道德恐慌是一个社会过程",
+    },
+    {
       url: "/arts/media/film-and-moving-image",
       title: "电影与运动影像：静止的画格如何变成运动",
     },
@@ -75678,6 +76150,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "视觉文化：从广告到表情包",
     },
     {
+      url: "/political-science/international-relations/alliance-is-a-treaty",
+      title: "同盟是一种安全承诺",
+    },
+    {
       url: "/psychology/phenomena/projection",
       title: "投射",
     },
@@ -75788,6 +76264,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "高利害考试是一种制度",
     },
     {
+      url: "/political-science/methods/case-study-is-not-an-anecdote",
+      title: "个案研究不是轶事",
+    },
+    {
       url: "/chemistry/methods/process-safety",
       title: "过程安全：在放大前理解热、压与失控路径",
     },
@@ -75870,6 +76350,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/economics/frontier/market-design-frontier",
       title: "市场设计：当经济学家成为工程师",
+    },
+    {
+      url: "/law/public-law/delegation-keeps-a-principle",
+      title: "授权要留下原则",
     },
     {
       url: "/engineering/frontiers/titanic-1912-hull",
@@ -76182,6 +76666,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "失败国家与脆弱国家",
     },
     {
+      url: "/political-science/international-relations/alliance-is-a-treaty",
+      title: "同盟是一种安全承诺",
+    },
+    {
       url: "/political-science/thinkers/thomas-hobbes",
       title: "托马斯·霍布斯",
     },
@@ -76298,6 +76786,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/pioneers/grace-hopper",
       title: "格蕾丝·霍普",
+    },
+    {
+      url: "/political-science/methods/case-study-is-not-an-anecdote",
+      title: "个案研究不是轶事",
     },
     {
       url: "/medicine/concepts/public-health",
@@ -76452,6 +76944,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "碳税还是总量交易：给污染定价的两条路",
     },
     {
+      url: "/political-science/international-relations/alliance-is-a-treaty",
+      title: "同盟是一种安全承诺",
+    },
+    {
       url: "/philosophy/thinkers/hobbes",
       title: "托马斯·霍布斯",
     },
@@ -76498,6 +76994,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/isms/islamism",
       title: "伊斯兰主义",
+    },
+    {
+      url: "/political-science/concepts/legitimacy-is-not-legality",
+      title: "正当性不是合法性",
     },
     {
       url: "/political-science/methods/comparative-method",
@@ -76626,6 +77126,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/美洲--阿兹特克帝国",
       title: "阿兹特克帝国",
+    },
+    {
+      url: "/political-science/methods/case-study-is-not-an-anecdote",
+      title: "个案研究不是轶事",
     },
     {
       url: "/political-science/concepts/citizenship-rights",
@@ -78434,10 +78938,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核扩散",
     },
     {
-      url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
-      title: "核裂变",
-    },
-    {
       url: "/human-history/knowledge/事件--冷战",
       title: "冷战",
     },
@@ -80092,10 +80592,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/law/criminal-and-procedure/elements-of-crime",
       title: '犯罪构成：一个行为如何被锻造成"犯罪"',
-    },
-    {
-      url: "/universe-physics/knowledge-base/量子物理--quantum-measurement",
-      title: "量子测量问题",
     },
     {
       url: "/philosophy/thinkers/nozick",
@@ -84772,6 +85268,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "学习分析是推断",
     },
     {
+      url: "/psychology/methods/demand-characteristics",
+      title: "要求特征",
+    },
+    {
       url: "/medicine/figures/ignaz-semmelweis",
       title: "伊格纳茨·塞麦尔维斯",
     },
@@ -84892,10 +85392,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/methods/experience-sampling-and-ema",
       title: "经验取样与生态瞬时评估",
-    },
-    {
-      url: "/cosmology/knowledge-base/快速射电暴",
-      title: "快速射电暴",
     },
     {
       url: "/philosophy/questions/how-to-live-meaningfully",
@@ -85338,6 +85834,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "托马斯·库恩",
     },
     {
+      url: "/psychology/methods/demand-characteristics",
+      title: "要求特征",
+    },
+    {
       url: "/economics/frontier/causal-inference-credibility-revolution",
       title: '因果推断与"可信性革命"',
     },
@@ -85760,6 +86260,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "芝诺悖论",
     },
     {
+      url: "/psychology/phenomena/state-dependent-memory",
+      title: "状态依赖记忆与场景依赖记忆",
+    },
+    {
       url: "/religion/frontier/cognitive-science-religion-replication",
       title: "宗教认知科学还剩多少可重复的结论",
     },
@@ -85934,6 +86438,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "亨佩尔的乌鸦悖论",
     },
     {
+      url: "/education/learning-foundations/teacher-expectation-is-not-a-measure",
+      title: "教师期望不是测量",
+    },
+    {
       url: "/education/learning-foundations/teaching-is-not-pouring",
       title: "教学不是灌输",
     },
@@ -86012,6 +86520,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/education/cognition-and-memory/worked-examples-and-self-explanation",
       title: "样例与自我解释",
+    },
+    {
+      url: "/psychology/methods/demand-characteristics",
+      title: "要求特征",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--cosmology-history",
@@ -86840,6 +87352,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "沃与诺曼 1965：初级记忆怎样把遗忘写成插入项目而非单纯流逝",
     },
     {
+      url: "/psychology/phenomena/habituation-is-not-fatigue",
+      title: "习惯化不是肌肉疲劳",
+    },
+    {
       url: "/psychology/phenomena/serial-position-effect",
       title: "序列位置效应",
     },
@@ -86862,6 +87378,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/swampman",
       title: "沼泽人",
+    },
+    {
+      url: "/psychology/phenomena/state-dependent-memory",
+      title: "状态依赖记忆与场景依赖记忆",
     },
     {
       url: "/education/education-technology/adaptive-systems-are-not-tutors",
@@ -87316,6 +87836,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "西田几多郎",
     },
     {
+      url: "/psychology/phenomena/habituation-is-not-fatigue",
+      title: "习惯化不是肌肉疲劳",
+    },
+    {
       url: "/philosophy/schools/phenomenology",
       title: "现象学",
     },
@@ -87374,6 +87898,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/perception",
       title: "知觉",
+    },
+    {
+      url: "/psychology/phenomena/state-dependent-memory",
+      title: "状态依赖记忆与场景依赖记忆",
     },
   ],
   "/psychology/phenomena/piaget-stages": [
@@ -87520,6 +88048,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/computer-science/concepts/recommender-systems",
       title: "推荐系统",
+    },
+    {
+      url: "/psychology/methods/demand-characteristics",
+      title: "要求特征",
     },
     {
       url: "/economics/concepts/debt-sustainability-macro-framework",
@@ -88762,8 +89294,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "来世与救赎",
     },
     {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
+    },
+    {
       url: "/religion/religion-foundations/sacred-and-profane",
       title: "神圣与凡俗",
+    },
+    {
+      url: "/religion/comparative-religion/dietary-rules-are-boundaries",
+      title: "饮食戒律是边界",
+    },
+  ],
+  "/religion/comparative-religion/three-teachings-are-not-one": [
+    {
+      url: "/religion/religion-and-society/monastic-rules-are-institutions",
+      title: "修道院是制度",
     },
   ],
   "/religion/religion-and-society/diaspora-and-conversion": [
@@ -88794,6 +89340,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/frontier/climate-faith-publics",
       title: "气候危机改变宗教公众了吗",
+    },
+    {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
+    },
+    {
+      url: "/religion/secularization/privatization-is-not-disappearance",
+      title: "私人化不是消失",
+    },
+    {
+      url: "/religion/religion-and-society/monastic-rules-are-institutions",
+      title: "修道院是制度",
     },
     {
       url: "/religion/religion-and-society/religion-and-gender",
@@ -88840,6 +89398,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "人类学的比较",
     },
     {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
+    },
+    {
       url: "/religion/religion-foundations/sacred-and-profane",
       title: "神圣与凡俗",
     },
@@ -88852,8 +89414,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "田野笔记与再现",
     },
     {
+      url: "/religion/religion-and-society/monastic-rules-are-institutions",
+      title: "修道院是制度",
+    },
+    {
       url: "/anthropology/urban-and-heritage/heritage-and-unesco",
       title: "遗产与联合国教科文组织",
+    },
+    {
+      url: "/religion/comparative-religion/dietary-rules-are-boundaries",
+      title: "饮食戒律是边界",
     },
     {
       url: "/anthropology/material-culture/cloth-and-value",
@@ -88866,8 +89436,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/religion/religion-foundations/sacred-and-profane": [
     {
+      url: "/religion/religion-and-society/monastic-rules-are-institutions",
+      title: "修道院是制度",
+    },
+    {
       url: "/religion/religion-foundations/ritual-and-practice",
       title: "仪式与实践",
+    },
+    {
+      url: "/religion/comparative-religion/dietary-rules-are-boundaries",
+      title: "饮食戒律是边界",
     },
   ],
   "/religion/religion-foundations/what-is-religion": [
@@ -88896,6 +89474,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "神圣与凡俗",
     },
     {
+      url: "/religion/secularization/privatization-is-not-disappearance",
+      title: "私人化不是消失",
+    },
+    {
       url: "/anthropology/comparison-and-ethics/fieldnotes-and-representation",
       title: "田野笔记与再现",
     },
@@ -88914,6 +89496,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/urban-and-heritage/heritage-and-unesco",
       title: "遗产与联合国教科文组织",
+    },
+    {
+      url: "/religion/comparative-religion/dietary-rules-are-boundaries",
+      title: "饮食戒律是边界",
     },
     {
       url: "/anthropology/material-culture/cloth-and-value",
@@ -88949,11 +89535,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/religion/frontier/nones-plateau-after-rls",
       title: "美国“无宗教归属”停住了吗",
     },
+    {
+      url: "/religion/secularization/privatization-is-not-disappearance",
+      title: "私人化不是消失",
+    },
   ],
   "/religion/secularization/civil-religion": [
     {
       url: "/religion/frontier/christian-nationalism-measurement",
       title: "基督教民族主义测的是什么",
+    },
+    {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
+    },
+    {
+      url: "/religion/secularization/privatization-is-not-disappearance",
+      title: "私人化不是消失",
     },
     {
       url: "/religion/religion-and-society/religion-and-politics",
@@ -88983,6 +89581,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/religion/frontier/global-religious-demography-switching",
       title: "全球宗教人口：生育率还是改宗",
     },
+    {
+      url: "/religion/secularization/privatization-is-not-disappearance",
+      title: "私人化不是消失",
+    },
   ],
   "/religion/texts-and-canons/commentary-and-interpretation": [
     {
@@ -89000,6 +89602,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/religion/texts-and-canons/oral-and-written-transmission",
       title: "口传与书写",
+    },
+    {
+      url: "/religion/comparative-religion/three-teachings-are-not-one",
+      title: "三教不是一个宗教",
+    },
+    {
+      url: "/religion/religion-and-society/monastic-rules-are-institutions",
+      title: "修道院是制度",
+    },
+    {
+      url: "/religion/comparative-religion/dietary-rules-are-boundaries",
+      title: "饮食戒律是边界",
     },
     {
       url: "/religion/religious-history/axial-age-religions",
@@ -89048,6 +89662,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/experiments/darley-latane-1968",
       title: "达利与拉塔内旁观者实验",
+    },
+    {
+      url: "/sociology/concepts/moral-panic-is-a-campaign",
+      title: "道德恐慌是一个社会过程",
     },
     {
       url: "/economics/concepts/order-book",
@@ -89194,6 +89812,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "我们有自由意志吗？",
     },
     {
+      url: "/sociology/concepts/stigma-is-a-relation",
+      title: "污名是一种关系",
+    },
+    {
       url: "/medicine/events/germ-theory-revolution",
       title: "细菌理论革命（19 世纪后半叶）",
     },
@@ -89324,6 +89946,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/中世纪--维京人",
       title: "维京人",
+    },
+    {
+      url: "/sociology/concepts/stigma-is-a-relation",
+      title: "污名是一种关系",
     },
     {
       url: "/philosophy/experiments/veil-of-ignorance",
@@ -89508,6 +90134,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "信义义务与控制权：董事到底对谁负责",
     },
     {
+      url: "/sociology/institutions/profession-is-a-closure",
+      title: "专业职业与社会封闭",
+    },
+    {
       url: "/engineering/frontiers/i35w-minneapolis-2007",
       title: "I-35W 明尼阿波利斯：半英寸加劲板，把主桁架写成河",
     },
@@ -89624,6 +90254,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/anthropology/culture-and-method/culture-is-not-race",
       title: "文化不是种族",
+    },
+    {
+      url: "/sociology/concepts/stigma-is-a-relation",
+      title: "污名是一种关系",
     },
     {
       url: "/anthropology/kinship-and-exchange/gender-and-personhood",
@@ -90188,6 +90822,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德国 Hartz 劳动力改革剖析",
     },
     {
+      url: "/sociology/methods/survey-is-not-the-population",
+      title: "调查不是总体",
+    },
+    {
       url: "/economics/theories/development-economics",
       title: "发展经济学",
     },
@@ -90444,6 +91082,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "种族与族群",
     },
     {
+      url: "/sociology/institutions/profession-is-a-closure",
+      title: "专业职业与社会封闭",
+    },
+    {
       url: "/education/comparison-and-policy/comprehensive-school-is-a-design",
       title: "综合学校是一种设计",
     },
@@ -90480,6 +91122,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/schools/german-idealism",
       title: "德国古典哲学",
+    },
+    {
+      url: "/sociology/methods/survey-is-not-the-population",
+      title: "调查不是总体",
     },
     {
       url: "/sociology/thinkers/georg-simmel",
@@ -90626,6 +91272,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/sociology/concepts/socialization": [
     {
+      url: "/sociology/concepts/moral-panic-is-a-campaign",
+      title: "道德恐慌是一个社会过程",
+    },
+    {
       url: "/psychology/schools/social-cognitive-theory",
       title: "社会认知理论",
     },
@@ -90636,6 +91286,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/schools/ecological-systems-theory",
       title: "生态系统理论",
+    },
+    {
+      url: "/sociology/concepts/stigma-is-a-relation",
+      title: "污名是一种关系",
     },
   ],
   "/sociology/concepts/sociology-of-culture": [
@@ -91116,6 +91770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "痴呆与阿尔茨海默病",
     },
     {
+      url: "/sociology/methods/survey-is-not-the-population",
+      title: "调查不是总体",
+    },
+    {
       url: "/political-science/thinkers/michel-foucault",
       title: "米歇尔·福柯",
     },
@@ -91282,6 +91940,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/linguistics/acquisition-and-mind/first-language-acquisition",
       title: "第一语言习得",
+    },
+    {
+      url: "/sociology/methods/survey-is-not-the-population",
+      title: "调查不是总体",
     },
     {
       url: "/literature/world-traditions/east-and-southeast-asian-modern",
@@ -91616,6 +92278,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "注意缺陷多动障碍",
     },
     {
+      url: "/sociology/institutions/profession-is-a-closure",
+      title: "专业职业与社会封闭",
+    },
+    {
       url: "/psychology/knowledge-base/self-determination-theory",
       title: "自我决定论：什么真正驱动人",
     },
@@ -91800,6 +92466,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "大陆哲学",
     },
     {
+      url: "/sociology/concepts/moral-panic-is-a-campaign",
+      title: "道德恐慌是一个社会过程",
+    },
+    {
       url: "/mathematics/mathematicians/fermat",
       title: "费马",
     },
@@ -91838,6 +92508,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/human-history/knowledge/人物--居里夫人",
       title: "居里夫人",
+    },
+    {
+      url: "/cosmology/dialogues/degrasse-tyson-sagan",
+      title: "科学传播的对话：泰森与萨根",
     },
     {
       url: "/sociology/concepts/science-and-technology-studies",
@@ -92708,6 +93382,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/political-science/concepts/political-economy",
       title: "政治经济学",
+    },
+    {
+      url: "/sociology/institutions/profession-is-a-closure",
+      title: "专业职业与社会封闭",
     },
     {
       url: "/psychology/disorders/autism-spectrum",
@@ -93880,6 +94558,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "唐纳德·温尼科特",
     },
     {
+      url: "/sociology/concepts/stigma-is-a-relation",
+      title: "污名是一种关系",
+    },
+    {
       url: "/psychology/phenomena/transference",
       title: "移情",
     },
@@ -94281,46 +94963,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
       title: "量子纠缠",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
-      title: "量子力学诠释",
-    },
-  ],
-  "/universe-physics/dialogues/bohr-nagarjuna": [
-    {
-      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
-      title: "量子力学诠释",
-    },
   ],
   "/universe-physics/dialogues/dirac-feynman": [
     {
       url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
       title: "安德森 1932：云室里那条反弯的轻径迹",
     },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
-  ],
-  "/universe-physics/dialogues/einstein-kant": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论",
-      title: "广义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
   ],
   "/universe-physics/dialogues/hawking-penrose": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论",
-      title: "广义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
     {
       url: "/universe-physics/knowledge-base/前沿物理--弦理论",
       title: "弦理论",
@@ -94330,10 +94980,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
       title: "量子纠缠",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
-      title: "量子力学诠释",
     },
   ],
   "/universe-physics/dialogues/higgs-englert": [
@@ -94351,20 +94997,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/engineering/foundations/electricity-and-motors",
       title: "电与电动机：从琥珀静电到驱动世界的旋转磁场",
     },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
   ],
   "/universe-physics/dialogues/penrose-wheeler": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论",
-      title: "广义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
     {
       url: "/universe-physics/knowledge-base/前沿物理--弦理论",
       title: "弦理论",
@@ -94398,10 +95032,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暗物质",
     },
     {
-      url: "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
-      title: "标准模型概览",
-    },
-    {
       url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
       title: "希格斯玻色子",
     },
@@ -94414,29 +95044,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/frontier/muon-g2-self-correction": [
     {
-      url: "/universe-physics/knowledge-base/粒子物理--standard-model-overview",
-      title: "标准模型概览",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
-      title: "对称性与诺特定理",
-    },
-    {
       url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
       title: "希格斯玻色子",
     },
   ],
-  "/universe-physics/frontier/neutrino-mass-hierarchy": [
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--katrin-2025-tritium-endpoint",
-      title: "KATRIN 2025：氚谱端点给出的是质量上限",
-    },
-  ],
   "/universe-physics/frontier/quantum-error-correction": [
-    {
-      url: "/universe-physics/knowledge-base/光学--激光冷却与原子阱",
-      title: "激光冷却与原子阱",
-    },
     {
       url: "/computer-science/theory/error-correcting-codes",
       title: "纠错码理论",
@@ -94508,6 +95120,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光的色散与彩虹",
     },
     {
+      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
+      title: "几何光学与透镜成像",
+    },
+    {
       url: "/universe-physics/knowledge-base/原子物理--atomic-spectra",
       title: "原子光谱",
     },
@@ -94540,10 +95156,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
       title: "光的色散与彩虹",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
-      title: "光纤与全内反射",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--光学望远镜",
@@ -94596,10 +95208,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/光学--interference-and-diffraction": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
-      title: "波动与声学",
-    },
-    {
       url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
       title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
     },
@@ -94608,12 +95216,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电子显微与表面表征：看见形貌，也要验证化学状态",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
+      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
+      title: "干涉与衍射：同一叠加原理的两种说法",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
+      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
+      title: "光的色散与彩虹",
     },
     {
       url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
@@ -94632,20 +95240,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--polarization",
-      title: "偏振",
-    },
-    {
       url: "/universe-physics/knowledge-base/光学--全息术",
       title: "全息术",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--gp-thomson-electron-diffraction",
       title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
-      title: "衍射不是干涉",
     },
     {
       url: "/life-science/knowledge-base/进化专题--眼睛的进化",
@@ -94678,8 +95278,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电磁波的产生与传播",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
-      title: "电介质与电极化",
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
     },
     {
       url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
@@ -94690,20 +95290,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "激光原理与应用",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--geometric-optics-and-lenses",
-      title: "几何光学与透镜成像",
-    },
-    {
       url: "/mathematics/mathematicians/riemann",
       title: "黎曼",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--polarization",
-      title: "偏振",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--瑞利散射与天空的颜色",
-      title: "瑞利散射与天空的颜色",
     },
     {
       url: "/engineering/machines/telecommunications-networks",
@@ -94724,16 +95312,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "磁星",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
-      title: "光纤与全内反射",
+      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
+      title: "干涉与衍射：同一叠加原理的两种说法",
     },
     {
       url: "/chemistry/figures/michael-faraday",
@@ -94752,10 +95332,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "线性变换",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
-      title: "衍射不是干涉",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
       title: "原初引力波与 B 模式偏振",
     },
@@ -94764,10 +95340,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
       title: "电磁波的产生与传播",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--丢失的重子问题",
@@ -94786,6 +95358,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "瑞利散射与天空的颜色",
     },
   ],
+  "/universe-physics/knowledge-base/光学--全息术": [
+    {
+      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
+      title: "光的干涉与衍射",
+    },
+  ],
+  "/universe-physics/knowledge-base/光学--激光冷却与原子阱": [
+    {
+      url: "/universe-physics/knowledge-base/光学--非线性光学",
+      title: "非线性光学",
+    },
+  ],
   "/universe-physics/knowledge-base/光学--激光原理与应用": [
     {
       url: "/cosmology/knowledge-base/致密天体--magnetar-flares",
@@ -94796,16 +95380,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非线性光学",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
       title: "快速射电暴FRB",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--全息术",
-      title: "全息术",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--自适应光学",
@@ -94818,10 +95394,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "喀拉喀托火山爆发（1883）",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
-      title: "相变与临界现象",
-    },
-    {
       url: "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
       title: "宜居世界天文台：把生命问题变成光谱问题",
     },
@@ -94832,8 +95404,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "复数",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
+      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
+      title: "光纤与全内反射",
     },
     {
       url: "/universe-physics/knowledge-base/光学--激光原理与应用",
@@ -94874,10 +95446,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "材料强度：钢、混凝土与复合材料",
     },
     {
-      url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
-      title: "戴维森–革末：镍单晶怎样把慢电子折成随电压走动的角向峰",
-    },
-    {
       url: "/computer-science/algorithms/convolutional-neural-networks",
       title: "卷积神经网络",
     },
@@ -94915,16 +95483,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/凝聚态物理--superfluidity",
       title: "超流体",
     },
-    {
-      url: "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect",
-      title: "量子霍尔效应",
-    },
   ],
   "/universe-physics/knowledge-base/凝聚态物理--ising-model": [
-    {
-      url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
-      title: "安培定律与磁场",
-    },
     {
       url: "/mathematics/frontier/ml-guided-mathematics",
       title: "机器学习辅助数学发现",
@@ -94964,10 +95524,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "半导体材料",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--超导体",
-      title: "超导体",
-    },
-    {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
       title: "费米液体理论",
     },
@@ -94982,10 +95538,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
       title: "热传导对流与辐射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--振动与简正模式",
-      title: "振动与简正模式",
     },
   ],
   "/universe-physics/knowledge-base/凝聚态物理--quantum-hall-effect": [
@@ -95023,6 +95575,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/凝聚态物理--quasicrystals": [
+    {
+      url: "/universe-physics/knowledge-base/凝聚态物理--crystal-structure-bragg-diffraction",
+      title: "晶体结构与布拉格衍射",
+    },
     {
       url: "/mathematics/knowledge-base/代数--群论与对称",
       title: "群论与对称",
@@ -95198,10 +95754,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子自旋",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--相变",
-      title: "相变",
-    },
-    {
       url: "/human-history/knowledge/科技史--指南针",
       title: "指南针",
     },
@@ -95212,10 +95764,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/前沿物理--凝聚态物理与量子材料": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--超导体",
-      title: "超导体",
-    },
-    {
       url: "/universe-physics/knowledge-base/应用物理--晶体管与半导体器件",
       title: "晶体管与半导体器件",
     },
@@ -95225,14 +95773,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/前沿物理--宇宙暴胀": [
-    {
-      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
-      title: "相变与临界现象",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-      title: "宇宙微波背景辐射",
-    },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--原初引力波与B模式",
       title: "原初引力波与 B 模式偏振",
@@ -95246,10 +95786,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--对称性与群论基础",
       title: "对称性与群论基础",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
@@ -95308,10 +95844,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暗能量与状态方程",
     },
     {
-      url: "/cosmology/knowledge-base/宇宙学前沿--dark-matter-indirect-detection",
-      title: "暗物质间接探测",
-    },
-    {
       url: "/cosmology/knowledge-base/暗物质与暗能量",
       title: "暗物质与暗能量",
     },
@@ -95336,12 +95868,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "修改引力理论MOND",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
+      title: "引力透镜的物理",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学基础--宇宙黑暗时代",
       title: "宇宙黑暗时代",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--cosmic-neutrino-background",
       title: "宇宙学中微子背景",
+    },
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--katrin-2025-tritium-endpoint",
+      title: "KATRIN 2025：氚谱端点给出的是质量上限",
     },
   ],
   "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源": [
@@ -95372,16 +95912,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/前沿物理--量子场论与重整化": [
     {
+      url: "/universe-physics/dialogues/dirac-feynman",
+      title: "狄拉克 vs 费曼：数学美 vs 物理直觉",
+    },
+    {
       url: "/mathematics/concepts/series",
       title: "级数",
     },
     {
       url: "/mathematics/concepts/absolute-versus-conditional",
       title: "绝对收敛不是条件收敛",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
@@ -95401,6 +95941,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/前沿物理--量子场论导论": [
+    {
+      url: "/universe-physics/dialogues/dirac-feynman",
+      title: "狄拉克 vs 费曼：数学美 vs 物理直觉",
+    },
     {
       url: "/mathematics/concepts/category-theory",
       title: "范畴论",
@@ -95438,10 +95982,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
       title: "不确定性原理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--超导体",
-      title: "超导体",
     },
     {
       url: "/mathematics/concepts/computability",
@@ -95536,10 +96076,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗兰克–赫兹：汞蒸气里的电子怎样把能量一份一份交出去",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
-    },
-    {
       url: "/universe-physics/knowledge-base/原子物理--rutherford-1911-gold-foil",
       title: "卢瑟福 1911：金箔上的大角 α 怎样把正电荷挤进核",
     },
@@ -95616,10 +96152,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--born-1926-probability",
       title: "玻恩 1926：碰撞里的波函数怎样被读成概率",
-    },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
-      title: "玻尔原子模型",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--davisson-germer-experiment",
@@ -95724,10 +96256,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
     },
     {
-      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
-      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
-    },
-    {
       url: "/chemistry/milestones/soddy-1913-isotope",
       title: "索迪 1913：放射链上化学无法分开的物种怎样被写成同位素",
     },
@@ -95828,8 +96356,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波粒二象性",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
+      url: "/universe-physics/knowledge-base/电磁学--光的本质",
+      title: "光的本质",
     },
     {
       url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
@@ -95844,8 +96372,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
-      title: "普朗克常数与量子化",
+      url: "/universe-physics/dialogues/planck-einstein",
+      title: "普朗克 vs 爱因斯坦：量子的诞生与反叛",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--young-1801-interference",
@@ -95954,24 +96482,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/天体物理--超新星与重元素起源": [
     {
+      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
+      title: "超级神冈 1998：大气中微子的上下不对称",
+    },
+    {
       url: "/chemistry/figures/mendeleev",
       title: "德米特里·门捷列夫",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--第一代恒星PopulationIII",
       title: "第一代恒星 Population III",
-    },
-    {
-      url: "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
-      title: "核壳层模型与液滴模型",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
-      url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
-      title: "恒星结构与演化",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--red-blue-supergiants",
@@ -95991,6 +96511,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
   ],
   "/universe-physics/knowledge-base/应用物理--地球物理与地震波": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
+      title: "超级神冈 1998：大气中微子的上下不对称",
+    },
     {
       url: "/earth-science/concepts/earth-interior",
       title: "地球内部结构",
@@ -96028,10 +96552,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核磁共振",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
-    },
-    {
       url: "/mathematics/concepts/lie-group-lie-algebra",
       title: "李群与李代数",
     },
@@ -96042,12 +96562,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
   ],
-  "/universe-physics/knowledge-base/应用物理--电子学与放大器电路": [
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
-      title: "电路分析与基尔霍夫定律",
-    },
-  ],
   "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect": [
     {
       url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
@@ -96056,10 +96570,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/天体物理--超新星与重元素起源",
       title: "超新星与重元素起源",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13",
-      title: "大亚湾 2012：反应堆反中微子测到的 θ13",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--antimatter",
@@ -96080,10 +96590,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--nuclear-fission",
       title: "核裂变",
-    },
-    {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
     },
     {
       url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
@@ -96110,16 +96616,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--能量守恒",
-      title: "能量守恒",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
       title: "强相互作用与量子色动力学",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
       title: "太初核合成",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
+      title: "相对论性动力学与四维力",
     },
     {
       url: "/chemistry/milestones/urey-1931-deuterium",
@@ -96176,10 +96682,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
       title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
-    },
-    {
-      url: "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle",
-      title: "泡利不相容原理",
     },
     {
       url: "/chemistry/milestones/urey-1931-deuterium",
@@ -96244,19 +96746,23 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis": [
     {
+      url: "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13",
+      title: "大亚湾 2012：反应堆反中微子测到的 θ13",
+    },
+    {
       url: "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
       title: "核壳层模型与液滴模型",
     },
     {
-      url: "/cosmology/knowledge-base/恒星核合成",
-      title: "恒星核合成",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
+      url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
+      title: "结合能与质量亏损",
     },
   ],
   "/universe-physics/knowledge-base/核物理--nuclear-fission": [
+    {
+      url: "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13",
+      title: "大亚湾 2012：反应堆反中微子测到的 θ13",
+    },
     {
       url: "/human-history/knowledge/事件--二战",
       title: "第二次世界大战",
@@ -96264,6 +96770,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
       title: "放射性衰变",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-oppenheimer",
+      title: "费曼 vs 奥本海默：科学的责任",
     },
     {
       url: "/engineering/energy/nuclear-power",
@@ -96338,6 +96848,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "核心坍缩超新星",
     },
     {
+      url: "/cosmology/knowledge-base/恒星核合成",
+      title: "恒星核合成",
+    },
+    {
       url: "/mathematics/theorems/riemann-hypothesis",
       title: "黎曼猜想",
     },
@@ -96348,6 +96862,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/number-theory",
       title: "数论",
+    },
+    {
+      url: "/universe-physics/knowledge-base/核物理--neutron-capture-nucleosynthesis",
+      title: "中子俘获与元素合成",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--neutron-star-interior-eos",
@@ -96365,7 +96883,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
+      title: "半衰期：单核的概率尺度与群体的指数衰减",
     },
     {
       url: "/earth-science/concepts/earth-interior",
@@ -96374,14 +96892,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/concepts/geologic-time-scale",
       title: "地质年代表",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
-      title: "动量守恒与碰撞",
     },
     {
       url: "/chemistry/milestones/discovery-of-radioactivity",
@@ -96430,6 +96940,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学基础--太初核合成",
       title: "太初核合成",
+    },
+    {
+      url: "/chemistry/concepts/isotope-is-the-same-element",
+      title: "同位素仍是同一种元素",
     },
     {
       url: "/earth-science/concepts/karst-and-caves",
@@ -96572,12 +97086,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/热力学--joule-1850-mechanical-equivalent": [
     {
+      url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
+      title: "卡诺循环与热机",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--cavendish-1798-density",
       title: "卡文迪许 1798：地球密度是水的 5.48 倍",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
       title: "能量守恒",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
+      title: "热传导对流与辐射",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
@@ -96630,14 +97152,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "焦耳 1850：桨轮把功和热收成 772 英尺磅",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--绝对零度",
-      title: "绝对零度",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
-      title: "卡诺循环与热机",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--cavendish-1798-density",
       title: "卡文迪许 1798：地球密度是水的 5.48 倍",
     },
@@ -96652,10 +97166,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/robert-boyle",
       title: "罗伯特·波义耳",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
-      title: "摩擦与耗散",
     },
     {
       url: "/chemistry/milestones/perrin-1909-brownian",
@@ -96682,10 +97192,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "施陶丁格 1920：高分子怎样被写成共价长链",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
-      title: "统计力学与玻尔兹曼分布",
-    },
-    {
       url: "/cosmology/knowledge-base/星系天文学--elliptical-galaxies",
       title: "椭圆星系",
     },
@@ -96700,6 +97206,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/concepts/continuous-versus-uniform",
       title: "逐点连续不是一致连续",
+    },
+  ],
+  "/universe-physics/knowledge-base/热力学--latent-heat": [
+    {
+      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
+      title: "热质说的兴衰",
+    },
+    {
+      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
+      title: "相变与临界现象",
     },
   ],
   "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics": [
@@ -96752,6 +97268,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "工业革命",
     },
     {
+      url: "/universe-physics/knowledge-base/相对论--黑洞",
+      title: "黑洞",
+    },
+    {
       url: "/cosmology/knowledge-base/黑洞热力学与霍金辐射",
       title: "黑洞热力学与霍金辐射",
     },
@@ -96780,16 +97300,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "焦耳 1850：桨轮把功和热收成 772 英尺磅",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--绝对零度",
-      title: "绝对零度",
-    },
-    {
       url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
       title: "卡诺循环与热机",
     },
     {
       url: "/earth-science/events/kelvin-and-the-age-of-the-earth",
       title: "开尔文与地球年龄之争（1862—1904）",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
+      title: "克尔转动黑洞",
     },
     {
       url: "/life-science/scientists/margulis",
@@ -96806,10 +97326,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/marcus-aurelius",
       title: "马可·奥勒留",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
-      title: "麦克斯韦妖",
     },
     {
       url: "/computer-science/algorithms/simulated-annealing",
@@ -96832,12 +97348,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "庞加莱猜想",
     },
     {
-      url: "/philosophy/concepts/qi",
-      title: "气",
+      url: "/cosmology/dialogues/penrose-hawking",
+      title: "彭罗斯 vs 霍金：奇点定理",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
-      title: "气体动理论",
+      url: "/cosmology/dialogues/penrose-hawking-singularity",
+      title: "彭罗斯 vs 霍金：奇点定理的深层含义",
+    },
+    {
+      url: "/philosophy/concepts/qi",
+      title: "气",
     },
     {
       url: "/computer-science/concepts/blockchain",
@@ -96846,10 +97366,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
       title: "热质说的兴衰",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
-      title: "熵与时间之箭",
     },
     {
       url: "/philosophy/questions/what-is-time",
@@ -96898,6 +97414,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/information-philosophy",
       title: "信息哲学",
+    },
+    {
+      url: "/universe-physics/dialogues/schrodinger-darwin",
+      title: "薛定谔 vs 达尔文：生命是什么",
     },
     {
       url: "/chemistry/concepts/redox-reactions",
@@ -97026,10 +97546,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子纠错跨过门槛",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
-      title: "气体动理论",
-    },
-    {
       url: "/philosophy/schools/presocratics",
       title: "前苏格拉底哲学",
     },
@@ -97156,6 +97672,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德谟克利特",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--非平衡态热力学",
+      title: "非平衡态热力学",
+    },
+    {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
       title: "费米液体理论",
     },
@@ -97204,10 +97724,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卢克莱修",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
-      title: "麦克斯韦妖",
-    },
-    {
       url: "/mathematics/mathematicians/mirzakhani",
       title: "米尔扎哈尼",
     },
@@ -97226,10 +97742,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
       title: "全同粒子与量子统计",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
-      title: "热力学三大定律",
     },
     {
       url: "/chemistry/concepts/solutions-and-solubility",
@@ -97266,10 +97778,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/substances/carbohydrates-and-lipids",
       title: "糖类与脂质",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
-      title: "相变与临界现象",
     },
     {
       url: "/mathematics/concepts/information-geometry",
@@ -97318,6 +97826,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "绝对零度",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
+      title: "卡诺循环与热机",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
       title: "热传导对流与辐射",
     },
@@ -97342,10 +97854,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/groundwater-aquifers",
       title: "地下水与含水层",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
     },
     {
       url: "/mathematics/concepts/multivariable-calculus",
@@ -97374,10 +97882,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/earth-science/processes/monsoon-systems",
       title: "季风系统",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--普朗克常数与量子化",
-      title: "普朗克常数与量子化",
     },
     {
       url: "/life-science/knowledge-base/生理学--人体生理系统概览",
@@ -97436,6 +97940,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非平衡态热力学",
     },
     {
+      url: "/universe-physics/dialogues/hawking-penrose",
+      title: "霍金 vs 彭罗斯：黑洞信息悖论",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
       title: "卡诺循环与热机",
     },
@@ -97462,10 +97970,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
       title: "热力学三大定律",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--相变",
-      title: "相变",
     },
     {
       url: "/computer-science/theory/information-theory",
@@ -97508,10 +98012,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--latent-heat",
       title: "潜热不是热容台阶",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
-      title: "热质说的兴衰",
     },
     {
       url: "/life-science/species/tardigrade",
@@ -97579,7 +98079,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--osmosis",
-      title: "渗透不是扩散，也不是化学渗透",
+      title: "渗透：半透膜两侧的水为何净迁移",
     },
     {
       url: "/life-science/knowledge-base/分子生物学--细胞膜与跨膜运输",
@@ -97588,10 +98088,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--相变",
       title: "相变",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
-      title: "相变与临界现象",
     },
   ],
   "/universe-physics/knowledge-base/热力学--非平衡态热力学": [
@@ -97630,6 +98126,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "计算的物理极限",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
+      title: "热力学三大定律",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
       title: "熵与时间之箭",
     },
@@ -97650,6 +98150,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--cavendish-1798-density",
       title: "卡文迪许 1798：地球密度是水的 5.48 倍",
+    },
+  ],
+  "/universe-physics/knowledge-base/物理学--half-life": [
+    {
+      url: "/chemistry/concepts/isotope-is-the-same-element",
+      title: "同位素仍是同一种元素",
     },
   ],
   "/universe-physics/knowledge-base/物理学--参考系与惯性": [
@@ -97677,7 +98183,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒": [
     {
       url: "/cosmology/knowledge-base/系外行星--51-pegasi-b-1995",
-      title: "飞马座51b：1995年的半幅与质量下限，不是质量真值",
+      title: "飞马座51b：四天周期打开的热木星时代",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--共动距离与宇宙学红移",
@@ -97689,11 +98195,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
-      title: "声学与多普勒效应",
+      title: "庞德–雷布卡 1959—1960：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
@@ -97746,18 +98248,22 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "稳恒态宇宙：输得最体面的理论",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
     },
   ],
   "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--plasma-physics",
-      title: "等离子体物理",
+      url: "/universe-physics/knowledge-base/物理学--暗物质与暗能量",
+      title: "暗物质与暗能量",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
       title: "电磁波谱",
+    },
+    {
+      url: "/universe-physics/dialogues/penrose-wheeler",
+      title: "彭罗斯 vs 惠勒：黑洞与量子引力",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
@@ -97776,10 +98282,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
       title: "熵与时间之箭",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
-      title: "宇宙微波背景辐射",
     },
   ],
   "/universe-physics/knowledge-base/物理学--对称性与群论基础": [
@@ -97803,6 +98305,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/mathematics/theorems/stokes-theorem",
       title: "斯托克斯定理",
     },
+    {
+      url: "/universe-physics/knowledge-base/物理学--宇宙微波背景辐射",
+      title: "宇宙微波背景辐射",
+    },
   ],
   "/universe-physics/knowledge-base/物理学--对称性与诺特定理": [
     {
@@ -97812,10 +98318,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
       title: "拉格朗日与哈密顿力学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
@@ -97844,10 +98346,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/粒子物理--wu-1956-parity",
       title: "吴健雄 1956：极化钴-60 怎样把β半球不对称写成宇称不守恒",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
-      title: "希格斯机制与希格斯玻色子",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--相变",
@@ -97886,22 +98384,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "洛伦兹变换",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
-      title: "双生子佯谬",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
-      title: "相对论性动量与能量",
-    },
-    {
       url: "/cosmology/knowledge-base/星系天文学--蝎虎座BL天体",
       title: "蝎虎座BL天体",
     },
@@ -97916,12 +98398,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光电效应与量子化光",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
+      url: "/universe-physics/dialogues/planck-einstein",
+      title: "普朗克 vs 爱因斯坦：量子的诞生与反叛",
     },
     {
-      url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
-      title: "氢原子的量子理论",
+      url: "/universe-physics/dialogues/planck-mendel",
+      title: "普朗克 vs 孟德尔：量子与遗传",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--热传导对流与辐射",
@@ -97934,6 +98416,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/paradoxes/zeno-paradoxes",
       title: "芝诺悖论",
+    },
+    {
+      url: "/cosmology/knowledge-base/宇宙学观测--cobe-firas-1990",
+      title: "COBE 的 FIRAS：怎样把天空光谱与黑体比较",
     },
   ],
   "/universe-physics/knowledge-base/物理学--暗物质与暗能量": [
@@ -97952,14 +98438,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
       title: "卡西米尔效应与真空能",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
-      title: "引力波天文学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--宇宙暴胀",
@@ -97988,14 +98466,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暗物质与暗能量",
     },
     {
-      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
-      title: "超级神冈 1998：大气中微子的上下不对称",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13",
-      title: "大亚湾 2012：反应堆反中微子测到的 θ13",
-    },
-    {
       url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
       title: "对称性与诺特定理",
     },
@@ -98020,20 +98490,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "量子场论与重整化",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
-      title: "麦克斯韦方程组",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
       title: "强相互作用与量子色动力学",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--希格斯玻色子",
       title: "希格斯玻色子",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
-      title: "引力波天文学",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
@@ -98046,24 +98508,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "参考系与惯性",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-    {
       url: "/universe-physics/knowledge-base/物理学--时间膨胀与长度收缩",
       title: "时间膨胀与长度收缩",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
-    {
       url: "/mathematics/concepts/linear-transformation",
       title: "线性变换",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
@@ -98105,16 +98555,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/核物理--rutherford-1919-nitrogen",
       title: "卢瑟福 1919：天然 α 打氮怎样放出氢核，并把核组成第一次改写成实验室对象",
     },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--密立根油滴实验",
-      title: "密立根油滴：基本电荷怎样在悬浮的油雾里被一份一份称出来",
-    },
   ],
   "/universe-physics/knowledge-base/物理学--质能等价": [
-    {
-      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
-      title: "对称性与诺特定理",
-    },
     {
       url: "/universe-physics/knowledge-base/粒子物理--antimatter",
       title: "反物质",
@@ -98132,10 +98574,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "考克饶夫与瓦尔顿：加速质子打锂怎样放出氦核，并把动能与质量亏损对上账",
     },
     {
-      url: "/universe-physics/knowledge-base/核物理--meitner-frisch-1938-fission",
-      title: "迈特纳与弗里施：怎样把哈恩的钡读成重核液滴分裂，而不是超铀元素",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
       title: "能量守恒",
     },
@@ -98144,23 +98582,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "强相互作用与量子色动力学",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
-    },
-    {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
       title: "相对论性动量与能量",
     },
   ],
   "/universe-physics/knowledge-base/物理学--量子力学诠释": [
-    {
-      url: "/universe-physics/knowledge-base/物理学--标准模型与超越",
-      title: "标准模型与超越",
-    },
     {
       url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
       title: "波粒二象性",
@@ -98172,10 +98598,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/democritus",
       title: "德谟克利特",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
     },
     {
       url: "/philosophy/schools/buddhism-philosophy",
@@ -98206,8 +98628,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "卢克莱修",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--麦克斯韦妖",
-      title: "麦克斯韦妖",
+      url: "/universe-physics/dialogues/penrose-wheeler",
+      title: "彭罗斯 vs 惠勒：黑洞与量子引力",
+    },
+    {
+      url: "/universe-physics/dialogues/planck-einstein",
+      title: "普朗克 vs 爱因斯坦：量子的诞生与反叛",
     },
     {
       url: "/philosophy/thinkers/berkeley",
@@ -98234,16 +98660,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "我们有自由意志吗？",
     },
     {
+      url: "/universe-physics/dialogues/schrodinger-darwin",
+      title: "薛定谔 vs 达尔文：生命是什么",
+    },
+    {
       url: "/philosophy/isms/monism",
       title: "一元论",
     },
     {
       url: "/philosophy/thinkers/epicurus",
       title: "伊壁鸠鲁",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--宇宙的最终命运",
-      title: "宇宙的最终命运",
     },
     {
       url: "/philosophy/isms/libertarianism-free-will",
@@ -98254,6 +98680,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/life-science/knowledge-base/hodgkin-huxley-1952",
       title: "1952：霍奇金与赫胥黎怎样把膜电流写成钠、钾和漏电",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--超导体",
+      title: "超导体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
+      title: "电介质与电极化",
     },
     {
       url: "/medicine/concepts/action-potential",
@@ -98275,7 +98709,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics": [
     {
       url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
     },
     {
       url: "/chemistry/milestones/debye-huckel-1923",
@@ -98284,10 +98718,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
       title: "电介质与电极化",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
-      title: "电路分析与基尔霍夫定律",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
@@ -98310,10 +98740,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
       title: "电磁波的产生与传播",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
@@ -98344,10 +98770,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "德拜–休克尔 1923：离子氛怎样把强电解质的电导亏损改记成远程静电",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学基础--复合时期与最后散射面",
       title: "复合时期与最后散射面",
     },
@@ -98362,6 +98784,14 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/活动星系核与类星体",
       title: "活动星系核与类星体",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
+      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
+    },
+    {
+      url: "/cosmology/knowledge-base/快速射电暴",
+      title: "快速射电暴",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
@@ -98394,10 +98824,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/电磁学--young-1801-interference": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
       url: "/universe-physics/knowledge-base/量子物理--波粒二象性",
       title: "波粒二象性",
     },
@@ -98406,30 +98832,18 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弗劳恩霍夫 1817：574 条暗线是刻度",
     },
     {
+      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
+      title: "干涉与衍射：同一叠加原理的两种说法",
+    },
+    {
       url: "/universe-physics/knowledge-base/电磁学--光的本质",
       title: "光的本质",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--diffraction-versus-interference",
-      title: "衍射不是干涉",
     },
   ],
   "/universe-physics/knowledge-base/电磁学--光的本质": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
       url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
       title: "电磁波谱",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-      title: "法拉第与电磁感应",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--foucault-1851-pendulum",
@@ -98440,20 +98854,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "光的干涉与衍射",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--激光原理与应用",
-      title: "激光原理与应用",
-    },
-    {
       url: "/universe-physics/knowledge-base/原子物理--compton-scattering-experiment",
       title: "康普顿：石墨怎样把钼 K-α 的波长随散射角推开",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
       title: "麦克斯韦方程组",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--全息术",
-      title: "全息术",
     },
     {
       url: "/life-science/knowledge-base/进化专题--生物发光",
@@ -98470,10 +98876,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "21cm 宇宙学与再电离",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
       title: "电磁波谱",
     },
@@ -98481,19 +98883,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学观测--霍尔姆德尔喇叭天线",
       title: "霍尔姆德尔喇叭：消不掉的 3.5 K 怎样被写成天线温度",
     },
-    {
-      url: "/cosmology/knowledge-base/快速射电暴",
-      title: "快速射电暴",
-    },
   ],
   "/universe-physics/knowledge-base/电磁学--安培定律与磁场": [
     {
       url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-      title: "法拉第与电磁感应",
+      url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
+      title: "麦克斯韦方程组",
     },
     {
       url: "/universe-physics/knowledge-base/原子物理--zeeman-1896",
@@ -98515,7 +98913,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--超导体",
@@ -98524,14 +98922,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--磁性与铁磁体",
       title: "磁性与铁磁体",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
     },
     {
       url: "/human-history/knowledge/科学史--电的历史",
@@ -98554,12 +98944,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "海洋世界：太阳系内寻找生命的第二条路线",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
-      title: "库仑定律与静电场",
-    },
-    {
       url: "/chemistry/figures/michael-faraday",
       title: "迈克尔·法拉第",
+    },
+    {
+      url: "/universe-physics/dialogues/maxwell-faraday",
+      title: "麦克斯韦 vs 法拉第：场论的数学与直觉",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--麦克斯韦方程组",
@@ -98577,31 +98967,19 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/太阳系--solar-structure-activity",
       title: "太阳的结构与活动",
     },
+    {
+      url: "/universe-physics/dialogues/tesla-edison",
+      title: "特斯拉 vs 爱迪生：交流电 vs 直流电",
+    },
   ],
   "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
+      url: "/universe-physics/knowledge-base/电磁学--plasma-physics",
+      title: "等离子体物理",
     },
     {
       url: "/human-history/knowledge/科学史--电的历史",
       title: "电的历史",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
-      title: "电路分析与基尔霍夫定律",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-      title: "法拉第与电磁感应",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
     },
     {
       url: "/mathematics/concepts/pde",
@@ -98619,19 +98997,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学观测--星系际介质",
       title: "星系际介质",
     },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
-      title: "以太的兴衰",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
   ],
   "/universe-physics/knowledge-base/电磁学--电磁波谱": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
+      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
+      title: "超级神冈 1998：大气中微子的上下不对称",
     },
     {
       url: "/philosophy/experiments/inverted-spectrum",
@@ -98644,18 +99014,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/psychology/phenomena/perception-physiology",
       title: "感觉与知觉的生理基础",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--光的本质",
-      title: "光的本质",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
-      title: "光的色散与彩虹",
-    },
-    {
-      url: "/universe-physics/knowledge-base/核物理--nuclear-magnetic-resonance",
-      title: "核磁共振",
     },
     {
       url: "/cosmology/knowledge-base/恒星物理--hertzsprung-russell-diagram",
@@ -98672,10 +99030,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/experiments/hume-missing-shade",
       title: "缺失的蓝色：休谟承认的复制原则例外",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
-      title: "天线与电磁辐射",
     },
   ],
   "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律": [
@@ -98696,23 +99050,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "晶体管与半导体器件",
     },
     {
+      url: "/universe-physics/dialogues/tesla-edison",
+      title: "特斯拉 vs 爱迪生：交流电 vs 直流电",
+    },
+    {
       url: "/medicine/concepts/surgery",
       title: "外科学",
     },
   ],
   "/universe-physics/knowledge-base/电磁学--超导体": [
-    {
-      url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
-      title: "安培定律与磁场",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
-      title: "电容与电感",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-      title: "法拉第与电磁感应",
-    },
     {
       url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
       title: "费米液体理论",
@@ -98742,16 +99088,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "声子与晶格振动",
     },
     {
+      url: "/universe-physics/dialogues/higgs-englert",
+      title: "希格斯 vs 恩格勒特：希格斯场的发现",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
       title: "希格斯机制与希格斯玻色子",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--相变",
       title: "相变",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
-      title: "相变与临界现象",
     },
     {
       url: "/medicine/technologies/ct-mri",
@@ -98765,7 +99111,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--oersted-1820-compass",
-      title: "奥斯特 1820：闭合回路移动磁针，讲座不是无准备的意外",
+      title: "奥斯特 1820：闭合电路怎样偏转磁针",
     },
     {
       url: "/mathematics/mathematicians/chern",
@@ -98784,16 +99130,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电路分析与基尔霍夫定律",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--capacitance-and-inductance",
-      title: "电容与电感",
-    },
-    {
       url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
       title: "法拉第与电磁感应",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--非线性光学",
-      title: "非线性光学",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--光的本质",
@@ -98808,50 +99146,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "迈克尔·法拉第",
     },
     {
+      url: "/universe-physics/dialogues/maxwell-faraday",
+      title: "麦克斯韦 vs 法拉第：场论的数学与直觉",
+    },
+    {
       url: "/mathematics/theorems/divergence-theorem",
       title: "散度定理",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
       title: "天线与电磁辐射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--以太的兴衰",
-      title: "以太的兴衰",
-    },
-  ],
-  "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-  ],
-  "/universe-physics/knowledge-base/相对论--pound-rebka-1959": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--等效原理",
-      title: "等效原理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论",
-      title: "广义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
-      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
-    },
-  ],
-  "/universe-physics/knowledge-base/相对论--克尔转动黑洞": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
-      title: "史瓦西黑洞",
     },
   ],
   "/universe-physics/knowledge-base/相对论--双生子佯谬": [
@@ -98862,32 +99166,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/相对论--史瓦西黑洞": [
     {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--黑洞",
-      title: "黑洞",
-    },
-    {
       url: "/universe-physics/knowledge-base/天体物理--恒星结构与演化",
       title: "恒星结构与演化",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
-      title: "克尔转动黑洞",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
     },
   ],
   "/universe-physics/knowledge-base/相对论--广义相对论": [
@@ -98900,16 +99180,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "爱因斯坦",
     },
     {
+      url: "/universe-physics/dialogues/einstein-kant",
+      title: "爱因斯坦 vs 康德：时空的先验性",
+    },
+    {
       url: "/philosophy/thinkers/augustine",
       title: "奥古斯丁",
     },
     {
       url: "/cosmology/knowledge-base/大爆炸理论",
       title: "大爆炸理论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--等效原理",
-      title: "等效原理",
     },
     {
       url: "/mathematics/paradoxes/fifth-postulate-proofs",
@@ -98960,10 +99240,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "诺特定理",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--弱引力透镜与宇宙剪切",
       title: "弱引力透镜与宇宙剪切",
     },
@@ -98984,10 +99260,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "数学与现实",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--万有引力",
-      title: "万有引力",
-    },
-    {
       url: "/mathematics/concepts/differential-geometry",
       title: "微分几何",
     },
@@ -98996,20 +99268,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "弦理论",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--引力波",
-      title: "引力波",
-    },
-    {
       url: "/cosmology/knowledge-base/多信使天文学--gravitational-wave-detectors-ligo-lisa",
       title: "引力波探测器LIGO与LISA",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--引力波天文学",
       title: "引力波天文学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
     },
     {
       url: "/cosmology/knowledge-base/引力透镜",
@@ -99026,48 +99290,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "1919 日食底片：0.87″ 与 1.75″ 怎样被量到星点上",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--等效原理",
-      title: "等效原理",
-    },
-    {
       url: "/cosmology/knowledge-base/太阳系--火神星",
       title: "火神星：同一种方法，两种结局",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
-      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--克尔转动黑洞",
-      title: "克尔转动黑洞",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--甚长基线干涉",
       title: "甚长基线干涉测量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--万有引力",
-      title: "万有引力",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
-      title: "引力红移与引力时间膨胀",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
     },
     {
       url: "/cosmology/knowledge-base/中子星与脉冲星",
@@ -99076,16 +99304,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/相对论--引力波": [
     {
+      url: "/universe-physics/dialogues/einstein-kant",
+      title: "爱因斯坦 vs 康德：时空的先验性",
+    },
+    {
       url: "/cosmology/knowledge-base/宇宙学观测--标准烛光与Ia超新星测距",
       title: "标准烛光与Ia型超新星测距",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波谱",
-      title: "电磁波谱",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--multimessenger-astronomy-overview",
@@ -99096,16 +99320,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "非欧几何",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
-    },
-    {
       url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
       title: "黑洞自旋测量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
-      title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--pulsar-timing-array",
@@ -99144,10 +99360,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Ia型超新星",
     },
     {
-      url: "/cosmology/knowledge-base/多信使天文学--nanograv-pta-gw-background",
-      title: "NANOGrav与纳赫兹引力波背景",
-    },
-    {
       url: "/cosmology/knowledge-base/宇宙学观测--hulse-taylor-b1913",
       title: "PSR B1913+16：1974 年的双星脉冲星与后来的轨道周期导数",
     },
@@ -99158,36 +99370,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "等效原理",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--多普勒效应与相对论多普勒",
-      title: "多普勒效应与相对论多普勒",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
       url: "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
       title: "卡西尼 2003：2002 年测到的夏皮罗延迟",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--能量守恒",
-      title: "能量守恒",
-    },
-    {
       url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
-      title: "史瓦西黑洞",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
-      title: "双生子佯谬",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
+      title: "庞德–雷布卡 1959—1960：液压多普勒怎样把 22.5 米写成引力频移",
     },
   ],
   "/universe-physics/knowledge-base/相对论--引力透镜的物理": [
@@ -99196,12 +99384,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "暗物质",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--时空弯曲与测地线",
-      title: "时空弯曲与测地线",
+      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
+      title: "史瓦西黑洞",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学观测--bullet-cluster-2006",
@@ -99216,10 +99400,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/concepts/sublime",
       title: "崇高",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--等效原理",
-      title: "等效原理",
     },
     {
       url: "/mathematics/mathematicians/godel",
@@ -99246,16 +99426,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "时间哲学",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--史瓦西黑洞",
-      title: "史瓦西黑洞",
-    },
-    {
       url: "/cosmology/knowledge-base/引力透镜",
       title: "引力透镜",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--引力透镜的物理",
-      title: "引力透镜的物理",
     },
   ],
   "/universe-physics/knowledge-base/相对论--狭义相对论": [
@@ -99268,24 +99440,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "安培定律与磁场",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--波动与振动",
-      title: "波动与振动",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--等效原理",
-      title: "等效原理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/computer-science/theory/distributed-computing-theory",
       title: "分布式计算理论",
     },
     {
       url: "/mathematics/theorems/pythagorean-theorem",
       title: "勾股定理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--光的色散与彩虹",
+      title: "光的色散与彩虹",
     },
     {
       url: "/cosmology/knowledge-base/活动星系核与类星体",
@@ -99302,14 +99466,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/宇宙学观测--天体测量与盖亚卫星",
       title: "天体测量与盖亚卫星",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
-      title: "天线与电磁辐射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
     },
     {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
@@ -99344,24 +99500,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "Lamport 1978：先于关系怎样把分布式事件收成不靠墙钟的偏序",
     },
   ],
-  "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力": [
-    {
-      url: "/universe-physics/knowledge-base/相对论--闵可夫斯基时空与四维矢量",
-      title: "闵可夫斯基时空与四维矢量",
-    },
-  ],
   "/universe-physics/knowledge-base/相对论--等效原理": [
     {
       url: "/universe-physics/knowledge-base/物理学--参考系与惯性",
       title: "参考系与惯性",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论",
-      title: "广义相对论",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--广义相对论的实验检验",
-      title: "广义相对论的实验检验",
     },
     {
       url: "/cosmology/knowledge-base/black-holes",
@@ -99369,11 +99511,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/相对论--pound-rebka-1959",
-      title: "庞德–雷布卡 1959：液压多普勒怎样把 22.5 米写成引力频移",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--双生子佯谬",
-      title: "双生子佯谬",
+      title: "庞德–雷布卡 1959—1960：液压多普勒怎样把 22.5 米写成引力频移",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学前沿--modified-gravity-mond",
@@ -99398,23 +99536,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "双生子佯谬",
     },
     {
-      url: "/universe-physics/knowledge-base/相对论--相对论性动力学与四维力",
-      title: "相对论性动力学与四维力",
-    },
-    {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
       title: "相对论性动量与能量",
     },
   ],
   "/universe-physics/knowledge-base/相对论--黑洞": [
-    {
-      url: "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
-      title: "潮汐瓦解事件",
-    },
-    {
-      url: "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
-      title: "快速射电暴FRB",
-    },
     {
       url: "/mathematics/mathematicians/ramanujan",
       title: "拉马努金",
@@ -99428,20 +99554,16 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "麦克斯韦妖",
     },
     {
+      url: "/universe-physics/dialogues/penrose-wheeler",
+      title: "彭罗斯 vs 惠勒：黑洞与量子引力",
+    },
+    {
       url: "/universe-physics/knowledge-base/热力学--laws-of-thermodynamics",
       title: "热力学三大定律",
     },
     {
-      url: "/cosmology/knowledge-base/星系天文学--赛弗特星系",
-      title: "赛弗特星系",
-    },
-    {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
       title: "熵与时间之箭",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--引力波天文学",
-      title: "引力波天文学",
     },
     {
       url: "/cosmology/knowledge-base/宇宙的最终命运",
@@ -99473,15 +99595,15 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/原子物理--wilson-1911-cloud-chamber",
       title: "威尔逊 1911：膨胀怎样把离子变成可见的凝结径迹",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
-      title: "相对论性动量与能量",
-    },
   ],
   "/universe-physics/knowledge-base/粒子物理--antimatter": [
     {
       url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
       title: "安德森 1932：云室里那条反弯的轻径迹",
+    },
+    {
+      url: "/universe-physics/knowledge-base/相对论--等效原理",
+      title: "等效原理",
     },
     {
       url: "/cosmology/knowledge-base/第一代恒星与宇宙黎明",
@@ -99494,10 +99616,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
       title: "恒星级黑洞",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--christenson-1964-k2-pipi",
-      title: "克里斯滕森 1964：长寿命中性 K 的两π衰变",
     },
     {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
@@ -99520,20 +99638,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/粒子物理--cowan-reines-1956": [
     {
-      url: "/universe-physics/knowledge-base/粒子物理--super-kamiokande-1998-atmospheric",
-      title: "超级神冈 1998：大气中微子的上下不对称",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
       title: "中微子物理",
     },
     {
       url: "/cosmology/knowledge-base/多信使天文学--gw150914",
       title: "GW150914：两个黑洞并合的第一声，不是一张照片",
-    },
-    {
-      url: "/universe-physics/knowledge-base/粒子物理--katrin-2025-tritium-endpoint",
-      title: "KATRIN 2025：氚谱端点给出的是质量上限",
     },
   ],
   "/universe-physics/knowledge-base/粒子物理--cp-violation-matter-antimatter": [
@@ -99561,6 +99671,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/宇宙学基础--物质反物质不对称与重子生成",
       title: "物质-反物质不对称与重子生成",
     },
+    {
+      url: "/universe-physics/dialogues/higgs-englert",
+      title: "希格斯 vs 恩格勒特：希格斯场的发现",
+    },
   ],
   "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13": [
     {
@@ -99570,12 +99684,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation": [
     {
-      url: "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
-      title: "动量守恒与碰撞",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--antimatter",
       title: "反物质",
+    },
+    {
+      url: "/universe-physics/dialogues/feynman-wittgenstein",
+      title: "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--coulomb-law-electrostatics",
@@ -99593,19 +99707,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
       title: "希格斯机制与希格斯玻色子",
     },
-    {
-      url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
-      title: "相对论性动量与能量",
-    },
   ],
   "/universe-physics/knowledge-base/粒子物理--higgs-mechanism": [
     {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
       title: "强相互作用与量子色动力学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--相变",
-      title: "相变",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--phase-transitions-and-critical-phenomena",
@@ -99730,10 +99836,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/粒子物理--particle-accelerators": [
     {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
       title: "强相互作用与量子色动力学",
     },
@@ -99748,10 +99850,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/物理学--相对论性动量与能量",
       title: "相对论性动量与能量",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙射线",
-      title: "宇宙射线",
     },
     {
       url: "/chemistry/concepts/mass-spectrometry",
@@ -99776,8 +99874,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "李群与李代数",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
+      url: "/universe-physics/dialogues/higgs-englert",
+      title: "希格斯 vs 恩格勒特：希格斯场的发现",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
@@ -99790,10 +99888,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/粒子物理--quarks-and-leptons": [
     {
-      url: "/universe-physics/knowledge-base/粒子物理--daya-bay-2012-theta13",
-      title: "大亚湾 2012：反应堆反中微子测到的 θ13",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--antimatter",
       title: "反物质",
     },
@@ -99804,10 +99898,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--binding-energy-mass-defect",
       title: "结合能与质量亏损",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
@@ -99836,10 +99926,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "夸克与轻子",
     },
     {
-      url: "/universe-physics/knowledge-base/物理学--粒子物理与加速器",
-      title: "粒子物理与加速器",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--quantum-chromodynamics",
       title: "强相互作用与量子色动力学",
     },
@@ -99854,10 +99940,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/粒子物理--higgs-mechanism",
       title: "希格斯机制与希格斯玻色子",
-    },
-    {
-      url: "/cosmology/knowledge-base/宇宙射线",
-      title: "宇宙射线",
     },
     {
       url: "/universe-physics/frontier/neutrino-mass-hierarchy",
@@ -99882,10 +99964,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/粒子物理--anderson-1932-positron",
       title: "安德森 1932：云室里那条反弯的轻径迹",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
-      title: "对称性与诺特定理",
     },
     {
       url: "/universe-physics/knowledge-base/粒子物理--cowan-reines-1956",
@@ -99926,10 +100004,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/mathematics/knowledge-base/应用--混沌与分形",
       title: "混沌与分形",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
@@ -99979,7 +100053,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     },
     {
       url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
+      title: "浮力与表面张力：两种支撑怎样共同记账",
     },
     {
       url: "/mathematics/concepts/complex-analysis",
@@ -99998,12 +100072,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "航空工程：机翼、适航认证与电动飞机的现实约束",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem",
-      title: "混沌与三体问题",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--流体湍流与雷诺数",
       title: "流体湍流与雷诺数",
+    },
+    {
+      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
+      title: "摩擦与耗散",
     },
     {
       url: "/engineering/civil/skyscrapers",
@@ -100044,10 +100118,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "动态规划",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
-      title: "刚体转动与转动惯量",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--chaos-three-body-problem",
       title: "混沌与三体问题",
     },
@@ -100078,20 +100148,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "傅科 1851：摆面先在地窖里离开标记",
     },
     {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--joule-1850-mechanical-equivalent",
-      title: "焦耳 1850：桨轮把功和热收成 772 英尺磅",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--cavendish-1798-density",
       title: "卡文迪许 1798：地球密度是水的 5.48 倍",
-    },
-    {
-      url: "/universe-physics/knowledge-base/相对论--狭义相对论",
-      title: "狭义相对论",
     },
     {
       url: "/universe-physics/knowledge-base/电磁学--young-1801-interference",
@@ -100160,10 +100218,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "阿贝尔",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--waves-and-acoustics",
-      title: "波动与声学",
-    },
-    {
       url: "/engineering/frontiers/millennium-bridge-2000",
       title: "伦敦千年桥：开通当日的行人侧向锁定",
     },
@@ -100212,14 +100266,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/philosophy/thinkers/al-farabi",
       title: "法拉比",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
     },
     {
       url: "/engineering/civil/bridges",
@@ -100364,16 +100410,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/经典物理--以太的兴衰": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
       title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
-      title: "天线与电磁辐射",
     },
   ],
   "/universe-physics/knowledge-base/经典物理--声学与多普勒效应": [
@@ -100412,6 +100450,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "肌肉骨骼系统",
     },
     {
+      url: "/universe-physics/knowledge-base/热力学--carnot-cycle-and-heat-engines",
+      title: "卡诺循环与热机",
+    },
+    {
       url: "/universe-physics/knowledge-base/经典物理--michelson-morley-1887",
       title: "迈克尔逊–莫雷 1887：水银石板干涉仪怎样把预期 0.4 条纹写成近零",
     },
@@ -100436,10 +100478,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--波动与振动",
       title: "波动与振动",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
-      title: "弹性与材料力学",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--black-hole-spin-measurement",
@@ -100476,8 +100514,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "块体运动与滑坡",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--能量守恒",
-      title: "能量守恒",
+      url: "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
+      title: "气体动理论",
     },
     {
       url: "/mathematics/theorems/fundamental-theorem-of-calculus",
@@ -100498,28 +100536,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波动与声学",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
-      title: "弹性与材料力学",
-    },
-    {
       url: "/universe-physics/knowledge-base/应用物理--地球物理与地震波",
       title: "地球物理与地震波",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--电磁波的产生与传播",
-      title: "电磁波的产生与传播",
-    },
-    {
       url: "/earth-science/processes/el-nino-enso",
       title: "厄尔尼诺与 ENSO",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--光的本质",
-      title: "光的本质",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--interference-and-diffraction",
-      title: "光的干涉与衍射",
     },
     {
       url: "/earth-science/processes/coastal-processes",
@@ -100528,10 +100550,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--声学与多普勒效应",
       title: "声学与多普勒效应",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--天线与电磁辐射",
-      title: "天线与电磁辐射",
     },
     {
       url: "/universe-physics/knowledge-base/经典物理--振动与简正模式",
@@ -100590,18 +100608,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "动量守恒与碰撞",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--rigid-body-rotation",
-      title: "刚体转动与转动惯量",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
-    },
-    {
-      url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
-      title: "角动量与守恒律",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--lagrangian-hamiltonian-mechanics",
       title: "拉格朗日与哈密顿力学",
     },
@@ -100614,10 +100620,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流体力学与伯努利原理",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
-      title: "摩擦与耗散",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--能量守恒",
       title: "能量守恒",
     },
@@ -100628,12 +100630,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   ],
   "/universe-physics/knowledge-base/经典物理--能量守恒": [
     {
-      url: "/universe-physics/knowledge-base/电磁学--电路分析与基尔霍夫定律",
-      title: "电路分析与基尔霍夫定律",
-    },
-    {
-      url: "/universe-physics/knowledge-base/电磁学--法拉第与电磁感应",
-      title: "法拉第与电磁感应",
+      url: "/universe-physics/knowledge-base/物理学--对称性与诺特定理",
+      title: "对称性与诺特定理",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--joule-1850-mechanical-equivalent",
@@ -100644,20 +100642,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "流体力学与伯努利原理",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--摩擦与耗散",
-      title: "摩擦与耗散",
-    },
-    {
       url: "/universe-physics/knowledge-base/经典物理--牛顿三大定律",
       title: "牛顿三大定律",
     },
     {
       url: "/mathematics/theorems/noethers-theorem",
       title: "诺特定理",
-    },
-    {
-      url: "/universe-physics/knowledge-base/热力学--热质说的兴衰",
-      title: "热质说的兴衰",
     },
     {
       url: "/universe-physics/knowledge-base/热力学--熵与时间之箭",
@@ -100679,6 +100669,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/cosmology/knowledge-base/星系天文学--星暴星系",
       title: "星暴星系",
     },
+    {
+      url: "/universe-physics/knowledge-base/相对论--引力红移与引力时间膨胀",
+      title: "引力红移与引力时间膨胀",
+    },
   ],
   "/universe-physics/knowledge-base/经典物理--表面张力与毛细现象": [
     {
@@ -100692,10 +100686,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/经典物理--弹性与材料力学",
       title: "弹性与材料力学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--buoyancy",
-      title: "浮力不是表面张力",
     },
     {
       url: "/medicine/concepts/respiratory-system",
@@ -100748,10 +100738,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--量子纠缠",
       title: "量子纠缠",
-    },
-    {
-      url: "/universe-physics/knowledge-base/物理学--量子力学诠释",
-      title: "量子力学诠释",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--born-1926-probability": [
@@ -100862,16 +100848,8 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "贝特朗盒子悖论",
     },
     {
-      url: "/universe-physics/knowledge-base/电磁学--超导体",
-      title: "超导体",
-    },
-    {
       url: "/universe-physics/knowledge-base/原子物理--electron-orbitals-quantum-numbers",
       title: "电子轨道与量子数",
-    },
-    {
-      url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
-      title: "费米液体理论",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
@@ -100886,19 +100864,11 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泡利不相容原理",
     },
     {
-      url: "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
-      title: "统计力学与玻尔兹曼分布",
-    },
-    {
       url: "/universe-physics/knowledge-base/粒子物理--neutrino-physics",
       title: "中微子物理",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--pauli-exclusion-principle": [
-    {
-      url: "/universe-physics/knowledge-base/电磁学--安培定律与磁场",
-      title: "安培定律与磁场",
-    },
     {
       url: "/cosmology/knowledge-base/恒星物理--white-dwarfs",
       title: "白矮星",
@@ -100906,10 +100876,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/milestones/pauling-1931-chemical-bond",
       title: "鲍林 1931：杂化、共振与顺磁判据怎样把化学键写成化学家的语言",
-    },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--bohr-atom-model",
-      title: "玻尔原子模型",
     },
     {
       url: "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
@@ -100920,20 +100886,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "电子轨道与量子数",
     },
     {
-      url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
-      title: "费米液体理论",
-    },
-    {
       url: "/chemistry/milestones/fukui-1952-frontier-orbitals",
       title: "福井 1952：前线电子密度怎样把芳香烃的反应位置写成轨道指标",
     },
     {
       url: "/chemistry/milestones/heitler-london-1927",
       title: "海特勒–伦敦 1927：交换怎样把氢分子写成同极键",
-    },
-    {
-      url: "/universe-physics/knowledge-base/核物理--nuclear-shell-liquid-drop-models",
-      title: "核壳层模型与液滴模型",
     },
     {
       url: "/cosmology/knowledge-base/致密天体--stellar-mass-black-holes",
@@ -101049,6 +101007,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       url: "/universe-physics/knowledge-base/热力学--statistical-mechanics-boltzmann",
       title: "统计力学与玻尔兹曼分布",
     },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--schrodinger-1935-cat",
+      title: "薛定谔 1935：猫是用来拒绝宏观涂糊的例子",
+    },
   ],
   "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator": [
     {
@@ -101060,8 +101022,12 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "玻恩–奥本海默 1927：分子怎样把核的慢运动从电子的快运动里拆开",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--simple-harmonic-motion",
-      title: "简谐振动与共振",
+      url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
+      title: "不确定性原理",
+    },
+    {
+      url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
+      title: "卡西米尔效应与真空能",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
@@ -101102,12 +101068,20 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "泛函分析",
     },
     {
+      url: "/universe-physics/dialogues/feynman-wittgenstein",
+      title: "费曼 vs 维特根斯坦：物理直觉 vs 语言分析",
+    },
+    {
       url: "/universe-physics/knowledge-base/粒子物理--feynman-diagrams-perturbation",
       title: "费曼图与微扰论",
     },
     {
       url: "/computer-science/pioneers/john-von-neumann",
       title: "冯·诺伊曼",
+    },
+    {
+      url: "/universe-physics/dialogues/heisenberg-schrodinger",
+      title: "海森堡 vs 薛定谔：量子力学的两种诠释",
     },
     {
       url: "/universe-physics/frontier/quantum-sensing",
@@ -101120,10 +101094,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-decoherence",
       title: "量子退相干",
-    },
-    {
-      url: "/universe-physics/knowledge-base/光学--polarization",
-      title: "偏振",
     },
     {
       url: "/cosmology/knowledge-base/引力波天文学",
@@ -101158,10 +101128,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/concepts/coordination-chemistry",
       title: "配位化学",
-    },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
-      title: "氢原子的量子理论",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--identical-particles-statistics",
@@ -101234,10 +101200,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/chemistry/figures/linus-pauling",
       title: "莱纳斯·鲍林",
-    },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--lamb-retherford-1947",
-      title: "兰姆与雷瑟福 1947：狄拉克说应重合的氢能级",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
@@ -101326,24 +101288,28 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波粒二象性",
     },
     {
-      url: "/philosophy/experiments/fitch-1963-knowability",
-      title: "菲奇可知性悖论",
+      url: "/universe-physics/dialogues/bohr-heisenberg",
+      title: "玻尔 vs 海森堡：互补性原理",
     },
     {
-      url: "/universe-physics/knowledge-base/凝聚态物理--fermi-liquid-theory",
-      title: "费米液体理论",
+      url: "/universe-physics/dialogues/bohr-nagarjuna",
+      title: "玻尔 vs 龙树：互补性与空性",
+    },
+    {
+      url: "/philosophy/experiments/fitch-1963-knowability",
+      title: "菲奇可知性悖论",
     },
     {
       url: "/mathematics/concepts/fourier-analysis",
       title: "傅里叶分析",
     },
     {
-      url: "/mathematics/concepts/ring",
-      title: "环",
+      url: "/universe-physics/dialogues/heisenberg-schrodinger",
+      title: "海森堡 vs 薛定谔：量子力学的两种诠释",
     },
     {
-      url: "/universe-physics/knowledge-base/经典物理--角动量与守恒律",
-      title: "角动量与守恒律",
+      url: "/mathematics/concepts/ring",
+      title: "环",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--卡西米尔效应与真空能",
@@ -101382,10 +101348,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/量子物理--quantum-harmonic-oscillator",
       title: "量子谐振子",
-    },
-    {
-      url: "/universe-physics/knowledge-base/原子物理--hydrogen-atom-quantum-theory",
-      title: "氢原子的量子理论",
     },
   ],
   "/universe-physics/knowledge-base/量子物理--波粒二象性": [
@@ -101430,10 +101392,6 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "汤姆孙–里德：多晶薄箔怎样把快电子折成底片上随电压收缩的德拜环",
     },
     {
-      url: "/universe-physics/knowledge-base/量子物理--schrodinger-1935-cat",
-      title: "薛定谔 1935：猫是用来拒绝宏观涂糊的例子",
-    },
-    {
       url: "/universe-physics/knowledge-base/电磁学--young-1801-interference",
       title: "杨 1801：干涉定律先写在薄板上，不是两条狭缝",
     },
@@ -101452,8 +101410,24 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
       title: "波粒二象性",
     },
     {
+      url: "/universe-physics/dialogues/bohr-heisenberg",
+      title: "玻尔 vs 海森堡：互补性原理",
+    },
+    {
+      url: "/universe-physics/dialogues/bohr-nagarjuna",
+      title: "玻尔 vs 龙树：互补性与空性",
+    },
+    {
       url: "/mathematics/concepts/complex-number",
       title: "复数",
+    },
+    {
+      url: "/universe-physics/dialogues/heisenberg-schrodinger",
+      title: "海森堡 vs 薛定谔：量子力学的两种诠释",
+    },
+    {
+      url: "/universe-physics/dialogues/hawking-penrose",
+      title: "霍金 vs 彭罗斯：黑洞信息悖论",
     },
     {
       url: "/mathematics/concepts/galois-theory",
@@ -101491,7 +101465,7 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
   "/universe-physics/knowledge-base/量子物理--量子隧穿": [
     {
       url: "/universe-physics/knowledge-base/物理学--half-life",
-      title: "半衰期是群体的指数衰减",
+      title: "半衰期：单核的概率尺度与群体的指数衰减",
     },
     {
       url: "/universe-physics/knowledge-base/量子物理--不确定性原理",
@@ -101500,6 +101474,10 @@ export const BACKLINKS_INDEX: Record<string, Backlink[]> = {
     {
       url: "/universe-physics/knowledge-base/核物理--radioactive-decay",
       title: "放射性衰变",
+    },
+    {
+      url: "/universe-physics/knowledge-base/光学--optical-fiber-and-total-internal-reflection",
+      title: "光纤与全内反射",
     },
     {
       url: "/universe-physics/knowledge-base/前沿物理--核聚变与恒星能源",

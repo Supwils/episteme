@@ -1,150 +1,9 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-type SpectralClass = "O" | "B" | "A" | "F" | "G" | "K" | "M";
-
-type StarRegion = "main-sequence" | "red-giant" | "supergiant" | "white-dwarf";
-
-type Star = {
-  id: string;
-  nameCn: string;
-  nameEn: string;
-  temperature: number;
-  luminosity: number;
-  mass: number;
-  radius: number;
-  spectralClass: SpectralClass;
-  region: StarRegion;
-  description: string;
-};
-
-const STARS: Star[] = [
-  {
-    id: "sun",
-    nameCn: "太阳",
-    nameEn: "Sun",
-    temperature: 5778,
-    luminosity: 1,
-    mass: 1,
-    radius: 1,
-    spectralClass: "G",
-    region: "main-sequence",
-    description:
-      "我们的恒星，一颗典型的 G 型主序星。已稳定燃烧约 46 亿年，预计还有约 50 亿年的主序寿命。",
-  },
-  {
-    id: "sirius-a",
-    nameCn: "天狼星 A",
-    nameEn: "Sirius A",
-    temperature: 9940,
-    luminosity: 25.4,
-    mass: 2.06,
-    radius: 1.71,
-    spectralClass: "A",
-    region: "main-sequence",
-    description: "夜空中最亮的恒星，距离地球 8.6 光年。一颗 A 型主序星，质量约为太阳的两倍。",
-  },
-  {
-    id: "proxima",
-    nameCn: "比邻星",
-    nameEn: "Proxima Centauri",
-    temperature: 3042,
-    luminosity: 0.0017,
-    mass: 0.12,
-    radius: 0.15,
-    spectralClass: "M",
-    region: "main-sequence",
-    description:
-      "距离太阳最近的恒星（4.24 光年），一颗暗淡的红矮星。拥有至少一颗位于宜居带的行星。",
-  },
-  {
-    id: "vega",
-    nameCn: "织女星",
-    nameEn: "Vega",
-    temperature: 9602,
-    luminosity: 40.12,
-    mass: 2.14,
-    radius: 2.36,
-    spectralClass: "A",
-    region: "main-sequence",
-    description: "天琴座 α 星，曾是北极星（约 12000 年后将再次成为）。一颗快速旋转的 A 型主序星。",
-  },
-  {
-    id: "betelgeuse",
-    nameCn: "参宿四",
-    nameEn: "Betelgeuse",
-    temperature: 3600,
-    luminosity: 126000,
-    mass: 11.6,
-    radius: 887,
-    spectralClass: "M",
-    region: "red-giant",
-    description:
-      "猎户座 α 星，一颗红超巨星。半径约为太阳的 760–900 倍——若置于太阳位置，其表面将延伸到小行星带（约 4 天文单位），吞没水星、金星、地球与火星。预计将在未来数十万年内爆发为超新星。",
-  },
-  {
-    id: "aldebaran",
-    nameCn: "毕宿五",
-    nameEn: "Aldebaran",
-    temperature: 3910,
-    luminosity: 518,
-    mass: 1.16,
-    radius: 44.2,
-    spectralClass: "K",
-    region: "red-giant",
-    description: "金牛座 α 星，一颗橙色巨星。距离地球约 65 光年，是夜空中最亮的恒星之一。",
-  },
-  {
-    id: "sirius-b",
-    nameCn: "天狼星 B",
-    nameEn: "Sirius B",
-    temperature: 25200,
-    luminosity: 0.056,
-    mass: 1.02,
-    radius: 0.0084,
-    spectralClass: "A",
-    region: "white-dwarf",
-    description: "天狼星的伴星，一颗白矮星。质量接近太阳但体积仅与地球相当，密度极高。",
-  },
-  {
-    id: "procyon-b",
-    nameCn: "南河三 B",
-    nameEn: "Procyon B",
-    temperature: 7740,
-    luminosity: 0.00049,
-    mass: 0.6,
-    radius: 0.0124,
-    spectralClass: "F",
-    region: "white-dwarf",
-    description: "南河三的伴星，一颗白矮星。质量约为太阳的 60%，是较轻的白矮星之一。",
-  },
-  {
-    id: "rigel",
-    nameCn: "参宿七",
-    nameEn: "Rigel",
-    temperature: 12100,
-    luminosity: 120000,
-    mass: 21,
-    radius: 78.9,
-    spectralClass: "B",
-    region: "supergiant",
-    description: "猎户座 β 星，一颗蓝超巨星。是猎户座中最亮的恒星，距离地球约 860 光年。",
-  },
-  {
-    id: "deneb",
-    nameCn: "天津四",
-    nameEn: "Deneb",
-    temperature: 8525,
-    luminosity: 196000,
-    mass: 19,
-    radius: 203,
-    spectralClass: "A",
-    region: "supergiant",
-    description: "天鹅座 α 星，一颗蓝白超巨星。是已知最明亮的恒星之一，距离地球约 2600 光年。",
-  },
-];
+import { STARS, type SpectralClass, type Star, type StarRegion } from "./hr-data";
 
 const TEMPERATURE_MIN = 2000;
 const TEMPERATURE_MAX = 40000;
@@ -157,18 +16,19 @@ const HEIGHT = 500;
 const PLOT_W = WIDTH - PADDING.left - PADDING.right;
 const PLOT_H = HEIGHT - PADDING.top - PADDING.bottom;
 
+// Round SVG coordinates because Math.log10 can differ in its last bits across runtimes.
 function tempToX(temp: number): number {
   const logT = Math.log10(temp);
   const logMin = Math.log10(TEMPERATURE_MAX);
   const logMax = Math.log10(TEMPERATURE_MIN);
-  return PADDING.left + ((logT - logMin) / (logMax - logMin)) * PLOT_W;
+  return Number((PADDING.left + ((logT - logMin) / (logMax - logMin)) * PLOT_W).toFixed(3));
 }
 
 function lumToY(lum: number): number {
   const logL = Math.log10(lum);
   const logMin = Math.log10(LUMINOSITY_MIN);
   const logMax = Math.log10(LUMINOSITY_MAX);
-  return PADDING.top + (1 - (logL - logMin) / (logMax - logMin)) * PLOT_H;
+  return Number((PADDING.top + (1 - (logL - logMin) / (logMax - logMin)) * PLOT_H).toFixed(3));
 }
 
 function tempToColor(temp: number): string {
@@ -181,7 +41,8 @@ function tempToColor(temp: number): string {
   return "#ff7b40";
 }
 
-function spectralLabel(cls: SpectralClass): string {
+function spectralLabel(cls: Star["spectralClass"]): string {
+  if (cls === "DA" || cls === "DQZ") return cls;
   const labels: Record<SpectralClass, string> = {
     O: "O (>30000K)",
     B: "B (10000-30000K)",
@@ -225,14 +86,18 @@ function formatNumber(n: number): string {
 type MainSequenceBandPoint = { temp: number; lum: number };
 
 function generateMainSequenceBand(): MainSequenceBandPoint[] {
-  const points: MainSequenceBandPoint[] = [];
-  const temps = [40000, 30000, 20000, 10000, 7000, 5500, 4000, 3000, 2500];
-  for (const t of temps) {
-    const logT = Math.log10(t);
-    const logL = 5.5 * (logT - Math.log10(5778)) + Math.log10(1);
-    points.push({ temp: t, lum: Math.pow(10, logL) });
-  }
-  return points;
+  // Illustrative control points locate the broad band, not a universal L(T) law.
+  return [
+    { temp: 40000, lum: 300000 },
+    { temp: 30000, lum: 20000 },
+    { temp: 20000, lum: 3000 },
+    { temp: 10000, lum: 25 },
+    { temp: 7000, lum: 4 },
+    { temp: 5772, lum: 1 },
+    { temp: 4000, lum: 0.08 },
+    { temp: 3000, lum: 0.003 },
+    { temp: 2500, lum: 0.0005 },
+  ];
 }
 
 function generateRedGiantRegion(): string {
@@ -292,12 +157,13 @@ type StarDetailProps = {
 
 function StarDetail({ star, onClose }: StarDetailProps) {
   const color = tempToColor(star.temperature);
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={reduce ? false : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 16 }}
-      transition={{ duration: 0.25 }}
+      exit={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: reduce ? 0 : 0.25 }}
       className="border-border-faint bg-bg-elevated/90 relative max-w-md rounded-xl border p-6 backdrop-blur-xl"
     >
       <button
@@ -329,21 +195,23 @@ function StarDetail({ star, onClose }: StarDetailProps) {
           <p className="mb-3 text-xs text-[#868da0]">{star.nameEn}</p>
           <div className="mb-3 grid grid-cols-2 gap-3">
             <div>
-              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">温度</p>
+              <p className="text-fg-muted text-[10px] tracking-wider uppercase">温度</p>
               <p className="font-mono text-sm" style={{ color }}>
-                {star.temperature.toLocaleString()} K
+                {star.temperature.toLocaleString("en-US")} K
               </p>
             </div>
             <div>
-              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">光度</p>
+              <p className="text-fg-muted text-[10px] tracking-wider uppercase">光度</p>
               <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.luminosity)} L☉</p>
             </div>
             <div>
-              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">质量</p>
+              <p className="text-fg-muted text-[10px] tracking-wider uppercase">质量</p>
               <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.mass)} M☉</p>
             </div>
             <div>
-              <p className="text-[10px] tracking-wider text-[#4b5563] uppercase">半径</p>
+              <p className="text-fg-muted text-[10px] tracking-wider uppercase">
+                {star.radiusLabel ?? "半径"}
+              </p>
               <p className="font-mono text-sm text-[#a8adbd]">{formatNumber(star.radius)} R☉</p>
             </div>
           </div>
@@ -362,6 +230,17 @@ function StarDetail({ star, onClose }: StarDetailProps) {
             </span>
           </div>
           <p className="text-sm leading-relaxed text-[#a8adbd]">{star.description}</p>
+          {star.parameterNote && (
+            <p className="text-fg-muted mt-3 text-xs leading-relaxed">{star.parameterNote}</p>
+          )}
+          <a
+            className="text-accent-blue mt-3 inline-block text-xs underline"
+            href={star.source}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            数据来源与参数定义
+          </a>
         </div>
       </div>
     </motion.div>
@@ -395,14 +274,19 @@ export function HRDiagram() {
           赫罗图
         </h2>
         <p className="text-sm text-[#868da0]">
-          Hertzsprung-Russell Diagram — 恒星光度与温度的关系图
+          Hertzsprung-Russell Diagram — 恒星光度与有效温度的关系图
         </p>
       </div>
 
+      <p className="text-fg-muted mb-4 text-center text-xs leading-relaxed">
+        阴影为分布区域示意，恒星参数取所列文献的近似值，点的大小不代表真实半径。
+        横轴向右降温；同一位置可对应不同质量、组成与演化历史，并非单颗恒星的一条轨迹。
+      </p>
       {/* Region filter buttons */}
       <div className="mb-6 flex flex-wrap justify-center gap-2">
         <button
           onClick={() => setActiveRegion(null)}
+          aria-pressed={activeRegion === null}
           className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
             activeRegion === null
               ? "border-border-subtle text-fg-primary bg-[var(--hover-bg)]"
@@ -415,6 +299,7 @@ export function HRDiagram() {
           <button
             key={region}
             onClick={() => setActiveRegion((prev) => (prev === region ? null : region))}
+            aria-pressed={activeRegion === region}
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
               activeRegion === region
                 ? "border-border-subtle text-fg-primary bg-[var(--hover-bg)]"
@@ -432,11 +317,18 @@ export function HRDiagram() {
 
       <div className="flex flex-col items-start gap-6 lg:flex-row">
         {/* SVG Diagram */}
-        <div className="w-full flex-1 overflow-x-auto">
+        <div
+          className="w-full min-w-0 flex-1 overflow-x-auto"
+          role="region"
+          aria-label="赫罗图，可横向滚动查看完整温度与光度坐标"
+          tabIndex={0}
+        >
           <svg
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             className="mx-auto w-full max-w-[800px] select-none"
-            style={{ minWidth: 480 }}
+            style={{ minWidth: WIDTH }}
+            role="group"
+            aria-label="选择恒星查看参数"
           >
             <defs>
               <linearGradient id="ms-gradient" x1="0" y1="0" x2="1" y2="1">
@@ -510,7 +402,7 @@ export function HRDiagram() {
               y={lumToY(30000) + 15}
               fill="#ef4444"
               fillOpacity="0.4"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
             >
               红巨星
@@ -520,7 +412,7 @@ export function HRDiagram() {
               y={lumToY(100000) + 5}
               fill="#a855f7"
               fillOpacity="0.4"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
             >
               超巨星
@@ -530,7 +422,7 @@ export function HRDiagram() {
               y={lumToY(0.01) + 15}
               fill="#6b7280"
               fillOpacity="0.4"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
             >
               白矮星
@@ -540,7 +432,7 @@ export function HRDiagram() {
               y={lumToY(10) + 20}
               fill="#fbbf24"
               fillOpacity="0.35"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
               textAnchor="middle"
               transform={`rotate(-35, ${tempToX(8000)}, ${lumToY(10) + 20})`}
@@ -564,7 +456,17 @@ export function HRDiagram() {
               return (
                 <g
                   key={star.id}
-                  style={{ cursor: "pointer", opacity, transition: "opacity 0.3s" }}
+                  style={{ cursor: "pointer", opacity }}
+                  role="button"
+                  tabIndex={isFiltered ? 0 : -1}
+                  aria-label={star.nameCn}
+                  aria-pressed={isSelected}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      handleClick(star);
+                    }
+                  }}
                   onClick={() => handleClick(star)}
                   onMouseEnter={() => setHoveredStar(star)}
                   onMouseLeave={() => setHoveredStar(null)}
@@ -618,7 +520,7 @@ export function HRDiagram() {
                       y={y - r - 8}
                       textAnchor="middle"
                       fill="#f5f6fa"
-                      fontSize="10"
+                      fontSize="12"
                       fontFamily="var(--font-sans)"
                       fontWeight={isSun ? 600 : 400}
                     >
@@ -665,7 +567,7 @@ export function HRDiagram() {
                     y={HEIGHT - PADDING.bottom + 20}
                     textAnchor="middle"
                     fill="#868da0"
-                    fontSize="10"
+                    fontSize="12"
                     fontFamily="var(--font-mono)"
                   >
                     {tick.label}
@@ -678,7 +580,7 @@ export function HRDiagram() {
               y={HEIGHT - 8}
               textAnchor="middle"
               fill="#868da0"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
             >
               表面温度 (K) ←
@@ -702,7 +604,7 @@ export function HRDiagram() {
                     y={y + 4}
                     textAnchor="end"
                     fill="#868da0"
-                    fontSize="10"
+                    fontSize="12"
                     fontFamily="var(--font-mono)"
                   >
                     {tick.label}
@@ -715,7 +617,7 @@ export function HRDiagram() {
               y={PADDING.top + PLOT_H / 2}
               textAnchor="middle"
               fill="#868da0"
-              fontSize="11"
+              fontSize="12"
               fontFamily="var(--font-sans)"
               transform={`rotate(-90, 14, ${PADDING.top + PLOT_H / 2})`}
             >
@@ -745,7 +647,7 @@ export function HRDiagram() {
               const x1 = tempToX(nextTemps[cls]);
               const x2 =
                 i < 6
-                  ? tempToX(temps[(["O", "B", "A", "F", "G", "K", "M"] as const)[i + 1]!])
+                  ? tempToX(nextTemps[(["O", "B", "A", "F", "G", "K", "M"] as const)[i + 1]!])
                   : PADDING.left + PLOT_W;
               const midX = (x1 + x2) / 2;
               return (
@@ -764,7 +666,7 @@ export function HRDiagram() {
                     y={PADDING.top - 9}
                     textAnchor="middle"
                     fill={tempToColor(temps[cls])}
-                    fontSize="10"
+                    fontSize="12"
                     fontFamily="var(--font-mono)"
                     fontWeight="600"
                   >
@@ -807,8 +709,8 @@ export function HRDiagram() {
                         style={{ backgroundColor: tempToColor(star.temperature) }}
                       />
                       <span className="text-sm text-[#a8adbd]">{star.nameCn}</span>
-                      <span className="ml-auto font-mono text-xs text-[#4b5563]">
-                        {star.temperature.toLocaleString()}K
+                      <span className="text-fg-muted ml-auto font-mono text-xs">
+                        {star.temperature.toLocaleString("en-US")}K
                       </span>
                     </button>
                   ))}

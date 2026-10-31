@@ -73,7 +73,7 @@ export const SECTIONS: Record<SectionId, SectionConfig> = {
     routePrefix: "/universe-physics/universe",
     tierRoutes: TIER_ROUTES,
     hasHandwrittenSubpath: true,
-    frameLabel: "geocentric",
+    frameLabel: "结构示意",
     transitionKind: (from, to) =>
       universeTransitionKind(from as UniverseTierId, to as UniverseTierId),
     isOwnedTier: isUniverseTierId,

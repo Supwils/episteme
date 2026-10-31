@@ -7,8 +7,8 @@ import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
 
 /**
  * Floating page selector for multi-page physics tiers. Renders nothing
- * when the active tier only has one page. Lives in the bottom-right so
- * it doesn't fight the SubjectCard for the bottom-left corner.
+ * when the active tier only has one page. On narrow screens it sits below
+ * the top controls, leaving the full-width SubjectCard's atlas button clear.
  */
 export function PhysicsPager() {
   const tier = useUniverseStore((s) => s.currentTier);
@@ -29,7 +29,7 @@ export function PhysicsPager() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-      className="hud-capsule pointer-events-auto absolute right-3 bottom-20 z-30 flex items-center gap-3 px-3 py-2 md:right-10 md:bottom-10"
+      className="hud-capsule pointer-events-auto absolute top-24 right-3 z-30 flex items-center gap-3 px-3 py-2 md:top-auto md:right-10 md:bottom-10"
       role="navigation"
       aria-label="Physics tier pages"
     >
@@ -52,7 +52,7 @@ export function PhysicsPager() {
             aria-current={i === page ? "page" : undefined}
             className={cn(
               "ease-product h-1.5 rounded-full transition-all duration-200",
-              i === page ? "bg-accent-warm w-6" : "bg-fg-disabled hover:bg-fg-secondary w-1.5",
+              i === page ? "bg-accent-warm w-6" : "bg-fg-disabled hover:bg-fg-secondary w-1.5"
             )}
           />
         ))}

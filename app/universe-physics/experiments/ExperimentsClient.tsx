@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useExperimentReducedMotion } from "@/subjects/physics/components/experiments/use-experiment-reduced-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/subjects/physics/lib/cn";
 import { LoadingSpinner } from "@/components/ui";
 
@@ -96,27 +97,27 @@ const EXPERIMENTS: Experiment[] = [
     year: "1953",
     field: "化学 / 生物学",
     description:
-      "在模拟原始地球条件下，无机物可以自发形成有机分子（氨基酸），为生命起源的化学进化论提供了实验依据。",
+      "1953年论文报告：甲烷、氨、氢气和水蒸气的还原性气体模型，在加热与电放电供能下可非生物合成氨基酸；实验没有制造生命。",
     component: MillersUrey,
   },
   {
     id: "double-slit",
     title: "双缝实验",
-    subtitle: "量子力学的核心实验",
+    subtitle: "从经典干涉到单粒子统计",
     year: "1801",
     field: "量子力学",
     description:
-      "单个粒子同时穿过两个缝产生干涉 pattern，但一旦观测，pattern 消失。观测行为本身改变了结果。",
+      "19世纪初杨研究经典光干涉；20世纪单粒子实验显示，相干路径可形成干涉，完全可区分的路径标记会消除两路交叉项，不依赖有人阅读记录。",
     component: DoubleSlit,
   },
   {
     id: "galileos-ramp",
     title: "伽利略斜面实验",
     subtitle: "运动学的开端",
-    year: "1604",
+    year: "1638（著作叙述）",
     field: "经典力学",
     description:
-      "球滚过的距离与时间的平方成正比（d ∝ t²），证明匀加速运动的存在，为牛顿运动定律奠基。",
+      "从静止出发的理想匀加速运动满足s ∝ t²。伽利略1638年著作叙述斜面与水钟实验；本页用实心球纯滚动模型比较距离和时间。",
     component: GalileosRamp,
   },
   {
@@ -126,7 +127,7 @@ const EXPERIMENTS: Experiment[] = [
     year: "1911",
     field: "原子物理",
     description:
-      "绝大多数α粒子穿过金箔，极少数被大角度反弹，证明原子内部大部分是空的，正电荷集中在极小的原子核中。",
+      "盖革与马斯登1909年报告α粒子的大角度散射；卢瑟福1911年以集中的核电荷解释散射，建立原子核模型。",
     component: RutherfordScattering,
   },
   {
@@ -135,27 +136,28 @@ const EXPERIMENTS: Experiment[] = [
     subtitle: "称量地球",
     year: "1798",
     field: "引力物理",
-    description: "通过精密的扭秤测量两个已知质量之间的引力，首次计算出万有引力常数 G。",
+    description:
+      "利用扭秤比较实验室质量产生的引力与地球引力，报告地球平均密度；这些测量也可换算为万有引力常数 G。",
     component: CavendishExperiment,
   },
   {
     id: "pendulum-wave",
     title: "摆波实验",
     subtitle: "周期与同步之美",
-    year: "1602",
+    year: "现代演示",
     field: "波动力学",
     description:
-      "15个长度递增的摆同时释放，因周期差异逐渐错开形成优美波动图案，展现简谐运动与同步现象。",
+      "多根不同长度的摆因周期差异逐渐错相，形成摆波图案；重现初始队形是预设周期之比的结果，不代表摆之间发生耦合同步。",
     component: PendulumWave,
   },
   {
     id: "black-hole-accretion",
     title: "黑洞吸积盘",
-    subtitle: "极端引力下的物质行为",
-    year: "1971",
+    subtitle: "吸积流与喷流示意",
+    year: "理论示意",
     field: "天体物理",
     description:
-      "物质落入黑洞时因角动量守恒形成旋转吸积盘，内侧温度极高发出X射线，部分物质沿自转轴喷出形成相对论性喷流。",
+      "旋转气体可形成吸积盘，角动量向外传递使气体持续内流。部分系统在视界外形成喷流；此处演示形态与流动方向。",
     component: BlackHoleAccretion,
   },
   {
@@ -165,7 +167,7 @@ const EXPERIMENTS: Experiment[] = [
     year: "1801",
     field: "波动光学",
     description:
-      "两个同频波源发出的波在空间中叠加，波峰相遇形成加强干涉，波峰与波谷相遇相互抵消形成暗纹。",
+      "两个相干波源的振幅在空间叠加，同相加强、反相减弱；等振幅且相差π时可完全抵消。图中的颜色表示所选物理量。",
     component: WaveInterference,
   },
   {
@@ -182,7 +184,7 @@ const EXPERIMENTS: Experiment[] = [
     id: "lens-optics",
     title: "透镜光学",
     subtitle: "凸透镜与凹透镜成像",
-    year: "1604",
+    year: "理想薄透镜模型",
     field: "光学",
     description:
       "交互式光线图，展示凸透镜和凹透镜的成像原理。移动物体、调节焦距，观察实像与虚像的形成过程。",
@@ -202,7 +204,7 @@ const EXPERIMENTS: Experiment[] = [
 
 export default function ExperimentsClient() {
   const [activeExperiment, setActiveExperiment] = useState<string | null>(null);
-  const reduce = useReducedMotion();
+  const reduce = useExperimentReducedMotion();
 
   const ActiveComponent = activeExperiment
     ? EXPERIMENTS.find((e) => e.id === activeExperiment)?.component
@@ -212,7 +214,7 @@ export default function ExperimentsClient() {
     <div className="bg-bg-deep min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         {/* Sub-nav */}
-        <nav className="mb-8 flex items-center justify-between">
+        <nav className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <Link
             href="/universe-physics/universe/observable"
             className="text-fg-muted hover:text-fg-secondary flex items-center gap-2 text-xs transition-colors"
@@ -257,10 +259,10 @@ export default function ExperimentsClient() {
           className="mb-10 text-center"
         >
           <h1 className="font-display text-fg-primary text-3xl font-semibold sm:text-4xl">
-            经典科学实验
+            交互实验与物理模型
           </h1>
           <p className="text-fg-secondary mt-3 text-sm sm:text-base">
-            交互式动画重现改变世界的科学实验
+            通过交互演示，探索科学实验与理想模型的联系
           </p>
         </motion.div>
 
@@ -285,7 +287,7 @@ export default function ExperimentsClient() {
                   "focus-visible:ring-accent-cool focus-visible:ring-offset-bg-deep focus-visible:ring-2 focus-visible:ring-offset-2"
                 )}
               >
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <span className="bg-accent-cool/10 text-accent-cool rounded-full px-2.5 py-0.5 text-xs">
                     {exp.field}
                   </span>
@@ -321,7 +323,7 @@ export default function ExperimentsClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: reduce ? 0 : 0.3 }}
             >
               {/* Back button */}
               <button

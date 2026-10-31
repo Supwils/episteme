@@ -24,7 +24,7 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     name: "雷达测距",
     nameEn: "Radar Ranging",
     method: "发射雷达信号，测量反射时间",
-    range: "~10 AU",
+    range: "太阳系内（示例约 10 AU）",
     rangeKm: 1.5e9,
     color: "#22c55e",
     icon: "📡",
@@ -36,12 +36,12 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     name: "视差法",
     nameEn: "Stellar Parallax",
     method: "地球公转产生的基线三角测量",
-    range: "~1000 光年",
-    rangeKm: 9.46e15,
+    range: "银河系内（示例 1 万光年）",
+    rangeKm: 9.46e16,
     color: "#3b82f6",
     icon: "🔭",
     description:
-      "利用地球绕太阳公转的 2 AU 基线，测量近邻恒星的视角位移。1 角秒视差对应 1 秒差距（3.26 光年）。",
+      "比较地球轨道两端、相隔约 2 AU 的观测。年周视差 p 是总摆动的一半，对应 1 AU；距离 d（pc）= 1/p（角秒），1 pc 约合 3.26 光年。",
     example: '比邻星: 1.3 pc (视差 0.77")',
   },
   {
@@ -49,12 +49,12 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     name: "造父变星",
     nameEn: "Cepheid Variables",
     method: "周光关系——脉动周期→绝对星等",
-    range: "~3000 万光年",
-    rangeKm: 2.84e20,
+    range: "近邻星系（示例 1 亿光年）",
+    rangeKm: 9.46e20,
     color: "#f97316",
     icon: "💫",
     description:
-      "造父变星的脉动周期与本征光度存在精确的周光关系。测量周期得到绝对星等，与视星等比较得到距离。",
+      "造父变星具有可校准的周光关系。测量周期，并处理金属丰度、尘埃和拥挤效应后，可由本征与表观亮度估计距离。",
     example: "仙女座星系中的造父变星",
   },
   {
@@ -62,11 +62,12 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     name: "TRGB 法",
     nameEn: "Tip of RGB",
     method: "红巨星支顶端——标准烛光",
-    range: "~1 亿光年",
+    range: "近邻星系（示例 1 亿光年）",
     rangeKm: 9.46e20,
     color: "#a855f7",
     icon: "🔴",
-    description: "红巨星支顶端（TRGB）在所有星系中具有几乎相同的绝对亮度，可作为标准烛光。",
+    description:
+      "选定波段和恒星族群后，红巨星支顶端的光度函数截断边缘可作标准烛光；仍需校准零点、颜色与金属丰度，不能假设所有星系完全相同。",
     example: "用于校准哈勃常数",
   },
   {
@@ -74,7 +75,7 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     name: "塔利-费舍尔",
     nameEn: "Tully-Fisher",
     method: "星系旋转速度→光度",
-    range: "~3 亿光年",
+    range: "星系团等（示例 3 亿光年）",
     rangeKm: 2.84e21,
     color: "#ec4899",
     icon: "🌀",
@@ -85,27 +86,27 @@ const DISTANCE_RUNGS: DistanceRung[] = [
     id: "ia-supernova",
     name: "Ia 型超新星",
     nameEn: "Type Ia Supernovae",
-    method: "标准烛光——峰值光度一致",
-    range: "~100 亿光年",
+    method: "光变形状与颜色等校正后的标准烛光",
+    range: "远方星系（示例光度距离 100 亿光年）",
     rangeKm: 9.46e22,
     color: "#ef4444",
     icon: "💥",
     description:
-      "Ia 型超新星在白矮星达到钱德拉塞卡极限（1.4 M☉）时爆发，峰值光度几乎恒定，是极好的标准烛光。",
+      "Ia 型超新星来自白矮星的热核爆炸，前身通道不唯一，也非全部达到同一质量。峰值亮度经过光变形状、颜色等标准化后，才适合统计测距。",
     example: "1998年发现宇宙加速膨胀",
   },
   {
     id: "redshift",
     name: "红移",
     nameEn: "Cosmological Redshift",
-    method: "哈勃定律: v = H₀ × d",
-    range: "整个可观测宇宙",
+    method: "结合宇宙学模型，由 z 计算距离",
+    range: "宇宙学尺度（示例光度距离约 465 亿光年）",
     rangeKm: 4.4e23,
     color: "#fbbf24",
     icon: "🌈",
     description:
-      "遥远星系的光谱红移 z 反映宇宙膨胀。哈勃定律 v = H₀d 将退行速度与距离关联。适用于高红移。",
-    example: "最远星系: z > 10",
+      "低红移下可近似用 cz ≈ H₀d，但要考虑本动速度。高红移距离需要宇宙膨胀史 H(z) 及距离定义，不能直接套用 d = cz/H₀。",
+    example: "同一 z 的光度距离与共动距离不同",
   },
 ];
 
@@ -127,7 +128,6 @@ interface CosmicDistanceLadderProps {
 export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
   const reduce = useReducedMotion();
   const [selectedRung, setSelectedRung] = useState<string | null>(null);
-  const [zoomLevel, setZoomLevel] = useState(0);
 
   const selected = useMemo(
     () => DISTANCE_RUNGS.find((r) => r.id === selectedRung) ?? null,
@@ -142,18 +142,27 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
 
   return (
     <div className={className}>
+      <p className="text-fg-muted mb-3 text-xs leading-relaxed">
+        各方法的有效范围随目标、仪器与精度要求变化，以下仅选示例尺度。造父变星与 TRGB
+        可并行校准超新星；高红移处标注光度距离，不能把它当作光行时间乘光速。
+      </p>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+        <div className="border-border-faint flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
           <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             宇宙距离阶梯 · cosmic distance ladder
           </span>
           <span className="text-fg-disabled font-mono text-[9px]">点击各层级查看方法详情</span>
         </div>
 
-        <div className="p-4">
+        <div
+          className="overflow-x-auto p-4"
+          role="region"
+          aria-label="宇宙距离阶梯，可横向滚动查看方法与示例尺度"
+          tabIndex={0}
+        >
           <svg
             viewBox="0 0 800 350"
-            className="h-auto w-full"
+            className="h-auto w-full min-w-[800px]"
             role="group"
             aria-label="宇宙距离阶梯可视化"
           >
@@ -171,11 +180,11 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
               x={410}
               y={320}
               textAnchor="middle"
-              fill="#555"
-              fontSize="9"
+              fill="#a8adbd"
+              fontSize="12"
               fontFamily="monospace"
             >
-              距离 (对数刻度)
+              示例距离（对数刻度，并非覆盖上限）
             </text>
 
             {DISTANCE_RUNGS.map((rung, i) => {
@@ -191,6 +200,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
                   role="button"
                   tabIndex={0}
                   aria-label={`${rung.name} — ${rung.range}`}
+                  aria-pressed={isSelected}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
@@ -231,7 +241,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
                     x={80}
                     y={y - 2}
                     fill={isSelected ? rung.color : "#a8adbd"}
-                    fontSize="11"
+                    fontSize="12"
                     fontFamily="sans-serif"
                     fontWeight={isSelected ? 600 : 400}
                   >
@@ -243,7 +253,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
                     y={y + 8}
                     textAnchor="end"
                     fill={isSelected ? rung.color : "#555"}
-                    fontSize="9"
+                    fontSize="12"
                     fontFamily="monospace"
                   >
                     {rung.range}
@@ -251,10 +261,10 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
 
                   <text
                     x={x}
-                    y={y + 20}
+                    y={y + 23}
                     textAnchor="middle"
-                    fill="#444"
-                    fontSize="7"
+                    fill="#a8adbd"
+                    fontSize="12"
                     fontFamily="monospace"
                   >
                     {formatDistance(rung.rangeKm)}
@@ -266,7 +276,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
         </div>
 
         <div className="border-border-faint flex items-center justify-between border-t px-4 py-2">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             {DISTANCE_RUNGS.map((rung) => (
               <div key={rung.id} className="flex items-center gap-1.5">
                 <span
@@ -287,7 +297,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
             initial={reduce ? {} : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? {} : { opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: PRODUCT_EASE }}
+            transition={{ duration: reduce ? 0 : 0.3, ease: PRODUCT_EASE }}
             className="mt-3 border p-5"
             style={{
               borderColor: `${selected.color}30`,
@@ -301,7 +311,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
               >
                 {selected.icon}
               </div>
-              <div className="flex-1">
+              <div className="min-w-0 flex-1">
                 <h4 className="font-display text-fg-primary text-base font-semibold">
                   {selected.name}
                   <span className="text-fg-muted ml-2 font-mono text-[10px]">
@@ -311,7 +321,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
                 <p className="text-fg-secondary mt-1 text-sm leading-relaxed">
                   {selected.description}
                 </p>
-                <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="border-border-faint border p-2">
                     <p className="text-fg-muted font-mono text-[9px]">方法</p>
                     <p className="text-fg-primary font-mono text-xs">{selected.method}</p>
@@ -338,11 +348,41 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
         )}
       </AnimatePresence>
 
-      <div className="mt-3 grid grid-cols-3 gap-3">
+      <p className="text-fg-muted mt-3 text-xs leading-relaxed">
+        来源：
+        <a
+          className="underline"
+          href="https://arxiv.org/abs/2112.04510"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Riess 等（2022）
+        </a>
+        、
+        <a
+          className="underline"
+          href="https://arxiv.org/abs/1907.05922"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Freedman 等（2019）
+        </a>
+        、
+        <a
+          className="underline"
+          href="https://arxiv.org/abs/astro-ph/9905116"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hogg（距离定义）
+        </a>
+        。
+      </p>
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="border-border-faint bg-bg-near border p-3">
           <p className="text-fg-muted font-mono text-[9px]">近距</p>
           <p className="text-fg-primary font-mono text-sm">视差法</p>
-          <p className="text-fg-disabled mt-1 text-[10px]">最直接、最可靠</p>
+          <p className="text-fg-disabled mt-1 text-[10px]">几何锚点之一</p>
         </div>
         <div className="border-border-faint bg-bg-near border p-3">
           <p className="text-fg-muted font-mono text-[9px]">中距</p>
@@ -352,7 +392,7 @@ export function CosmicDistanceLadder({ className }: CosmicDistanceLadderProps) {
         <div className="border-border-faint bg-bg-near border p-3">
           <p className="text-fg-muted font-mono text-[9px]">远距</p>
           <p className="text-fg-primary font-mono text-sm">红移</p>
-          <p className="text-fg-disabled mt-1 text-[10px]">哈勃定律</p>
+          <p className="text-fg-disabled mt-1 text-[10px]">红移与膨胀模型</p>
         </div>
       </div>
     </div>

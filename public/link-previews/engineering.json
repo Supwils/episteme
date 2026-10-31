@@ -9,6 +9,11 @@
     "e": "高铁的“高速”存在于线路而不在车里：专用线路、无砟轨道、接触网与列控系统互相锁死；空气阻力功率随速度三次方增长，速度上限由多条曲线共同围出。",
     "d": "engineering"
   },
+  "/engineering/civil/redundancy-is-an-alternate-path": {
+    "t": "冗余是另一条传力路径",
+    "e": "冗余指一个构件失效后，载荷还有另一条路径可走。1968年伦敦罗南角的墙板被推出后，上面楼层顺着一角坍塌，后来被称为不成比例的倒塌。",
+    "d": "engineering"
+  },
   "/engineering/civil/resilient-infrastructure": {
     "t": "韧性基础设施：为最坏情况设计",
     "e": "韧性不等于更结实，而是被击穿后损失是否级联、恢复要多久；“百年一遇”指每年约百分之一的概率，三十年内至少遇到一次的概率约为四分之一。",
@@ -77,6 +82,11 @@
   "/engineering/foundations/experimental-design-and-uncertainty": {
     "t": "实验设计与测量不确定度：怎样知道一次试验能说明什么",
     "e": "多测几次取平均压不掉系统偏差；本篇从费希尔在罗森斯特的随机化与区组，到 GUM 对测量不确定度的定义，再到哈勃主镜“精确地测错”。",
+    "d": "engineering"
+  },
+  "/engineering/foundations/factor-of-safety-is-a-margin": {
+    "t": "安全系数是一项裕度",
+    "e": "安全系数常写成规定失效模式下的抗力与需求之比，也可作为规范规定的载荷乘数；两种用法须说明定义。它是对材料、载荷和施工不确定的政策，没有全世界共用的正确值。",
     "d": "engineering"
   },
   "/engineering/foundations/fatigue-and-fracture": {
@@ -192,6 +202,11 @@
   "/engineering/frontiers/comet-water-tank-fatigue": {
     "t": "彗星客机水槽：方形舷窗怎样在法恩伯勒被压到裂纹",
     "e": "1954 年两架彗星 1 型客机空中解体后，皇家航空研究院把一架整机放进法恩伯勒水槽反复加压，裂纹从方形舷窗角与天线开口长出，增压循环寿命从此进入审定。",
+    "d": "engineering"
+  },
+  "/engineering/frontiers/common-mode-failure": {
+    "t": "共因失效",
+    "e": "共因失效指多个部件因共享原因与耦合机制，在相关时间范围内失效或退化。按独立失效计算会高估安全性。1979年三哩岛说明的是系统耦合，不是这个词的唯一定义。",
     "d": "engineering"
   },
   "/engineering/frontiers/dilution-is-the-solution": {
@@ -349,6 +364,11 @@
     "e": "民航、远洋货轮与调峰电站至今没有可行的热机替代；热机效率天花板来自热力学第二定律，工程师只能在卡诺极限之下靠材料与燃烧组织一寸寸逼近。",
     "d": "engineering"
   },
+  "/engineering/machines/feedback-is-a-correction": {
+    "t": "反馈是一种修正",
+    "e": "反馈是把输出送回并影响后续输入；负反馈常用来减小偏差，正反馈则可能增强变化。瓦特的离心调速器在转速升高时关小进汽；维纳1948年的《控制论》把这种圆形因果写成动物与机器共有的问题。",
+    "d": "engineering"
+  },
   "/engineering/machines/human-factors-engineering": {
     "t": "人因工程：为会犯错的人设计",
     "e": "同样的人在同样的界面上反复犯同样的错，错的是界面；人因工程改的是设计而不是标签，班布里奇 1983 年的《自动化的反讽》指出自动化越高，人越难接管。",
@@ -407,6 +427,11 @@
   "/engineering/materials/concrete-engineering": {
     "t": "混凝土工程：从万神殿穹顶到高性能混凝土",
     "e": "水泥只是混凝土里的胶，混凝土是骨料与水化物构成的复合材料；罗马人两千年前已浇筑混凝土，现代的发明是波特兰水泥与钢筋混凝土，而它也会碳化与锈胀。",
+    "d": "engineering"
+  },
+  "/engineering/materials/fatigue-is-repeated-stress": {
+    "t": "疲劳是反复受力",
+    "e": "低于一次拉断所需的应力，只要反复作用，仍可以产生裂纹。韦勒用铁路车轴留下应力-寿命曲线；1954年彗星客机的解体被写成金属疲劳。",
     "d": "engineering"
   },
   "/engineering/materials/food-and-agricultural-engineering": {

@@ -92,6 +92,12 @@ export const PHENOMENA_DATA = [
   },
   { slug: "groupthink", title: "群体思维", subtitle: "Groupthink", category: "社会" },
   {
+    slug: "habituation-is-not-fatigue",
+    title: "习惯化不是肌肉疲劳",
+    subtitle: "Habituation Is Not Muscle Fatigue",
+    category: "现象",
+  },
+  {
     slug: "id-ego-superego",
     title: "本我·自我·超我",
     subtitle: "Id, Ego, and Superego",
@@ -220,6 +226,12 @@ export const PHENOMENA_DATA = [
     category: "社会",
   },
   { slug: "splitting", title: "分裂", subtitle: "Splitting", category: "精神分析" },
+  {
+    slug: "state-dependent-memory",
+    title: "状态依赖记忆",
+    subtitle: "State-Dependent Memory",
+    category: "现象",
+  },
   {
     slug: "sunk-cost-fallacy",
     title: "沉没成本谬误",

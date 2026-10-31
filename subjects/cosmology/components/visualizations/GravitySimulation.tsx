@@ -3,120 +3,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useReducedMotion } from "framer-motion";
 
-const G = 6.674e-11;
-
-interface Body {
-  id: string;
-  name: string;
-  nameEn: string;
-  color: string;
-  radius: number;
-  mass: number;
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  trail: { x: number; y: number }[];
-}
-
-const SVG_SIZE = 600;
-const SCALE = 1e-9;
-const TIME_STEP = 3600;
-const MAX_TRAIL = 150;
-
-function createDefaultBodies(): Body[] {
-  return [
-    {
-      id: "sun",
-      name: "太阳",
-      nameEn: "Sun",
-      color: "#fbbf24",
-      radius: 14,
-      mass: 1.989e30,
-      x: SVG_SIZE / 2,
-      y: SVG_SIZE / 2,
-      vx: 0,
-      vy: 0,
-      trail: [],
-    },
-    {
-      id: "earth",
-      name: "地球",
-      nameEn: "Earth",
-      color: "#3b82f6",
-      radius: 6,
-      mass: 5.972e24,
-      x: SVG_SIZE / 2 + 150,
-      y: SVG_SIZE / 2,
-      vx: 0,
-      vy: 29780,
-      trail: [],
-    },
-    {
-      id: "moon",
-      name: "月球",
-      nameEn: "Moon",
-      color: "#9ca3af",
-      radius: 3,
-      mass: 7.342e22,
-      x: SVG_SIZE / 2 + 170,
-      y: SVG_SIZE / 2,
-      vx: 0,
-      // Earth's orbital speed plus the circular speed for the Moon's (scaled)
-      // 2e10 m separation from Earth (~141 m/s) — otherwise the Moon's relative
-      // velocity exceeds escape and it flings away on the first frame.
-      vy: 29921,
-      trail: [],
-    },
-  ];
-}
-
-function computeGravity(b1: Body, b2: Body): { fx: number; fy: number } {
-  const dx = (b2.x - b1.x) / SCALE;
-  const dy = (b2.y - b1.y) / SCALE;
-  const distSq = dx * dx + dy * dy;
-  const dist = Math.sqrt(distSq);
-  if (dist < 1e6) return { fx: 0, fy: 0 };
-  const force = (G * b1.mass * b2.mass) / distSq;
-  return {
-    fx: (force * dx) / dist,
-    fy: (force * dy) / dist,
-  };
-}
-
-function stepSimulation(bodies: Body[], dt: number): Body[] {
-  const forces: { fx: number; fy: number }[] = bodies.map(() => ({ fx: 0, fy: 0 }));
-
-  for (let i = 0; i < bodies.length; i++) {
-    for (let j = i + 1; j < bodies.length; j++) {
-      const f = computeGravity(bodies[i]!, bodies[j]!);
-      forces[i]!.fx += f.fx;
-      forces[i]!.fy += f.fy;
-      forces[j]!.fx -= f.fx;
-      forces[j]!.fy -= f.fy;
-    }
-  }
-
-  return bodies.map((body, i) => {
-    const ax = (forces[i]!.fx / body.mass) * SCALE * SCALE;
-    const ay = (forces[i]!.fy / body.mass) * SCALE * SCALE;
-    const newVx = body.vx + ax * dt;
-    const newVy = body.vy + ay * dt;
-    const newX = body.x + newVx * dt * SCALE;
-    const newY = body.y + newVy * dt * SCALE;
-    const newTrail = [...body.trail, { x: newX, y: newY }];
-    if (newTrail.length > MAX_TRAIL) newTrail.shift();
-
-    return {
-      ...body,
-      x: newX,
-      y: newY,
-      vx: newVx,
-      vy: newVy,
-      trail: newTrail,
-    };
-  });
-}
+import {
+  type Body,
+  createDefaultBodies,
+  computeGravity,
+  stepSimulation,
+  SVG_SIZE,
+  TIME_STEP,
+} from "./gravity-model";
 
 function ForceArrow({
   fromX,
@@ -193,23 +87,24 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
     setIsRunning(false);
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     const defaults = createDefaultBodies();
-    if (defaults[1]) defaults[1].mass = 5.972e24 * earthMassMult;
+    if (defaults[1]) defaults[1].mass = 5.9722e24 * earthMassMult;
     setBodies(defaults);
   }, [earthMassMult]);
 
   useEffect(() => {
-    if (!isRunning) return;
+    if (!isRunning || reduce) return;
 
     const animate = (time: number) => {
       if (lastTimeRef.current === 0) lastTimeRef.current = time;
       const delta = Math.min(time - lastTimeRef.current, 50);
       lastTimeRef.current = time;
-      const steps = Math.ceil((delta / 16) * speedMult);
+      const elapsed = (delta / (1000 / 60)) * speedMult * TIME_STEP;
+      const steps = Math.max(1, Math.ceil(elapsed / TIME_STEP));
       // Functional update keeps `bodies` out of the deps so the RAF loop isn't
       // torn down and re-subscribed on every frame.
       setBodies((prev) => {
         let current = prev;
-        for (let s = 0; s < steps; s++) current = stepSimulation(current, TIME_STEP);
+        for (let s = 0; s < steps; s++) current = stepSimulation(current, elapsed / steps);
         return current;
       });
       rafRef.current = requestAnimationFrame(animate);
@@ -217,43 +112,41 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
 
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [isRunning, speedMult]);
+  }, [isRunning, speedMult, reduce]);
 
   const updateEarthMass = useCallback((mult: number) => {
     setEarthMassMult(mult);
     setBodies((prev) =>
       prev.map((b) => {
-        if (b.id === "earth") return { ...b, mass: 5.972e24 * mult };
+        if (b.id === "earth") return { ...b, mass: 5.9722e24 * mult };
         return b;
       })
     );
   }, []);
 
   const forceVectors = bodies.map((body, i) => {
-    let fx = 0;
-    let fy = 0;
-    for (let j = 0; j < bodies.length; j++) {
-      if (i === j) continue;
-      const other = bodies[j]!;
-      const dx = other.x - body.x;
-      const dy = other.y - body.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 1) continue;
-      const force = (G * body.mass * other.mass) / ((dist / SCALE) * (dist / SCALE));
-      fx += (force * dx) / dist;
-      fy += (force * dy) / dist;
-    }
-    return { fx, fy };
+    return bodies.reduce(
+      (total, other, j) => {
+        if (i === j) return total;
+        const force = computeGravity(body, other);
+        return { fx: total.fx + force.fx, fy: total.fy + force.fy };
+      },
+      { fx: 0, fy: 0 }
+    );
   });
 
   return (
     <div className={className}>
+      <p className="text-fg-muted mb-3 text-xs leading-relaxed">
+        太阳、地球与火星的平面牛顿模型，初始轨道取近圆近似，并非实时星历。 图中 1 单位对应 10
+        亿米；天体大小经过放大，箭头表示合力方向，长度按对数缩放。
+      </p>
       <div className="border-border-faint bg-bg-near relative overflow-hidden border">
-        <div className="border-border-faint flex items-center justify-between border-b px-4 py-2">
+        <div className="border-border-faint flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
           <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
             引力模拟 · gravity simulation
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={isRunning ? handleStop : handleStart}
               disabled={Boolean(reduce) && !isRunning}
@@ -345,9 +238,10 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
           {showForces &&
             bodies.map((body, i) => {
               const fv = forceVectors[i]!;
-              const scale = 1e-22;
-              const endX = body.x + fv.fx * scale;
-              const endY = body.y + fv.fy * scale;
+              const magnitude = Math.hypot(fv.fx, fv.fy);
+              const length = 8 * Math.log10(1 + magnitude / 1e18);
+              const endX = body.x + (magnitude ? (fv.fx / magnitude) * length : 0);
+              const endY = body.y + (magnitude ? (fv.fy / magnitude) * length : 0);
               return (
                 <ForceArrow
                   key={`force-${body.id}`}
@@ -406,10 +300,20 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
         </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-3">
+      <p className="text-fg-muted mt-3 text-xs">
+        <a
+          className="underline"
+          href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          初始尺度与质量参考：NASA 行星数据
+        </a>
+      </p>
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="border-border-faint bg-bg-near space-y-3 border p-4">
           <h4 className="font-display text-fg-primary text-sm font-semibold">参数调节</h4>
-          <div className="flex items-center gap-3">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-3">
             <label htmlFor="gravity-earth-mass" className="text-fg-muted w-20 shrink-0 text-xs">
               地球质量
             </label>
@@ -421,13 +325,13 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
               step={0.1}
               value={earthMassMult}
               onChange={(e) => updateEarthMass(Number(e.target.value))}
-              className="flex-1 accent-blue-500"
+              className="col-span-2 row-start-2 w-full min-w-0 accent-blue-500"
             />
-            <span className="text-fg-muted w-16 text-right font-mono text-xs">
+            <span className="text-fg-muted col-start-2 row-start-1 w-16 text-right font-mono text-xs">
               ×{earthMassMult.toFixed(1)}
             </span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-3">
             <label htmlFor="gravity-speed" className="text-fg-muted w-20 shrink-0 text-xs">
               模拟速度
             </label>
@@ -439,9 +343,9 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
               step={0.5}
               value={speedMult}
               onChange={(e) => setSpeedMult(Number(e.target.value))}
-              className="flex-1 accent-purple-500"
+              className="col-span-2 row-start-2 w-full min-w-0 accent-purple-500"
             />
-            <span className="text-fg-muted w-16 text-right font-mono text-xs">
+            <span className="text-fg-muted col-start-2 row-start-1 w-16 text-right font-mono text-xs">
               ×{speedMult.toFixed(1)}
             </span>
           </div>
@@ -456,7 +360,7 @@ export function GravitySimulation({ className }: GravitySimulationProps) {
                   {body.name}
                 </span>
                 <span className="text-fg-muted font-mono text-[10px]">
-                  {(body.mass / 1e24).toFixed(2)} × 10²⁴ kg
+                  {body.mass.toExponential(2)} kg
                 </span>
               </div>
             ))}

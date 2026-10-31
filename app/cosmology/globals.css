@@ -1,3 +1,17 @@
+.cosmology-root .md-list[data-variant="references"][data-ordered] {
+  margin-left: 1.75rem;
+  list-style: decimal;
+}
+
+.cosmology-root .md-list[data-variant="references"][data-ordered] > li {
+  padding-left: 0;
+  text-indent: 0;
+}
+
+.cosmology-root .md-table :is(th, td) {
+  min-width: 7rem;
+}
+
 @theme {
   --color-bg-deep: #000000;
   --color-bg-base: #000000;

@@ -9,6 +9,7 @@ import {
   type BufferGeometry,
   type ShaderMaterial,
 } from "three";
+import { useUiStore } from "@/subjects/physics/store/useUiStore";
 import { volumeVert } from "@/subjects/physics/shaders/volumeRaymarch.frag.glsl";
 import { volumeFrag } from "@/subjects/physics/shaders/volumeRaymarch.frag.glsl";
 
@@ -36,10 +37,9 @@ type Props = {
  *   — T6 Solar corona (yellow-white)
  *
  * The shader performs a lightweight 4-6 step raymarch through 3D FBM
- * noise to produce a soft, organic volumetric appearance. The billboard
- * always faces the camera (Three.js handles this via the lack of
- * rotation — the quad is placed in world space and the camera-relative
- * orientation is managed by the parent scene).
+ * noise to produce a soft, organic volumetric appearance. The vertex
+ * shader aligns the quad to the camera, retaining the parent's world
+ * centre and axis scales so orbiting never turns the glow edge-on.
  */
 export function VolumeBillboard({
   coreColor = [1.2, 0.8, 0.4],
@@ -50,6 +50,7 @@ export function VolumeBillboard({
   opacity = 1,
 }: Props) {
   const matRef = useRef<ShaderMaterial>(null);
+  const reducedMotion = useUiStore((state) => state.reducedMotion);
   const geomRef = useRef<BufferGeometry>(null);
 
   const uniforms = useMemo(
@@ -58,20 +59,16 @@ export function VolumeBillboard({
       uHaloColor: { value: new Color(...haloColor) },
       uDensity: { value: density },
       uTime: { value: 0 },
+      uOpacity: { value: 1 },
       uSteps: { value: steps },
     }),
     [coreColor, haloColor, density, steps]
   );
 
-  const lastOpacity = useRef(opacity);
   useFrame((state) => {
-    if (matRef.current?.uniforms?.uTime) {
-      matRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-      if (lastOpacity.current !== opacity) {
-        matRef.current.opacity = opacity;
-        lastOpacity.current = opacity;
-      }
-    }
+    if (!matRef.current) return;
+    if (!reducedMotion) matRef.current.uniforms.uTime!.value = state.clock.elapsedTime;
+    matRef.current.uniforms.uOpacity!.value = opacity;
   });
 
   useEffect(() => {

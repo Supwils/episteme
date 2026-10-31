@@ -117,6 +117,23 @@ async function readRendererMetrics(page: Page): Promise<RendererMetrics> {
   };
 }
 
+test("narrow physics pages keep the atlas and page controls clickable", async ({ page }) => {
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/universe-physics/physics/classical-mechanics");
+    await page.getByRole("button", { name: "open atlas", exact: true }).click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await page.getByRole("button", { name: "Close knowledge atlas" }).click();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+    const pager = page.getByRole("navigation", { name: "Physics tier pages" });
+    await pager.getByRole("button", { name: "Next page" }).click();
+    await expect(pager.getByRole("button", { name: "Page 2", exact: true })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+  }
+});
+
 test("handwritten universe bypasses the WebGL runtime", async ({ page }) => {
   const requestedChunks = trackRequestedChunks(page);
   const webglChunks = await readWebglEntryChunkNames();

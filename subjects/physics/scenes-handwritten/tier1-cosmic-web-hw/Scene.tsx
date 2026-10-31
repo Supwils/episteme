@@ -64,9 +64,9 @@ function quadraticPath(n1: Node, n2: Node, offset: number): string {
 }
 
 const VOID_REGIONS = [
-  { cx: -240, cy: -120, r: 110, label: "牧夫座空洞 · Boötes" },
-  { cx: 180, cy: 230, r: 85, label: "本地空洞 · Local" },
-  { cx: 60, cy: -260, r: 70, label: "Eridanus" },
+  { cx: -240, cy: -120, r: 110, label: "空洞示意 A" },
+  { cx: 180, cy: 230, r: 85, label: "空洞示意 B" },
+  { cx: 60, cy: -260, r: 70, label: "空洞示意 C" },
 ];
 
 export function Tier1HwScene() {
@@ -215,7 +215,7 @@ export function Tier1HwScene() {
       <HandwrittenLabel
         x={-460}
         y={460}
-        text="filaments · 纤维结构"
+        text="结构示意 · 标记为阅读入口，非巡天坐标"
         variant="hairline"
         anchor="start"
         color="var(--hw-gold)"

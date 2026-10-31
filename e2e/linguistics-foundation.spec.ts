@@ -3,16 +3,14 @@ import { expect, test } from "@playwright/test";
 test("opens the linguistics landing and walks into a section", async ({ page }) => {
   await page.goto("/linguistics");
 
-  const subjectMain = page.locator(".domain-root > main");
+  const subject = page.locator(".domain-root [data-skip-target]");
   await expect(page.getByRole("heading", { level: 1, name: /^语言学/ })).toBeVisible();
-  await expect(subjectMain.locator(".landing-hero__stats")).toHaveText(/\d+ 个条目/);
-  await expect(subjectMain.locator(".section-index a")).not.toHaveCount(0);
+  await expect(subject.locator(".landing-hero__stats")).toHaveText(/\d+ 个条目/);
+  await expect(subject.locator(".section-index a")).not.toHaveCount(0);
 
-  await subjectMain.locator('.section-index a[href="/linguistics/sounds-and-signs"]').click();
+  await subject.locator('.section-index a[href="/linguistics/sounds-and-signs"]').click();
   await expect(page.getByRole("heading", { name: "声音与手势" })).toBeVisible();
-  await expect(
-    page.locator('.domain-root > main a[href^="/linguistics/sounds-and-signs/"]')
-  ).not.toHaveCount(0);
+  await expect(subject.locator('a[href^="/linguistics/sounds-and-signs/"]')).not.toHaveCount(0);
 
   await page.goto("/linguistics/sounds-and-signs/language-speech-and-sign");
   await expect(page.getByRole("heading", { name: "语言、言语与手语" })).toBeVisible();

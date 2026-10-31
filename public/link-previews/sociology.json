@@ -39,6 +39,11 @@
     "e": "依附理论源自普雷维什与拉美经委会的中心—外围分析，解放社会学强调与被压迫者共同生产知识；东亚工业化迫使其强版本命题修正。",
     "d": "sociology"
   },
+  "/sociology/concepts/moral-panic-is-a-campaign": {
+    "t": "道德恐慌是一个社会过程",
+    "e": "科恩 1972 年的《民间魔鬼与道德恐慌》把恐慌写成过程：群体被定义成威胁，威胁被夸张描绘，当局被要求回应，其后恐慌平息或留下新法律。",
+    "d": "sociology"
+  },
   "/sociology/concepts/organizational-sociology": {
     "t": "组织社会学：组织为何彼此越来越像",
     "e": "组织采用某种结构常为显得合法而非提高效率：西蒙的有限理性、迈耶与罗万 1977 年的脱耦、迪马吉奥与鲍威尔 1983 年的三种制度性同构。",
@@ -102,6 +107,11 @@
   "/sociology/concepts/sociology-of-culture": {
     "t": "文化社会学：意义如何被生产与分配",
     "e": "文化社会学研究意义如何被生产、分配与调用，而非一份习俗清单；从“文化工具箱”、布迪厄的文化资本、边界工作到算法作为文化中介。",
+    "d": "sociology"
+  },
+  "/sociology/concepts/stigma-is-a-relation": {
+    "t": "污名是一种关系",
+    "e": "戈夫曼 1963 年的《污名：受损身份管理笔记》把污名理解为属性与刻板期待之间的关系，同一种身体特征或经历可以只在某一批观众面前成为污名。",
     "d": "sociology"
   },
   "/sociology/frontier/ageing-societies": {
@@ -179,6 +189,11 @@
     "e": "2020 年全球国际移民约 2.81 亿，仅占世界人口 3.6%，而中国农民工 2023 年达 2.98 亿；迁移嵌在战争、土地、劳动与政策结构之中，常是跨国多地的。",
     "d": "sociology"
   },
+  "/sociology/institutions/profession-is-a-closure": {
+    "t": "专业职业与社会封闭",
+    "e": "阿博特 1988 年的《专业体系》把专业写成对工作地盘的管辖权声称，韦伯用社会封闭说明群体限制外人进入以保护机会，执照与学院既能保护当事人也能挡住竞争者。",
+    "d": "sociology"
+  },
   "/sociology/institutions/religion-and-secularization": {
     "t": "宗教与世俗化",
     "e": "宗教社会学不判定信仰真假，而研究宗教如何组织共同体与合法化权力；现代最稳定的变化是制度分化，而不是信仰消失。",
@@ -252,6 +267,11 @@
   "/sociology/methods/statistical-modeling": {
     "t": "统计模型",
     "e": "统计模型是连接理论问题、数据结构与不确定性的推理工具，复杂不等于高级；弗里德曼提醒，回归是描述装置，把系数读成因果效应是最常见的越界。",
+    "d": "sociology"
+  },
+  "/sociology/methods/survey-is-not-the-population": {
+    "t": "调查不是总体",
+    "e": "调查从总体抽取样本，用回答推断总体；覆盖不足、不回答和测量问题可能造成偏差，随机抽样也带来抽样误差。公开总体、样本设计、回答率和题词，才能评估推断的依据。",
     "d": "sociology"
   },
   "/sociology/methods/survey-research": {

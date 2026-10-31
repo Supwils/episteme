@@ -53,7 +53,7 @@ export const UNIVERSE_PHYSICS_DIALOGUES_DATA = [
   {
     slug: "heisenberg-schrodinger",
     title: "海森堡 vs 薛定谔：量子力学的两种诠释",
-    description: "矩阵力学还是波动力学？",
+    description: "等价的量子表述为何仍留下诠释争议？",
     participants: ["heisenberg", "schrodinger"],
     tags: ["矩阵力学", "波动力学", "不确定性原理", "波函数"],
   },

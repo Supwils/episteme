@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import type { SceneMarker } from "@/subjects/physics/lib/content";
+import { useUniverseStore } from "@/subjects/physics/store/useUniverseStore";
 import { useUiStore } from "@/subjects/physics/store/useUiStore";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -58,11 +59,11 @@ export function HandwrittenMarker({
     setHovered(true);
     setHover(marker);
   };
-  const onClick = () => openPanel(marker.id);
+  const onClick = () => openPanel(marker.id, useUniverseStore.getState().currentTier);
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      openPanel(marker.id);
+      openPanel(marker.id, useUniverseStore.getState().currentTier);
     }
   };
 

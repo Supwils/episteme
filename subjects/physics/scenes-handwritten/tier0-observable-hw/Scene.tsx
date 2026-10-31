@@ -10,11 +10,11 @@ import { StarSpeck } from "../shared/StarSpeck";
 import { WobbleCircle } from "../shared/WobbleCircle";
 
 const RINGS = [
-  { r: 460, label: "Zodiac · 黄道带", dash: "6 4" },
+  { r: 460, label: "可观测范围 · 示意", dash: "6 4" },
   { r: 400, label: "CMB · 38万年", dash: undefined },
-  { r: 330, label: "Reionization · 再电离", dash: "4 6" },
-  { r: 260, label: "Large-scale Structure", dash: "2 6" },
-  { r: 190, label: "BAO · 150 Mpc", dash: "1 4" },
+  { r: 330, label: "再电离时期 · 非薄壳", dash: "4 6" },
+  { r: 260, label: "晚期大尺度结构", dash: "2 6" },
+  { r: 190, label: "距离与标记位置不按统一比例", dash: "1 4" },
 ];
 
 const COMPASS_LABELS = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ"];

@@ -1,262 +1,233 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { cn } from "@/subjects/physics/lib/cn";
-import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
+import { useExperimentCanvas } from "./use-experiment-canvas";
+import { useExperimentReducedMotion } from "./use-experiment-reduced-motion";
 
-const CANVAS_RES = 256;
+const MODEL_WIDTH = 256;
+const WAVE_SPEED = 40; // Model length units per second; fixed when wavelength changes.
+const SOURCE_RADIUS = 8;
+const CREST_COLOR = [106, 208, 255] as const;
+const TROUGH_COLOR = [255, 180, 90] as const;
 
 export function WaveInterference({ className }: { className?: string }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [wavelength, setWavelength] = useState(30);
   const [sourceDist, setSourceDist] = useState(80);
+  const [elapsed, setElapsed] = useState(0);
   const timeRef = useRef(0);
+  const uiClock = useRef(0);
   const imageDataRef = useRef<ImageData | null>(null);
   const tmpCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const reducedMotion = useExperimentReducedMotion();
+  const inputId = useId();
+  const pause = useCallback(() => setIsPlaying(false), []);
 
-  const prefersReducedMotion = useRef(
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const draw = useCallback(
+    (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+      if (w <= 0 || h <= 0) return;
+      const t = timeRef.current;
+      const resW = MODEL_WIDTH;
+      const resH = Math.max(1, Math.round((MODEL_WIDTH * h) / w));
+      if (!imageDataRef.current || imageDataRef.current.height !== resH) {
+        imageDataRef.current = ctx.createImageData(resW, resH);
+      }
+      const data = imageDataRef.current.data;
+      const s1x = resW / 2 - sourceDist / 2;
+      const s2x = resW / 2 + sourceDist / 2;
+      const sy = resH / 2;
+      const k = (2 * Math.PI) / wavelength;
+      const omega = k * WAVE_SPEED;
+
+      for (let py = 0; py < resH; py++) {
+        for (let px = 0; px < resW; px++) {
+          const d1 = Math.hypot(px + 0.5 - s1x, py + 0.5 - sy);
+          const d2 = Math.hypot(px + 0.5 - s2x, py + 0.5 - sy);
+          // Far-field cylindrical spreading, capped near each source. The
+          // circular-wave phase is illustrative, not a fluid/near-field solver.
+          const a1 = 1 / Math.sqrt(Math.max(1, d1 / SOURCE_RADIUS));
+          const a2 = 1 / Math.sqrt(Math.max(1, d2 / SOURCE_RADIUS));
+          const displacement =
+            a1 * Math.cos(k * d1 - omega * t) + a2 * Math.cos(k * d2 - omega * t);
+          const signed = Math.max(-1, Math.min(1, displacement / 2));
+          const strength = Math.abs(signed);
+          // Diverging colors represent signed instantaneous displacement,
+          // not time-averaged light intensity: blue crest, gold trough, dark zero.
+          const color = signed >= 0 ? CREST_COLOR : TROUGH_COLOR;
+          const idx = (py * resW + px) * 4;
+          data[idx] = Math.round(6 + strength * (color[0] - 6));
+          data[idx + 1] = Math.round(8 + strength * (color[1] - 8));
+          data[idx + 2] = Math.round(20 + strength * (color[2] - 20));
+          data[idx + 3] = 255;
+        }
+      }
+      if (!tmpCanvasRef.current) tmpCanvasRef.current = document.createElement("canvas");
+      const tmp = tmpCanvasRef.current;
+      if (tmp.width !== resW || tmp.height !== resH) {
+        tmp.width = resW;
+        tmp.height = resH;
+      }
+      const tmpCtx = tmp.getContext("2d");
+      if (!tmpCtx) return;
+      tmpCtx.putImageData(imageDataRef.current, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(tmp, 0, 0, w, h);
+
+      const scale = w / resW;
+      const srcY = h / 2;
+      const sourceXs = [s1x * scale, s2x * scale];
+      for (let i = 0; i < sourceXs.length; i++) {
+        const x = sourceXs[i]!;
+        ctx.fillStyle = "rgba(106,208,255,0.3)";
+        ctx.beginPath();
+        // Both driven sources have the same phase.
+        ctx.arc(x, srcY, 9 + 2 * Math.cos(omega * t), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#6ad0ff";
+        ctx.beginPath();
+        ctx.arc(x, srcY, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "rgba(255,255,255,0.85)";
+        ctx.font = "11px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(i === 0 ? "S₁" : "S₂", x, srcY - 16);
+      }
+      ctx.strokeStyle = "rgba(255,255,255,0.3)";
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(sourceXs[0]!, srcY + 18);
+      ctx.lineTo(sourceXs[1]!, srcY + 18);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    },
+    [wavelength, sourceDist]
   );
 
-  const render = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const { w, h } = cssCanvasSize(canvas);
-    const t = timeRef.current;
-
-    const resW = CANVAS_RES;
-    const resH = Math.round(CANVAS_RES * (h / w));
-    const scaleX = w / resW;
-    const scaleY = h / resH;
-
-    if (
-      !imageDataRef.current ||
-      imageDataRef.current.width !== resW ||
-      imageDataRef.current.height !== resH
-    ) {
-      imageDataRef.current = ctx.createImageData(resW, resH);
+  const step = useCallback((seconds: number) => {
+    timeRef.current += seconds;
+    uiClock.current += seconds;
+    if (uiClock.current >= 0.1) {
+      setElapsed(timeRef.current);
+      uiClock.current = 0;
     }
-
-    const data = imageDataRef.current.data;
-    const s1x = resW / 2 - sourceDist / 2 / scaleX;
-    const s2x = resW / 2 + sourceDist / 2 / scaleX;
-    const sy = resH / 2;
-    const k = (2 * Math.PI) / (wavelength / scaleX);
-    const omega = 0.15;
-
-    for (let py = 0; py < resH; py++) {
-      for (let px = 0; px < resW; px++) {
-        const dx1 = px - s1x;
-        const dy1 = py - sy;
-        const d1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
-
-        const dx2 = px - s2x;
-        const dy2 = py - sy;
-        const d2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-
-        const wave1 = Math.sin(k * d1 - omega * t) / Math.max(1, d1 * 0.03);
-        const wave2 = Math.sin(k * d2 - omega * t) / Math.max(1, d2 * 0.03);
-        const combined = wave1 + wave2;
-
-        const norm = (combined + 2) / 4;
-        const clamped = Math.max(0, Math.min(1, norm));
-
-        const idx = (py * resW + px) * 4;
-
-        // Cool blue-white color scheme
-        if (clamped > 0.5) {
-          const bright = (clamped - 0.5) * 2;
-          data[idx] = Math.round(100 + bright * 155);
-          data[idx + 1] = Math.round(180 + bright * 75);
-          data[idx + 2] = Math.round(255);
-        } else {
-          const dark = clamped * 2;
-          data[idx] = Math.round(10 + dark * 90);
-          data[idx + 1] = Math.round(15 + dark * 165);
-          data[idx + 2] = Math.round(30 + dark * 225);
-        }
-        data[idx + 3] = 255;
-      }
-    }
-
-    if (!tmpCanvasRef.current) {
-      tmpCanvasRef.current = document.createElement("canvas");
-    }
-    const tmpCanvas = tmpCanvasRef.current;
-    if (tmpCanvas.width !== resW || tmpCanvas.height !== resH) {
-      tmpCanvas.width = resW;
-      tmpCanvas.height = resH;
-    }
-    const tmpCtx = tmpCanvas.getContext("2d");
-    if (!tmpCtx) return;
-    tmpCtx.putImageData(imageDataRef.current, 0, 0);
-
-    ctx.clearRect(0, 0, w, h);
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(tmpCanvas, 0, 0, w, h);
-
-    // Source points
-    const src1ScreenX = w / 2 - sourceDist / 2;
-    const src2ScreenX = w / 2 + sourceDist / 2;
-    const srcY = h / 2;
-
-    // Source 1
-    ctx.fillStyle = "#6ad0ff";
-    ctx.beginPath();
-    ctx.arc(src1ScreenX, srcY, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "rgba(106, 208, 255, 0.3)";
-    ctx.beginPath();
-    ctx.arc(src1ScreenX, srcY, 10 + Math.sin(t * 0.15) * 3, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Source 2
-    ctx.fillStyle = "#6ad0ff";
-    ctx.beginPath();
-    ctx.arc(src2ScreenX, srcY, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "rgba(106, 208, 255, 0.3)";
-    ctx.beginPath();
-    ctx.arc(src2ScreenX, srcY, 10 + Math.sin(t * 0.15 + Math.PI) * 3, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Labels
-    ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-    ctx.font = "10px monospace";
-    ctx.textAlign = "center";
-    ctx.fillText("S₁", src1ScreenX, srcY - 16);
-    ctx.fillText("S₂", src2ScreenX, srcY - 16);
-
-    // Source distance line
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
-    ctx.lineWidth = 1;
-    ctx.setLineDash([3, 3]);
-    ctx.beginPath();
-    ctx.moveTo(src1ScreenX, srcY + 20);
-    ctx.lineTo(src2ScreenX, srcY + 20);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
-    ctx.font = "9px monospace";
-    ctx.fillText(`d = ${sourceDist}`, (src1ScreenX + src2ScreenX) / 2, srcY + 34);
-
-    // Wavelength indicator
-    ctx.fillStyle = "rgba(168, 173, 189, 0.5)";
-    ctx.font = "9px monospace";
-    ctx.textAlign = "right";
-    ctx.fillText(`λ = ${wavelength}`, w - 10, h - 10);
-  }, [wavelength, sourceDist]);
-
-  const animate = useCallback(() => {
-    timeRef.current += 1;
-    render();
-    if (isPlaying) {
-      animRef.current = requestAnimationFrame(animate);
-    }
-  }, [isPlaying, render]);
-
+    return true;
+  }, []);
+  const { canvasRef, render, stop } = useExperimentCanvas(draw, step, isPlaying, pause);
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    fitCanvasToDisplay(canvas);
-
-    imageDataRef.current = null;
-    render();
-  }, [render]);
-
-  useEffect(() => {
-    if (isPlaying) {
-      animRef.current = requestAnimationFrame(animate);
+    if (reducedMotion) {
+      stop();
+      pause();
     }
-    return () => cancelAnimationFrame(animRef.current);
-  }, [isPlaying, animate]);
+  }, [reducedMotion, stop, pause]);
 
-  const handleStart = () => {
-    if (prefersReducedMotion.current) {
-      render();
+  const toggle = () => {
+    if (isPlaying) {
+      stop();
+      pause();
+      setElapsed(timeRef.current);
       return;
     }
-    setIsPlaying(true);
+    if (reducedMotion) {
+      step(0.1);
+      setElapsed(timeRef.current);
+      render();
+    } else setIsPlaying(true);
   };
-
-  const handleReset = () => {
-    setIsPlaying(false);
+  const reset = () => {
+    stop();
+    pause();
     timeRef.current = 0;
-    imageDataRef.current = null;
+    uiClock.current = 0;
+    setElapsed(0);
     render();
   };
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[16/9] w-full overflow-hidden rounded-xl border">
-        <canvas ref={canvasRef} role="img" aria-label="波的干涉模拟" className="h-full w-full" />
-
-        <div className="bg-bg-panel/90 absolute top-3 right-3 rounded-lg px-3 py-2 backdrop-blur-sm">
-          <p className="text-accent-cool font-mono text-xs">波干涉图样</p>
-        </div>
+      <div className="border-fg-disabled/30 bg-bg-deep aspect-[16/9] w-full overflow-hidden rounded-xl border">
+        <canvas
+          ref={canvasRef}
+          role="img"
+          aria-label="两个同相相干圆波源的瞬时位移叠加，蓝色为正、金色为负、深色接近零"
+          className="h-full w-full"
+        />
       </div>
-
+      <p className="text-fg-muted text-xs">
+        瞬时位移：蓝色波峰 · 金色波谷 · 深色近零（非时间平均光强）
+      </p>
+      <p className="text-accent-cool font-mono text-xs" aria-live={isPlaying ? "off" : "polite"}>
+        时间：{elapsed.toFixed(1)} s
+      </p>
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <label className="text-fg-secondary w-16 text-xs">波长 λ</label>
+          <label
+            htmlFor={`${inputId}-wavelength`}
+            className="text-fg-secondary w-16 shrink-0 text-xs"
+          >
+            波长 λ
+          </label>
           <input
+            id={`${inputId}-wavelength`}
             type="range"
             min={15}
             max={60}
             value={wavelength}
-            onChange={(e) => {
-              setWavelength(Number(e.target.value));
-              imageDataRef.current = null;
-            }}
-            className="accent-accent-cool flex-1"
+            onChange={(e) => setWavelength(Number(e.target.value))}
+            className="accent-accent-cool min-w-0 flex-1"
           />
-          <span className="text-fg-muted w-10 text-right font-mono text-xs">{wavelength}</span>
+          <span className="text-fg-muted w-8 text-right font-mono text-xs">{wavelength}</span>
         </div>
         <div className="flex items-center gap-3">
-          <label className="text-fg-secondary w-16 text-xs">源距 d</label>
+          <label
+            htmlFor={`${inputId}-source-distance`}
+            className="text-fg-secondary w-16 shrink-0 text-xs"
+          >
+            源距 d
+          </label>
           <input
+            id={`${inputId}-source-distance`}
             type="range"
             min={30}
             max={200}
             value={sourceDist}
-            onChange={(e) => {
-              setSourceDist(Number(e.target.value));
-              imageDataRef.current = null;
-            }}
-            className="accent-accent-cool flex-1"
+            onChange={(e) => setSourceDist(Number(e.target.value))}
+            className="accent-accent-cool min-w-0 flex-1"
           />
-          <span className="text-fg-muted w-10 text-right font-mono text-xs">{sourceDist}</span>
+          <span className="text-fg-muted w-8 text-right font-mono text-xs">{sourceDist}</span>
         </div>
       </div>
-
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <button
-          onClick={isPlaying ? () => setIsPlaying(false) : handleStart}
+          onClick={toggle}
+          aria-pressed={isPlaying}
           className="bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? "暂停" : "开始干涉"}
+          {isPlaying ? "暂停" : reducedMotion ? "推进0.1秒" : elapsed > 0 ? "继续干涉" : "开始干涉"}
         </button>
         <button
-          onClick={handleReset}
+          onClick={reset}
           className="bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
           重置
         </button>
       </div>
-
-      <div className="border-accent-cool/20 bg-accent-cool/5 rounded-lg border p-3">
-        <p className="text-fg-secondary text-xs">
-          <span className="text-accent-cool font-medium">波的干涉：</span>
-          两个同频波源发出的波在空间中叠加。在某些区域，两列波峰相遇，
-          振幅相加形成明亮的加强干涉（相长干涉）；在另一些区域，波峰与波谷相遇，
-          振幅相互抵消形成暗纹（相消干涉）。调整波长和源距可以观察不同密度的干涉条纹。
+      <div className="border-accent-cool/20 bg-accent-cool/5 text-fg-secondary rounded-lg border p-3 text-xs leading-relaxed">
+        <p>
+          同频同相的连续圆波模型：u=A₁cos(kr₁−ωt)+A₂cos(kr₂−ωt)，k=2π/λ，ω=kv。波长、源距使用同一示意长度单位，波速固定为40单位/秒。振幅按远处圆波的1/√r趋势减小，在源附近作有限截断；忽略边界反射与色散。
         </p>
+        <p className="mt-2">
+          同相波源的路程差为整数倍波长时相长，为半整数倍波长时相消；只有等振幅时才能完全抵消。颜色显示已有稳态波场在某一时刻的位移，深色既可能来自干涉减弱，也可能是波正经过零位移。
+        </p>
+        <a
+          href="https://www.feynmanlectures.caltech.edu/I_29.html#Ch29-S5"
+          target="_blank"
+          rel="noreferrer"
+          className="text-accent-cool mt-2 inline-block underline"
+        >
+          Feynman讲义 · 两源叠加、振幅与强度
+        </a>
       </div>
     </div>
   );

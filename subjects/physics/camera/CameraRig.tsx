@@ -3,23 +3,23 @@
 import { OrbitControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { PerspectiveCamera, Vector3 } from "three";
+import type { UniverseTierId } from "@/subjects/physics/lib/tier";
 import { registerCameraRig, type CameraRigApi } from "./cameraRegistry";
-import { TIER_DEFAULT_DISTANCE } from "./tierFraming";
+import { useTierFraming, type OrbitHandle } from "./use-tier-framing";
 
-type OrbitHandle = {
-  enabled: boolean;
-  target: Vector3;
-  update: () => void;
-};
-
-export function CameraRig() {
+export function CameraRig({ tier }: { tier: UniverseTierId }) {
   const camera = useThree((state) => state.camera);
   const controlsRef = useRef<OrbitHandle | null>(null);
   const [userControl, setUserControl] = useState(true);
   const activeTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const activeTweensRef = useRef<Record<string, gsap.core.Tween>>({});
+  const stopCameraMotion = useCallback(() => {
+    activeTimelineRef.current?.kill();
+    Object.values(activeTweensRef.current).forEach((tween) => tween.kill());
+  }, []);
+  const { settleForTier, maxDistance } = useTierFraming(tier, controlsRef, stopCameraMotion);
 
   useEffect(() => {
     const getTarget = () => controlsRef.current?.target ?? new Vector3();
@@ -123,29 +123,7 @@ export function CameraRig() {
           },
         });
       },
-      settleForTier(tier, duration) {
-        const target = getTarget();
-        const wantedDistance = TIER_DEFAULT_DISTANCE[tier];
-        const offset = new Vector3().subVectors(camera.position, target);
-        if (offset.lengthSq() === 0) offset.set(0, 0, 1);
-        offset.normalize().multiplyScalar(wantedDistance);
-        const endPos = new Vector3().addVectors(target, offset);
-        if (duration <= 0) {
-          camera.position.copy(endPos);
-          camera.lookAt(target);
-          controlsRef.current?.update();
-          return;
-        }
-        activeTweensRef.current.settle?.kill();
-        activeTweensRef.current.settle = gsap.to(camera.position, {
-          x: endPos.x,
-          y: endPos.y,
-          z: endPos.z,
-          duration,
-          ease: "power2.inOut",
-          onComplete: () => controlsRef.current?.update(),
-        });
-      },
+      settleForTier,
     };
     const unregister = registerCameraRig(api);
     return () => {
@@ -155,7 +133,7 @@ export function CameraRig() {
       activeTweensRef.current = {};
       unregister();
     };
-  }, [camera]);
+  }, [camera, settleForTier]);
 
   return (
     <OrbitControls
@@ -164,7 +142,7 @@ export function CameraRig() {
       enableDamping
       dampingFactor={0.12}
       minDistance={1.2}
-      maxDistance={6}
+      maxDistance={maxDistance}
       enablePan={false}
       rotateSpeed={0.6}
     />

@@ -4,7 +4,6 @@ import { getTierContent } from "@/subjects/physics/lib/tier-content";
 import { Cartouche } from "../shared/Cartouche";
 import { HandwrittenLabel } from "../shared/HandwrittenLabel";
 import { HandwrittenMarker } from "../shared/HandwrittenMarker";
-import { InkPath } from "../shared/InkPath";
 import { StarSpeck } from "../shared/StarSpeck";
 
 const DISC_RADIUS = 420;
@@ -14,36 +13,6 @@ const RANGE_RINGS = [
   { ly: 25, label: "25 ly" },
   { ly: 50, label: "50 ly" },
 ];
-
-function buildAsterism(pts: Array<{ x: number; y: number }>): Array<{ d: string }> {
-  if (pts.length < 2) return [];
-  const edges: Array<{ d: string }> = [];
-  const visited = new Set<number>([0]);
-  let current = 0;
-  while (visited.size < pts.length && visited.size < 12) {
-    let bestJ = -1;
-    let bestD = Infinity;
-    const curr = pts[current];
-    if (!curr) break;
-    for (let j = 0; j < pts.length; j++) {
-      if (visited.has(j)) continue;
-      const candidate = pts[j];
-      if (!candidate) continue;
-      const d = Math.hypot(candidate.x - curr.x, candidate.y - curr.y);
-      if (d < bestD) {
-        bestD = d;
-        bestJ = j;
-      }
-    }
-    if (bestJ < 0) break;
-    const next = pts[bestJ];
-    if (!next) break;
-    edges.push({ d: `M${curr.x} ${curr.y} L${next.x} ${next.y}` });
-    visited.add(bestJ);
-    current = bestJ;
-  }
-  return edges;
-}
 
 const SPECTRAL_LEGEND = [
   { type: "O/B", color: "#a6c8ff", note: "蓝白热星" },
@@ -57,15 +26,11 @@ export function Tier5HwScene() {
   const content = getTierContent("T5");
   const markers = content?.markers ?? [];
 
-  // Map marker positions (unit sphere within ~0.5 of origin) to the disc
-  const projectStar = (pos: readonly [number, number, number]) => {
-    // T5 uses true Cartesian positions in pc; scale to disc.
-    const SCALE = 460;
-    return { x: pos[0] * SCALE, y: pos[2] * SCALE };
-  };
-
-  // Build asterism connections among the nearest few stars
-  const asterism = buildAsterism(markers.map((m) => projectStar(m.position)));
+  // Positions are dimensionless: one unit = 50 ly. Orthographic x-z projection.
+  const projectStar = (pos: readonly [number, number, number]) => ({
+    x: pos[0] * DISC_RADIUS,
+    y: pos[2] * DISC_RADIUS,
+  });
 
   return (
     <g>
@@ -129,41 +94,14 @@ export function Tier5HwScene() {
         opacity={0.5}
       />
 
-      {/* Asterism connecting the brightest neighbours */}
-      {asterism.map((edge, i) => (
-        <InkPath
-          key={i}
-          d={edge.d}
-          stroke="var(--hw-gold)"
-          strokeWidth={0.5}
-          dasharray="2 4"
-          opacity={0.5}
-          delay={0.8 + i * 0.06}
-          duration={0.7}
-        />
-      ))}
-
-      {/* Sun at centre */}
-      <g>
-        <circle cx={0} cy={0} r={16} fill="var(--hw-gold)" fillOpacity={0.18} />
-        <circle cx={0} cy={0} r={8} fill="var(--hw-gold)" />
-        <HandwrittenLabel
-          x={0}
-          y={-26}
-          text="☉ Sol"
-          variant="label-major"
-          italic
-          color="var(--hw-gold)"
-          delay={0.5}
-        />
-      </g>
+      {/* The Sun is rendered once by its data marker; this is only a diffuse halo. */}
+      <circle cx={0} cy={0} r={16} fill="var(--hw-gold)" fillOpacity={0.18} />
 
       {/* Markers — each is a star with spectral colour */}
       {markers.map((m, i) => {
         const p = projectStar(m.position);
-        // clamp inside disc
-        const px = Math.max(-440, Math.min(440, p.x));
-        const py = Math.max(-440, Math.min(440, p.y));
+        const px = p.x;
+        const py = p.y;
         return (
           <HandwrittenMarker
             key={m.id}
@@ -178,8 +116,8 @@ export function Tier5HwScene() {
       })}
       {markers.map((m, i) => {
         const p = projectStar(m.position);
-        const px = Math.max(-440, Math.min(440, p.x));
-        const py = Math.max(-440, Math.min(440, p.y));
+        const px = p.x;
+        const py = p.y;
         const dx = px === 0 ? 1 : Math.sign(px);
         return (
           <HandwrittenLabel
@@ -212,15 +150,42 @@ export function Tier5HwScene() {
 
       {/* Distance scale bar (bottom-right) */}
       <g transform="translate(220 420)">
-        <line x1={0} y1={0} x2={50} y2={0} stroke="var(--hw-ink)" strokeWidth={1.0} />
+        <line x1={0} y1={0} x2={DISC_RADIUS / 10} y2={0} stroke="var(--hw-ink)" strokeWidth={1.0} />
         <line x1={0} y1={-3} x2={0} y2={3} stroke="var(--hw-ink)" strokeWidth={1.0} />
-        <line x1={50} y1={-3} x2={50} y2={3} stroke="var(--hw-ink)" strokeWidth={1.0} />
-        <text x={25} y={-6} textAnchor="middle" className="hw-label-caption" fill="var(--hw-ink)">
+        <line
+          x1={DISC_RADIUS / 10}
+          y1={-3}
+          x2={DISC_RADIUS / 10}
+          y2={3}
+          stroke="var(--hw-ink)"
+          strokeWidth={1.0}
+        />
+        <text
+          x={DISC_RADIUS / 20}
+          y={-6}
+          textAnchor="middle"
+          className="hw-label-caption"
+          fill="var(--hw-ink)"
+        >
           5 ly
         </text>
       </g>
 
-      <Cartouche cx={0} cy={-460} title="Stellar Neighborhood" subtitle="恒星邻域 · 50 ly" />
+      <HandwrittenLabel
+        x={0}
+        y={-395}
+        text="精选近邻 · 赤道平面正投影"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <HandwrittenLabel
+        x={0}
+        y={-372}
+        text="投影距离不大于真实距离；点大小为示意"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <Cartouche cx={0} cy={-460} title="Stellar Neighborhood" subtitle="恒星邻域 · 半径50 ly" />
     </g>
   );
 }

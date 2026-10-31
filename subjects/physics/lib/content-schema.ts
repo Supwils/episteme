@@ -108,7 +108,8 @@ export const tierContentSchema = z
       .array(narrativeSectionSchema)
       .min(3, "tier needs at least 3 narrative sections")
       .max(8),
-    sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources").max(10),
+    // References scroll independently; a count cap would exclude sources for distinct claims.
+    sources: z.array(sourceRefSchema).min(2, "tier needs at least 2 cited sources"),
     markers: z.array(sceneMarkerSchema).min(1).max(20).optional(),
     relatedArticles: z
       .array(z.object({ href: z.string().min(1), title: z.string().min(1) }))

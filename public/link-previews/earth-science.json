@@ -4,6 +4,11 @@
     "e": "升温与累计 CO₂ 排放近似成比例，所以长期升温取决于累计排放何时停止增加；剩余碳预算离不开温度阈值、概率与非 CO₂ 假设这些限定词。",
     "d": "earth-science"
   },
+  "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer": {
+    "t": "气候代用指标不是温度计",
+    "e": "冰芯气泡、树轮宽度和有孔虫壳体的氧同位素都不是直接读出的气温。解释这些记录需要现代观测、实验或物理模型的校准与验证，超出校准范围的推断要标明为推断。",
+    "d": "earth-science"
+  },
   "/earth-science/climate-risks/compound-climate-risks": {
     "t": "复合气候风险：当多个危险同时或连续发生",
     "e": "热浪叠加干旱、海平面叠加风暴潮，这类复合事件的损失并非几场灾害相加，而是变量依赖、基础设施耦合与社会脆弱性共同放大的结果。",
@@ -109,9 +114,24 @@
     "e": "桂林的孤峰与溶洞主要靠弱酸的化学溶解，而非水流冲刷；喀斯特从落水洞、天坑到峰林，还构成养活大量人口的含水层。",
     "d": "earth-science"
   },
+  "/earth-science/concepts/magnitude-is-not-intensity": {
+    "t": "震级不是烈度",
+    "e": "震级描述震源释放的大小，同一次地震可以用不同震级标度估计，结果也可能随资料修订。烈度描述各地点的震动后果，修正麦加利烈度用罗马数字写出感觉和建筑物损坏，远处可以较低。",
+    "d": "earth-science"
+  },
   "/earth-science/concepts/map-projections": {
     "t": "地图投影",
     "e": "球面无法无失真地摊平，任何投影都要在面积、形状、距离与方向之间取舍；问题不是哪张图对，而是它为保住什么牺牲了什么。",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/milankovitch-is-not-a-season": {
+    "t": "米兰科维奇周期不是季节",
+    "e": "地球轨道有偏心率、地轴倾角和岁差三种缓慢变化，尺度在数万至数十万年级。季节只是一年里的日照变化。轨道变化不代替温室气体，轨道强迫与温室气体反馈可以参与同一段冰期变化，不能按时间尺度把两者隔开。",
+    "d": "earth-science"
+  },
+  "/earth-science/concepts/mineral-is-not-a-rock": {
+    "t": "矿物不是岩石",
+    "e": "矿物通常是由地质过程天然形成、具有一定化学成分和有序内部结构的固体，石英是矿物。岩石通常是一种或多种矿物的集合体，也可以主要由天然玻璃等非晶质物质构成，花岗岩可以同时含有石英、长石和云母。",
     "d": "earth-science"
   },
   "/earth-science/concepts/mineral-resources-and-critical-metals": {
@@ -522,6 +542,11 @@
   "/earth-science/processes/groundwater-aquifers": {
     "t": "地下水与含水层",
     "e": "墨西哥城约六成饮用水抽自含水层，部分地段每年下沉多达 50 厘米且几乎不可逆；地下水存于孔隙而非地下湖，按达西定律流动。",
+    "d": "earth-science"
+  },
+  "/earth-science/processes/isostasy-is-a-float": {
+    "t": "地壳均衡是一种浮力平衡",
+    "e": "艾里用深根解释山，像冰山；普拉特用较低的地壳密度解释同一块大地测量异常。两者都是均衡，板块构造则解释水平运动，二者可以同时使用。",
     "d": "earth-science"
   },
   "/earth-science/processes/marine-biogeochemistry": {

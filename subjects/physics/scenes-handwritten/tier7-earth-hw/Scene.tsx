@@ -1,7 +1,7 @@
 "use client";
 
 import { getTierContent } from "@/subjects/physics/lib/tier-content";
-import { hash01, projectToSvg } from "@/subjects/physics/lib/handwritten-coords";
+import { hash01 } from "@/subjects/physics/lib/handwritten-coords";
 import { Cartouche } from "../shared/Cartouche";
 import { HandwrittenLabel } from "../shared/HandwrittenLabel";
 import { HandwrittenMarker } from "../shared/HandwrittenMarker";
@@ -59,18 +59,13 @@ export function Tier7HwScene() {
     });
   }
 
-  // Markers use a custom radial scaling: keep them inside the moon orbit but
-  // outside the GEO ring. Positions in content/T7 span ~0 to 6.6 in scene units.
-  const projectMarker = (pos: readonly [number, number, number]) => {
-    const p = projectToSvg(pos, { projection: "orthographic", scale: 28 });
-    const r = Math.hypot(p.x, p.y);
-    // clamp inside (EARTH_R+70, EARTH_R+80) ring band for markers far from origin
-    const maxR = EARTH_R + 75;
-    if (r > maxR) {
-      const k = maxR / r;
-      return { x: p.x * k, y: p.y * k };
-    }
-    return p;
+  const markerPositions: Record<string, { x: number; y: number }> = {
+    "earth-surface": { x: 0, y: -EARTH_R },
+    atmosphere: { x: -180, y: -170 },
+    geostationary: { x: 285 * Math.cos(-Math.PI / 4), y: 285 * Math.sin(-Math.PI / 4) },
+    moon: { x: EARTH_R + 90, y: 0 },
+    "inner-core": { x: 0, y: 0 },
+    "plate-tectonics": { x: -100, y: 80 },
   };
 
   return (
@@ -164,11 +159,10 @@ export function Tier7HwScene() {
         opacity={0.6}
       />
       <HandwrittenLabel
-        x={EARTH_R + 6}
-        y={4}
+        x={0}
+        y={20}
         text="Equator"
         variant="hairline"
-        anchor="start"
         color="var(--hw-ink-soft)"
         delay={1.2}
       />
@@ -185,11 +179,10 @@ export function Tier7HwScene() {
         opacity={0.6}
       />
       <HandwrittenLabel
-        x={EARTH_R + 70}
-        y={-EARTH_R - 50}
-        text="GEO · 35,786 km"
+        x={0}
+        y={-EARTH_R - 90}
+        text="GEO · 距地面35,786 km"
         variant="hairline"
-        anchor="start"
         color="var(--hw-blue)"
         delay={1.4}
       />
@@ -204,7 +197,7 @@ export function Tier7HwScene() {
               cx={0}
               cy={0}
               rx={moonOrbitX}
-              ry={moonOrbitX * 0.34}
+              ry={moonOrbitX}
               fill="none"
               stroke="var(--hw-ink-soft)"
               strokeWidth={0.6}
@@ -270,15 +263,14 @@ export function Tier7HwScene() {
 
       {/* Markers */}
       {markers.map((m, i) => {
-        const p = projectMarker(m.position);
-        const px = Math.max(-440, Math.min(440, p.x));
-        const py = Math.max(-440, Math.min(440, p.y));
+        const position = markerPositions[m.id];
+        if (!position) return null;
         return (
           <HandwrittenMarker
             key={m.id}
             marker={m}
-            x={px}
-            y={py}
+            x={position.x}
+            y={position.y}
             radius={4 + (m.size ?? 0.1) * 60}
             variant="pin"
             delay={1.8 + i * 0.1}
@@ -286,7 +278,8 @@ export function Tier7HwScene() {
         );
       })}
 
-      <Cartouche cx={0} cy={-460} title="Earth" subtitle="地球 · 12,742 km" />
+      <HandwrittenLabel x={0} y={400} text="大小与距离非同比例 · 大陆轮廓示意" variant="hairline" />
+      <Cartouche cx={0} cy={-460} title="Earth" subtitle="地球 · 平均直径约12,742 km" />
     </g>
   );
 }

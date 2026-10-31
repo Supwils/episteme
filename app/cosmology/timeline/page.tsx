@@ -31,7 +31,7 @@ export default function CosmologyTimelinePage() {
           宇宙时间线
         </h1>
         <p className="text-fg-secondary max-w-2xl text-lg">
-          从大爆炸到今天，138 亿年宇宙演化史的关键节点。
+          从早期宇宙到今天，约138亿年演化史的线索。年龄依基准宇宙学模型推断；各阶段可以重叠，节点间距不代表时长。
         </p>
       </header>
 
@@ -62,6 +62,23 @@ export default function CosmologyTimelinePage() {
                     </span>
                   ))}
                 </div>
+                <ul
+                  aria-label={`${era.name.primary}参考来源`}
+                  className="mt-4 space-y-2 text-xs leading-relaxed"
+                >
+                  {era.sources.map((source) => (
+                    <li key={source.url}>
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent-cool underline underline-offset-2"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}

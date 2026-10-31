@@ -2,7 +2,7 @@
  * Star-point vertex shader.
  *
  * Per-vertex attributes:
- *   aSize       — point size in absolute pixels (before distance attenuation)
+ *   aSize       — point size in CSS pixels at the default camera distance (3 scene units)
  *   aTemp       — spectral temperature 0 (cool/blue) → 1 (warm/red)
  *   aBrightness — brightness multiplier 0..1
  *
@@ -24,7 +24,7 @@ varying float vBrightness;
 void main() {
   vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mvPosition;
-  gl_PointSize = aSize * uSizeMultiplier * uPixelRatio * (300.0 / -mvPosition.z);
+  gl_PointSize = aSize * uSizeMultiplier * uPixelRatio * (3.0 / max(-mvPosition.z, 0.01));
   gl_PointSize = max(gl_PointSize, 1.0);
 
   vTemp = aTemp;

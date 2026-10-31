@@ -25,6 +25,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "accretion-disks-relativistic-jets":
     "/cosmology/knowledge-base/致密天体--accretion-disks-relativistic-jets",
   "acid-base-neutralization": "/chemistry/reactions/acid-base-neutralization",
+  "acid-strength-is-not-concentration": "/chemistry/concepts/acid-strength-is-not-concentration",
   "acids-and-bases": "/chemistry/concepts/acids-and-bases",
   "acoustic-phonetics": "/linguistics/sounds-and-signs/acoustic-phonetics",
   "action-potential": "/medicine/concepts/action-potential",
@@ -85,6 +86,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "algorithmic-game-theory": "/computer-science/theory/algorithmic-game-theory",
   "algorithmic-management-worker-power": "/sociology/frontier/algorithmic-management-worker-power",
   alienation: "/philosophy/concepts/alienation",
+  "alliance-is-a-treaty": "/political-science/international-relations/alliance-is-a-treaty",
   "alliances-and-nato": "/political-science/international-relations/alliances-and-nato",
   "alzheimer-amyloid-immunotherapy": "/medicine/frontier/alzheimer-amyloid-immunotherapy",
   "alzheimers-disease": "/medicine/diseases/alzheimers-disease",
@@ -309,6 +311,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "brain-in-vat": "/philosophy/experiments/brain-in-vat",
   "brain-plasticity-guide": "/psychology/knowledge-base/brain-plasticity-guide",
   "bretton-woods": "/economics/case-studies/bretton-woods",
+  "bridewealth-is-not-a-sale": "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale",
   bridges: "/engineering/civil/bridges",
   "british-columbia-carbon-tax": "/economics/policy-analyses/british-columbia-carbon-tax",
   "british-doctors-study": "/medicine/events/british-doctors-study",
@@ -328,6 +331,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "bunsen-kirchhoff-1860-cesium": "/chemistry/milestones/bunsen-kirchhoff-1860-cesium",
   buoyancy: "/universe-physics/knowledge-base/物理学--buoyancy",
   "burden-of-disease-daly-qaly": "/medicine/public-health/burden-of-disease-daly-qaly",
+  "burden-of-proof-is-a-risk": "/law/foundations/burden-of-proof-is-a-risk",
   bureaucracy: {
     "political-science": "/political-science/institutions/bureaucracy",
     sociology: "/sociology/institutions/bureaucracy",
@@ -377,6 +381,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "carole-pateman": "/political-science/thinkers/carole-pateman",
   "cascadia-1700-orphan-tsunami": "/earth-science/event-analyses/cascadia-1700-orphan-tsunami",
   "case-selection-and-small-n": "/political-science/methods/case-selection-and-small-n",
+  "case-study-is-not-an-anecdote": "/political-science/methods/case-study-is-not-an-anecdote",
   "cassini-2003-shapiro": "/universe-physics/knowledge-base/相对论--cassini-2003-shapiro",
   "cast-arrhythmia-suppression-trial": "/medicine/trial-analyses/cast-arrhythmia-suppression-trial",
   "castro-liskov-1999-pbft": "/computer-science/theory/castro-liskov-1999-pbft",
@@ -404,6 +409,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "cepheids-variable-stars": "/cosmology/knowledge-base/恒星物理--cepheids-variable-stars",
   "ceramics-and-glaze": "/arts/media/ceramics-and-glaze",
   "chadwick-1932-neutron": "/universe-physics/knowledge-base/核物理--chadwick-1932-neutron",
+  "chaine-operatoire-is-a-sequence":
+    "/anthropology/material-culture/chaine-operatoire-is-a-sequence",
   "challenger-o-ring-organizational-failure":
     "/engineering/frontiers/challenger-o-ring-organizational-failure",
   chalmers: "/philosophy/thinkers/chalmers",
@@ -478,6 +485,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "climate-litigation-attribution-remedies":
     "/law/frontier/climate-litigation-attribution-remedies",
   "climate-modeling": "/earth-science/processes/climate-modeling",
+  "climate-proxy-is-not-a-thermometer":
+    "/earth-science/climate-risks/climate-proxy-is-not-a-thermometer",
   "climate-risk-cultural-heritage": "/arts/frontier/climate-risk-cultural-heritage",
   "climate-tipping-points": "/earth-science/frontier/climate-tipping-points",
   "clinical-diagnosis": "/medicine/concepts/clinical-diagnosis",
@@ -509,6 +518,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/sociology/methods/coleman-report-educational-opportunity-analysis",
   "collaborative-indigenous-archaeology":
     "/anthropology/comparison-and-ethics/collaborative-indigenous-archaeology",
+  "collage-is-a-construction": "/arts/media/collage-is-a-construction",
   "collapse-and-resilience": "/anthropology/prehistory-and-archaeology/collapse-and-resilience",
   "collision-theory": "/chemistry/concepts/collision-theory",
   "colonial-curriculum-and-language":
@@ -524,6 +534,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/economics/case-studies/commodity-exporters-fiscal-rules-sovereign-wealth-funds-2026",
   "commodity-exporters-macro-diagnosis-2026":
     "/economics/case-studies/commodity-exporters-macro-diagnosis-2026",
+  "common-mode-failure": "/engineering/frontiers/common-mode-failure",
   "commons-governance": "/economics/concepts/commons-governance",
   "communication-complexity": "/computer-science/theory/communication-complexity",
   communism: "/political-science/isms/communism",
@@ -606,6 +617,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "constructivism-ir": "/political-science/international-relations/constructivism-ir",
   "consumer-protection": "/law/private-law/consumer-protection",
   "consumer-surplus": "/economics/concepts/consumer-surplus",
+  "contact-tracing-is-a-case-tool": "/medicine/public-health/contact-tracing-is-a-case-tool",
   "containers-and-orchestration": "/computer-science/concepts/containers-and-orchestration",
   containment: "/political-science/international-relations/containment",
   "content-analysis": "/sociology/methods/content-analysis",
@@ -684,6 +696,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "csikszentmihalyi-pagers": "/psychology/experiments/csikszentmihalyi-pagers",
   "ct-mri": "/medicine/technologies/ct-mri",
   "cultural-psychology": "/psychology/knowledge-base/cultural-psychology",
+  "cultural-relativism-is-a-method":
+    "/anthropology/culture-and-method/cultural-relativism-is-a-method",
   "culture-is-not-race": "/anthropology/culture-and-method/culture-is-not-race",
   "curatorial-practice": "/arts/methods/curatorial-practice",
   "curie-1898-polonium-radium": "/chemistry/milestones/curie-1898-polonium-radium",
@@ -743,9 +757,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "degrasse-tyson-sagan": "/cosmology/dialogues/degrasse-tyson-sagan",
   "degrowth-vs-green-growth": "/economics/frontier/degrowth-vs-green-growth",
   deinococcus: "/life-science/species/deinococcus",
+  "delegation-keeps-a-principle": "/law/public-law/delegation-keeps-a-principle",
   deleuze: "/philosophy/thinkers/deleuze",
   "deliberative-democracy": "/political-science/concepts/deliberative-democracy",
   "delivery-semantics": "/computer-science/concepts/delivery-semantics",
+  "demand-characteristics": "/psychology/methods/demand-characteristics",
   dementia: "/psychology/disorders/dementia",
   "demers-1987-epidemic": "/computer-science/systems/demers-1987-epidemic",
   democracy: {
@@ -786,7 +802,9 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/universe-physics/knowledge-base/电磁学--dielectrics-and-polarization",
   "diels-alder-1928": "/chemistry/milestones/diels-alder-1928",
   "diels-alder-reaction": "/chemistry/reactions/diels-alder-reaction",
+  "dietary-rules-are-boundaries": "/religion/comparative-religion/dietary-rules-are-boundaries",
   "difference-in-differences": "/political-science/methods/difference-in-differences",
+  "differential-diagnosis-is-a-list": "/medicine/concepts/differential-diagnosis-is-a-list",
   "differential-equation": "/mathematics/concepts/differential-equation",
   "differential-geometry": "/mathematics/concepts/differential-geometry",
   "differential-privacy": "/computer-science/theory/differential-privacy",
@@ -839,6 +857,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "dopamine-system": "/psychology/phenomena/dopamine-system",
   "dorothy-hodgkin": "/chemistry/figures/dorothy-hodgkin",
   "dot-com-bubble": "/economics/case-studies/dot-com-bubble",
+  "double-jeopardy-is-a-bar": "/law/criminal-and-procedure/double-jeopardy-is-a-bar",
   "douglas-engelbart": "/computer-science/pioneers/douglas-engelbart",
   "douglass-north": "/economics/economists/douglass-north",
   "drama-and-performance-text": "/literature/poetics-and-form/drama-and-performance-text",
@@ -965,6 +984,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   epistemology: "/philosophy/schools/epistemology",
   "epr-1935-completeness": "/philosophy/experiments/epr-1935-completeness",
   equality: "/political-science/concepts/equality",
+  "equilibrium-constant-is-not-a-rate": "/chemistry/reactions/equilibrium-constant-is-not-a-rate",
   "eratosthenes-earth-circumference": "/mathematics/concepts/eratosthenes-earth-circumference",
   "ergodic-theory": "/mathematics/concepts/ergodic-theory",
   "erich-fromm": "/psychology/theorists/erich-fromm",
@@ -1030,6 +1050,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "eyjafjallajokull-ash-crisis-2010":
     "/earth-science/event-analyses/eyjafjallajokull-ash-crisis-2010",
   "eyring-1935-absolute-rate": "/chemistry/milestones/eyring-1935-absolute-rate",
+  "factor-of-safety-is-a-margin": "/engineering/foundations/factor-of-safety-is-a-margin",
   "failed-and-fragile-states":
     "/political-science/international-relations/failed-and-fragile-states",
   "failure-analysis": "/engineering/frontiers/failure-analysis",
@@ -1048,7 +1069,9 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "fast-fourier-transform": "/computer-science/algorithms/fast-fourier-transform",
   "fast-radio-bursts": "/cosmology/knowledge-base/多信使天文学--fast-radio-bursts",
   "fatigue-and-fracture": "/engineering/foundations/fatigue-and-fracture",
+  "fatigue-is-repeated-stress": "/engineering/materials/fatigue-is-repeated-stress",
   federalism: "/political-science/institutions/federalism",
+  "feedback-is-a-correction": "/engineering/machines/feedback-is-a-correction",
   "fei-fei-li": "/computer-science/pioneers/fei-fei-li",
   "fei-xiaotong": "/sociology/thinkers/fei-xiaotong",
   feminism: {
@@ -1111,6 +1134,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "foreign-exchange": "/economics/concepts/foreign-exchange",
   "forensic-linguistics": "/linguistics/methods-and-frontiers/forensic-linguistics",
   "forex-basics": "/economics/knowledge-base/forex-basics",
+  "forgery-and-connoisseurship": "/arts/methods/forgery-and-connoisseurship",
   "formal-analysis": "/arts/methods/formal-analysis",
   "formal-epistemology-and-bayesianism": "/philosophy/frontier/formal-epistemology-and-bayesianism",
   "formal-grammars-chomsky-hierarchy": "/computer-science/theory/formal-grammars-chomsky-hierarchy",
@@ -1139,6 +1163,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "fraunhofer-1817-dark-lines": "/universe-physics/knowledge-base/光学--fraunhofer-1817-dark-lines",
   "frederick-sanger": "/chemistry/figures/frederick-sanger",
   "free-association": "/psychology/experiments/free-association",
+  "free-indirect-style": "/literature/poetics-and-form/free-indirect-style",
   "free-market-vs-intervention": "/economics/debates/free-market-vs-intervention",
   "free-trade-fair-trade": "/economics/debates/free-trade-fair-trade",
   "free-will-debate": "/psychology/debates/free-will-debate",
@@ -1278,6 +1303,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "grace-hopper": "/computer-science/pioneers/grace-hopper",
   "gradient-boosting": "/computer-science/algorithms/gradient-boosting",
   "gradient-descent-backprop": "/computer-science/algorithms/gradient-descent-backprop",
+  "grading-on-a-curve-is-a-ranking":
+    "/education/assessment-and-equity/grading-on-a-curve-is-a-ranking",
   "graebe-liebermann-1868-alizarin": "/chemistry/milestones/graebe-liebermann-1868-alizarin",
   "grammar-theories": "/linguistics/words-sentences-meaning/grammar-theories",
   "graph-theory": "/mathematics/concepts/graph-theory",
@@ -1319,6 +1346,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "habitable-worlds-observatory":
     "/cosmology/knowledge-base/天体生物学--habitable-worlds-observatory",
   "habitable-zone": "/cosmology/knowledge-base/天体生物学--habitable-zone",
+  "habituation-is-not-fatigue": "/psychology/phenomena/habituation-is-not-fatigue",
   "haldane-effect": "/medicine/concepts/haldane-effect",
   "half-life": "/universe-physics/knowledge-base/物理学--half-life",
   hamilton: "/life-science/scientists/hamilton",
@@ -1484,6 +1512,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "inclusion-exclusion": "/mathematics/theorems/inclusion-exclusion",
   "inclusive-education-and-disability":
     "/education/assessment-and-equity/inclusive-education-and-disability",
+  "incubation-is-not-latency": "/medicine/concepts/incubation-is-not-latency",
   "independent-versus-uncorrelated": "/mathematics/concepts/independent-versus-uncorrelated",
   "india-growth-employment-constraints-2026":
     "/economics/case-studies/india-growth-employment-constraints-2026",
@@ -1557,6 +1586,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
     "/political-science/international-relations/international-order-hegemony",
   intersectionality: "/sociology/concepts/intersectionality",
   "interstellar-objects": "/cosmology/frontier/interstellar-objects",
+  "intertextuality-is-not-plagiarism":
+    "/literature/theory-and-method/intertextuality-is-not-plagiarism",
   "inverted-spectrum": "/philosophy/experiments/inverted-spectrum",
   "io-psychology": "/psychology/knowledge-base/io-psychology",
   "iq-malleability": "/psychology/debates/iq-malleability",
@@ -1571,6 +1602,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   islamism: "/political-science/isms/islamism",
   "isolation-anomalies": "/computer-science/concepts/isolation-anomalies",
   isomerism: "/chemistry/concepts/isomerism",
+  "isostasy-is-a-float": "/earth-science/processes/isostasy-is-a-float",
+  "isotope-is-the-same-element": "/chemistry/concepts/isotope-is-the-same-element",
   "ivan-pavlov": "/psychology/theorists/ivan-pavlov",
   jackson: "/philosophy/thinkers/jackson",
   "jacob-monod-1961": "/life-science/knowledge-base/分子生物学--jacob-monod-1961",
@@ -1662,6 +1695,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "kin-selection": "/life-science/knowledge-base/kin-selection",
   "kinetic-theory-of-gases": "/universe-physics/knowledge-base/热力学--kinetic-theory-of-gases",
   "kinship-terminology": "/anthropology/kinship-and-exchange/kinship-terminology",
+  "kitsch-is-a-judgment": "/arts/aesthetics/kitsch-is-a-judgment",
   "klein-winnicott-play": "/psychology/dialogues/klein-winnicott-play",
   "knapsack-problem": "/computer-science/algorithms/knapsack-problem",
   "knot-theory": "/mathematics/concepts/knot-theory",
@@ -1743,6 +1777,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   legalism: "/philosophy/schools/legalism",
   legislatures: "/political-science/institutions/legislatures",
   legitimacy: "/political-science/concepts/legitimacy",
+  "legitimacy-is-not-legality": "/political-science/concepts/legitimacy-is-not-legality",
   "lehmann-1936-inner-core": "/earth-science/event-analyses/lehmann-1936-inner-core",
   "lehrer-paxson-1969": "/philosophy/experiments/lehrer-paxson-1969",
   leibniz: {
@@ -1830,6 +1865,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "lucene-inverted-index": "/computer-science/systems/lucene-inverted-index",
   lucretius: "/philosophy/thinkers/lucretius",
   "luria-delbruck-fluctuation": "/life-science/knowledge-base/luria-delbruck-fluctuation",
+  "lyric-is-not-confession": "/literature/poetics-and-form/lyric-is-not-confession",
   "mabo-v-queensland-native-title": "/law/judgment-analyses/mabo-v-queensland-native-title",
   "machine-learning-overview": "/computer-science/concepts/machine-learning-overview",
   "machine-learning-psychology": "/psychology/methods/machine-learning-psychology",
@@ -1837,6 +1873,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "magna-carta-source-analysis": "/human-history/source-analyses/magna-carta-source-analysis",
   "magnetar-flares": "/cosmology/knowledge-base/致密天体--magnetar-flares",
   magnetars: "/cosmology/knowledge-base/致密天体--magnetars",
+  "magnitude-is-not-intensity": "/earth-science/concepts/magnitude-is-not-intensity",
   "main-sequence-stars": "/cosmology/knowledge-base/恒星物理--main-sequence-stars",
   "major-depressive": "/psychology/disorders/major-depressive",
   malaria: "/medicine/diseases/malaria",
@@ -1951,6 +1988,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "migration-and-refugee-politics":
     "/political-science/international-relations/migration-and-refugee-politics",
   "mihaly-csikszentmihalyi": "/psychology/theorists/mihaly-csikszentmihalyi",
+  "milankovitch-is-not-a-season": "/earth-science/concepts/milankovitch-is-not-a-season",
   "milgram-obedience": "/psychology/experiments/milgram-obedience",
   "milky-way-structure": "/cosmology/knowledge-base/星系天文学--milky-way-structure",
   mill: "/philosophy/thinkers/mill",
@@ -1962,6 +2000,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "milutin-milankovitch": "/earth-science/pioneers/milutin-milankovitch",
   "minamata-1956-methylmercury": "/earth-science/event-analyses/minamata-1956-methylmercury",
   "mindfulness-science": "/psychology/knowledge-base/mindfulness-science",
+  "mineral-is-not-a-rock": "/earth-science/concepts/mineral-is-not-a-rock",
   "mineral-resources-and-critical-metals":
     "/earth-science/concepts/mineral-resources-and-critical-metals",
   minerals: "/earth-science/concepts/minerals",
@@ -1989,6 +2028,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "momentum-conservation-collisions":
     "/universe-physics/knowledge-base/经典物理--momentum-conservation-collisions",
   monarchy: "/political-science/institutions/monarchy",
+  "monastic-rules-are-institutions":
+    "/religion/religion-and-society/monastic-rules-are-institutions",
   monetarism: "/economics/theories/monetarism",
   "monetarist-school": "/economics/schools/monetarist-school",
   "money-and-central-banking-history":
@@ -2009,6 +2050,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "moral-hazard": "/economics/concepts/moral-hazard",
   "moral-judgment": "/psychology/phenomena/moral-judgment",
   "moral-luck": "/philosophy/concepts/moral-luck",
+  "moral-panic-is-a-campaign": "/sociology/concepts/moral-panic-is-a-campaign",
   "moral-realism-debate": "/philosophy/questions/moral-realism-debate",
   "moray-1959": "/psychology/experiments/moray-1959",
   "morgan-1910-white-eye": "/life-science/knowledge-base/morgan-1910-white-eye",
@@ -2188,6 +2230,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "organometallic-chemistry": "/chemistry/concepts/organometallic-chemistry",
   "origin-of-writing": "/linguistics/writing-systems/origin-of-writing",
   "original-position": "/philosophy/experiments/original-position",
+  "ornament-and-crime-is-an-essay": "/arts/architecture/ornament-and-crime-is-an-essay",
   "orogeny-mountain-building": "/earth-science/processes/orogeny-mountain-building",
   osmosis: "/universe-physics/knowledge-base/物理学--osmosis",
   other: "/philosophy/concepts/other",
@@ -2223,6 +2266,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "pasteur-swan-neck-flask": "/life-science/knowledge-base/pasteur-swan-neck-flask",
   "pastry-2001": "/computer-science/systems/pastry-2001",
   pathology: "/medicine/concepts/pathology",
+  "patronage-before-the-gallery": "/arts/aesthetics/patronage-before-the-gallery",
   "patterson-and-hennessy": "/computer-science/pioneers/patterson-and-hennessy",
   "paul-ehrlich": "/medicine/figures/paul-ehrlich",
   "paul-krugman": "/economics/economists/paul-krugman",
@@ -2316,6 +2360,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "plato-political-philosophy": "/political-science/thinkers/plato-political-philosophy",
   platonism: "/philosophy/schools/platonism",
   "platos-cave": "/philosophy/experiments/platos-cave",
+  "play-is-a-practice": "/education/learning-foundations/play-is-a-practice",
   "plot-character-conflict": "/literature/narrative-basics/plot-character-conflict",
   plotinus: "/philosophy/thinkers/plotinus",
   poincare: "/mathematics/mathematicians/poincare",
@@ -2384,11 +2429,14 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   printmaking: "/arts/media/printmaking",
   "priority-inversion": "/computer-science/concepts/priority-inversion",
   "privacy-engineering": "/computer-science/concepts/privacy-engineering",
+  "privatization-is-not-disappearance":
+    "/religion/secularization/privatization-is-not-disappearance",
   probability: "/mathematics/concepts/probability",
   "procedural-justice": "/law/criminal-and-procedure/procedural-justice",
   "process-safety": "/chemistry/methods/process-safety",
   "process-scale-up": "/chemistry/methods/process-scale-up",
   "process-tracing": "/political-science/methods/process-tracing",
+  "profession-is-a-closure": "/sociology/institutions/profession-is-a-closure",
   "programming-language-design": "/computer-science/concepts/programming-language-design",
   progressivism: "/political-science/isms/progressivism",
   "project-and-configuration-control": "/engineering/machines/project-and-configuration-control",
@@ -2486,6 +2534,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "reaction-kinetics": "/chemistry/concepts/reaction-kinetics",
   "reaction-mechanisms": "/chemistry/concepts/reaction-mechanisms",
   "reading-and-dyslexia": "/linguistics/acquisition-and-mind/reading-and-dyslexia",
+  "readymade-and-the-institution": "/arts/foundations/readymade-and-the-institution",
   "real-estate-economics": "/economics/concepts/real-estate-economics",
   "real-estate-guide": "/economics/knowledge-base/real-estate-guide",
   "real-time-systems": "/computer-science/concepts/real-time-systems",
@@ -2502,6 +2551,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "red-giants-agb": "/cosmology/knowledge-base/恒星物理--red-giants-agb",
   "redis-single-threaded": "/computer-science/systems/redis-single-threaded",
   "redox-reactions": "/chemistry/concepts/redox-reactions",
+  "redundancy-is-an-alternate-path": "/engineering/civil/redundancy-is-an-alternate-path",
   "referendums-and-direct-democracy":
     "/political-science/institutions/referendums-and-direct-democracy",
   "reform-and-revival": "/religion/religious-history/reform-and-revival",
@@ -2614,6 +2664,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "safety-engineering": "/engineering/frontiers/safety-engineering",
   "salk-1954-polio-trial": "/medicine/events/salk-1954-polio-trial",
   "saltzer-reed-clark-1984": "/computer-science/theory/saltzer-reed-clark-1984",
+  "salvage-ethnography-and-its-limit":
+    "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit",
   "sampling-and-absence": "/anthropology/comparison-and-ethics/sampling-and-absence",
   "samuel-huntington": "/political-science/thinkers/samuel-huntington",
   "samuel-pufendorf": "/political-science/thinkers/samuel-pufendorf",
@@ -2815,6 +2867,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "stare-decisis": "/law/legal-traditions/stare-decisis",
   state: "/philosophy/concepts/state",
   "state-capacity": "/political-science/concepts/state-capacity",
+  "state-dependent-memory": "/psychology/phenomena/state-dependent-memory",
   statesman: "/philosophy/dialogues/statesman",
   "statistical-learning-theory-pac": "/computer-science/theory/statistical-learning-theory-pac",
   "statistical-mechanics-boltzmann":
@@ -2838,6 +2891,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   stethoscope: "/medicine/technologies/stethoscope",
   "steve-wozniak": "/computer-science/pioneers/steve-wozniak",
   "steven-pinker": "/psychology/theorists/steven-pinker",
+  "stigma-is-a-relation": "/sociology/concepts/stigma-is-a-relation",
   "stochastic-process": "/mathematics/concepts/stochastic-process",
   "stock-market-explained": "/economics/knowledge-base/stock-market-explained",
   "stock-valuation": "/economics/concepts/stock-valuation",
@@ -2862,6 +2916,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   sublime: "/philosophy/concepts/sublime",
   substance: "/philosophy/concepts/substance",
   "suffix-trees-and-arrays": "/computer-science/algorithms/suffix-trees-and-arrays",
+  "summer-setback-is-not-one-number":
+    "/education/comparison-and-policy/summer-setback-is-not-one-number",
   "sun-yat-sen": "/political-science/thinkers/sun-yat-sen",
   "sunk-cost-fallacy": "/psychology/phenomena/sunk-cost-fallacy",
   "super-kamiokande-1998-atmospheric":
@@ -2876,6 +2932,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "support-vector-machines": "/computer-science/algorithms/support-vector-machines",
   "surface-and-colloid-chemistry": "/chemistry/concepts/surface-and-colloid-chemistry",
   surgery: "/medicine/concepts/surgery",
+  "survey-is-not-the-population": "/sociology/methods/survey-is-not-the-population",
   "survey-public-opinion-measurement":
     "/political-science/methods/survey-public-opinion-measurement",
   "survey-research": "/sociology/methods/survey-research",
@@ -2907,6 +2964,8 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "tcp-and-reliable-transport": "/computer-science/concepts/tcp-and-reliable-transport",
   "teacher-education-is-preparation":
     "/education/learning-foundations/teacher-education-is-preparation",
+  "teacher-expectation-is-not-a-measure":
+    "/education/learning-foundations/teacher-expectation-is-not-a-measure",
   "teacher-labor-and-platforms": "/education/education-technology/teacher-labor-and-platforms",
   "teaching-is-not-pouring": "/education/learning-foundations/teaching-is-not-pouring",
   "technology-and-skill": "/anthropology/material-culture/technology-and-skill",
@@ -2947,8 +3006,11 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "thomas-schelling": "/economics/economists/thomas-schelling",
   thomson: "/philosophy/thinkers/thomson",
   "thomson-1897-cathode-ray": "/universe-physics/knowledge-base/原子物理--thomson-1897-cathode-ray",
+  "three-age-system-is-not-a-ladder":
+    "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder",
   "three-dialogues": "/philosophy/dialogues/three-dialogues",
   "three-mile-island-porv-indicator": "/engineering/frontiers/three-mile-island-porv-indicator",
+  "three-teachings-are-not-one": "/religion/comparative-religion/three-teachings-are-not-one",
   "tibetan-medicine": "/medicine/traditions/tibetan-medicine",
   "tidal-disruption-events": "/cosmology/knowledge-base/致密天体--tidal-disruption-events",
   "tidal-locking": "/earth-science/concepts/tidal-locking",
@@ -2979,6 +3041,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "trade-theory": "/economics/theories/trade-theory",
   "traditional-african-medicine": "/medicine/traditions/traditional-african-medicine",
   "traditional-chinese-medicine": "/medicine/traditions/traditional-chinese-medicine",
+  "tragedy-is-not-a-sad-story": "/literature/poetics-and-form/tragedy-is-not-a-sad-story",
   "tragedy-of-commons": "/economics/concepts/tragedy-of-commons",
   transcendentalism: "/philosophy/isms/transcendentalism",
   transference: "/psychology/phenomena/transference",
@@ -2990,6 +3053,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "trauma-and-ptsd": "/psychology/knowledge-base/trauma-and-ptsd",
   "tree-of-life-phylogenetics": "/life-science/knowledge-base/进化机制--tree-of-life-phylogenetics",
   "treisman-1960": "/psychology/experiments/treisman-1960",
+  "triage-is-a-sorting-rule": "/medicine/public-health/triage-is-a-sorting-rule",
   trigonometry: "/mathematics/concepts/trigonometry",
   "trolley-problem": "/philosophy/experiments/trolley-problem",
   truth: "/philosophy/concepts/truth",
@@ -3078,6 +3142,7 @@ export const WIKI_LINK_INDEX: Record<string, WikiLinkTarget> = {
   "vygotsky-zone": "/psychology/phenomena/vygotsky-zone",
   "w-e-b-du-bois": "/sociology/thinkers/w-e-b-du-bois",
   "wadati-benioff-zone": "/earth-science/event-analyses/wadati-benioff-zone",
+  "wait-time-is-a-pause": "/education/curriculum-and-teaching/wait-time-is-a-pause",
   wallace: "/life-science/scientists/wallace",
   "wallace-broecker": "/earth-science/pioneers/wallace-broecker",
   "walter-mischel": "/psychology/theorists/walter-mischel",

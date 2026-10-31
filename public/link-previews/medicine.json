@@ -34,6 +34,11 @@
     "e": "“混杂是健康使用者和未分开的伴生差别被写成暴露的效果。它不是随机已经完成的证明，也不能把一个镇的率当成人类常数。”",
     "d": "medicine"
   },
+  "/medicine/concepts/differential-diagnosis-is-a-list": {
+    "t": "鉴别诊断是一张清单",
+    "e": "鉴别诊断是同一组表现下的多种解释，再按先验可能性和检验特性缩短。排除或确认必须结合检测前概率、灵敏度与特异度，不能单凭一项指标或口诀。",
+    "d": "medicine"
+  },
   "/medicine/concepts/digestive-system": {
     "t": "消化系统",
     "e": "活体消化道从口到肛门约 5 米，而非教科书常写的 9 米；消化靠酶级联在不同 pH 下逐段激活，营养经小肠吸收后由门静脉送往肝脏。",
@@ -112,6 +117,11 @@
   "/medicine/concepts/incidence-and-prevalence": {
     "t": "发病率与患病率",
     "e": "“发病率量的是一段时间内新病例的速度，患病率量的是某时点正在患病的比例。两者都不是疾病负担，也不能互相代替。”",
+    "d": "medicine"
+  },
+  "/medicine/concepts/incubation-is-not-latency": {
+    "t": "潜伏期不是窗口期",
+    "e": "潜伏期从感染记到症状，可传染期记能够传给别人的时间，窗口期记检测还不能显示感染。三段的起止可以错开。癌症文献里的潜伏期要另标病种。",
     "d": "medicine"
   },
   "/medicine/concepts/inflammation": {
@@ -634,6 +644,11 @@
     "e": "有一家诊所不等于有人得到有效照护，从需要到恢复的照护级联处处有流失；去机构化若缺少住房、基层团队与危机服务，只会把负担转给家庭。",
     "d": "medicine"
   },
+  "/medicine/public-health/contact-tracing-is-a-case-tool": {
+    "t": "接触者追踪是病例工具",
+    "e": "接触者追踪从已发现的病例出发，寻找可能被暴露的人，以便检测、隔离或治疗。单位是病例和暴露。天花的围堵接种是特定计划。信息改作他用就离开病例工具。",
+    "d": "medicine"
+  },
   "/medicine/public-health/environmental-occupational-health": {
     "t": "环境与职业健康：从暴露到预防",
     "e": "多数环境与职业暴露由能源、交通、住房与劳动制度塑造；危害、暴露与风险必须区分，预防应优先在源头消除，而不是让个人独自防护。",
@@ -667,6 +682,11 @@
   "/medicine/public-health/maternal-child-health-life-course": {
     "t": "妇幼健康与生命周期方法",
     "e": "妇幼健康不只是分娩当天的一次服务；生命周期方法把青春期营养、孕前健康、产前与产后照护连成一体，并用三延误模型分析孕产妇死亡。",
+    "d": "medicine"
+  },
+  "/medicine/public-health/triage-is-a-sorting-rule": {
+    "t": "分诊是一条排序规则",
+    "e": "拉雷在拿破仑战争期间按谁需要立即处理来排序伤者，不按军衔。分诊按临床紧急程度安排评估和治疗先后，日常急诊和大规模伤亡现场都使用它。标准写成制度文本，第一次分类可以改。",
     "d": "medicine"
   },
   "/medicine/public-health/vaccine-policy-programs-hesitancy": {

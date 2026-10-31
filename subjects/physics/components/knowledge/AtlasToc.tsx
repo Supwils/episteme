@@ -32,7 +32,7 @@ export function AtlasToc({ sections, anchorPrefix, scrollContainer }: Props) {
         const idx = Number(visible.target.getAttribute("data-toc-idx"));
         if (!Number.isNaN(idx)) setActive(idx);
       },
-      { root: scrollContainer, rootMargin: "-15% 0px -70% 0px", threshold: 0 },
+      { root: scrollContainer, rootMargin: "-15% 0px -70% 0px", threshold: 0 }
     );
     sections.forEach((_, i) => {
       const el = document.getElementById(`${anchorPrefix}-${i}`);
@@ -55,7 +55,7 @@ export function AtlasToc({ sections, anchorPrefix, scrollContainer }: Props) {
   return (
     <nav
       aria-label="Atlas table of contents"
-      className="border-fg-disabled/25 bg-bg-deep/65 sticky top-0 z-[1] -mx-7 -mt-5 mb-3 flex flex-col gap-1.5 border-b px-7 py-3 backdrop-blur-md"
+      className="border-fg-disabled/25 bg-bg-deep sticky top-0 z-[1] -mx-7 -mt-5 mb-3 flex flex-col gap-1.5 border-b px-7 py-3"
     >
       <div className="flex items-center gap-1.5 overflow-x-auto">
         <span className="text-fg-muted shrink-0 font-mono text-[9px] tracking-[0.32em] uppercase">
@@ -71,7 +71,7 @@ export function AtlasToc({ sections, anchorPrefix, scrollContainer }: Props) {
               "ease-product shrink-0 rounded-md px-2 py-1 font-mono text-[10px] tracking-[0.18em] uppercase transition-colors duration-150",
               i === active
                 ? "bg-accent-warm/15 text-fg-primary"
-                : "text-fg-muted hover:bg-bg-elevated/40 hover:text-fg-secondary",
+                : "text-fg-muted hover:bg-bg-elevated/40 hover:text-fg-secondary"
             )}
             title={s.heading}
           >

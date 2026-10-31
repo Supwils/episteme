@@ -726,7 +726,7 @@ function checkProseHygiene(): { errors: number; warnings: number } {
     // 4) Fragmented prose: >60% of prose paragraphs under 40 CJK chars reads
     //    like slide bullets, not an article (mirror of scripts/audit-fragmented-prose.mjs).
     //    Exclusions: blocks that lead into a formula/code/table/list/quote block
-    //    (legit lead-ins), human-history `标题：` page-subtitle lines, and the
+    //    (legit lead-ins), footnote definitions, human-history `标题：` page-subtitle lines, and the
     //    human-history KB editorial meta docs (internal documents, not articles).
     if (
       !/human-history\/knowledge-base\/(索引|内容深度规范|项目规划|开发规范|工程守则|审校工作台)\.md$/.test(
@@ -748,7 +748,11 @@ function checkProseHygiene(): { errors: number; warnings: number } {
         .map((b, i) => [b, i] as const)
         .filter(
           ([b]) =>
-            /[一-鿿]/.test(b) && !/^[#>|\-*\d`$]/.test(b) && !b.includes("|") && !/^标题：/.test(b)
+            /[一-鿿]/.test(b) &&
+            !/^[#>|\-*\d`$]/.test(b) &&
+            !/^\[\^/.test(b) &&
+            !b.includes("|") &&
+            !/^标题：/.test(b)
         );
       if (prose.length >= 8) {
         const short = prose.filter(

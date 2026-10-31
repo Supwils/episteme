@@ -74,9 +74,19 @@
     "e": "1603 年第一四开本《哈姆雷特》、1623 年对开本与臧懋循编刻的《元曲选》，都是可以默读的印刷品；演出则是只发生一次的事件。剧本不等于戏。",
     "d": "literature"
   },
+  "/literature/poetics-and-form/free-indirect-style": {
+    "t": "自由间接文体不是作者插嘴",
+    "e": "自由间接文体把叙述语法和人物评价叠在同一句里。《爱玛》出版在先，巴利后来才用术语固定它。科恩把它当作呈现意识的技术，班菲尔德从语法与非交际叙述理论解释它。讽刺与意识应当并列，不能互相取消。",
+    "d": "literature"
+  },
   "/literature/poetics-and-form/genre-as-contract": {
     "t": "文类是一种约定",
     "e": "书被放进“言情”或“恐怖”的格子，读者还没翻开就知道该怎样读。文类不像“哺乳动物”那样的自然种类，更像写读双方默许的合同：违约能被认出来，正说明合同先在。",
+    "d": "literature"
+  },
+  "/literature/poetics-and-form/lyric-is-not-confession": {
+    "t": "抒情不是自白",
+    "e": "抒情诗里的「我」不自动等于作者生平的逐字记录，也不必一律被假定为虚构人物。钟嵘写的是物感与舞咏，华兹华斯把喷涌和事后重温放在同一段，后来的细读则拒绝用日记替换诗行。",
     "d": "literature"
   },
   "/literature/poetics-and-form/metaphor-and-image": {
@@ -97,6 +107,11 @@
   "/literature/poetics-and-form/novel-as-a-form": {
     "t": "小说作为一种形式",
     "e": "瓦特 1957 年的《小说的兴起》只谈笛福、理查逊与菲尔丁，而《堂吉诃德》两部分别印于 1605 与 1615 年，“小说”在《汉书·艺文志》里先是目录分类。谁发明了小说无法对质。",
+    "d": "literature"
+  },
+  "/literature/poetics-and-form/tragedy-is-not-a-sad-story": {
+    "t": "悲剧不是一个悲伤的结局",
+    "e": "亚里士多德把悲剧定义为对严肃、完整、有一定长度的行动的摹仿。过失不等于后来所谓的性格缺陷。悲伤的结局、宣泄或澄清，都没有独占这个定义。黑格尔对《安提戈涅》的读法是他的解释。",
     "d": "literature"
   },
   "/literature/reading-and-reception/fandom-and-secondary-creation": {
@@ -132,6 +147,11 @@
   "/literature/theory-and-method/comparative-literature-method": {
     "t": "比较文学的方法",
     "e": "歌德 1827 年 1 月 31 日谈 Weltliteratur，说的是期刊、翻译与各国互相看见的书信市场，不是一份名额均等的必读书单。比较文学被写成手续的，是影响的文献链与类比的条件。",
+    "d": "literature"
+  },
+  "/literature/theory-and-method/intertextuality-is-not-plagiarism": {
+    "t": "互文不是抄袭",
+    "e": "互文描述用典、戏仿和续写，抄袭涉及冒充他人成果，版权则涉及另一套法律判断。克里斯蒂娃在1960年代借巴赫金的对话提出这个词。热奈特为跨文本关系再作分类。一次戏仿可以同时是互文，并在版权期内越界。",
     "d": "literature"
   },
   "/literature/theory-and-method/narratology": {

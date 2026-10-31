@@ -24,6 +24,11 @@
     "e": "旺西纳 1961 年的《论口头传统》问的是：没有欧洲式官文书的社会，是否仍有可被批评方法处理的历史证据。特鲁约 1995 年的《使过去沉默》追问沉默在哪些档案环节被制造。",
     "d": "anthropology"
   },
+  "/anthropology/comparison-and-ethics/salvage-ethnography-and-its-limit": {
+    "t": "抢救民族志的限度",
+    "e": "抢救民族志赶在被认为即将消失的文化之前做记录。社区常常还在，记录却把他们写成已经属于过去。德洛里亚批评这种关系。档案可以核对，但不是社区的全部现在。",
+    "d": "anthropology"
+  },
   "/anthropology/comparison-and-ethics/sampling-and-absence": {
     "t": "取样与缺失",
     "e": "考古报告里的“未见”不自动等于古代没有。希弗 1976 与 1987 年的形成过程理论指出，考古记录是经过丢弃、回收、扰动与腐烂之后，仍被写成记录的那一部分。",
@@ -32,6 +37,11 @@
   "/anthropology/culture-and-method/anthropological-comparison": {
     "t": "人类学的比较",
     "e": "1890 年弗雷泽的《金枝》把世界各地的习俗剪贴到巫术—宗教—科学的阶梯上；六年后博厄斯发表《人类学比较方法的限度》。比较是有成本的方法，不是给文明打分的天平。",
+    "d": "anthropology"
+  },
+  "/anthropology/culture-and-method/cultural-relativism-is-a-method": {
+    "t": "文化相对主义是一种方法",
+    "e": "文化相对主义在这里是一种方法：先用当地范畴理解，再做比较。博厄斯拒绝欧洲阶梯。本尼迪克特写文化的模式。这种方法不等于任何伤害都可以接受，也不是怎么都行。",
     "d": "anthropology"
   },
   "/anthropology/culture-and-method/culture-is-not-race": {
@@ -79,6 +89,11 @@
     "e": "2018 年萨尔—萨瓦报告之后，2022 年德国承诺移交 1130 件贝宁青铜器所有权，史密森尼移交 29 件，霍尼曼博物馆无条件移交 72 件。2020 年代改变的是归还的速度与公开性。",
     "d": "anthropology"
   },
+  "/anthropology/kinship-and-exchange/bridewealth-is-not-a-sale": {
+    "t": "聘礼不是买人",
+    "e": "聘礼从新郎一方亲属流向新娘一方亲属，并创立持续的权利要求。嫁妆常从新娘的原生家庭转移给她或新家户。古迪与坦比亚指出，仅比较方向不足以解释制度。努尔人的牛群转移并不结束关系。这不是买人。",
+    "d": "anthropology"
+  },
   "/anthropology/kinship-and-exchange/descent-and-alliance": {
     "t": "继嗣与联姻",
     "e": "1949 年福特斯的《塔伦西人的亲属之网》与列维-斯特劳斯的《亲属关系的基本结构》几乎同时出版，一边强调继嗣群体如何延续，一边把婚姻写成群体间的交换。继嗣是规则，不是血液。",
@@ -107,6 +122,11 @@
   "/anthropology/kinship-and-exchange/property-and-persons": {
     "t": "财产与人",
     "e": "梅因 1861 年在《古代法》里提出“从身份到契约”。民族志与法制史记录显示，财产往往是一束可分开的资格：谁能使用、继承、抵押、永久转让，常常不是同一个人。",
+    "d": "anthropology"
+  },
+  "/anthropology/material-culture/chaine-operatoire-is-a-sequence": {
+    "t": "操作链是工序",
+    "e": "操作链描述取料、成形、修整、使用和废弃的手势顺序。它用来追问技能如何被学习、哪一步留下痕迹。它不是民族性格测验。同一种原料上可以走出不同的链。考古推断必须标成推断。",
     "d": "anthropology"
   },
   "/anthropology/material-culture/cloth-and-value": {
@@ -167,6 +187,11 @@
   "/anthropology/prehistory-and-archaeology/stratigraphy-and-context": {
     "t": "地层与出土情境",
     "e": "展柜里的陶罐在发掘报告里首先是一个编号：来自哪个堆积单位，压在哪一层上，与哪些碎骨炭粒同出。出土情境是可核对的位置、基质与共出关系；地层也不是一年一层的生日蛋糕。",
+    "d": "anthropology"
+  },
+  "/anthropology/prehistory-and-archaeology/three-age-system-is-not-a-ladder": {
+    "t": "三期论不是世界阶梯",
+    "e": "汤姆森 1836 年用丹麦馆藏把器物分成石器、青铜和铁。这是一套博物馆分类和相对顺序。它不是每个社会必须依次爬完的楼梯，也不是摩尔根那种社会阶段论。",
     "d": "anthropology"
   },
   "/anthropology/urban-and-heritage/anthropology-of-the-contemporary": {

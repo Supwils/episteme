@@ -188,7 +188,7 @@ export function UniverseWebGL({ initialTier, onContextLost }: Props) {
       >
         <color attach="background" args={["#000000"]} />
         <ActiveScene initialTier={initialTier} onSceneReady={handleSceneReady} />
-        <CameraRig />
+        <CameraRig tier={initialTier} />
         <RendererSampler onSample={setSample} />
         {postFxRequested ? (
           <Suspense fallback={null}>

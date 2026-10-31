@@ -1,453 +1,214 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useExperimentReducedMotion } from "./use-experiment-reduced-motion";
 import { cn } from "@/subjects/physics/lib/cn";
-import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
+import { TORSION, torsionResponse } from "./classic-experiment-models";
+import { useExperimentCanvas } from "./use-experiment-canvas";
+
+type Point = { x: number; y: number };
+function drawMass(ctx: CanvasRenderingContext2D, point: Point, radius: number, large: boolean) {
+  const gradient = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, radius);
+  gradient.addColorStop(0, large ? "#ffb45a" : "#6ad0ff");
+  gradient.addColorStop(1, large ? "#a8651c" : "#1f5fa8");
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(point.x, point.y, radius, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillStyle = "#ecf0ff";
+  ctx.font = "11px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(large ? "M" : "m", point.x, point.y + 4);
+}
+function drawForce(ctx: CanvasRenderingContext2D, from: Point, toward: Point) {
+  const angle = Math.atan2(toward.y - from.y, toward.x - from.x);
+  const end = { x: from.x + (toward.x - from.x) * 0.75, y: from.y + (toward.y - from.y) * 0.75 };
+  ctx.strokeStyle = "rgba(255,180,90,.65)";
+  ctx.fillStyle = ctx.strokeStyle;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(from.x, from.y);
+  ctx.lineTo(end.x, end.y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(end.x, end.y);
+  ctx.lineTo(end.x - 5 * Math.cos(angle - 0.5), end.y - 5 * Math.sin(angle - 0.5));
+  ctx.lineTo(end.x - 5 * Math.cos(angle + 0.5), end.y - 5 * Math.sin(angle + 0.5));
+  ctx.fill();
+}
+function drawBalance(ctx: CanvasRenderingContext2D, w: number, h: number, seconds: number) {
+  const { angle } = torsionResponse(seconds);
+  const visualAngle = angle * TORSION.visualGain;
+  const center = { x: w * 0.5, y: h * 0.48 };
+  const arm = w * 0.22;
+  const approach = Math.min(1, seconds / TORSION.approachSeconds);
+  const offset = h * 0.35 * (1 - approach) + arm * 0.5 * approach;
+  ctx.fillStyle = "#060814";
+  ctx.fillRect(0, 0, w, h);
+  ctx.strokeStyle = "rgba(168,173,189,.4)";
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(center.x - arm, center.y);
+  ctx.lineTo(center.x + arm, center.y);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  const small = [-1, 1].map((sign) => ({
+    x: center.x + sign * arm * Math.cos(visualAngle),
+    y: center.y + sign * arm * Math.sin(visualAngle),
+  }));
+  const large = [-1, 1].map((sign) => ({ x: center.x + sign * arm, y: center.y + sign * offset }));
+  ctx.strokeStyle = "#a8adbd";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(small[0]!.x, small[0]!.y);
+  ctx.lineTo(small[1]!.x, small[1]!.y);
+  ctx.stroke();
+  for (let i = 0; i < 2; i++) {
+    if (seconds >= TORSION.approachSeconds) drawForce(ctx, small[i]!, large[i]!);
+    drawMass(ctx, large[i]!, Math.min(18, w * 0.05), true);
+    drawMass(ctx, small[i]!, Math.min(10, w * 0.026), false);
+  }
+  ctx.fillStyle = "#ecf0ff";
+  ctx.beginPath();
+  ctx.arc(center.x, center.y, 3, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillStyle = "#b4bdcc";
+  ctx.font = "11px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("俯视 · 悬丝垂直于图面", center.x, h * 0.08);
+  ctx.fillText("引力矩与悬丝回复力矩平衡", center.x, h * 0.94);
+  ctx.fillStyle = "#ffb45a";
+  ctx.fillText(`图示偏角 ${((visualAngle * 180) / Math.PI).toFixed(2)}°`, center.x, h * 0.8);
+}
 
 export function CavendishExperiment({ className }: { className?: string }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animRef = useRef<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [wireTwist, setWireTwist] = useState(0);
   const [elapsed, setElapsed] = useState(0);
-  const [phase, setPhase] = useState<"approaching" | "attracting" | "measured">("approaching");
-  const startTimeRef = useRef(0);
-  const twistRef = useRef(0);
-  const largeAngleRef = useRef(0);
-  const prefersReducedMotion = useRef(
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const clock = useRef(0);
+  const uiClock = useRef(0);
+  const reduceMotion = useExperimentReducedMotion();
+  const pause = useCallback(() => setIsPlaying(false), []);
+  const draw = useCallback(
+    (ctx: CanvasRenderingContext2D, w: number, h: number) => drawBalance(ctx, w, h, clock.current),
+    []
   );
-
-  const getLayout = useCallback((w: number, h: number) => {
-    const centerX = w * 0.5;
-    const centerY = h * 0.35;
-    const armLength = w * 0.18;
-    const smallMassR = 12;
-    const largeMassR = 20;
-    const largeMassDist = w * 0.28;
-
-    return {
-      centerX,
-      centerY,
-      armLength,
-      smallMassR,
-      largeMassR,
-      largeMassDist,
-      wireTop: h * 0.05,
-    };
+  const step = useCallback((seconds: number) => {
+    clock.current = Math.min(TORSION.endSeconds, clock.current + seconds);
+    uiClock.current += seconds;
+    const finished = clock.current >= TORSION.endSeconds;
+    if (uiClock.current >= 0.1 || finished) {
+      setElapsed(clock.current);
+      uiClock.current = 0;
+    }
+    return !finished;
   }, []);
-
-  const drawWire = useCallback(
-    (ctx: CanvasRenderingContext2D, w: number, h: number, twist: number) => {
-      const layout = getLayout(w, h);
-
-      // Wire from ceiling
-      ctx.strokeStyle = "rgba(168, 173, 189, 0.6)";
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(layout.centerX, layout.wireTop);
-      ctx.lineTo(layout.centerX, layout.centerY);
-      ctx.stroke();
-
-      // Wire label
-      ctx.fillStyle = "rgba(168, 173, 189, 0.5)";
-      ctx.font = "9px monospace";
-      ctx.textAlign = "left";
-      ctx.fillText("细金属丝", layout.centerX + 8, layout.wireTop + 20);
-    },
-    [getLayout]
-  );
-
-  const drawArm = useCallback(
-    (ctx: CanvasRenderingContext2D, w: number, h: number, twist: number) => {
-      const layout = getLayout(w, h);
-      const twistRad = (twist * Math.PI) / 180;
-
-      // Arm
-      ctx.save();
-      ctx.translate(layout.centerX, layout.centerY);
-      ctx.rotate(twistRad);
-
-      ctx.strokeStyle = "rgba(168, 173, 189, 0.7)";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(-layout.armLength, 0);
-      ctx.lineTo(layout.armLength, 0);
-      ctx.stroke();
-
-      // Small masses (on arm ends)
-      const smallGrad1 = ctx.createRadialGradient(
-        -layout.armLength,
-        0,
-        0,
-        -layout.armLength,
-        0,
-        layout.smallMassR
-      );
-      smallGrad1.addColorStop(0, "#6ad0ff");
-      smallGrad1.addColorStop(1, "#1f5fa8");
-      ctx.fillStyle = smallGrad1;
-      ctx.beginPath();
-      ctx.arc(-layout.armLength, 0, layout.smallMassR, 0, Math.PI * 2);
-      ctx.fill();
-
-      const smallGrad2 = ctx.createRadialGradient(
-        layout.armLength,
-        0,
-        0,
-        layout.armLength,
-        0,
-        layout.smallMassR
-      );
-      smallGrad2.addColorStop(0, "#6ad0ff");
-      smallGrad2.addColorStop(1, "#1f5fa8");
-      ctx.fillStyle = smallGrad2;
-      ctx.beginPath();
-      ctx.arc(layout.armLength, 0, layout.smallMassR, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Small mass labels
-      ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
-      ctx.font = "8px monospace";
-      ctx.textAlign = "center";
-      ctx.fillText("m", -layout.armLength, layout.smallMassR + 12);
-      ctx.fillText("m", layout.armLength, layout.smallMassR + 12);
-
-      ctx.restore();
-    },
-    [getLayout]
-  );
-
-  const drawLargeMasses = useCallback(
-    (ctx: CanvasRenderingContext2D, w: number, h: number, angle: number) => {
-      const layout = getLayout(w, h);
-      const angleRad = (angle * Math.PI) / 180;
-
-      // Large masses (positioned to attract small masses)
-      const lm1X = layout.centerX - layout.largeMassDist * Math.cos(angleRad);
-      const lm1Y = layout.centerY + layout.largeMassDist * Math.sin(angleRad) * 0.3;
-      const lm2X = layout.centerX + layout.largeMassDist * Math.cos(angleRad);
-      const lm2Y = layout.centerY + layout.largeMassDist * Math.sin(angleRad) * 0.3;
-
-      const drawMass = (x: number, y: number) => {
-        const grad = ctx.createRadialGradient(x, y, 0, x, y, layout.largeMassR);
-        grad.addColorStop(0, "#ffb45a");
-        grad.addColorStop(1, "#a8651c");
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(x, y, layout.largeMassR, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Label
-        ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
-        ctx.font = "9px monospace";
-        ctx.textAlign = "center";
-        ctx.fillText("M", x, y + 4);
-      };
-
-      drawMass(lm1X, lm1Y);
-      drawMass(lm2X, lm2Y);
-
-      // Gravitational attraction arrows
-      if (isPlaying && phase === "attracting") {
-        ctx.save();
-        ctx.strokeStyle = "rgba(255, 180, 90, 0.3)";
-        ctx.lineWidth = 1;
-        ctx.setLineDash([3, 3]);
-
-        // Arrow from large mass toward small mass
-        const smallLeft =
-          layout.centerX - layout.armLength * Math.cos((twistRef.current * Math.PI) / 180);
-        const smallTop =
-          layout.centerY + layout.armLength * Math.sin((twistRef.current * Math.PI) / 180) * 0.3;
-
-        ctx.beginPath();
-        ctx.moveTo(lm1X, lm1Y);
-        ctx.lineTo(smallLeft, smallTop);
-        ctx.stroke();
-
-        const smallRight =
-          layout.centerX + layout.armLength * Math.cos((twistRef.current * Math.PI) / 180);
-        const smallBottom =
-          layout.centerY - layout.armLength * Math.sin((twistRef.current * Math.PI) / 180) * 0.3;
-
-        ctx.beginPath();
-        ctx.moveTo(lm2X, lm2Y);
-        ctx.lineTo(smallRight, smallBottom);
-        ctx.stroke();
-
-        ctx.setLineDash([]);
-        ctx.restore();
-      }
-
-      // Labels
-      ctx.fillStyle = "rgba(168, 173, 189, 0.5)";
-      ctx.font = "9px monospace";
-      ctx.textAlign = "center";
-      ctx.fillText("大铅球", lm1X, lm1Y + layout.largeMassR + 14);
-      ctx.fillText("大铅球", lm2X, lm2Y + layout.largeMassR + 14);
-    },
-    [getLayout, isPlaying, phase]
-  );
-
-  const drawAngleScale = useCallback(
-    (ctx: CanvasRenderingContext2D, w: number, h: number, twist: number) => {
-      const layout = getLayout(w, h);
-
-      // Angle scale around the wire attachment point
-      const scaleR = 30;
-      ctx.strokeStyle = "rgba(168, 173, 189, 0.2)";
-      ctx.lineWidth = 1;
-
-      // Arc
-      ctx.beginPath();
-      ctx.arc(layout.centerX, layout.centerY, scaleR, -Math.PI * 0.8, Math.PI * 0.8);
-      ctx.stroke();
-
-      // Tick marks
-      for (let deg = -30; deg <= 30; deg += 10) {
-        const rad = (deg * Math.PI) / 180;
-        const inner = scaleR - 4;
-        const outer = scaleR + 4;
-        ctx.beginPath();
-        ctx.moveTo(
-          layout.centerX + Math.cos(rad - Math.PI / 2) * inner,
-          layout.centerY + Math.sin(rad - Math.PI / 2) * inner
-        );
-        ctx.lineTo(
-          layout.centerX + Math.cos(rad - Math.PI / 2) * outer,
-          layout.centerY + Math.sin(rad - Math.PI / 2) * outer
-        );
-        ctx.stroke();
-      }
-
-      // Current angle indicator
-      const twistRad = (twist * Math.PI) / 180;
-      ctx.fillStyle = "#ffb45a";
-      ctx.beginPath();
-      ctx.arc(
-        layout.centerX + Math.cos(twistRad - Math.PI / 2) * scaleR,
-        layout.centerY + Math.sin(twistRad - Math.PI / 2) * scaleR,
-        3,
-        0,
-        Math.PI * 2
-      );
-      ctx.fill();
-
-      // Angle readout
-      ctx.fillStyle = "#ffb45a";
-      ctx.font = "11px monospace";
-      ctx.textAlign = "center";
-      ctx.fillText(`θ = ${twist.toFixed(4)}°`, layout.centerX, layout.centerY + 50);
-    },
-    [getLayout]
-  );
-
-  const render = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const { w, h } = cssCanvasSize(canvas);
-
-    ctx.clearRect(0, 0, w, h);
-
-    // Background
-    const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, "#060814");
-    grad.addColorStop(1, "#0f1320");
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, w, h);
-
-    drawWire(ctx, w, h, twistRef.current);
-    drawArm(ctx, w, h, twistRef.current);
-    drawLargeMasses(ctx, w, h, largeAngleRef.current);
-    drawAngleScale(ctx, w, h, twistRef.current);
-  }, [drawWire, drawArm, drawLargeMasses, drawAngleScale]);
-
-  const animate = useCallback(() => {
-    const now = Date.now();
-    const dt = (now - startTimeRef.current) / 1000;
-    setElapsed(dt);
-
-    // Very slow, delicate motion
-    // Phase 1: Large masses approach (0-3s)
-    // Phase 2: Gravitational attraction causes twist (3-15s)
-    // Phase 3: Equilibrium / measurement (15s+)
-
-    if (dt < 3) {
-      // Approaching phase
-      largeAngleRef.current = 45 * (1 - dt / 3);
-      setPhase("approaching");
-    } else if (dt < 15) {
-      // Attraction phase - slow exponential approach
-      largeAngleRef.current = 0;
-      const t = dt - 3;
-      const maxTwist = 0.15; // Very small angle (realistic)
-      const tau = 4; // Time constant
-      twistRef.current = maxTwist * (1 - Math.exp(-t / tau));
-      setPhase("attracting");
-    } else {
-      // Measured
-      largeAngleRef.current = 0;
-      twistRef.current = 0.15 * (1 - Math.exp(-12 / 4));
-      setPhase("measured");
-    }
-
-    setWireTwist(twistRef.current);
-
-    render();
-    if (isPlaying) {
-      animRef.current = requestAnimationFrame(animate);
-    }
-  }, [isPlaying, render]);
-
+  const { canvasRef, render, stop } = useExperimentCanvas(draw, step, isPlaying, pause);
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    fitCanvasToDisplay(canvas);
-
-    render();
-  }, [render]);
-
-  useEffect(() => {
-    if (isPlaying) {
-      startTimeRef.current = Date.now();
-      animRef.current = requestAnimationFrame(animate);
+    if (reduceMotion) {
+      stop();
+      pause();
+      setElapsed(clock.current);
     }
-    return () => cancelAnimationFrame(animRef.current);
-  }, [isPlaying, animate]);
-
-  const handleStart = () => {
-    if (prefersReducedMotion.current) {
-      largeAngleRef.current = 0;
-      twistRef.current = 0.15 * (1 - Math.exp(-12 / 4));
-      setWireTwist(twistRef.current);
-      setPhase("measured");
+  }, [reduceMotion, pause, stop]);
+  const reset = () => {
+    stop();
+    pause();
+    clock.current = 0;
+    uiClock.current = 0;
+    setElapsed(0);
+    render();
+  };
+  const start = () => {
+    if (reduceMotion) {
+      clock.current = TORSION.endSeconds;
+      setElapsed(clock.current);
       render();
       return;
     }
-    twistRef.current = 0;
-    largeAngleRef.current = 45;
-    setWireTwist(0);
-    setElapsed(0);
-    setPhase("approaching");
+    if (clock.current >= TORSION.endSeconds) {
+      clock.current = 0;
+      setElapsed(0);
+    }
     setIsPlaying(true);
   };
-
-  const handleReset = () => {
-    setIsPlaying(false);
-    twistRef.current = 0;
-    largeAngleRef.current = 0;
-    setWireTwist(0);
-    setElapsed(0);
-    setPhase("approaching");
-    render();
-  };
-
-  const phaseLabels = {
-    approaching: "大铅球正在靠近...",
-    attracting: "引力使细丝扭转...",
-    measured: "测量完成！",
-  };
-
-  const phaseColors = {
-    approaching: "text-fg-secondary",
-    attracting: "text-accent-cool",
-    measured: "text-accent-warm",
-  };
-
+  const phase =
+    elapsed < TORSION.approachSeconds
+      ? "放置大球"
+      : elapsed < TORSION.endSeconds
+        ? "引力矩驱动扭转"
+        : "接近示意平衡";
+  const degrees = (torsionResponse(elapsed).angle * 180) / Math.PI;
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[4/3] w-full overflow-hidden rounded-xl border">
+      <div className="grid grid-cols-2 gap-2 text-xs">
+        <div className="bg-bg-panel rounded-lg p-2">
+          <p className="text-fg-secondary">{phase}</p>
+          <p className="text-fg-muted mt-1">演示时间 {elapsed.toFixed(1)}s</p>
+        </div>
+        <div className="bg-bg-panel rounded-lg p-2">
+          <p className="text-fg-muted">模型实际偏角</p>
+          <p className="text-accent-warm mt-1 font-mono">{degrees.toFixed(5)}°</p>
+        </div>
+      </div>
+      <div className="border-fg-disabled/30 bg-bg-deep aspect-[4/3] w-full overflow-hidden rounded-xl border">
         <canvas
           ref={canvasRef}
           role="img"
-          aria-label="卡文迪许扭秤实验模拟"
+          aria-label="扭秤俯视示意，两侧大球产生同向引力矩；偏角放大1000倍"
           className="h-full w-full"
         />
-
-        {/* Phase indicator */}
-        <div className="bg-bg-panel/90 absolute top-3 left-3 rounded-lg px-3 py-2 backdrop-blur-sm">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={phase}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-            >
-              <p className={cn("text-xs font-medium", phaseColors[phase])}>{phaseLabels[phase]}</p>
-              <p className="text-fg-muted mt-1 text-[10px]">时间: {elapsed.toFixed(1)}s</p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Measurement readout */}
-        <div className="bg-bg-panel/90 absolute top-3 right-3 rounded-lg p-3 backdrop-blur-sm">
-          <div className="space-y-1">
-            <div>
-              <span className="text-fg-muted text-[10px]">细丝扭转角</span>
-              <p className="text-accent-warm font-mono text-sm">
-                {(wireTwist * 1000).toFixed(2)} × 10⁻³ °
-              </p>
-            </div>
-            <div>
-              <span className="text-fg-muted text-[10px]">引力常数 G</span>
-              <p className="text-accent-cool font-mono text-sm">6.674 × 10⁻¹¹</p>
-              <p className="text-fg-muted text-[10px]">N·m²/kg²</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Scale note */}
-        <div className="bg-bg-panel/90 absolute bottom-3 left-3 rounded-lg px-3 py-2 backdrop-blur-sm">
-          <p className="text-fg-muted text-[10px]">扭转角度已放大 1000 倍以便观察</p>
-        </div>
       </div>
-
-      {/* Controls */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <button
-          onClick={isPlaying ? () => setIsPlaying(false) : handleStart}
+          onClick={
+            isPlaying
+              ? () => {
+                  stop();
+                  pause();
+                  setElapsed(clock.current);
+                }
+              : start
+          }
+          aria-pressed={isPlaying}
           className="bg-accent-cool/20 text-accent-cool hover:bg-accent-cool/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? "暂停" : "放置大铅球"}
+          {isPlaying
+            ? "暂停"
+            : reduceMotion
+              ? "显示平衡示意"
+              : elapsed >= TORSION.endSeconds
+                ? "重新演示"
+                : elapsed > 0
+                  ? "继续"
+                  : "放置大铅球"}
         </button>
         <button
-          onClick={handleReset}
+          onClick={reset}
           className="bg-fg-disabled/20 text-fg-secondary hover:bg-fg-disabled/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
           重置
         </button>
       </div>
-
-      {/* Experiment diagram legend */}
-      <div className="flex flex-wrap gap-4">
-        <div className="text-fg-secondary flex items-center gap-2 text-xs">
-          <span className="bg-accent-cool h-3 w-3 rounded-full" />
-          小铅球 (m)
-        </div>
-        <div className="text-fg-secondary flex items-center gap-2 text-xs">
-          <span className="bg-accent-warm h-3 w-3 rounded-full" />
-          大铅球 (M)
-        </div>
-        <div className="text-fg-secondary flex items-center gap-2 text-xs">
-          <span className="bg-fg-muted inline-block h-px w-4" />
-          细金属丝
-        </div>
-      </div>
-
-      {/* Key finding */}
-      <div className="border-accent-warm/20 bg-accent-warm/5 rounded-lg border p-3">
-        <p className="text-fg-secondary text-xs">
-          <span className="text-accent-warm font-medium">卡文迪什的贡献：</span>
-          1798年，卡文迪什通过极其精密的扭秤实验，首次测量了两个已知质量之间的引力，
-          从而计算出万有引力常数 G。这使得地球质量、太阳质量等都可以被精确计算。
-          卡文迪什称这个实验为&apos;称量地球&apos;。整个过程极其缓慢和精密，细丝的扭转角只有零点几度。
+      <p className="text-fg-muted text-xs">
+        蓝球m、金球M；偏角在图中放大1000倍，动力过程按20倍速播放。球大小和放置过程为示意。
+      </p>
+      <div className="border-accent-warm/20 bg-accent-warm/5 text-fg-secondary rounded-lg border p-3 text-xs">
+        <p className="font-mono">Iθ¨ + cθ˙ + κθ = τ_g；平衡时 κθ = τ_g</p>
+        <p className="mt-2">
+          示例取m=20g、M=1.5kg、半臂长L=0.10m、近邻球心距r=0.05m、κ=1.1×10⁻⁶N·m/rad。小角度下用近乎垂直的配对力给τ_g≈2LGMm/r²，忽略远端交叉吸引和杆的惯量；放置阶段固定扭杆，随后释放并近似取恒定引力矩；采用c=2√(Iκ)的临界阻尼响应。它用于说明测量原理，未复刻1798装置的完整修正。
         </p>
+        <p className="mt-2">
+          G输入参考值为6.67430×10⁻¹¹N·m²/kg²（CODATA2022），并非从本动画的数据独立测得。真实实验还须校准扭转刚度、距离和质量，并控制空气流动、温度及其他系统误差。
+        </p>
+        <p className="mt-2">
+          Cavendish1798年报告的是地球平均密度。用现代记号，扭秤方法也能确定G；不应把今天的G参考数值写成他当年的直接报告。
+        </p>
+        <div className="text-accent-cool mt-2 flex flex-wrap gap-3 underline">
+          <a href="https://makingscience.royalsociety.org/items/l-and-p_11_68/paper-experiments-to-determine-the-density-of-the-earth-by-henry-cavendish">
+            1798原稿与出版记录
+          </a>
+          <a href="https://physics.nist.gov/cuu/Constants/">NIST · CODATA常数</a>
+        </div>
       </div>
     </div>
   );

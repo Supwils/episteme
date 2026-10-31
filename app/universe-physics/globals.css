@@ -1,3 +1,14 @@
+/* Numbered citations in article prose must map to visible bibliography numbers. */
+.physics-root .md-list[data-variant="references"][data-ordered] {
+  margin-left: 1.75rem;
+  list-style: decimal;
+}
+
+.physics-root .md-list[data-variant="references"][data-ordered] > li {
+  padding-left: 0;
+  text-indent: 0;
+}
+
 @theme {
   /* Backgrounds */
   --color-bg-deep: #000000;
@@ -238,6 +249,28 @@
   background-color: var(--color-bg-deep);
   color: var(--color-fg-primary);
   min-height: 100vh;
+}
+
+/* Atlas controls must fit below the shared subject header without page scrolling. */
+.physics-root:has([data-section="universe"], [data-section="physics"]) {
+  display: flex;
+  height: 100dvh;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.physics-root:has([data-section="universe"], [data-section="physics"]) > header {
+  flex: none;
+}
+
+.physics-root:has([data-section="universe"], [data-section="physics"]) > [data-skip-target] {
+  flex: 1;
+  min-height: 0;
+}
+
+.physics-root [data-section="universe"],
+.physics-root [data-section="physics"] {
+  height: 100%;
 }
 
 .physics-root h1,

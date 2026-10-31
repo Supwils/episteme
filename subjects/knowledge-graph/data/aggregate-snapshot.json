@@ -1,16 +1,16 @@
 {
   "workflow": "After any content or graph change, run `pnpm update-graph-snapshot` and commit this file's diff. Unit tests read expected aggregate values from this snapshot instead of hardcoded literals, so regenerating it is the entire maintenance step.",
   "branch": {
-    "nodeCount": 3756,
+    "nodeCount": 3810,
     "anchorCount": 265,
-    "inferredBranchCount": 3491,
+    "inferredBranchCount": 3545,
     "maximumDistance": 4,
-    "ambiguousTargetCount": 2408,
+    "ambiguousTargetCount": 2464,
     "maximumCandidateCount": 55,
-    "confidenceCounts": { "curated": 265, "direct": 2791, "contextual": 646, "exploratory": 54 }
+    "confidenceCounts": { "curated": 265, "direct": 2837, "contextual": 654, "exploratory": 54 }
   },
   "terrain": {
-    "diagnosticCount": 25,
+    "diagnosticCount": 27,
     "highPriorityDiagnosticCount": 8,
     "domainCount": 22,
     "domains": {
@@ -33,8 +33,8 @@
         "missingLevels": []
       },
       "chemistry": {
-        "total": 171,
-        "levels": [85, 52, 16, 9, 9],
+        "total": 174,
+        "levels": [85, 54, 17, 9, 9],
         "curatedCount": 22,
         "dominantLevel": 1,
         "dominantCount": 85,
@@ -42,12 +42,12 @@
         "missingLevels": []
       },
       "earth-science": {
-        "total": 117,
-        "levels": [29, 29, 20, 30, 9],
+        "total": 122,
+        "levels": [29, 32, 21, 31, 9],
         "curatedCount": 13,
-        "dominantLevel": 4,
-        "dominantCount": 30,
-        "advancedCount": 39,
+        "dominantLevel": 2,
+        "dominantCount": 32,
+        "advancedCount": 40,
         "missingLevels": []
       },
       "life-science": {
@@ -60,11 +60,11 @@
         "missingLevels": []
       },
       "medicine": {
-        "total": 168,
-        "levels": [42, 51, 39, 26, 10],
+        "total": 172,
+        "levels": [42, 53, 41, 26, 10],
         "curatedCount": 18,
         "dominantLevel": 2,
-        "dominantCount": 51,
+        "dominantCount": 53,
         "advancedCount": 36,
         "missingLevels": []
       },
@@ -87,12 +87,12 @@
         "missingLevels": []
       },
       "psychology": {
-        "total": 292,
-        "levels": [47, 124, 18, 95, 8],
+        "total": 295,
+        "levels": [47, 126, 18, 96, 8],
         "curatedCount": 17,
         "dominantLevel": 2,
-        "dominantCount": 124,
-        "advancedCount": 103,
+        "dominantCount": 126,
+        "advancedCount": 104,
         "missingLevels": []
       },
       "philosophy": {
@@ -114,12 +114,12 @@
         "missingLevels": []
       },
       "sociology": {
-        "total": 70,
-        "levels": [18, 23, 10, 12, 7],
+        "total": 74,
+        "levels": [18, 25, 11, 13, 7],
         "curatedCount": 17,
         "dominantLevel": 2,
-        "dominantCount": 23,
-        "advancedCount": 19,
+        "dominantCount": 25,
+        "advancedCount": 20,
         "missingLevels": []
       },
       "economics": {
@@ -132,12 +132,12 @@
         "missingLevels": []
       },
       "political-science": {
-        "total": 184,
-        "levels": [47, 65, 50, 13, 9],
+        "total": 187,
+        "levels": [47, 66, 51, 14, 9],
         "curatedCount": 17,
         "dominantLevel": 2,
-        "dominantCount": 65,
-        "advancedCount": 22,
+        "dominantCount": 66,
+        "advancedCount": 23,
         "missingLevels": []
       },
       "linguistics": {
@@ -150,66 +150,66 @@
         "missingLevels": []
       },
       "law": {
-        "total": 74,
-        "levels": [3, 13, 26, 24, 8],
+        "total": 77,
+        "levels": [3, 14, 28, 24, 8],
         "curatedCount": 5,
         "dominantLevel": 3,
-        "dominantCount": 26,
+        "dominantCount": 28,
         "advancedCount": 32,
         "missingLevels": []
       },
       "arts": {
-        "total": 64,
-        "levels": [5, 14, 26, 11, 8],
+        "total": 70,
+        "levels": [5, 17, 28, 12, 8],
         "curatedCount": 5,
         "dominantLevel": 3,
-        "dominantCount": 26,
-        "advancedCount": 19,
+        "dominantCount": 28,
+        "advancedCount": 20,
         "missingLevels": []
       },
       "literature": {
-        "total": 38,
-        "levels": [6, 6, 8, 10, 8],
+        "total": 42,
+        "levels": [6, 9, 8, 11, 8],
         "curatedCount": 5,
         "dominantLevel": 4,
-        "dominantCount": 10,
-        "advancedCount": 18,
+        "dominantCount": 11,
+        "advancedCount": 19,
         "missingLevels": []
       },
       "religion": {
-        "total": 36,
-        "levels": [4, 5, 10, 6, 11],
-        "curatedCount": 5,
-        "dominantLevel": 5,
-        "dominantCount": 11,
-        "advancedCount": 17,
-        "missingLevels": []
-      },
-      "anthropology": {
         "total": 40,
-        "levels": [6, 6, 12, 6, 10],
+        "levels": [4, 5, 12, 7, 12],
         "curatedCount": 5,
         "dominantLevel": 3,
         "dominantCount": 12,
-        "advancedCount": 16,
+        "advancedCount": 19,
+        "missingLevels": []
+      },
+      "anthropology": {
+        "total": 45,
+        "levels": [7, 7, 14, 7, 10],
+        "curatedCount": 5,
+        "dominantLevel": 3,
+        "dominantCount": 14,
+        "advancedCount": 17,
         "missingLevels": []
       },
       "education": {
-        "total": 45,
-        "levels": [7, 7, 7, 8, 16],
+        "total": 50,
+        "levels": [9, 7, 8, 9, 17],
         "curatedCount": 5,
         "dominantLevel": 5,
-        "dominantCount": 16,
-        "advancedCount": 24,
+        "dominantCount": 17,
+        "advancedCount": 26,
         "missingLevels": []
       },
       "engineering": {
-        "total": 87,
-        "levels": [3, 17, 21, 7, 39],
+        "total": 92,
+        "levels": [3, 18, 24, 7, 40],
         "curatedCount": 5,
         "dominantLevel": 5,
-        "dominantCount": 39,
-        "advancedCount": 46,
+        "dominantCount": 40,
+        "advancedCount": 47,
         "missingLevels": []
       }
     }

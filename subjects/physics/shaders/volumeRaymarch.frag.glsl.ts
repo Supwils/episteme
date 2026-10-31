@@ -6,10 +6,20 @@
  */
 export const volumeVert = /* glsl */ `
 varying vec3 vWorldPos;
+varying vec2 vBillboardUv;
 
 void main() {
-  vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  vBillboardUv = uv;
+  vec3 worldCenter = (modelMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
+  vec2 worldScale = vec2(length(modelMatrix[0].xyz), length(modelMatrix[1].xyz));
+  // The rows of the view rotation are the camera's world-space right/up.
+  // Preserve inherited scale, but replace inherited rotation with that basis.
+  vec3 cameraRight = vec3(viewMatrix[0].x, viewMatrix[1].x, viewMatrix[2].x);
+  vec3 cameraUp = vec3(viewMatrix[0].y, viewMatrix[1].y, viewMatrix[2].y);
+  vWorldPos = worldCenter
+    + cameraRight * position.x * worldScale.x
+    + cameraUp * position.y * worldScale.y;
+  gl_Position = projectionMatrix * viewMatrix * vec4(vWorldPos, 1.0);
 }
 `;
 
@@ -34,9 +44,11 @@ uniform vec3 uCoreColor;
 uniform vec3 uHaloColor;
 uniform float uDensity;
 uniform float uTime;
+uniform float uOpacity;
 uniform int uSteps;
 
 varying vec3 vWorldPos;
+varying vec2 vBillboardUv;
 
 float hash(vec3 p) {
   p = fract(p * 0.3183099 + 0.1);
@@ -83,8 +95,11 @@ void main() {
     p += rayDir * 0.08;
   }
 
+  // A finite glow must fade before the quad edge, rather than reveal its mesh.
+  float radius = length(vBillboardUv * 2.0 - 1.0);
+  density *= 1.0 - smoothstep(0.0, 1.0, radius);
   vec3 c = mix(uHaloColor, uCoreColor, smoothstep(0.0, 0.6, density));
   float alpha = clamp(density, 0.0, 0.9);
-  gl_FragColor = vec4(c, alpha);
+  gl_FragColor = vec4(c, alpha * uOpacity);
 }
 `;

@@ -11,7 +11,7 @@ import { PaperGrid } from "@/subjects/physics/scenes-handwritten/shared/PaperGri
  * P2 · Electromagnetism. Two pages:
  *   page 0 — Field portrait (E from a point charge + B around a wire +
  *            Maxwell equations cartouche)
- *   page 1 — Light as wave (sin/cos travelling EM wave + c = 1/√(μ₀ε₀))
+ *   page 1 — Light as wave (same-phase transverse plane wave + c = 1/√(μ₀ε₀))
  */
 export function P2HwScene({ page = 0 }: { page?: number }) {
   const content = getPhysicsContent("P2");
@@ -75,7 +75,7 @@ function P2PageMaxwell() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontFamily: "KaTeX_Main, serif", fontStyle: "normal" }}
         >
           ∇·E = ρ/ε₀
         </text>
@@ -85,7 +85,7 @@ function P2PageMaxwell() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontFamily: "KaTeX_Main, serif", fontStyle: "normal" }}
         >
           ∇·B = 0
         </text>
@@ -95,7 +95,7 @@ function P2PageMaxwell() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontFamily: "KaTeX_Main, serif", fontStyle: "normal" }}
         >
           ∇×E = −∂B/∂t
         </text>
@@ -105,11 +105,19 @@ function P2PageMaxwell() {
           textAnchor="middle"
           className="hw-label-major"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontFamily: "KaTeX_Main, serif", fontStyle: "normal" }}
         >
           ∇×B = μ₀J + μ₀ε₀ ∂E/∂t
         </text>
       </g>
+
+      <HandwrittenLabel
+        x={0}
+        y={-167}
+        text="E、B形式：ρ 与 J 为总电荷、电流密度"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
 
       {/* Left — point charge with radial E field */}
       <g transform="translate(-220 110)">
@@ -129,7 +137,16 @@ function P2PageMaxwell() {
           stroke="var(--hw-ink)"
           strokeWidth={0.9}
         />
-        <HandwrittenLabel x={0} y={5} text="+" variant="title" color="var(--hw-bg)" />
+        <text
+          x={0}
+          y={7}
+          textAnchor="middle"
+          fontFamily="KaTeX_Main, serif"
+          fontSize={24}
+          fill="var(--hw-bg)"
+        >
+          +
+        </text>
         {Array.from({ length: 12 }).map((_, i) => {
           const a = (i / 12) * Math.PI * 2;
           const r0 = 22;
@@ -165,7 +182,7 @@ function P2PageMaxwell() {
         <HandwrittenLabel
           x={0}
           y={130}
-          text="E ∝ 1/r²"
+          text="真空静止点电荷 · E ∝ 1/r²"
           variant="label-minor"
           color="var(--hw-ink-soft)"
           italic
@@ -207,13 +224,13 @@ function P2PageMaxwell() {
               opacity={0.9 - i * 0.18}
             />
             <path
-              d={`M ${r} 0 L ${r - 5} -5 M ${r} 0 L ${r - 5} 5`}
+              d={`M ${r} 0 L ${r - 5} 8 M ${r} 0 L ${r + 5} 8`}
               stroke="var(--hw-blue)"
               strokeWidth={1.0}
               fill="none"
             />
             <path
-              d={`M ${-r} 0 L ${-r + 5} 5 M ${-r} 0 L ${-r + 5} -5`}
+              d={`M ${-r} 0 L ${-r - 5} -8 M ${-r} 0 L ${-r + 5} -8`}
               stroke="var(--hw-blue)"
               strokeWidth={1.0}
               fill="none"
@@ -232,7 +249,7 @@ function P2PageMaxwell() {
         <HandwrittenLabel
           x={0}
           y={130}
-          text="B ∝ I/r · 右手定则"
+          text="长直稳恒电流 · B ∝ I/r"
           variant="label-minor"
           color="var(--hw-ink-soft)"
           italic
@@ -254,7 +271,7 @@ function P2PageWave() {
           textAnchor="middle"
           className="hw-label-title"
           fill="var(--hw-ink)"
-          style={{ fontStyle: "italic" }}
+          style={{ fontFamily: "KaTeX_Main, serif", fontStyle: "normal" }}
         >
           c = 1 / √(μ₀ · ε₀)
         </text>
@@ -265,86 +282,57 @@ function P2PageWave() {
           className="hw-label-caption"
           fill="var(--hw-ink-soft)"
         >
-          光速即电磁波相速 · Maxwell 1865
+          真空无源区 · 平面行波 · E = cB
         </text>
       </g>
 
-      {/* Travelling EM wave: E (red) vertical + B (blue) horizontal, both sine, phase-locked */}
-      <g transform="translate(0 30)">
-        <line x1={-340} y1={0} x2={340} y2={0} stroke="var(--hw-ink-soft)" strokeWidth={0.7} />
-        {/* axis arrow */}
-        <path
-          d="M 340 0 L 330 -5 M 340 0 L 330 5"
-          stroke="var(--hw-ink-soft)"
-          strokeWidth={0.9}
-          fill="none"
-        />
-        <HandwrittenLabel
-          x={358}
-          y={4}
-          text="k →"
-          variant="label-minor"
-          color="var(--hw-ink-soft)"
-          italic
-        />
-        {/* E-field (vertical, red) */}
-        <InkPath
-          d={buildSineD(-300, 300, 60, 80, "vertical")}
-          stroke="var(--hw-red)"
-          strokeWidth={1.6}
-          delay={0.4}
-          filterLevel="wobble-tiny"
-        />
-        {/* B-field (horizontal-ish, drawn as second sine offset) */}
-        <InkPath
-          d={buildSineD(-300, 300, 60, 50, "horizontal")}
-          stroke="var(--hw-blue)"
-          strokeWidth={1.4}
-          delay={0.6}
-          filterLevel="wobble-tiny"
-        />
-        {/* E ticks */}
-        {[-220, -100, 20, 140, 260].map((x) => (
-          <g key={x}>
-            <line
-              x1={x}
-              y1={0}
-              x2={x}
-              y2={-Math.sin((x / 60) * Math.PI) * 80}
-              stroke="var(--hw-red)"
-              strokeWidth={0.6}
-              opacity={0.5}
-              strokeDasharray="2 3"
-            />
-          </g>
-        ))}
-        <HandwrittenLabel
-          x={-340}
-          y={-110}
-          text="E"
-          variant="title"
-          color="var(--hw-red)"
-          italic
-          delay={0.5}
-        />
-        <HandwrittenLabel
-          x={-340}
-          y={70}
-          text="B"
-          variant="title"
-          color="var(--hw-blue)"
-          italic
-          delay={0.7}
-        />
-        <HandwrittenLabel
-          x={0}
-          y={140}
-          text="E ⊥ B ⊥ k · 横波 · 真空中以光速传播"
-          variant="label-minor"
-          color="var(--hw-ink-soft)"
-          delay={1.0}
-        />
-      </g>
+      {/* Plot transverse components on separate axes, using cB so their amplitudes can be compared. */}
+      {[
+        { label: "Eᵧ", y: -25, color: "var(--hw-red)" },
+        { label: "cB𝓏", y: 130, color: "var(--hw-blue)" },
+      ].map(({ label, y, color }, index) => (
+        <g key={label} transform={`translate(0 ${y})`}>
+          <line x1={-300} y1={0} x2={320} y2={0} stroke="var(--hw-ink-soft)" strokeWidth={0.7} />
+          <path d="M 320 0 L 310 -5 M 320 0 L 310 5" stroke="var(--hw-ink-soft)" fill="none" />
+          <HandwrittenLabel
+            x={-340}
+            y={5}
+            text={label}
+            variant="label-major"
+            color={color}
+            italic
+          />
+          <HandwrittenLabel
+            x={338}
+            y={5}
+            text="x"
+            variant="label-minor"
+            color="var(--hw-ink-soft)"
+            italic
+          />
+          <InkPath
+            d={buildSineD(-300, 300, 60, 45)}
+            stroke={color}
+            strokeWidth={1.6}
+            delay={0.4 + index * 0.2}
+            filterLevel="wobble-tiny"
+          />
+        </g>
+      ))}
+      <HandwrittenLabel
+        x={0}
+        y={207}
+        text="同一时刻的分量 · Eᵧ 与 cB𝓏 同相"
+        variant="caption"
+        color="var(--hw-ink-soft)"
+      />
+      <HandwrittenLabel
+        x={0}
+        y={230}
+        text="真空平面行波 · E ⊥ B · E × B 沿 +x"
+        variant="label-minor"
+        color="var(--hw-ink-soft)"
+      />
 
       {/* Gauge invariance footnote */}
       <g transform="translate(0 280)">
@@ -387,13 +375,7 @@ function P2PageWave() {
   );
 }
 
-function buildSineD(
-  x0: number,
-  x1: number,
-  period: number,
-  amp: number,
-  axis: "vertical" | "horizontal",
-): string {
+function buildSineD(x0: number, x1: number, period: number, amp: number): string {
   const samples = 80;
   const pts: string[] = [];
   for (let i = 0; i <= samples; i++) {
@@ -401,7 +383,7 @@ function buildSineD(
     const x = x0 + (x1 - x0) * t;
     const phase = ((x / period) * Math.PI) % (Math.PI * 2);
     const v = Math.sin(phase) * amp;
-    const y = axis === "vertical" ? -v : v * 0.4;
+    const y = -v;
     pts.push(`${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`);
   }
   return pts.join(" ");

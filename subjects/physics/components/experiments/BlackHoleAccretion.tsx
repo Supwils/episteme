@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useExperimentReducedMotion } from "./use-experiment-reduced-motion";
 import { cn } from "@/subjects/physics/lib/cn";
 import { cssCanvasSize, fitCanvasToDisplay } from "./canvas-size";
 
@@ -36,9 +37,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
   const jetRef = useRef<JetParticle[]>([]);
   const timeRef = useRef(0);
 
-  const prefersReducedMotion = useRef(
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
+  const prefersReducedMotion = useExperimentReducedMotion();
 
   const initParticles = useCallback((w: number, h: number) => {
     const particles: Particle[] = [];
@@ -81,7 +80,6 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     const cx = w * 0.5;
     const cy = h * 0.5;
     const bhRadius = Math.min(w, h) * 0.06;
-    const t = timeRef.current;
 
     ctx.clearRect(0, 0, w, h);
 
@@ -123,12 +121,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
       const x = cx + p.r * Math.cos(p.theta);
       const y = cy + p.r * Math.sin(p.theta) * 0.4; // Perspective tilt
 
-      // Gravitational lensing: bend light near the black hole
-      const distToBH = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
-      const lensStrength = distToBH < bhRadius * 3 ? (1 - distToBH / (bhRadius * 3)) * 0.3 : 0;
-      const lensOffset = lensStrength * bhRadius;
-
-      // Temperature based on distance (closer = hotter = bluer)
+      // False color emphasizes the inner flow; it does not encode temperature.
       const tempFactor = Math.max(0, 1 - (p.r - bhRadius) / (Math.min(w, h) * 0.3));
       const hue = p.hue - tempFactor * 30;
       const lightness = 50 + tempFactor * 25;
@@ -137,13 +130,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
       ctx.fillStyle = `hsla(${Math.max(0, hue)}, 90%, ${lightness}%, ${alpha})`;
       ctx.beginPath();
-      ctx.arc(
-        x + lensOffset * Math.sin(p.theta),
-        y - lensOffset * Math.cos(p.theta),
-        p.size,
-        0,
-        Math.PI * 2
-      );
+      ctx.arc(x, y, p.size, 0, Math.PI * 2);
       ctx.fill();
 
       // Hot inner edge glow
@@ -154,13 +141,6 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
         ctx.fill();
       }
     }
-
-    // Photon ring (Einstein ring)
-    ctx.strokeStyle = "rgba(255, 200, 100, 0.15)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.ellipse(cx, cy, bhRadius * 1.5, bhRadius * 1.5 * 0.4, 0, 0, Math.PI * 2);
-    ctx.stroke();
 
     // Relativistic jets
     if (showJet) {
@@ -185,7 +165,7 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
       }
     }
 
-    // Black hole (event horizon)
+    // The central mask locates the black hole, rather than predicting its image.
     const bhGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, bhRadius);
     bhGrad.addColorStop(0, "#000000");
     bhGrad.addColorStop(0.8, "#000000");
@@ -195,19 +175,18 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
     ctx.arc(cx, cy, bhRadius, 0, Math.PI * 2);
     ctx.fill();
 
-    // Shadow region
-    ctx.strokeStyle = "rgba(255, 100, 30, 0.2)";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.arc(cx, cy, bhRadius * 2.6, 0, Math.PI * 2);
-    ctx.stroke();
-
     // Labels
-    ctx.fillStyle = "rgba(168, 173, 189, 0.6)";
+    ctx.fillStyle = "rgba(168, 173, 189, 0.9)";
     ctx.font = "10px monospace";
     ctx.textAlign = "left";
-    ctx.fillText("事件视界", cx + bhRadius + 8, cy - 4);
-    ctx.fillText("吸积盘", cx + bhRadius * 3, cy - bhRadius * 1.5);
+    ctx.fillText("黑洞位置（示意）", cx + bhRadius * 2 + 5, cy + bhRadius * 3 + 8);
+    ctx.strokeStyle = "rgba(168, 173, 189, 0.6)";
+    ctx.lineWidth = 0.7;
+    ctx.beginPath();
+    ctx.moveTo(cx + bhRadius, cy);
+    ctx.lineTo(cx + bhRadius * 2, cy + bhRadius * 3);
+    ctx.stroke();
+    ctx.fillText("吸积盘", cx - h * 0.35, cy - h * 0.2);
 
     if (showJet) {
       ctx.textAlign = "center";
@@ -226,15 +205,15 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
       // Re-spawn when absorbed
       if (p.r < 20) {
-        const maxR =
-          Math.min(canvasRef.current?.width ?? 800, canvasRef.current?.height ?? 600) * 0.4;
+        const canvas = canvasRef.current;
+        const { w, h } = canvas ? cssCanvasSize(canvas) : { w: 800, h: 600 };
+        const maxR = Math.min(w, h) * 0.4;
         p.r = 30 + Math.random() * maxR;
         p.theta = Math.random() * Math.PI * 2;
         p.dr = -0.05 - Math.random() * 0.15;
         p.dtheta = (0.3 + Math.random() * 0.5) / Math.max(p.r, 30);
       }
 
-      // Speed up as falling in (angular momentum conservation)
       if (p.r < 80) {
         p.dtheta *= 1.002;
         p.brightness = Math.min(1, p.brightness + 0.005);
@@ -277,14 +256,15 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
   }, [render, initParticles]);
 
   useEffect(() => {
-    if (isPlaying) {
+    if (prefersReducedMotion) setIsPlaying(false);
+    else if (isPlaying) {
       animRef.current = requestAnimationFrame(animate);
     }
     return () => cancelAnimationFrame(animRef.current);
-  }, [isPlaying, animate]);
+  }, [isPlaying, animate, prefersReducedMotion]);
 
   const handleStart = () => {
-    if (prefersReducedMotion.current) {
+    if (prefersReducedMotion) {
       render();
       return;
     }
@@ -304,21 +284,27 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <div className="border-fg-disabled/30 bg-bg-deep relative aspect-[16/9] w-full overflow-hidden rounded-xl border">
-        <canvas ref={canvasRef} role="img" aria-label="黑洞吸积盘模拟" className="h-full w-full" />
-
-        <div className="bg-bg-panel/90 absolute top-3 right-3 rounded-lg px-3 py-2 backdrop-blur-sm">
+      <div className="border-fg-disabled/30 bg-bg-deep w-full overflow-hidden rounded-xl border">
+        <div className="border-fg-disabled/30 flex flex-wrap items-center justify-between gap-2 border-b px-3 py-2">
           <p className="text-accent-warm font-mono text-xs">黑洞吸积盘</p>
-          <p className="text-fg-muted mt-1 text-[10px]">{NUM_PARTICLES} 粒子模拟</p>
+          <p className="text-fg-muted text-[10px]">{NUM_PARTICLES} 粒子形态示意</p>
+        </div>
+        <div className="aspect-[16/9] w-full">
+          <canvas
+            ref={canvasRef}
+            role="img"
+            aria-label="吸积盘与可选喷流的形态示意"
+            className="h-full w-full"
+          />
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={isPlaying ? () => setIsPlaying(false) : handleStart}
           className="bg-accent-warm/20 text-accent-warm hover:bg-accent-warm/30 rounded-lg px-4 py-2 text-sm transition-colors"
         >
-          {isPlaying ? "暂停" : "开始模拟"}
+          {isPlaying ? "暂停" : "开始演示"}
         </button>
         <button
           onClick={() => setShowJet(!showJet)}
@@ -342,9 +328,29 @@ export function BlackHoleAccretion({ className }: { className?: string }) {
       <div className="border-accent-warm/20 bg-accent-warm/5 rounded-lg border p-3">
         <p className="text-fg-secondary text-xs">
           <span className="text-accent-warm font-medium">黑洞与吸积盘：</span>
-          当物质落入黑洞时，由于角动量守恒，它不会直接掉入，而是形成一个旋转的吸积盘。
-          盘内侧的物质运动更快、温度更高，发出强烈的 X 射线。部分物质沿黑洞自转轴被
-          加速喷出，形成接近光速的相对论性喷流。事件视界之内，连光也无法逃脱。
+          带有足够角动量的气体可以形成吸积盘；盘内应力或盘风把角动量向外传递后，气体才能持续向内流动。
+          不同系统的辐射可覆盖多个波段。部分系统在视界外形成接近光速的喷流，磁场在其中起重要作用；
+          喷流中的物质没有从事件视界内部逃出。
+        </p>
+        <p className="text-fg-muted mt-2 text-xs">
+          本图仅演示形态与流动方向。颜色、速度和尺度均为示意，未计算相对论光线传播，不能用来读取视界、阴影或光子环的大小。
+          <a
+            href="https://science.nasa.gov/universe/black-holes/anatomy/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-cool ml-1 underline underline-offset-2"
+          >
+            NASA：黑洞结构
+          </a>
+          {" · "}
+          <a
+            href="https://doi.org/10.1038/nature04912"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-cool underline underline-offset-2"
+          >
+            角动量输运研究
+          </a>
         </p>
       </div>
     </div>

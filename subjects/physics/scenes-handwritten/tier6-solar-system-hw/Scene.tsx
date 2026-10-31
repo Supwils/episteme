@@ -59,6 +59,14 @@ export function Tier6HwScene() {
     return { ...d, x: Math.cos(angle) * r, y: Math.sin(angle) * r, orbitR: r, angle };
   });
 
+  const jupiter = planetPositions.find((body) => body.id === "jupiter")!;
+  const readingPositions: Record<string, { x: number; y: number }> = {
+    sun: { x: 0, y: 0 },
+    "asteroid-belt": { x: auToRadius(ASTEROID_BELT.au), y: 0 },
+    europa: { x: jupiter.x + 35, y: jupiter.y + 18 },
+    "voyager-1": { x: 385, y: -90 },
+  };
+
   return (
     <g>
       <StarSpeck
@@ -305,17 +313,17 @@ export function Tier6HwScene() {
         </g>
       ))}
 
-      {/* Markers from content (will overlay onto matching planet positions where they roughly align) */}
+      {/* Reading entries share each planet's drawn centre; satellite offsets are enlarged. */}
       {markers.map((m, i) => {
-        // markers in content/cosmos/T6.ts use unit-sphere positions; we drop them onto ecliptic in a smaller scale
-        const r = auToRadius(Math.max(0.2, m.position[0] * 20 + 5));
-        const a = Math.atan2(m.position[2], m.position[0]);
+        const body = [...planetPositions, ...dwarfPositions].find((body) => body.id === m.id);
+        const position = body ?? readingPositions[m.id];
+        if (!position) return null;
         return (
           <HandwrittenMarker
             key={m.id}
             marker={m}
-            x={Math.cos(a) * r}
-            y={Math.sin(a) * r}
+            x={position.x}
+            y={position.y}
             radius={3 + (m.size ?? 0.02) * 100}
             variant="pin"
             delay={1.7 + i * 0.06}
@@ -323,6 +331,18 @@ export function Tier6HwScene() {
         );
       })}
 
+      <HandwrittenLabel
+        x={0}
+        y={400}
+        text="距离对数压缩 · 大小与相位示意 · 部分矮行星"
+        variant="hairline"
+      />
+      <HandwrittenLabel
+        x={0}
+        y={420}
+        text="卫星间距放大 · 旅行者标记为阅读入口"
+        variant="hairline"
+      />
       <Cartouche cx={0} cy={-460} title="Solar System" subtitle="太阳系 · 1 AU = 1.5 × 10¹¹ m" />
     </g>
   );

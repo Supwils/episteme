@@ -29,8 +29,8 @@ export function SubjectCard() {
         {/* corner ticks for the engineering-drawing feel */}
         <CornerTicks />
 
-        <div className="flex flex-col gap-3 p-5">
-          <div className="text-fg-muted flex items-baseline gap-2 font-mono text-[10px] tracking-[0.32em] uppercase">
+        <div className="flex flex-col gap-2 p-4 md:gap-3 md:p-5">
+          <div className="text-fg-muted hidden items-baseline gap-2 font-mono text-[10px] tracking-[0.32em] uppercase md:flex">
             <span>tier · {meta.id}</span>
             <span aria-hidden className="text-fg-disabled">
               /
@@ -39,7 +39,7 @@ export function SubjectCard() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <h1 className="font-display text-fg-primary text-3xl leading-[1.02] tracking-tight md:text-4xl">
+            <h1 className="font-display text-fg-primary text-2xl leading-[1.02] tracking-tight md:text-4xl">
               {content?.name.latin ?? meta.label}
             </h1>
             <p className="text-fg-secondary text-sm tracking-wide">
@@ -56,13 +56,13 @@ export function SubjectCard() {
           </div>
 
           {content?.whisper ? (
-            <p className="text-fg-secondary mt-1 text-[13px] leading-relaxed italic">
+            <p className="text-fg-secondary mt-1 hidden text-[13px] leading-relaxed italic md:block">
               「{content.whisper}」
             </p>
           ) : null}
 
           {content ? (
-            <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-2">
+            <ul className="mt-2 hidden flex-wrap gap-x-5 gap-y-2 md:flex">
               {content.dataCards.slice(0, 3).map((card) => (
                 <li key={card.label} className="flex flex-col">
                   <span className="text-fg-muted font-mono text-[10px] tracking-[0.2em] uppercase">
@@ -76,15 +76,20 @@ export function SubjectCard() {
             </ul>
           ) : null}
 
-          <div className="border-fg-disabled/30 mt-4 flex items-center justify-between border-t pt-4">
+          <div className="border-fg-disabled/30 mt-2 flex items-center justify-between border-t pt-3 md:mt-4 md:pt-4">
             <span className="text-fg-muted font-mono text-[10px] tracking-[0.28em] uppercase">
-              {hasAtlas ? "atlas entry · 中文" : "atlas pending"}
+              <span className="md:hidden">{hasAtlas ? "图册" : "待补充"}</span>
+              <span className="hidden md:inline">
+                {hasAtlas ? "atlas entry · 中文" : "atlas pending"}
+              </span>
             </span>
             <button
               type="button"
+              data-open-atlas
+              data-atlas-tier={tier}
               disabled={!hasAtlas}
               onClick={() => hasAtlas && openPanel(tier)}
-              className="ease-product text-fg-secondary hover:text-fg-primary group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.24em] uppercase transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-40"
+              className="ease-product text-fg-secondary hover:text-fg-primary group inline-flex shrink-0 items-center gap-2 font-mono text-[11px] tracking-[0.24em] whitespace-nowrap uppercase transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-40"
             >
               open atlas
               <ArrowUpRight className="ease-product h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

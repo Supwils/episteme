@@ -1,4 +1,9 @@
 {
+  "/chemistry/concepts/acid-strength-is-not-concentration": {
+    "t": "酸的强度不是浓度",
+    "e": "酸的强度是把质子给出去的倾向，浓度是一定体积里有多少这种物质。弱酸可以很浓，强酸稀释后仍不改成弱酸。酸碱度同时受强度和浓度影响。",
+    "d": "chemistry"
+  },
   "/chemistry/concepts/acids-and-bases": {
     "t": "酸与碱",
     "e": "酸碱描述的是最普遍的化学行为：谁给出质子、谁接住质子；酸不一定危险，碱也不一定温和，血液、土壤与海洋都受这套语言支配。",
@@ -127,6 +132,11 @@
   "/chemistry/concepts/isomerism": {
     "t": "同分异构",
     "e": "正丁烷与异丁烷同为 C₄H₁₀，沸点却分别是 −0.5°C 和 −11.7°C；分子式不能唯一确定物质，异构分为连法不同与空间摆法不同两大类。",
+    "d": "chemistry"
+  },
+  "/chemistry/concepts/isotope-is-the-same-element": {
+    "t": "同位素仍是同一种元素",
+    "e": "元素由质子数定义。同位素是质子数相同而中子数不同的核素，碳-12、碳-13与碳-14都是碳。化学行为大体相近。碳-14会衰变，年代测定利用的是衰变。",
     "d": "chemistry"
   },
   "/chemistry/concepts/mass-spectrometry": {
@@ -747,6 +757,11 @@
   "/chemistry/reactions/enzymatic-catalysis": {
     "t": "酶催化",
     "e": "酶不是让不可能的反应发生，而是通过活性位点的结构、酸碱、金属离子与微环境，在 37°C 加速反应；Michaelis-Menten 曲线可以帮助读出机制。",
+    "d": "chemistry"
+  },
+  "/chemistry/reactions/equilibrium-constant-is-not-a-rate": {
+    "t": "平衡常数不是速率",
+    "e": "平衡常数由平衡时各物种的活度按反应系数相乘、相除得到；速率常数须连同速率方程描述快慢。平衡常数很大的反应仍可以极慢。催化剂改变到达平衡的速度，不改变该温度下的平衡常数。",
     "d": "chemistry"
   },
   "/chemistry/reactions/fermentation": {

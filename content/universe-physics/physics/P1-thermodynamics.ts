@@ -4,7 +4,7 @@ const content: TierContent = {
   tier: "P1",
   name: { primary: "热力学与统计力学", latin: "Thermodynamics & Statistical Mechanics" },
   tagline: "随机的优雅",
-  whisper: "时间之矢的方向，来自微观状态数的对数——熵把概率写成了物理定律。",
+  whisper: "微观涨落连接宏观热规律；时间方向还需要动力学与初态。",
   dataCards: [
     {
       label: "Boltzmann 常数",
@@ -12,13 +12,23 @@ const content: TierContent = {
       value: "1.380 649 × 10⁻²³",
       hint: "J / K（精确）",
     },
-    { label: "Avogadro 数", latinLabel: "N_A", value: "6.022 × 10²³", hint: "/ mol" },
+    {
+      label: "Avogadro 数",
+      latinLabel: "N_A",
+      value: "6.022 140 76 × 10²³",
+      hint: "mol⁻¹（精确）",
+    },
     { label: "气体常数", latinLabel: "R", value: "8.314", hint: "J / (mol · K)" },
     { label: "绝对零度", latinLabel: "0 K", value: "−273.15", hint: "°C" },
-    { label: "熵增定律", value: "dS ≥ 0", hint: "孤立系统熵不减" },
-    { label: "卡诺效率", latinLabel: "η_C", value: "1 − T_c / T_h", hint: "理想热机上限" },
+    { label: "熵增定律", value: "dS ≥ 0", hint: "宏观孤立系统；开放系统须计熵流" },
+    {
+      label: "卡诺效率",
+      latinLabel: "η_C",
+      value: "1 − T_c / T_h",
+      hint: "两个恒温热浴、循环热机的上限",
+    },
     { label: "理想气体方程", value: "pV = nRT", hint: "状态方程" },
-    { label: "等分定理", value: "½ k_B T / DoF", hint: "每个自由度的平均能量" },
+    { label: "等分定理", value: "½ k_B T", hint: "经典平衡中每个独立二次项" },
     {
       label: "Stefan-Boltzmann 常数",
       latinLabel: "σ",
@@ -28,139 +38,168 @@ const content: TierContent = {
     {
       label: "Wien 位移定律",
       value: "λ_max T = 2.898 × 10⁻³",
-      hint: "m · K · 黑体谱峰",
+      hint: "m · K · 按单位波长定义的黑体谱峰",
     },
     {
       label: "Onsager 倒易",
       value: "L_ij = L_ji",
-      hint: "线性非平衡 · 1931 (Nobel 1968)",
+      hint: "近平衡、适当反演条件；1931 / 诺奖1968",
     },
     {
       label: "2D Ising 临界温度",
       value: "k_B T_c / J = 2 / ln(1 + √2)",
-      hint: "≈ 2.269 · Onsager 1944 精确解",
+      hint: "方格、最近邻铁磁、零外场；≈ 2.269",
     },
     {
       label: "Jarzynski 等式",
       value: "⟨e^(−βW)⟩ = e^(−βΔF)",
-      hint: "非平衡功与自由能差 · 1997",
+      hint: "正则初态；W 为对系统做功；1997",
     },
     {
       label: "Landauer 极限",
       value: "k_B T ln 2",
-      hint: "擦除 1 比特的最小热耗散 ≈ 3 × 10⁻²¹ J (300 K)",
+      hint: "标准等概率比特复位的平均排热；300 K 约2.87 × 10⁻²¹ J",
     },
     {
       label: "Hawking 温度",
       value: "ℏ c³ / (8π G M k_B)",
-      hint: "太阳质量黑洞 T_H ≈ 60 nK · 极冷",
+      hint: "无电荷、无自旋；太阳质量约60 nK",
     },
   ],
   narrative: [
     {
-      heading: "直觉 · 温度即平均能量",
+      heading: "直觉 · 温度与随机运动",
       body: [
-        "把房间里所有分子的动能加起来除以分子数，得到的就是「温度」的统计含义。Maxwell-Boltzmann 分布给出在温度 T 下分子速率的概率密度，常温空气分子的均方根速率约 500 m/s。",
-        "热永远从高温流向低温——这条经验规则就是热力学第二定律的日常版本。它背后的真相不是力学，而是概率：高熵态的微观实现方式远多于低熵态。",
+        "对经典、非相对论理想气体，扣除整体流动后，每粒子平均平动动能是 3k_B T/2；温度不是任意物质的平均能量本身。以 300 K 的氮气为例，均方根速率约 517 m/s，质量不同的气体在同温下有不同速率。",
+        "没有其他补偿变化时，宏观热量自发从高温流向低温。第二定律约束完整系统的熵收支；微观统计解释还需要动力学、初态与粗粒化条件，不能仅由高熵态数目多就推出所有时间方向。",
       ],
     },
     {
-      heading: "学院 · 四大定律 + 配分函数",
+      heading: "定律 · 先写清系统边界",
       body: [
-        "零定律定义温度的存在；第一定律 ΔU = Q − W 把热和功一起接到能量守恒里；第二定律 dS ≥ 0 给出过程方向；第三定律 S → 0 (T → 0) 锚定熵的零点。",
-        "微正则系综（孤立）用 Ω(E) 数态，正则系综（与热库接触）用配分函数 Z = Σ e^(−βE_i) 求平均，巨正则再加一个 μN。从 Z 出发可以拿到自由能、熵、压强、磁化率，一站式打包。",
-        "卡诺循环给出热机效率的理论上限 η_C = 1 − T_c/T_h；任何实际热机都做不过它，且只有可逆过程能取到等号。这把第二定律变成了可工程化的设计约束。",
+        "零定律支持温度的定义；对封闭、无其他宏观能量变化的系统，ΔU = Q − W 中 Q 为流入的热，W 为系统对外做功。第二定律对孤立系统给出宏观熵不减；开放系统则必须计入热和物质携带的熵。",
+        "第三定律有热定理、零熵和不可及等表述，各有条件。唯一基态的平衡系统可在趋近零温时熵趋零；基态简并或冻结的残余构型不能一律忽略，基态量子涨落也不会因温度降为零而全部消失。",
+        "只与两个恒温热浴交换热、完成循环的热机，效率不超过 1 − T_c/T_h；可逆极限取等号。温度必须用开尔文，其他热源、物质流与外部功不能从效率边界中删去。",
       ],
     },
     {
-      heading: "前沿 · 涨落定理 / 黑洞热力学 / 信息",
+      heading: "系综 · 配分函数与模型条件",
       body: [
-        "Jarzynski 1997 与 Crooks 1999 把非平衡过程里的功的概率分布与平衡自由能差挂钩——「单分子拉伸」实验实测到了 ΔF。",
-        "Bekenstein-Hawking 公式 S = A · k_B c³ / (4 ℏ G) 把黑洞视界面积变成熵，温度 T_H = ℏ c³ / (8 π G M k_B)。这条边界把广义相对论、量子场论与热力学钉在了一起。",
-        "Landauer 1961：擦掉 1 比特信息至少耗散 k_B T ln 2 的热——信息有物理代价。这条原理在量子计算与可逆电路里直接变成设计约束。",
+        "微正则系综对指定能量壳计数，正则系综在固定温度、体积和粒子数下用 Z = Σ_i exp(−βE_i) 加权；巨正则权重为 exp[−β(E_i−μN_i)]。β = 1/(k_B T)，求和须包含正确态简并与粒子统计。",
+        "F = −k_B T ln Z 将微观模型接到平衡热力学，压强、熵和响应可由适当导数获得。系综对同一物理系统是否等价还要看相互作用、约束和热力学极限；有限正则配分函数本身通常光滑，严格奇点需要相应极限。",
       ],
     },
     {
-      heading: "相变与临界现象 · 普适类",
+      heading: "相变与临界现象 · 普适性的边界",
       body: [
-        "水变冰、铁磁有序、超流相变 —— 在临界点附近，序参量、关联长度、磁化率都按幂律发散。Widom 1965、Kadanoff 1966、Wilson 1971 一系列工作发现：所有这些「不同」相变其实属于少数几个**普适类**，只看维度与对称性，不看微观细节。",
-        "Wilson 的重正化群 (RG) 把多尺度物理变成了一套递归方程：在每一步「粗粒化」中，无关项指数衰减，相关项停在固定点。这是 20 世纪后半叶物理学最重要的概念革命之一，影响一直延伸到量子场论 (P7) 与凝聚态拓扑相 (P8)。",
+        "水的凝固、液气临界点与铁磁转变不是同一类相变。连续临界点附近，序参量通常按幂律趋零，关联长度与某些响应可发散；一级转变、BKT 型转变不能照搬同一套幂律。",
+        "普适类取决于维度、序参量对称性、相互作用范围及其他相关因素。重正化群在粗粒化后区分增长的相关扰动、衰减的无关扰动与边缘扰动；临界行为由相应固定点和邻域流决定，不能说相关项本身都停在固定点。",
+        "1944 年 Onsager 解的是零外场、最近邻方格晶格伊辛模型等明确条件下的问题。各向同性铁磁模型的临界温度为 k_B T_c/J = 2/ln(1+√2)，不是任意二维磁性材料的通用温度。",
       ],
     },
     {
-      heading: "Onsager 关系 · 非平衡的对称",
+      heading: "近平衡 · 交叉输运与涨落响应",
       body: [
-        "把系统稍微推离平衡，热流、粒子流、电流就开始流动，且彼此交叉耦合：温差能驱动电流（Seebeck），电流能搬运热（Peltier）。Onsager 1931 在线性响应区写出方程 J_i = Σ_j L_ij X_j，并基于「微观可逆性」证明耦合矩阵满足 L_ij = L_ji——这条对称把热电、热扩散、化学耦合一并钉在统一的框架里，1968 年因此拿到 Nobel 化学奖。",
-        "下一步是 Kubo 公式：把系统的线性响应函数写成平衡涨落的时间关联，χ(ω) = (1/k_BT) ∫ ⟨A(t) Ȧ(0)⟩ e^(iωt) dt。配合涨落-耗散定理 ⟨|x(ω)|²⟩ = (2k_BT / ω) Im χ(ω)，热噪声和耗散就成了同一枚硬币的两面。今天测一根电阻的 Johnson 噪声、一颗光镊里的微珠位移谱、甚至宇宙背景的 B 模偏振，用的都是这条「涨落即响应」的桥。",
+        "在适当选择共轭力与流后，近平衡可写 J_i = Σ_j L_ij X_j。微观可逆性给出有时间反演条件的 Onsager 互易关系；外磁场、旋转和变量的反演奇偶性需要相应推广。索雷效应是温度梯度驱动组分迁移，杜富尔效应是扩散关联的交叉热流。",
+        "Kubo 线性响应与涨落—耗散关系把平衡关联函数和小扰动响应联系起来。具体公式依赖可观测量、耦合方式、谱的单双边定义及经典或量子条件；不能把一个位移噪声公式直接当成所有天文偏振、主动介质或远离平衡噪声的解释。",
       ],
     },
     {
-      heading: "Brown 运动 · Langevin → Fokker-Planck",
+      heading: "布朗运动 · 随机模型仍需边界",
       body: [
-        "1827 年 Robert Brown 在显微镜下看到花粉颗粒在水里乱跳；1905 年爱因斯坦把这种「乱跳」翻译成扩散系数 D = k_B T / (6π η a)（Stokes 半径 a），把分子的真实存在性钉上了实验台——Perrin 1908 据此测出 Avogadro 数。",
-        "现代写法分两步。Langevin 1908 给颗粒的牛顿方程外加一个随机力 ξ(t)：m ẍ = −γ ẋ + ξ(t)，⟨ξ(t)ξ(t')⟩ = 2γ k_BT δ(t−t')，把摩擦与噪声用同一个 k_BT 锁死，这正是涨落-耗散的最简版本。把它的概率密度 P(x, t) 写出来就得到 Fokker-Planck 方程 ∂_t P = ∂_x (γ⁻¹ ∂_x V) P + D ∂_x² P，化学反应、神经放电、金融期权定价（Black-Scholes 几乎是它的孪生兄弟）共用同一条方程——「随机」一旦写下，就和确定性一样可算。",
+        "Brown 在 1827 年研究悬浮微粒的运动；Einstein 在 1905 年建立扩散与热运动的定量联系，Perrin 后来用多种方法估计阿伏伽德罗常数。对连续黏性流体中的球形粒子，低雷诺数、无滑移等条件下，Stokes–Einstein 关系为 D = k_B T/(6π ηa)。",
+        "一维 Langevin 模型可写 mẍ = −γẋ − V′(x) + ξ(t)，平衡白噪声近似满足 ⟨ξ(t)ξ(t′)⟩ = 2γk_B T δ(t−t′)。过阻尼、恒定摩擦时，相应 Fokker–Planck 方程为 ∂_t P = (1/γ)∂_x[V′(x)P] + D∂_x²P，D = k_B T/γ。",
+        "过阻尼极限与含惯性方程并非完全同一方程；位置相关摩擦、有色噪声和非平衡驱动还会改变形式。金融和神经科学也用随机方程，但参数、概率意义及噪声来源必须重新论证，形式相似不证明物理机制相同。",
       ],
     },
     {
-      heading: "Maxwell 妖的实验实现 · 信息热力学",
+      heading: "信息热力学 · 两项实验各自测什么",
       body: [
-        "Maxwell 妖不再是纯思想实验。2007 年日本团队（Toyabe et al.）用一个胶体粒子在「信息棘轮」中首次实现了 Szilard 引擎的实验版本：通过测量粒子位置并施加反馈力，他们把信息转化成了有用功——直接验证了 Landauer 原理的逆过程。2010 年 Bérut et al. 在 Nature 上发表了首个直接测量信息擦除热耗散的实验，测到擦除 1 比特的功正好等于 k_B T ln 2——与 Landauer 1961 年的预言精确吻合。",
-        "信息热力学也深刻影响了黑洞物理。Hawking 辐射（1974）预言黑洞会缓慢蒸发，温度 T_H = ℏc³/(8πGMk_B)——一个太阳质量的黑洞温度仅 ~60 nK。2019 年 Penington 等人提出「岛屿公式」，用量子极值面修正了 Hawking 的半经典计算，首次在玩具模型中恢复了 Page 曲线——暗示信息确实被保留，但存储在视界附近的量子纠缠中。",
+        "Toyabe 等人 2010 年用基于粒子位置的实时反馈，让布朗粒子沿电场势景观获得自由能，检验推广的 Jarzynski 关系。Bérut 等人 2012 年则测量双阱胶体记忆复位的平均排热，并在慢操作时接近 Landauer 界限；年份与实验任务应分别标明。",
+        "等能、无外部相关信息、初始等概率的经典比特可靠复位，在温度 T 热浴中的平均排热下限为 k_B T ln 2。它不是每个逻辑门的固定收费，也不是每条随机轨迹的硬阈值。理想测量、经典复制与反计算可以接近可逆，但空白记忆、控制器及输出资源都应计入循环。",
       ],
     },
     {
-      heading: "涨落定理 · 非平衡的精确等式",
+      heading: "涨落关系 · 精确等式也有前提",
       body: [
-        "热力学第二定律 dS ≥ 0 是一个不等式——只告诉我们熵增的方向，不给出精确数值。1990 年代 Evans、Cohen、Morriss 和 Gallavotti、Cohen 独立发现了「涨落定理」：在有限时间的非平衡过程中，观测到熵减小的概率与熵增大的概率之比按指数规律衰减——P(−S)/P(+S) ≈ exp(−S/k_B)。",
-        "Jarzynski 1997 年把这个洞见变成了一个惊人的等式 ⟨e^(−βW)⟩ = e^(−βΔF)：无论过程多远离平衡、多不可逆，功 W 的指数平均值精确等于平衡自由能差。这条等式在 2002 年被 Liphardt et al. 用光镊拉伸 RNA 分子首次实验验证。Crooks 1999 年给出了更精细的版本：正向和逆向过程的功分布满足 P_F(W)/P_R(−W) = exp(β(W−ΔF))。涨落定理是 21 世纪统计力学最重要的理论突破之一。",
+        "Jarzynski 1997 年的等式 ⟨exp(−βW)⟩ = exp(−βΔF)，连接重复驱动中的功统计与两端参数所定义的平衡自由能差。标准形式从指定温度的正则初态出发，W 是对系统做的功；终态不必已平衡，但不能任意删去初态与动力学条件。",
+        "Crooks 1999 年给出 P_F(W)/P_R(−W) = exp[β(W−ΔF)]，需要适当的微观反演与正反向协议，并分别准备相应平衡初态。有限数据的指数平均可能受罕见轨迹支配，有抽样偏差；单次负耗散也不意味着稳定循环违反第二定律。",
+        "Liphardt 等人 2002 年用单分子 RNA 拉伸检验 Jarzynski 关系。涨落定理有不同对象与适用域，不能把总熵、介质熵、有限时和长时稳态形式都压成同一个没有条件的概率比。",
       ],
     },
     {
-      heading: "参考文献入口",
+      heading: "黑洞热力学 · 半经典的交汇点",
       body: [
-        "Reif《Fundamentals of Statistical and Thermal Physics》经典本科；Kardar《Statistical Physics of Particles / Fields》两卷研究生级；Landau-Lifshitz Vol 5《Statistical Physics》是俄派标准；Goldenfeld《Lectures on Phase Transitions and the Renormalization Group》给 RG 视角。",
+        "四维广义相对论的半经典黑洞熵为 S = k_B A c³/(4ℏG)。对不带电、不旋转的 Schwarzschild 黑洞，T_H = ℏc³/(8πGMk_B)，太阳质量对应约 60 nK。温度公式的这个简洁形式不能直接套到任意旋转或带电黑洞。",
+        "Bekenstein 的 1973 年工作与 Hawking 的 1974—1975 年辐射计算逐步建立联系。黑洞蒸发、辐射相关性与量子引力中的信息问题仍需更完整理论；不能把模型中的 Page 曲线计算当成真实天体信息保存的直接测量。",
+      ],
+    },
+    {
+      heading: "继续阅读",
+      body: [
+        "先从热力学定律、统计力学与玻尔兹曼分布理解边界和系综，再读相变、自由能、非平衡态与麦克斯韦妖。下方列出作者讲义、标准定义和原论文，可据此逐项核对模型、实验年份与适用条件。",
       ],
     },
   ],
   sources: [
     {
-      label: "MIT 8.044 Statistical Physics I (OCW)",
-      url: "https://ocw.mit.edu/courses/8-044-statistical-physics-i-spring-2013/",
+      label: "BIPM · SI 定义常数",
+      url: "https://www.bipm.org/en/measurement-units/si-defining-constants",
+      kind: "agency",
+    },
+    {
+      label: "Tong · Statistical Physics 作者讲义",
+      url: "https://www.damtp.cam.ac.uk/user/tong/statphys.html",
       kind: "encyclopedia",
     },
     {
-      label: "Wikipedia · Thermodynamics",
-      url: "https://en.wikipedia.org/wiki/Thermodynamics",
-      kind: "encyclopedia",
-    },
-    {
-      label: "Kardar · Stat Phys lecture notes",
-      url: "https://web.mit.edu/8.333/www/",
-      kind: "encyclopedia",
-    },
-    {
-      label: "Wilson 1975 — The renormalization group (RMP)",
-      url: "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.47.773",
+      label: "Wilson 1975 · 重正化群与临界现象",
+      url: "https://doi.org/10.1103/RevModPhys.47.773",
       kind: "paper",
     },
     {
-      label: "Onsager 1931 — Reciprocal Relations in Irreversible Processes",
-      url: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.37.405",
+      label: "Onsager 1931 · 不可逆过程互易关系 I",
+      url: "https://doi.org/10.1103/PhysRev.37.405",
       kind: "paper",
     },
     {
-      label: "Onsager 1944 — Crystal Statistics I (2D Ising exact)",
-      url: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.65.117",
+      label: "Onsager 1944 · 方格伊辛模型零场解",
+      url: "https://doi.org/10.1103/PhysRev.65.117",
       kind: "paper",
     },
     {
-      label: "Bérut et al. 2012 — Experimental verification of Landauer's principle (Nature)",
-      url: "https://www.nature.com/articles/nature10872",
+      label: "Toyabe 等 2010 · 信息反馈与自由能",
+      url: "https://doi.org/10.1038/nphys1821",
       kind: "paper",
     },
     {
-      label: "Hawking 1975 — Particle Creation by Black Holes (Comm. Math. Phys.)",
-      url: "https://link.springer.com/article/10.1007/BF02345020",
+      label: "Bérut 等 2012 · 记忆复位的平均排热",
+      url: "https://doi.org/10.1038/nature10872",
+      kind: "paper",
+    },
+    {
+      label: "Bennett 1982 · 计算热力学",
+      url: "https://fab.cba.mit.edu/classes/862.22/notes/computation/Bennett-1982.pdf",
+      kind: "paper",
+    },
+    {
+      label: "Jarzynski 1997 · 非平衡功等式",
+      url: "https://doi.org/10.1103/PhysRevLett.78.2690",
+      kind: "paper",
+    },
+    {
+      label: "Crooks 1999 · 熵产生与功分布",
+      url: "https://doi.org/10.1103/PhysRevE.60.2721",
+      kind: "paper",
+    },
+    {
+      label: "Liphardt 等 2002 · RNA 拉伸实验",
+      url: "https://doi.org/10.1126/science.1071152",
+      kind: "paper",
+    },
+    {
+      label: "Hawking 1975 · 黑洞粒子产生",
+      url: "https://doi.org/10.1007/BF02345020",
       kind: "paper",
     },
   ],
@@ -170,9 +209,9 @@ const content: TierContent = {
       name: { primary: "熵增定律", latin: "Second Law" },
       position: [-0.5, 0, -0.4],
       description:
-        "dS ≥ 0。时间之矢的物理根源；Clausius 1865 给出，到今天还是被写得最简练的一条物理定律。",
+        "对宏观孤立系统，熵不减；开放系统须同时计算边界熵流与内部熵产生。统计时间方向还涉及初态与动力学。",
       data: [
-        { label: "等号", value: "可逆过程" },
+        { label: "适用边界", value: "孤立系统，或完整熵收支" },
         { label: "互文", value: "T0 大爆炸 · 低熵开端" },
       ],
       color: "var(--hw-gold)",
@@ -183,7 +222,7 @@ const content: TierContent = {
       name: { primary: "玻尔兹曼公式", latin: "S = k_B ln W" },
       position: [0.3, 0, -0.5],
       description:
-        "熵等于微观状态数对数乘以 k_B。Boltzmann 把概率论搬进了物理学；这一行公式被刻在他维也纳的墓碑上。",
+        "指定宏观态的可及微观态数或归一化相空间体积决定玻尔兹曼熵；计数需要明确能量壳与约束。",
       data: [
         { label: "k_B", value: "1.381 × 10⁻²³ J/K" },
         { label: "年份", value: "1877" },
@@ -196,7 +235,7 @@ const content: TierContent = {
       name: { primary: "卡诺循环", latin: "Carnot Cycle" },
       position: [-0.4, 0, 0.5],
       description:
-        "两条等温 + 两条绝热，构成理想可逆热机。η_C = 1 − T_c/T_h 给出所有热机的效率上限。",
+        "两条等温和两条可逆绝热构成卡诺循环。η_C = 1 − T_c/T_h 是相同两恒温热浴间循环热机的效率上限。",
       data: [
         { label: "构造", value: "isothermal + adiabatic ×2" },
         { label: "年份", value: "1824" },
@@ -222,7 +261,7 @@ const content: TierContent = {
       name: { primary: "配分函数", latin: "Partition Function Z" },
       position: [0.6, 0, 0],
       description:
-        "Z = Σ e^(−βE_i) 把所有微观态求和——所有热力学量都能从 ln Z 的导数里读出来。统计力学的核心工具。",
+        "正则配分函数按 exp(−βE_i) 对模型的微观态加权；给定哈密顿量和约束后，可由自由能计算相应平衡响应。",
       data: [
         { label: "β", value: "1 / k_B T" },
         { label: "互文", value: "Feynman 路径积分形式同源" },
@@ -237,7 +276,7 @@ const content: TierContent = {
       description:
         "黑洞的熵正比于视界面积而非体积——把热力学、广相、量子场论一次性拼在一起。全息原理的起点。",
       data: [
-        { label: "S", value: "A · k_B c³ / 4 ℏ G" },
+        { label: "S", value: "k_B A c³ / (4ℏG)" },
         { label: "互文", value: "P8 前沿 · holography" },
       ],
       color: "var(--hw-red)",

@@ -8,7 +8,7 @@ type Props = {
 const KIND_LABEL: Record<SourceRef["kind"], string> = {
   paper: "paper",
   agency: "agency",
-  encyclopedia: "wiki",
+  encyclopedia: "reference",
 };
 
 export function SourcesList({ sources }: Props) {
@@ -33,10 +33,10 @@ export function SourcesList({ sources }: Props) {
               className="group flex items-center justify-between gap-4 py-2.5"
             >
               <div className="flex min-w-0 items-baseline gap-3">
-                <span className="text-accent-cool/80 shrink-0 font-mono text-[10px] tracking-[0.18em] uppercase">
+                <span className="text-fg-muted shrink-0 font-mono text-[10px] tracking-[0.18em] uppercase">
                   [{KIND_LABEL[src.kind]}]
                 </span>
-                <span className="text-fg-secondary group-hover:text-fg-primary ease-product truncate text-[13px] transition-colors">
+                <span className="text-fg-secondary group-hover:text-fg-primary ease-product min-w-0 text-[13px] break-words transition-colors">
                   {src.label}
                 </span>
               </div>
